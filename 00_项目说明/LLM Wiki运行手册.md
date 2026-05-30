@@ -11,6 +11,16 @@ source_files: ["CLAUDE.md", "https://gist.github.com/karpathy/442a6bf555914893e9
 zotero_items: []
 bibtex_keys: []
 related: ["LLM Wiki Agent说明.md", "概念关系规范.md", "../index.md", "../log.md"]
+claims: [p9_llm_wiki_bootstrap_2026_05_30, p10_wiki_lint_2026_05_30]
+relations:
+  - type: depends_on
+    target: "../CLAUDE.md"
+  - type: applies_to
+    target: "../.claude/skills/ingest-source/SKILL.md"
+  - type: applies_to
+    target: "../.claude/skills/query-wiki/SKILL.md"
+  - type: applies_to
+    target: "../.claude/skills/wiki-lint/SKILL.md"
 ---
 
 # LLM Wiki 运行手册

@@ -5,12 +5,18 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
-source_count: 0
+source_count: 2
 last_reviewed: 2026-05-30
 source_files: ["CLAUDE.md"]
 zotero_items: []
 bibtex_keys: []
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
+claims: [p11_schema_enhancement_2026_05_30]
+relations:
+  - type: depends_on
+    target: "CLAUDE.md"
+  - type: updates
+    target: "index.md"
 ---
 
 # AI_MD LLM Wiki 操作日志
@@ -53,3 +59,9 @@ related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
 - 执行 P10 高层健康检查，覆盖 managed Markdown、生成式 PDF 提取页面、附件索引、Markdown 链接和 Zotero/BibTeX 映射。
 - 修复 `references/zotero-map.tsv` 和 `references/zotero-candidates-2026-05-30.tsv` 未进入附件清单的问题。
 - 维护报告写入 `00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md`。
+
+## [2026-05-30] update | P11 schema 增强
+
+- 只做 schema 增强，不扩写研究内容。
+- 给核心方法卡、文献笔记、LLM Wiki 规则页和 P9/P10 维护报告补 `wiki_role`、`claims` 和 typed `relations`。
+- 新增 `00_项目说明/知识库维护报告-2026-05-30-P11-schema增强.md`。

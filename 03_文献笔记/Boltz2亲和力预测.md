@@ -8,6 +8,17 @@ source_files: ["references/references.bib", "references/zotero-map.tsv"]
 zotero_items: ["FF4V8LYV", "CRM22UDT"]
 bibtex_keys: ["passaro_boltz-2_2025", "cho_boltzdesign1_2025"]
 related: ["../02_方法笔记/Boltz2亲和力预测.md", "../04_实验记录/Boltz2结果_l6D9Z7.md"]
+wiki_role: literature
+source_count: 2
+last_reviewed: 2026-05-30
+claims: [passaro_boltz-2_2025, cho_boltzdesign1_2025]
+relations:
+  - type: supports
+    target: "../02_方法笔记/Boltz2亲和力预测.md"
+  - type: applies_to
+    target: "../04_实验记录/Boltz2结果_l6D9Z7.md"
+  - type: depends_on
+    target: "../references/zotero-map.tsv"
 ---
 
 # Boltz2 亲和力预测文献
@@ -21,4 +32,3 @@ related: ["../02_方法笔记/Boltz2亲和力预测.md", "../04_实验记录/Bol
 
 - 第五章 Boltz2 在线结果应优先用 `passaro_boltz-2_2025` 解释指标含义。
 - 如果后续把 Boltz2 用于候选分子筛选或 binder 设计，再补充 `cho_boltzdesign1_2025` 的方法卡片。
-

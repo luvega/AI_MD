@@ -23,3 +23,4 @@
 | [知识库维护报告-2026-05-30-P8-第六章蛋白设计方法线.md](知识库维护报告-2026-05-30-P8-第六章蛋白设计方法线.md) | maintenance-report | 记录第六章 RFdiffusion/ProteinMPNN/BindCraft/LigandMPNN 方法线可执行化结果。 | `02_方法笔记/RFdiffusion与蛋白设计.md`, `04_实验记录/` | `UKX5E6IB`, `ZYFCZKMH`, `EBQ7CNVI`, `V2WLND5M`, `QCD2DXXI`, `UN6R4C6J` |
 | [知识库维护报告-2026-05-30-P9-LLM-Wiki-Agent落地.md](知识库维护报告-2026-05-30-P9-LLM-Wiki-Agent落地.md) | maintenance-report | 记录 LLM Wiki Agent、根索引、日志、本地 Git 和 skill 联用规则落地结果。 | `index.md`, `log.md`, `.claude/skills/` | 多个 |
 | [知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md](知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md) | maintenance-report | 记录 P10 wiki-lint 高层健康检查、附件覆盖修复和 P11 schema 增强建议。 | `index.md`, `log.md`, `.claude/skills/wiki-lint/SKILL.md`, `.claude/skills/update-vault/SKILL.md` | 多个 |
+| [知识库维护报告-2026-05-30-P11-schema增强.md](知识库维护报告-2026-05-30-P11-schema增强.md) | maintenance-report | 记录核心方法卡、文献笔记和维护报告的 typed relations 补齐结果。 | `00_项目说明/概念关系规范.md`, `CLAUDE.md` | 多个 |

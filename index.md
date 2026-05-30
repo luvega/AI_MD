@@ -5,12 +5,20 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 0
+source_count: 7
 last_reviewed: 2026-05-30
 source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md"]
 zotero_items: []
 bibtex_keys: []
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md"]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30]
+relations:
+  - type: depends_on
+    target: "CLAUDE.md"
+  - type: depends_on
+    target: "00_项目说明/LLM Wiki运行手册.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md"
 ---
 
 # AI_MD LLM Wiki 总索引
@@ -84,6 +92,7 @@ related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wi
 | [P8 第六章蛋白设计方法线](00_项目说明/知识库维护报告-2026-05-30-P8-第六章蛋白设计方法线.md) | 第六章 RFdiffusion/ProteinMPNN 方法线可执行化 |
 | [P9 LLM Wiki Agent落地](00_项目说明/知识库维护报告-2026-05-30-P9-LLM-Wiki-Agent落地.md) | 根索引、日志、skill 联用和本地 Git 版本史 |
 | [P10 wiki-lint 健康检查](00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md) | LLM Wiki 高层健康检查、附件覆盖修复和 P11 schema 增强建议 |
+| [P11 schema 增强](00_项目说明/知识库维护报告-2026-05-30-P11-schema增强.md) | 核心方法卡、文献笔记和维护报告的 typed relations 补齐 |
 
 ## 综合与开放问题
 
@@ -101,10 +110,11 @@ related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wi
 - [2026-05-30] lint | LLM Wiki / update-vault 验收
 - [2026-05-30] maintenance | P9 LLM Wiki Agent落地报告
 - [2026-05-30] lint | P10 wiki-lint 健康检查
+- [2026-05-30] update | P11 schema 增强
 
 ## 待确认项
 
 - 是否把 Obsidian Dataview 查询、Web Clipper 设置和固定首页写入 `.obsidian/` 配置。
 - 是否为本地 Git 版本史配置远程仓库；当前默认不配置 remote、不 push。
 - 第六章压缩包资料是否进入实际运行阶段；当前只完成方法卡和实验记录模板。
-- 是否进入 P11，批量补齐核心页面的 `wiki_role`、`claims` 和 typed `relations`。
+- 是否进入 P12，按目录继续补齐旧笔记和模板页的 `wiki_role`、`claims` 和 typed `relations`。

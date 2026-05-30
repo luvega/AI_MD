@@ -8,6 +8,21 @@ source_files: ["第六章/第六章RFD3_第七章.rar"]
 zotero_items: ["UKX5E6IB", "ZYFCZKMH", "EBQ7CNVI", "V2WLND5M", "QCD2DXXI", "UN6R4C6J"]
 bibtex_keys: ["watson_novo_2023", "ahern_atom_2025", "bennett_atomically_2025", "dauparas_robust_2022", "pacesa_bindcraft_2024", "dauparas_atomic_2025"]
 related: ["../03_文献笔记/RFdiffusion蛋白设计.md", "../03_文献笔记/ProteinMPNN序列设计.md", "../03_文献笔记/BindCraft与LigandMPNN.md", "../04_实验记录/模板_RFdiffusion骨架生成记录.md", "../04_实验记录/模板_ProteinMPNN序列设计记录.md", "../04_实验记录/模板_BindCraft_LigandMPNN设计记录.md"]
+wiki_role: method
+source_count: 7
+last_reviewed: 2026-05-30
+claims: [watson_novo_2023, ahern_atom_2025, bennett_atomically_2025, dauparas_robust_2022, pacesa_bindcraft_2024, dauparas_atomic_2025]
+relations:
+  - type: derived_from
+    target: "../第六章/第六章RFD3_第七章.rar"
+  - type: supports
+    target: "../03_文献笔记/RFdiffusion蛋白设计.md"
+  - type: extends
+    target: "../03_文献笔记/ProteinMPNN序列设计.md"
+  - type: applies_to
+    target: "../04_实验记录/模板_RFdiffusion骨架生成记录.md"
+  - type: applies_to
+    target: "../04_实验记录/模板_ProteinMPNN序列设计记录.md"
 ---
 
 # RFdiffusion 与蛋白设计

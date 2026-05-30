@@ -8,6 +8,19 @@ source_files: ["06_原始学习素材/第04章_AI采样与分子模拟/原始PDF
 zotero_items: ["BR4AMZPF", "92GPX1OI"]
 bibtex_keys: ["chen_design_2024", "gu_molecular_2023"]
 related: ["../01_课程章节索引/章节精读/第04章_AI采样与分子模拟精读.md", "../03_文献笔记/分子模拟与生成式设计.md", "../04_实验记录/模板_MD_BioEmu采样记录.md"]
+wiki_role: method
+source_count: 5
+last_reviewed: 2026-05-30
+claims: [chen_design_2024, gu_molecular_2023]
+relations:
+  - type: derived_from
+    target: "../06_原始学习素材/第04章_AI采样与分子模拟/全文提取/第四章修改AI采样与多组分多修饰分子模拟/全文.md"
+  - type: supports
+    target: "../03_文献笔记/分子模拟与生成式设计.md"
+  - type: applies_to
+    target: "../04_实验记录/模板_MD_BioEmu采样记录.md"
+  - type: updates
+    target: "../01_课程章节索引/章节精读/第04章_AI采样与分子模拟精读.md"
 ---
 
 # MD、BioEmu 与 AI 采样

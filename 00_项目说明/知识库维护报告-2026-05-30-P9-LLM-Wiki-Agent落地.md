@@ -11,12 +11,18 @@ related: ["LLM Wiki Agent说明.md", "LLM Wiki运行手册.md", "概念关系规
 wiki_role: maintenance
 source_count: 4
 last_reviewed: 2026-05-30
-claims: []
+claims: [p9_llm_wiki_bootstrap_2026_05_30]
 relations:
   - type: updates
     target: "知识库维护报告-2026-05-30-P7-update-vault全库验收.md"
   - type: derived_from
     target: "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+  - type: applies_to
+    target: "../.claude/skills/ai-md-router/SKILL.md"
+  - type: applies_to
+    target: "../.claude/skills/takenote/SKILL.md"
+  - type: applies_to
+    target: "../.claude/skills/update-vault/SKILL.md"
 ---
 
 # P9 LLM Wiki Agent 落地报告

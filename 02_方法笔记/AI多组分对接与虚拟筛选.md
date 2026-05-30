@@ -8,6 +8,19 @@ source_files: ["06_原始学习素材/第03章_AI多组分对接与虚拟筛选/
 zotero_items: ["UOUH33GQ", "T2O1ECSF", "R2W3SF5S", "57K986LK"]
 bibtex_keys: ["du_dockey_2023", "agrawal_benchmarking_2019", "crampon_machine-learning_2022", "gu_benchmarking_2025"]
 related: ["../01_课程章节索引/章节精读/第03章_AI多组分对接与虚拟筛选精读.md", "../03_文献笔记/分子对接与虚拟筛选.md", "../04_实验记录/模板_对接虚拟筛选记录.md", "MSA与Uni-Dock补充.md"]
+wiki_role: method
+source_count: 6
+last_reviewed: 2026-05-30
+claims: [du_dockey_2023, agrawal_benchmarking_2019, crampon_machine-learning_2022, gu_benchmarking_2025]
+relations:
+  - type: derived_from
+    target: "../06_原始学习素材/第03章_AI多组分对接与虚拟筛选/全文提取/第三章AI多组分对接与正-反-互作虚拟筛选/全文.md"
+  - type: supports
+    target: "../03_文献笔记/分子对接与虚拟筛选.md"
+  - type: applies_to
+    target: "../04_实验记录/模板_对接虚拟筛选记录.md"
+  - type: depends_on
+    target: "PyMOL与Chimera可视化.md"
 ---
 
 # AI 多组分对接与虚拟筛选

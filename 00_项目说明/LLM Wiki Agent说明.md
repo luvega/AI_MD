@@ -11,6 +11,14 @@ source_files: ["CLAUDE.md", "https://gist.github.com/karpathy/442a6bf555914893e9
 zotero_items: []
 bibtex_keys: []
 related: ["LLM Wiki运行手册.md", "概念关系规范.md", "../index.md", "../log.md"]
+claims: [karpathy_llm_wiki_architecture, p9_llm_wiki_bootstrap_2026_05_30]
+relations:
+  - type: derived_from
+    target: "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+  - type: depends_on
+    target: "../CLAUDE.md"
+  - type: applies_to
+    target: "../.claude/skills/ai-md-router/SKILL.md"
 ---
 
 # LLM Wiki Agent 说明
