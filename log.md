@@ -11,12 +11,14 @@ source_files: ["CLAUDE.md"]
 zotero_items: []
 bibtex_keys: []
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p11_schema_enhancement_2026_05_30]
+claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
   - type: updates
     target: "index.md"
+  - type: updates
+    target: "C:/Users/xsui/.codex/skills/building-llm-wiki/SKILL.md"
 ---
 
 # AI_MD LLM Wiki 操作日志
@@ -65,3 +67,9 @@ relations:
 - 只做 schema 增强，不扩写研究内容。
 - 给核心方法卡、文献笔记、LLM Wiki 规则页和 P9/P10 维护报告补 `wiki_role`、`claims` 和 typed `relations`。
 - 新增 `00_项目说明/知识库维护报告-2026-05-30-P11-schema增强.md`。
+
+## [2026-05-30] maintenance | 提炼 LLM Wiki 建库方法为全局 skill
+
+- 新增全局 Codex skill：`C:/Users/xsui/.codex/skills/building-llm-wiki/`。
+- 将 AI_MD 已验证的 raw sources / wiki / schema 三层建库法、`index.md`/`log.md`/`_index.md` 规则、typed relations、Zotero/BibTeX provenance 和本地 skill 分工提炼为可复用流程。
+- 附带通用校验脚本：`scripts/validate_llm_wiki.py`，用于检查受管 Markdown 链接、typed relation 目标和 Zotero/BibTeX 映射。

@@ -66,6 +66,15 @@ related: ["知识库使用说明.md", "../.claude/skills/ai-md-router/SKILL.md"]
 | 周期维护 | `wiki-lint` -> `update-vault` -> 问题清单 | `wiki-lint` 看概念层和关系层，`update-vault` 看索引、链接、附件、BibTeX 和 OCR/章节覆盖。 |
 | 文献补强 | `ai-md-router` -> `zotero-literature-link` -> `takenote` -> `update-vault` | 候选文献先进入候选表，确认后再更新 `zotero-map.tsv`、`references.bib` 和文献笔记。 |
 
+## 可复用建库 skill
+
+本项目的 LLM Wiki 建库方法已提炼为全局 Codex skill：
+
+- 位置：`C:/Users/xsui/.codex/skills/building-llm-wiki/`
+- 触发场景：把其他项目整理成 LLM Wiki、第二大脑、Obsidian vault、AI 原生知识库，或需要 raw sources / wiki / schema 三层建库、typed relations、Zotero/BibTeX provenance 和本地维护 skill。
+- 与本项目关系：AI_MD 继续使用项目内 `.claude/skills/` 作为日常执行入口；`building-llm-wiki` 用于把这套方法迁移到新项目或修复其他知识库 schema。
+- 校验脚本：`C:/Users/xsui/.codex/skills/building-llm-wiki/scripts/validate_llm_wiki.py`
+
 ## P3方法卡可执行化建议
 
 优先处理第 3-5 章，因为它们最接近后续实验落地：
