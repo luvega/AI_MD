@@ -83,6 +83,7 @@ related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wi
 | [P7 update-vault 全库验收](00_项目说明/知识库维护报告-2026-05-30-P7-update-vault全库验收.md) | 附件、索引、断链、BibTeX、PDF/OCR 和章节精读验收 |
 | [P8 第六章蛋白设计方法线](00_项目说明/知识库维护报告-2026-05-30-P8-第六章蛋白设计方法线.md) | 第六章 RFdiffusion/ProteinMPNN 方法线可执行化 |
 | [P9 LLM Wiki Agent落地](00_项目说明/知识库维护报告-2026-05-30-P9-LLM-Wiki-Agent落地.md) | 根索引、日志、skill 联用和本地 Git 版本史 |
+| [P10 wiki-lint 健康检查](00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md) | LLM Wiki 高层健康检查、附件覆盖修复和 P11 schema 增强建议 |
 
 ## 综合与开放问题
 
@@ -99,9 +100,11 @@ related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wi
 - [2026-05-30] git | 初始化本地版本史
 - [2026-05-30] lint | LLM Wiki / update-vault 验收
 - [2026-05-30] maintenance | P9 LLM Wiki Agent落地报告
+- [2026-05-30] lint | P10 wiki-lint 健康检查
 
 ## 待确认项
 
 - 是否把 Obsidian Dataview 查询、Web Clipper 设置和固定首页写入 `.obsidian/` 配置。
 - 是否为本地 Git 版本史配置远程仓库；当前默认不配置 remote、不 push。
 - 第六章压缩包资料是否进入实际运行阶段；当前只完成方法卡和实验记录模板。
+- 是否进入 P11，批量补齐核心页面的 `wiki_role`、`claims` 和 typed `relations`。

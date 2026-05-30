@@ -47,3 +47,9 @@ related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
 
 - 新增 `00_项目说明/知识库维护报告-2026-05-30-P9-LLM-Wiki-Agent落地.md`。
 - 把根 `index.md`、`log.md`、LLM Wiki 说明文档和新增 skills 纳入 `00_项目说明/_index.md`、Obsidian 入口和使用说明。
+
+## [2026-05-30] lint | P10 wiki-lint 健康检查
+
+- 执行 P10 高层健康检查，覆盖 managed Markdown、生成式 PDF 提取页面、附件索引、Markdown 链接和 Zotero/BibTeX 映射。
+- 修复 `references/zotero-map.tsv` 和 `references/zotero-candidates-2026-05-30.tsv` 未进入附件清单的问题。
+- 维护报告写入 `00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md`。
