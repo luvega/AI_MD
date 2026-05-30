@@ -1,0 +1,41 @@
+# Obsidian volatile workspace state
+.obsidian/workspace*.json
+.obsidian/workspace
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+~$*
+
+# Runtime caches
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+node_modules/
+.venv/
+venv/
+
+# Large immutable raw sources stay on disk and are tracked by Markdown indexes,
+# not by local Git by default.
+*.pdf
+*.rar
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.pptx
+*.docx
+*.xlsx
+
+# Local transient exports
+*.log
+!log.md

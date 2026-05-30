@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒙特卡罗模拟估算 Pi</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .stat-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            display: block;
+        }
+        .stat-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            transition: opacity 0.2s;
+        }
+        .btn-start { background-color: #28a745; color: white; }
+        .btn-reset { background-color: #dc3545; color: white; }
+        button:hover { opacity: 0.9; }
+        input[type="range"] { width: 100%; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>蒙特卡罗模拟估算 &pi;</h2>
+    <p>通过向正方形内随机“撒点”，计算落在圆内点的比例。</p>
+
+    <canvas id="mcCanvas" width="400" height="400"></canvas>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-label">总点数 (Total)</span>
+            <span id="totalPoints" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">圆内点数 (Inside)</span>
+            <span id="insidePoints" class="stat-value">0</span>
+        </div>
+        <div class="stat-item" style="grid-column: span 2; background: #e7f3ff;">
+            <span class="stat-label">当前估算 &pi; 值 (4 * Inside / Total)</span>
+            <span id="estimatedPi" class="stat-value">0.000000</span>
+        </div>
+    </div>
+
+    <div>
+        <label>模拟速度: <span id="speedVal">50</span> 点/帧</label>
+        <input type="range" id="speedSlider" min="1" max="500" value="50">
+    </div>
+
+    <div class="controls">
+        <button id="startBtn" class="btn-start">开始模拟代</button>
+        <button id="resetBtn" class="btn-reset">重置</button>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('mcCanvas');
+    const ctx = canvas.getContext('2d');
+    const totalEl = document.getElementById('totalPoints');
+    const insideEl = document.getElementById('insidePoints');
+    const piEl = document.getElementById('estimatedPi');
+    const speedSlider = document.getElementById('speedSlider');
+    const speedVal = document.getElementById('speedVal');
+    const startBtn = document.getElementById('startBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    let total = 0;
+    let inside = 0;
+    let running = false;
+    let animationId;
+
+    const size = canvas.width;
+    const center = size / 2;
+    const radius = size / 2;
+
+    // 绘制初始背景
+    function drawBase() {
+        ctx.clearRect(0, 0, size, size);
+        // 画圆
+        ctx.beginPath();
+        ctx.arc(center, center, radius, 0, Math.PI * 2);
+        ctx.strokeStyle = '#007bff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        // 画正方形边框
+        ctx.strokeStyle = '#ddd';
+        ctx.strokeRect(0, 0, size, size);
+    }
+
+    function addPoints() {
+        if (!running) return;
+
+        const batchSize = parseInt(speedSlider.value);
+        
+        for (let i = 0; i < batchSize; i++) {
+            // 生成 0 到 size 之间的随机坐标
+            const x = Math.random() * size;
+            const y = Math.random() * size;
+
+            // 计算该点到圆心的距离（勾股定理）
+            const dx = x - center;
+            const dy = y - center;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            total++;
+            if (distance <= radius) {
+                inside++;
+                ctx.fillStyle = 'rgba(40, 167, 69, 0.6)'; // 圆内绿色
+            } else {
+                ctx.fillStyle = 'rgba(220, 53, 69, 0.4)';  // 圆外红色
+            }
+
+            // 绘制点（1x1像素）
+            ctx.fillRect(x, y, 1.5, 1.5);
+        }
+
+        // 更新 UI
+        totalEl.textContent = total.toLocaleString();
+        insideEl.textContent = inside.toLocaleString();
+        const piEstimate = (4 * inside / total).toFixed(6);
+        piEl.textContent = piEstimate;
+
+        animationId = requestAnimationFrame(addPoints);
+    }
+
+    startBtn.addEventListener('click', () => {
+        running = !running;
+        startBtn.textContent = running ? '暂停模拟' : '继续模拟';
+        if (running) addPoints();
+    });
+
+    resetBtn.addEventListener('click', () => {
+        running = false;
+        cancelAnimationFrame(animationId);
+        total = 0;
+        inside = 0;
+        totalEl.textContent = '0';
+        insideEl.textContent = '0';
+        piEl.textContent = '0.000000';
+        startBtn.textContent = '开始模拟';
+        drawBase();
+    });
+
+    speedSlider.addEventListener('input', () => {
+        speedVal.textContent = speedSlider.value;
+    });
+
+    drawBase();
+</script>
+
+</body>
+</html>

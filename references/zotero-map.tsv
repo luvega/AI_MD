@@ -1,0 +1,22 @@
+topic	zotero_item_key	bibtex_key	title	year	linked_note	project_chapter
+Boltz2 affinity prediction	FF4V8LYV	passaro_boltz-2_2025	Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction	2025	03_文献笔记/Boltz2亲和力预测.md	第五章
+BoltzDesign binder design	CRM22UDT	cho_boltzdesign1_2025	Boltzdesign1: Inverting All-Atom Structure Prediction Model for Generalized Biomolecular Binder Design	2025	03_文献笔记/Boltz2亲和力预测.md	第五章
+RFdiffusion protein design	UKX5E6IB	watson_novo_2023	De novo design of protein structure and function with RFdiffusion	2023	03_文献笔记/RFdiffusion蛋白设计.md	第六章
+RFdiffusion2 enzyme scaffolding	ZYFCZKMH	ahern_atom_2025	Atom level enzyme active site scaffolding using RFdiffusion2	2025	03_文献笔记/RFdiffusion蛋白设计.md	第六章
+RFdiffusion antibody design	EBQ7CNVI	bennett_atomically_2025	Atomically accurate de novo design of antibodies with RFdiffusion	2025	03_文献笔记/RFdiffusion蛋白设计.md	第六章
+ProteinMPNN	V2WLND5M	dauparas_robust_2022	Robust deep learning-based protein sequence design using ProteinMPNN	2022	03_文献笔记/ProteinMPNN序列设计.md	第六章
+AlphaFold3 complex prediction	PE42AXJX	abramson_accurate_2024	Accurate structure prediction of biomolecular interactions with AlphaFold 3	2024	03_文献笔记/AlphaFold结构预测.md	第五章
+AlphaFold2 structure prediction	UYRXX2U2	jumper_highly_2021	Highly accurate protein structure prediction with AlphaFold	2021	03_文献笔记/AlphaFold结构预测.md	第二章;第五章
+Large-scale molecular docking	UOUH33GQ	du_dockey_2023	Dockey: a modern integrated tool for large-scale molecular docking and virtual screening	2023	03_文献笔记/分子对接与虚拟筛选.md	第三章
+Protein-peptide docking benchmark	T2O1ECSF	agrawal_benchmarking_2019	Benchmarking of different molecular docking methods for protein-peptide docking	2019	03_文献笔记/分子对接与虚拟筛选.md	第三章
+MD-assisted peptide inhibitor design	BR4AMZPF	chen_design_2024	Design of target specific peptide inhibitors using generative deep learning and molecular dynamics simulations	2024	03_文献笔记/分子模拟与生成式设计.md	第四章
+BindCraft	QCD2DXXI	pacesa_bindcraft_2024	BindCraft: one-shot design of functional protein binders	2024	03_文献笔记/BindCraft与LigandMPNN.md	第六章
+LigandMPNN	UN6R4C6J	dauparas_atomic_2025	Atomic context-conditioned protein sequence design using LigandMPNN	2025	03_文献笔记/BindCraft与LigandMPNN.md	第六章
+Machine-learning docking	R2W3SF5S	crampon_machine-learning_2022	Machine-learning methods for ligand-protein molecular docking	2022	03_文献笔记/分子对接与虚拟筛选.md	第三章
+AI docking benchmark	57K986LK	gu_benchmarking_2025	Benchmarking AI-powered docking methods from the perspective of virtual screening	2025	03_文献笔记/分子对接与虚拟筛选.md	第三章
+DeepDTAF affinity prediction	95UTFQDM	wang_deepdtaf_2021	DeepDTAF: a deep learning method to predict protein-ligand binding affinity	2021	03_文献笔记/亲和力模型与肽结合排序.md	第五章
+PPI-Affinity	YIV9AVT4	romero-molina_ppi-affinity_2022	PPI-Affinity: A Web Tool for the Prediction and Optimization of Protein-Peptide and Protein-Protein Binding Affinity	2022	03_文献笔记/亲和力模型与肽结合排序.md	第五章
+AlphaFold peptide affinity ranking	CRT8PKH3	chang_ranking_2023	Ranking Peptide Binders by Affinity with AlphaFold**	2023	03_文献笔记/亲和力模型与肽结合排序.md	第五章
+MD-assisted affinity ML	92GPX1OI	gu_molecular_2023	Can molecular dynamics simulations improve predictions of protein-ligand binding affinity with machine learning?	2023	03_文献笔记/分子模拟与生成式设计.md	第四章;第五章
+AlphaFold peptide benchmark	VKKT2HE0	mcdonald_benchmarking_2023	Benchmarking AlphaFold2 on peptide structure prediction	2023	03_文献笔记/AlphaFold结构预测.md	第二章;第五章
+AlphaFold2 community assessment	5GOGPC63	akdel_structural_2022	A structural biology community assessment of AlphaFold2 applications	2022	03_文献笔记/AlphaFold结构预测.md	第二章

@@ -1,0 +1,157 @@
+# CLAUDE.md
+
+这个文件规定 Claude Code / Codex 在 `AI_MD` 学术知识库里的工作方式。
+
+## 用途和背景
+
+这是一位药物化学方向副教授的个人学术知识库，用来整理 AI 辅助药物设计课程资料、方法笔记、文献笔记、运行结果和后续研究想法。
+
+我的简要背景：
+
+- 副教授，药物化学方向。
+- 研究方向：AI 辅助药物设计、多肽药物设计、分子建模、分子对接、分子动力学模拟、亲和力预测和蛋白设计。
+- 当前主要课题：AI 辅助的分子建模、对接、分子动力学模拟、亲和力预测、蛋白/多肽设计及其在药物化学研究中的落地。
+- 写作风格：自然流畅的中文，条列式，简洁直接，严谨的学术风格。
+- 如需更完整的项目背景，先读 `00_项目说明/项目背景.md`。
+
+这个项目是 AI 辅助分子建模、对接、分子模拟、亲和力预测和蛋白设计课程资料库。PDF 课件原件统一放入 `06_原始学习素材/`；压缩包、脚本、表格和网页实验等非 PDF 原始资料保留在原章节目录。新增 Markdown 文件负责索引、说明、全文提取、方法笔记、文献笔记和实验记录。
+
+- 主要用途：把课程资料、运行结果和 Zotero 文献连接成可检索、可复用、可继续扩展的 AI 原生知识库和 LLM Wiki 第二大脑。
+- 当前资料：第一章到第六章课程 PDF、第三章对接资料、第四章 MD/BioEmu 资料、第五章 Boltz2/亲和力/QM-MM/蒙特卡洛资料、第六章 RFdiffusion 相关压缩包。
+- Zotero 联动策略：只记录元数据、Zotero item key 和 BibTeX key，不批量复制 Zotero PDF。
+
+## LLM Wiki Agent 架构
+
+本项目采用 Karpathy LLM Wiki 模式的混合落地：
+
+| 层 | 本项目位置 | 规则 |
+|:---|:---|:---|
+| Raw sources | `06_原始学习素材/`、`第三章/`、`第四章/`、`第五章/`、`第六章/`、`references/` | 原始资料是 source of truth，默认只读 |
+| Wiki | `index.md`、`log.md`、`00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/` | LLM 负责创建、更新、交叉引用和维护一致性 |
+| Schema | `CLAUDE.md`、`.claude/skills/`、`00_项目说明/LLM Wiki运行手册.md` | 约束 Agent 如何 ingest、query、lint、update 和验收 |
+
+LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 负责验收知识库，`zotero-literature-link` 负责文献映射，`ingest-source`、`query-wiki`、`wiki-lint` 负责 LLM Wiki 层面的摄入、问答和健康检查。
+
+## 目录结构
+
+- `00_项目说明/`：项目背景、章节地图、使用说明和维护报告。
+- `01_课程章节索引/`：第一章到第六章资料索引；`章节精读/` 保存第 1-5 章结构化精读笔记。
+- `02_方法笔记/`：Linux/PyMOL/Chimera/对接/MSA/MD/BioEmu/Boltz2/RFdiffusion 等方法卡片。
+- `03_文献笔记/`：从 Zotero 生成或链接的核心论文笔记。
+- `04_实验记录/`：Boltz2 结果、QM-MM、蒙特卡洛和后续运行记录。
+- `05_附件索引/`：压缩包、网盘链接、PDF、表格、脚本、JSON、CIF、TSV 等附件清单。
+- `06_原始学习素材/`：集中保存 PDF 课件原件、重复 PDF 待确认区、逐页全文提取结果和低文本页 OCR 补充结果。
+- `references/`：`references.bib` 和 `zotero-map.tsv`。
+- `index.md`：LLM Wiki 内容型总索引。
+- `log.md`：追加式操作时间线。
+- `.claude/skills/`：本项目的本地知识库操作入口；宽泛任务先用 `ai-md-router` 判断是否需要 `takenote`、`zotero-literature-link` 或 `update-vault`。
+
+## 每次输入内容时的处理顺序
+
+1. 分析主题、关键词、资料类型和可能对应章节。
+2. 先读本文件；如果涉及项目边界、用户背景或资料组织，再读 `index.md`、`00_项目说明/项目背景.md` 和 `00_项目说明/知识库使用说明.md`。
+3. 如果任务宽泛或跨模块，先读 `00_项目说明/插件与Skills调用说明.md`，用 `ai-md-router` 决定最小必要插件和 skill。
+4. 进入相关子文件夹读取 `_index.md`，再读具体笔记；不要跳过索引直接猜文件。
+5. 判断是新建还是更新；如果目标不明确或会改变原始资料位置，先问我。
+6. 需要文献支撑时，优先查 `references/zotero-map.tsv` 和 `references/references.bib`；必要时再用 Zotero 检索。
+7. 需要引用文献时，同时记录 Zotero item key 和 BibTeX key；不要把 Zotero item key 当作 BibTeX key。
+8. 章节精读笔记应尽量包含 `## 文献锚点`，明确哪些文献支撑本章方法判断；没有合适论文时说明原因，不强行挂接。
+9. 新建或更新笔记时，必须使用统一 frontmatter，补齐标签、来源文件、引用键和相关链接。
+10. 每次新建或更新笔记后，同步更新对应目录的 `_index.md`、必要时更新根 `index.md`，并向 `log.md` 追加条目。
+11. 完成内容写入后运行或建议 `/update-vault` 验收。
+12. 最后简要说明创建或更新了哪些文件、放在哪里、是否有待人工确认的信息。
+
+## Skill 联用规则
+
+- `ai-md-router`：LLM Wiki Agent 入口，先判断任务是 ingest、query、lint、takenote、zotero 还是 update。
+- `ingest-source`：新来源摄入；识别来源和影响面后，交给 `takenote` 写入，再交给 `update-vault` 验收。
+- `query-wiki`：基于 `index.md`、目录 `_index.md` 和具体页面回答；有长期价值的答案再交给 `takenote` 沉淀。
+- `wiki-lint`：做高层健康检查；机械一致性检查由 `update-vault` 执行。
+- `takenote`：只负责规范写入知识，不负责全库验收。
+- `update-vault`：只负责维护验收和报告，不负责生成研究内容。
+- `zotero-literature-link`：只负责文献检索、候选、BibTeX 和映射；内容落笔仍遵守 `takenote` 格式。
+
+## 分类型处理规则
+
+- 课程资料：保留原始文件位置；PDF 课件统一归入 `06_原始学习素材/`，非 PDF 原始资料原则上只索引不移动。
+- 章节精读：放入 `01_课程章节索引/章节精读/`，必须连接原始课件、全文提取结果、方法卡和文献锚点。
+- 方法笔记：放入 `02_方法笔记/`，必须写清适用场景、输入、可执行流程、输出、质量门槛、失败模式和文献依据。
+- 文献笔记：放入 `03_文献笔记/`，必须包含 Zotero item key、BibTeX key、作者/年份/期刊或来源、核心发现、方法论、项目落点和使用边界。
+- 实验记录：放入 `04_实验记录/`，必须记录输入、参数、输出文件、关键指标、质量检查、结论和下一步。
+- 附件索引：放入 `05_附件索引/`，只记录路径、类型、用途和关联章节，不复制或重命名原始附件，除非我明确要求。
+- 项目说明和维护报告：放入 `00_项目说明/`，用于记录阶段性整理、验证结果、边界和待人工确认项。
+- 综合索引和日志：根 `index.md` 和 `log.md` 用于 LLM Wiki 导航和演化记录。
+
+## 搜索方式
+
+先看根目录结构，再进入相关子文件夹读取 `_index.md`，最后读取具体笔记或原始资料。需要全文搜索时优先用 `rg`。涉及文献时先查本地映射和 BibTeX，再查 Zotero；外部数据库只用于补证或交叉验证。
+
+## 更新规则
+
+- 每次创建或更新笔记后，同步更新对应文件夹的 `_index.md`。
+- 重要 ingest、query、update、lint、zotero、ocr、git、maintenance 操作后追加 `log.md`。
+- 更新文献映射后，同步检查 `references/references.bib`、`references/zotero-map.tsv`、相关文献笔记和章节锚点矩阵。
+- 如果 Zotero 导出异常但 DOI/出版社元数据可确认，可以建立人工确认 BibTeX，但必须在 `references.bib` 的 `note` 字段和维护报告中说明。
+- 不移动、不删除、不重命名原始学习资料，除非我明确确认。
+- 本项目允许启用本地 Git 版本史；默认只记录 Markdown wiki、schema、skills、BibTeX、TSV、脚本和结构化文本，不记录 PDF/RAR/ZIP/Office 等大型不可变原始资料；默认不配置 remote、不 push。
+
+## 笔记 frontmatter 模板
+
+```yaml
+---
+title: ""
+created: YYYY-MM-DD
+type: method-note | literature-note | experiment-record | project-doc | attachment-index
+status: draft | active | complete | archived
+topics: []
+source_files: []
+zotero_items: []
+bibtex_keys: []
+related: []
+wiki_role: source-summary | concept | method | literature | experiment | synthesis | maintenance
+source_count: 0
+last_reviewed: YYYY-MM-DD
+claims: []
+relations: []
+---
+```
+
+本项目用 `topics` 数组承载标签；需要 Obsidian 图谱时优先依赖 `topics`、`related`、`relations`、根 `index.md` 和目录 `_index.md`。新增字段为可选字段，旧笔记可以逐步补齐。
+
+## 标签规范
+
+- `type/*`：`type/method`、`type/literature`、`type/experiment`、`type/project`、`type/attachment`
+- `status/*`：`status/draft`、`status/active`、`status/complete`、`status/archived`
+- `topic/*`：`topic/linux`、`topic/pymol`、`topic/chimera`、`topic/docking`、`topic/msa`、`topic/molecular-dynamics`、`topic/bioemu`、`topic/boltz2`、`topic/affinity`、`topic/rfdiffusion`、`topic/protein-design`
+- `topic/*` 可按药物化学场景扩展：`topic/medicinal-chemistry`、`topic/peptide-drug`、`topic/structure-based-design`、`topic/free-energy`、`topic/protein-ligand`、`topic/protein-peptide`
+- `chapter/*`：`chapter/1` 到 `chapter/6`
+
+## 写作要求
+
+- 自然流畅的中文，不用套话。
+- 中英文之间加半角空格，例如 `Boltz2 亲和力预测`、`Zotero item key`。
+- 路径、文件名、Zotero item key 和 BibTeX key 用反引号标注。
+- 论文题名、期刊名、BibTeX key 和英文专有名词保留英文原文。
+- 面向药物化学研究者写作，强调方法边界、输入假设、可复现性和药物发现场景下的解释限制。
+- 只给已有笔记加链接，不凭空造链接。
+- 没有证据时明确写“待确认”或“未检索到”，不要硬挂文献。
+
+## Zotero 联动规则
+
+- Zotero item key 是本地 Zotero 条目 ID，例如 `FF4V8LYV`。
+- BibTeX key 是引用写作使用的 key，例如 `passaro_boltz-2_2025`。
+- 两者都要记录；不要把 Zotero item key 当作 BibTeX key。
+- 如果 Zotero 导出的 BibTeX key 重复或错误，可以在 `references.bib` 中建立本项目本地 alias，并在 `zotero-map.tsv` 中保留原 Zotero item key。
+- 只读检索得到但尚未确认的文献先进入 `references/zotero-candidates-2026-05-30.tsv` 或后续候选表；确认后才提升到 `references/zotero-map.tsv`。
+- 不复制 Zotero PDF；如确需全文处理，应先征求用户确认。
+
+## 索引规则
+
+每个目录保留 `_index.md`，表格列固定为：
+
+| 文件 | 类型 | 一句话说明 | 关联原始文件 | 关联 Zotero 条目 |
+|:---|:---|:---|:---|:---|
+
+索引应优先写相对路径。PDF 课件原件统一位于 `06_原始学习素材/`；非 PDF 原始资料仍保留在原章节目录时，只在索引和笔记中引用路径。
+
+PDF 课件全文提取使用 `pdfplumber`/PyMuPDF；低文本页 OCR 使用本机 `C:\Program Files\Tesseract-OCR\tesseract.exe`、用户级语言包 `C:\Users\xsui\AppData\Local\Tesseract-OCR\tessdata` 和 `chi_sim+eng`。OCR 结果写入对应 PDF 提取目录的 `ocr/page-xxx.ocr.md`，并追加到 `全文.md`。OCR 收敛状态以 `06_原始学习素材/PDF OCR质量收敛报告.md` 为准；第 1-5 章课件结构化精读入口为 `01_课程章节索引/章节精读/_index.md`。

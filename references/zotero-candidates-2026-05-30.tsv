@@ -1,0 +1,14 @@
+topic	zotero_item_key	title	year	source_query	suggested_chapter	suggested_action	notes
+RFdiffusion3	T2M6L289	De novo Design of All-atom Biomolecular Interactions with RFdiffusion3.	2025	RFdiffusion	第六章	候选补强	RFdiffusion3；NCBI Entrez 检索到 PubMed ID 41000976；本轮不写入核心映射
+RFdiffusion binder improvement	P7DSJ8TH	Improved protein binder design using β-pairing targeted RFdiffusion	2026	RFdiffusion	第六章	候选补强	Zotero 中可能存在重复条目 MB92X37S，入库前需去重
+ProteinMPNN expression/stability	LQED22TC	Improving Protein Expression, Stability, and Function with ProteinMPNN.	2024	ProteinMPNN	第六章	候选补强	Zotero 中可能存在重复条目 5SKCTXQW，入库前需去重
+ProteinMPNN nanomaterial design	2FEDHKRQ	Rapid and automated design of two-component protein nanomaterials using ProteinMPNN.	2024	ProteinMPNN	第六章	候选补强	Zotero 中可能存在重复条目 XGT9I3DP，入库前需去重
+Machine-learning docking	R2W3SF5S	Machine-learning methods for ligand-protein molecular docking	2022	molecular docking	第三章	已正式提升	适合补 docking 方法谱系和机器学习 docking 边界；P4 已写入正式映射，BibTeX key=crampon_machine-learning_2022
+AI docking benchmark	57K986LK	Benchmarking AI-powered docking methods from the perspective of virtual screening	2025	virtual screening	第三章	已正式提升	NCBI Entrez 以原查询未检索到，可能是未收录或题名/来源差异；P4 已写入正式映射，BibTeX key=gu_benchmarking_2025
+MD-assisted affinity ML	92GPX1OI	Can molecular dynamics simulations improve predictions of protein-ligand binding affinity with machine learning?	2023	molecular dynamics; binding affinity	第四章;第五章	人工确认提升	适合支撑 MD 与亲和力模型边界讨论；P5 因 Zotero BibTeX 导出 HTTP 502，改用 Crossref/Oxford 元数据人工确认，BibTeX key=gu_molecular_2023
+DeepDTAF	95UTFQDM	DeepDTAF: a deep learning method to predict protein–ligand binding affinity	2021	binding affinity	第五章	已正式提升	适合补亲和力模型综述；P4 已写入正式映射，BibTeX key=wang_deepdtaf_2021
+PPI-Affinity	YIV9AVT4	PPI-Affinity: A Web Tool for the Prediction and Optimization of Protein–Peptide and Protein–Protein Binding Affinity	2022	binding affinity	第五章	已正式提升	适合补蛋白-肽和蛋白-蛋白亲和力工具；P4 已写入正式映射，BibTeX key=romero-molina_ppi-affinity_2022
+AlphaFold peptide ranking	CRT8PKH3	Ranking Peptide Binders by Affinity with AlphaFold**	2023	AlphaFold	第五章	已正式提升	适合补 AlphaFold 与肽结合排序的边界；P4 已写入正式映射，BibTeX key=chang_ranking_2023
+AlphaFold peptide benchmark	VKKT2HE0	Benchmarking AlphaFold2 on peptide structure prediction	2023	AlphaFold	第二章;第五章	人工确认提升	适合补肽结构预测可靠性；P5 因 Zotero BibTeX 导出 HTTP 502，改用 Crossref/PMC 元数据人工确认，BibTeX key=mcdonald_benchmarking_2023
+AlphaFold2 community assessment	5GOGPC63	A structural biology community assessment of AlphaFold2 applications	2022	AlphaFold	第二章	人工确认提升	适合补结构预测应用边界；P5 因 Zotero BibTeX 导出 HTTP 502，改用 Crossref/Nature 元数据人工确认，BibTeX key=akdel_structural_2022
+AlphaFold/RoseTTAFold design review	6Q8ACPUP	Protein Design Using Structure-Prediction Networks: AlphaFold and RoseTTAFold as Protein Structure Foundation Models.	2024	AlphaFold	第六章	候选补强	适合补第六章设计方法背景
