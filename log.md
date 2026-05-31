@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
-source_count: 8
+source_count: 9
 last_reviewed: 2026-05-31
-source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md"]
+source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31]
+claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -31,6 +31,8 @@ relations:
     target: "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md"
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md"
 ---
 
 # AI_MD LLM Wiki 操作日志
@@ -121,3 +123,11 @@ relations:
 - 将在线书籍站点 URL 固定为 `https://luvega.github.io/AI_MD/`。
 - 新增 `.github/workflows/deploy-book.yml`，在 `master` 推送或手动触发时运行测试、在线书籍校验、MkDocs strict build，并通过 GitHub Pages 发布 `book/site`。
 - 记录远端仓库为 `https://github.com/luvega/AI_MD.git`；Pages 需要在 GitHub 仓库设置中选择 GitHub Actions 作为发布源。
+
+## [2026-05-31] maintenance | P22 第一版验收
+
+- 运行 `python -m unittest discover -s tests`，4 个单元测试通过。
+- 运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs`，在线书籍校验 `errors: 0`。
+- 运行 `python -m mkdocs build -f book/mkdocs.yml --strict`，MkDocs strict build 成功生成 `book/site`。
+- 运行 `validate_llm_wiki.py`，LLM Wiki 校验 `warnings: []`、`errors: []`。
+- 确认 GitHub Pages 最新 workflow 成功，`https://luvega.github.io/AI_MD/` 首页返回 HTTP 200。

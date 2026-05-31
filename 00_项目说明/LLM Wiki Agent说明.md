@@ -29,7 +29,7 @@ AI_MD 的 LLM Wiki Agent 采用 Karpathy LLM Wiki 思路：原始资料是不可
 
 | 层 | 本项目落点 | 规则 |
 |:---|:---|:---|
-| Raw sources | `06_原始学习素材/`、`第三章/`、`第四章/`、`第五章/`、`第六章/`、`references/` | 原始资料只读，不移动、不删除、不重命名，除非用户明确确认 |
+| Raw sources | `06_原始学习素材/`、`references/` | 原始资料只读，不移动、不删除、不重命名，除非用户明确确认 |
 | Wiki | `00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/`、根 `index.md` 和 `log.md` | LLM 负责创建、更新、交叉引用、维护一致性 |
 | Schema | `CLAUDE.md`、`.claude/skills/`、`00_项目说明/LLM Wiki运行手册.md` | 规定写作格式、索引规则、Zotero 联动、ingest/query/lint 流程 |
 

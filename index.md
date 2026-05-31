@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 12
+source_count: 13
 last_reviewed: 2026-05-31
-source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml"]
+source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -35,6 +35,8 @@ relations:
     target: "book/docs/index.md"
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md"
 ---
 
 # AI_MD LLM Wiki 总索引
@@ -142,6 +144,7 @@ relations:
 | [P15-P19 研究知识图谱工作台](00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md) | 实体层、claims 层、个人研究工作台、AI 回归评测和输出视图 |
 | [P20 在线书籍骨架](00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md) | MkDocs Material 课程讲义骨架、章节映射和在线书籍校验器 |
 | [P21 GitHub Pages 部署配置](00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md) | `luvega/AI_MD` Pages workflow、站点 URL 和上线注意事项 |
+| [P22 第一版验收](00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md) | 单元测试、在线书籍校验、MkDocs build、LLM Wiki 校验和 GitHub Pages 验收结果 |
 
 ## 综合与开放问题
 
@@ -151,7 +154,7 @@ relations:
 | 第 8 章资料 | 已解包并完成主 PDF/补充 PDF 提取、章节精读和 Chai-1 方法卡 |
 | Zotero 本地 API | 曾出现 HTTP 502；人工确认条目已在 P5 记录 |
 | OCR 人工复核 | 仍有少数页面正式引用前建议对照原 PDF |
-| Git 版本史 | 本轮启用本地 Git，不配置 remote、不 push |
+| Git 版本史 | 已配置 `origin=https://github.com/luvega/AI_MD.git`，`master` 已推送并接入 GitHub Pages |
 
 ## 最近日志摘要
 
@@ -167,11 +170,11 @@ relations:
 - [2026-05-31] update | P15-P19 研究知识图谱与个人工作台
 - [2026-05-31] update | P20 在线书籍分章节骨架
 - [2026-05-31] update | P21 GitHub Pages 部署配置
+- [2026-05-31] maintenance | P22 第一版验收
 
 ## 待确认项
 
 - 是否把 Obsidian Dataview 查询、Web Clipper 设置和固定首页写入 `.obsidian/` 配置。
-- 是否为本地 Git 版本史配置远程仓库；当前默认不配置 remote、不 push。
 - 第六章补充资料是否进入实际运行阶段；当前只完成 PDF 提取、方法卡和实验记录模板。
 - Chai-1 工具链是否需要补正式方法论文或官方文档锚点；P14 只锚定第八章补充 PDF 和第六章 Nature 综述。
 - 图谱体检已能统计实体、孤立页、缺 key 和过期 review；下一轮可逐步给旧模板页补 `last_reviewed` 或确认是否从图谱扫描中排除。

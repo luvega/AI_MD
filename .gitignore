@@ -24,6 +24,13 @@ node_modules/
 venv/
 book/site/
 
+# Generated or unpacked raw-source working trees. Existing tracked files remain
+# tracked, but new OCR/extraction/unpacked payloads stay local by default.
+06_原始学习素材/**/全文提取/
+06_原始学习素材/**/解包/
+06_原始学习素材/**/补充资料/
+06_原始学习素材/**/安装包与视频/
+
 # Large immutable raw sources stay on disk and are tracked by Markdown indexes,
 # not by local Git by default.
 *.pdf
