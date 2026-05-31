@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
-source_count: 10
+source_count: 11
 last_reviewed: 2026-05-31
-source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md"]
+source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31]
+claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -35,6 +35,8 @@ relations:
     target: "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md"
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md"
 ---
 
 # AI_MD LLM Wiki 操作日志
@@ -51,6 +53,13 @@ relations:
 - 新增课程资源页：代码案例索引、截图索引、Imagegen prompt 记录和复现实验资源。
 - 新增 `tools/update_book_references.py`，自动生成 Nature 风格引用卡片和附录 C；补齐 `du_dockey_2023`、`agrawal_benchmarking_2019` 的 DOI/期刊元数据。
 - 扩展 `tools/validate_online_book.py`，加入 `--require-nature-refs` 与 `--require-imagegen` 验收项。
+
+## [2026-05-31] update | P25 在线书籍正文润色与结构重排
+
+- 使用 research-paper-writing 和 academic-chinese-style 原则，对 8 个在线书籍主章节做教材化结构重排。
+- 新增 `tools/polish_book_chapters.py`、`book/docs/resources/style-guide.md` 和 `book/docs/resources/polish-report.md`。
+- 每章补充 reverse outline、claim-evidence map、来源路径表和更明确的证据边界。
+- 保留引用卡片、代码块、图片链接、BibTeX key、Zotero item key 和 DOI/URL，不处理未跟踪 torrent 文件。
 
 ## [2026-05-30] bootstrap | AI_MD LLM Wiki Agent 落地
 

@@ -65,3 +65,5 @@ nav:
       - 截图索引: resources/screenshot-index.md
       - Imagegen 图谱与 Prompt: resources/imagegen-prompts.md
       - 复现实验资源: resources/reproducible-labs.md
+      - 中文教材正文风格指南: resources/style-guide.md
+      - P25 正文润色报告: resources/polish-report.md

@@ -42,7 +42,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - `05_附件索引/`：压缩包、网盘链接、PDF、表格、脚本、JSON、CIF、TSV 等附件清单。
 - `06_原始学习素材/`：集中保存 PDF 课件原件、重复 PDF 待确认区、逐页全文提取结果和低文本页 OCR 补充结果。
 - `07_研究工作台/`：知识图谱实体索引、证据与 claims 矩阵、个人研究问题/项目池、阅读队列、实验队列、输出视图和 AI 回归评测集。
-- `book/`：MkDocs Material 在线书籍工程；`book/docs/` 是课程讲义页面，`book/book_map.toml` 是章节到 wiki 来源和 BibTeX key 的映射；`book/docs/resources/` 保存代码案例、截图索引、Imagegen prompt 和复现实验资源。
+- `book/`：MkDocs Material 在线书籍工程；`book/docs/` 是课程讲义页面，`book/book_map.toml` 是章节到 wiki 来源和 BibTeX key 的映射；`book/docs/resources/` 保存代码案例、截图索引、Imagegen prompt、复现实验资源、正文风格指南和润色报告。
 - `references/`：`references.bib` 和 `zotero-map.tsv`。
 - `tools/`：项目级体检和维护脚本；当前包含 `graph_health.py` 和 `validate_online_book.py`。
 - `tests/`：项目级脚本测试；当前包含 `test_graph_health.py` 和 `test_validate_online_book.py`。
@@ -63,7 +63,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 9. 涉及研究决策时，先查 `07_研究工作台/实体索引.md` 和 `07_研究工作台/证据与claims矩阵.md`，区分课程资料、文献案例、项目结果和研究假设。
 10. 新建或更新笔记时，必须使用统一 frontmatter，补齐标签、来源文件、引用键和相关链接。
 11. 每次新建或更新笔记后，同步更新对应目录的 `_index.md`、必要时更新根 `index.md`，并向 `log.md` 追加条目。
-12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`；涉及在线书籍时运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen` 和 `mkdocs build -f book/mkdocs.yml --strict`。
+12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`；涉及在线书籍时运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen` 和 `mkdocs build -f book/mkdocs.yml --strict`；涉及正文润色时先运行或复查 `python tools/polish_book_chapters.py --check`。
 13. 最后简要说明创建或更新了哪些文件、放在哪里、是否有待人工确认的信息。
 
 ## Skill 联用规则
@@ -87,6 +87,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - 项目说明和维护报告：放入 `00_项目说明/`，用于记录阶段性整理、验证结果、边界和待人工确认项。
 - 研究工作台：放入 `07_研究工作台/`，用于维护实体、claims、项目池、队列、输出视图和 AI 回归评测；不要把它写成新的长篇课件正文。
 - 在线书籍：放入 `book/docs/`，面向课程讲义读者；章节正文、Nature 风格引用卡片、代码案例、Imagegen 图谱、流程图和截图资源必须保留来源边界，不复制原始 PDF、图片、压缩包或 Office 文件，不把文献案例写成本项目结果。
+- 正文润色：优先遵守 `book/docs/resources/style-guide.md`；改写时保护引用卡片、代码块、图片链接、BibTeX key、Zotero item key、DOI/URL 和来源路径；高风险 claim 应写入 `book/docs/resources/polish-report.md`。
 - 综合索引和日志：根 `index.md` 和 `log.md` 用于 LLM Wiki 导航和演化记录。
 
 ## 搜索方式

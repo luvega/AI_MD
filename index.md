@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 15
+source_count: 16
 last_reviewed: 2026-05-31
-source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md"]
+source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -41,6 +41,8 @@ relations:
     target: "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md"
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md"
 ---
 
 # AI_MD LLM Wiki 总索引
@@ -73,6 +75,9 @@ relations:
 | [Imagegen 图谱记录](book/docs/resources/imagegen-prompts.md) | 记录章节知识图谱、流程图、prompt 摘要和验收状态 |
 | [代码案例索引](book/docs/resources/code-cases.md) | 每章 dry-run 或解析脚本入口 |
 | [截图索引](book/docs/resources/screenshot-index.md) | 每章软件/界面截图和来源边界 |
+| [中文教材正文风格指南](book/docs/resources/style-guide.md) | P25 段落功能、证据边界、术语和 provenance 保护规则 |
+| [P25 正文润色报告](book/docs/resources/polish-report.md) | 8 章 reverse outline、claim-evidence map 和需作者确认项 |
+| [正文润色脚本](tools/polish_book_chapters.py) | 受控改写在线书籍章节正文并检查过强表述 |
 | [GitHub Pages workflow](.github/workflows/deploy-book.yml) | 推送到 `master` 后自动构建并发布在线书籍到 GitHub Pages |
 
 ## 章节索引

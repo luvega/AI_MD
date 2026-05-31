@@ -33,3 +33,4 @@
 | [知识库维护报告-2026-05-31-P22-第一版验收.md](知识库维护报告-2026-05-31-P22-第一版验收.md) | maintenance-report | 记录第一版的单元测试、在线书籍校验、MkDocs build、LLM Wiki 校验和 GitHub Pages 验收结果。 | `index.md`, `book/`, `tools/`, `.github/workflows/deploy-book.yml` | 多个 |
 | [知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md](知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md) | maintenance-report | 记录第二版 8 章长文、5000 字符门槛、在线书籍校验器增强和验收结果。 | `book/`, `tools/validate_online_book.py` | 多个 |
 | [知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md](知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md) | maintenance-report | 记录 Nature 风格引用卡片、Imagegen 图谱、代码案例、截图资源和在线书籍校验器增强。 | `book/`, `references/`, `tools/` | 多个 |
+| [知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md](知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md) | maintenance-report | 记录 8 章正文教材化润色、reverse outline、claim-evidence map 和中文学术写作风格指南。 | `book/`, `tools/polish_book_chapters.py` |  |
