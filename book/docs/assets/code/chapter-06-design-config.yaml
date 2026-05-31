@@ -1,0 +1,9 @@
+target_pdb: inputs/target.pdb
+contig: A1-120/0 B20-35
+hotspot_residues: [A45, A49, A52]
+num_designs: 10
+random_seed: 20260531
+filters:
+  min_interface_confidence: 0.70
+  max_backbone_rmsd_a: 2.0
+  require_manual_interface_review: true

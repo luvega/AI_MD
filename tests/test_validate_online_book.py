@@ -16,6 +16,7 @@ REQUIRED_SECTIONS = [
     "知识图谱入口",
     "核心概念",
     "方法流程",
+    "代码案例与软件操作",
     "关键文献与 BibTeX key",
     "实验/练习入口",
     "使用边界与常见误读",
@@ -39,9 +40,25 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
         )
         self.write_text(root / "wiki" / "source.md", "# Source\n")
         self.write_text(root / "book" / "docs" / "index.md", "# Home\n\n[Chapter](chapters/chapter-01.md)\n")
+        self.write_text(root / "book" / "docs" / "assets" / "screenshots" / "chapter-01.png", "placeholder\n")
+        self.write_text(root / "book" / "docs" / "assets" / "imagegen" / "chapter-01-knowledge-map.png", "placeholder\n")
+        self.write_text(
+            root / "book" / "docs" / "resources" / "imagegen-manifest.tsv",
+            """
+            id\tchapter\ttype\tfile\tprompt_ref\tsource_basis\talt_text\tstatus
+            ch01-map\tchapter-01\tknowledge-map\tassets/imagegen/chapter-01-knowledge-map.png\t#ch01-map\twiki/source.md\tchapter map\taccepted
+            """,
+        )
         chapter_body = ["# Chapter 1"]
         for section in REQUIRED_SECTIONS:
-            chapter_body.append(f"## {section}\n\n- 内容骨架。\n")
+            body = "- 内容骨架。\n"
+            if section == "知识图谱入口":
+                body += "\n![chapter map](../assets/imagegen/chapter-01-knowledge-map.png)\n"
+            if section == "代码案例与软件操作":
+                body += "\n```bash\npython --version\n```\n\n![screenshot](../assets/screenshots/chapter-01.png)\n"
+            if section == "关键文献与 BibTeX key":
+                body += "\n<!-- refs:start -->\n\n!!! quote \"`known_key`\"\n    **Nature 风格引用：** Known, A. Known paper. Source (2026).\n\n<!-- refs:end -->\n"
+            chapter_body.append(f"## {section}\n\n{body}\n")
         chapter_body.append("[Home](../index.md)\n")
         self.write_text(root / "book" / "docs" / "chapters" / "chapter-01.md", "\n".join(chapter_body))
         self.write_text(
@@ -124,6 +141,39 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
 
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("chapter too short", result.stdout)
+
+    def test_rejects_missing_imagegen_and_reference_markers_when_required(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            book_map, book_root = self.make_valid_workspace(root)
+            chapter = book_root / "chapters" / "chapter-01.md"
+            text = chapter.read_text(encoding="utf-8")
+            text = text.replace("![chapter map](../assets/imagegen/chapter-01-knowledge-map.png)\n", "")
+            text = text.replace("<!-- refs:start -->", "").replace("<!-- refs:end -->", "")
+            chapter.write_text(text, encoding="utf-8")
+
+            result = self.run_validator(book_map, book_root, root, "--require-nature-refs", "--require-imagegen")
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("missing refs markers", result.stdout)
+        self.assertIn("missing Imagegen knowledge map", result.stdout)
+
+    def test_rejects_unregistered_imagegen_asset_when_required(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            book_map, book_root = self.make_valid_workspace(root)
+            chapter = book_root / "chapters" / "chapter-01.md"
+            text = chapter.read_text(encoding="utf-8").replace(
+                "chapter-01-knowledge-map.png",
+                "chapter-01-unregistered-knowledge-map.png",
+            )
+            chapter.write_text(text, encoding="utf-8")
+            self.write_text(root / "book" / "docs" / "assets" / "imagegen" / "chapter-01-unregistered-knowledge-map.png", "placeholder\n")
+
+            result = self.run_validator(book_map, book_root, root, "--require-imagegen")
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("unregistered Imagegen asset", result.stdout)
 
 
 if __name__ == "__main__":

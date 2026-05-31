@@ -22,6 +22,23 @@
 
 本章正式 BibTeX key 包括 `sui_targeting_2026`、`shen_structure-based_2026`、`tomarchio_reproducible_2026`、`zhu_novo_2026` 和 `yang_w_past_2026`。它们分别支撑 UXS1、APE1、IDO1、BabA binder 和 de novo protein design 综述案例。Chai-1 当前以技术报告和本地脚本作为方法背景，正式 Zotero/BibTeX 锚点后续可继续补齐。
 
+### Imagegen 知识图谱
+
+![第 8 章知识图谱](../assets/imagegen/chapter-08-knowledge-map.png){ loading=lazy }
+
+| 编号 | 正文权威标签 |
+|:---:|:---|
+| 1 | 研究问题 |
+| 2 | 靶点证据 |
+| 3 | 结构来源 |
+| 4 | 虚拟筛选 |
+| 5 | PPI 路线 |
+| 6 | 蛋白设计 |
+| 7 | 证据 claim |
+| 8 | 输出任务 |
+
+这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
+
 ## 核心概念
 
 寻靶是研究路线的起点。靶点可以来自疾病机制、基因表达、突变、依赖性筛选、代谢通路、蛋白互作、表型筛选、文献假设或反向虚拟筛选。一个靶点进入计算流程前，应写清为什么选择它：是否有疾病相关性，是否有结构信息，是否有配体或抗体先例，是否可实验验证，是否有用户自己的专业兴趣和资源。
@@ -48,20 +65,114 @@
 
 第六步是定义输出。不同项目可能输出课件案例、综述段落、课题申请、实验记录、候选清单、图谱节点、计算 notebook 或真实实验计划。输出不同，证据要求不同。课件可以讲方法，课题申请需要可行性，论文需要严谨结果，实验计划需要材料和步骤。
 
+## 代码案例与软件操作
+
+![第 8 章流程解释图](../assets/imagegen/chapter-08-flow-project-roadmap.png){ loading=lazy }
+
+**寻靶-解码-造器项目路线图** 的编号含义如下：
+
+| 编号 | 流程节点 |
+|:---:|:---|
+| 1 | question |
+| 2 | evidence |
+| 3 | target |
+| 4 | structure |
+| 5 | screen/design |
+| 6 | validate |
+| 7 | queue |
+| 8 | output |
+
+本节对应软件/界面：**research project pool / Chai-1 panel dry-run**。场景是：把候选项目拆成证据、方法、缺口、下一步实验和可产出物，防止把文献案例误写成本项目结果。
+
+=== "可复制代码"
+
+    ```python
+    import pandas as pd
+
+    projects = pd.read_csv('inputs/project_pool.tsv', sep='\t')
+    projects['priority_score'] = (
+        projects['evidence_strength'] * 0.45 +
+        projects['method_readiness'] * 0.35 +
+        projects['experiment_feasibility'] * 0.20
+    )
+    projects.sort_values('priority_score', ascending=False).to_csv('outputs/project_priority.tsv', sep='\t', index=False)
+    ```
+
+=== "配套文件"
+
+    完整示例文件：[`chapter-08-project-priority.py`](../assets/code/chapter-08-project-priority.py)
+
+![第 8 章软件操作截图](../assets/screenshots/chapter-08-project-pool.png){ loading=lazy }
+
+| 步骤 | 操作 |
+|:---:|:---|
+| 1 | 为每个研究问题建立证据矩阵。 |
+| 2 | 选择虚拟筛选、PPI 或蛋白设计路线。 |
+| 3 | 按证据强度和实验可行性给下一步排序。 |
+
+!!! warning "常见错误"
+    第八章补充 PDF 只能作为文献案例和方法借鉴；没有本地运行记录时不能写成本项目结果。
+
 ## 关键文献与 BibTeX key
 
-`sui_targeting_2026` 是 UXS1/metformin 文献案例，适合展示如何从代谢机制和肿瘤依赖出发，组织靶点、机制和潜在药物干预。课程使用它学习“机制驱动寻靶 + 正向筛选”的结构，不把其结果写成本项目发现。
+<!-- refs:start -->
 
-`shen_structure-based_2026` 是 APE1 结构虚拟筛选案例，适合展示结构口袋选择、百万级候选库、pose 复核、MD 和 MM-GBSA 等流程。它对第 3 章和第 4/5 章形成整合示范，但仍属于文献案例。
+!!! quote "`sui_targeting_2026`"
+    **Nature 风格引用：** Sui, Q., Chen, Z., Shan, G., Hu, Z., Jin, X., Liang, J. et al. Targeting UXS1-Dependent Glucuronate Detoxification Potentiates Metformin's Anti-Tumor Efficacy in Lung Adenocarcinoma. Advanced Science, e10542 (2026). https://doi.org/10.1002/advs.202510542
 
-`tomarchio_reproducible_2026` 是 IDO1 scaffold-aware ML + ensemble docking + MD 可复现框架案例，适合展示机器学习筛选和 applicability domain 的价值。它提醒我们虚拟筛选不只是 docking，还包括数据集、decoy、化学空间、模型适用域和可复现 notebook。
+    **DOI/URL：** `10.1002/advs.202510542`
 
-`zhu_novo_2026` 是 BabA de novo binder 设计案例，衔接第 6 章 protein design。它展示 RFdiffusion3、ProteinMPNN、回折叠、对接/MD 和实验验证如何组合，但本项目当前没有对应真实运行输出。
+    **BibTeX key：** `sui_targeting_2026`
 
-`yang_w_past_2026` 是 de novo protein design 综述，为第六章和本章提供历史、工具谱系和未来方向。它适合帮助读者把当前工具放入长期发展框架，而不是只追逐单个模型。
+    **Zotero item key：** `QXKW6K78`
 
-完整引用见 [附录 C](../appendices/references.md)。
+    **本章用途：** 第八章研究路线中的文献案例与方法借鉴。
 
+!!! quote "`shen_structure-based_2026`"
+    **Nature 风格引用：** Shen, T., Shen, H., Kong, Y., Qiang, W., Yu, X. & Wang, J. Structure-based virtual screening identifies novel small-molecule inhibitors targeting the endonuclease active site of APE1. Scientific Reports (2026). https://doi.org/10.1038/s41598-026-51975-0
+
+    **DOI/URL：** `10.1038/s41598-026-51975-0`
+
+    **BibTeX key：** `shen_structure-based_2026`
+
+    **Zotero item key：** `YUMKNHSK`
+
+    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+
+!!! quote "`tomarchio_reproducible_2026`"
+    **Nature 风格引用：** Tomarchio, E. G., Buccheri, R. & Rescifina, A. A Reproducible Hierarchical Virtual Screening Framework Integrating Scaffold-Aware Machine Learning, Ensemble Docking, and Molecular Dynamics: Application to IDO1. Journal of Chemical Information and Modeling (2026). https://doi.org/10.1021/acs.jcim.6c00967
+
+    **DOI/URL：** `10.1021/acs.jcim.6c00967`
+
+    **BibTeX key：** `tomarchio_reproducible_2026`
+
+    **Zotero item key：** `Y4ARSYCQ`
+
+    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+
+!!! quote "`zhu_novo_2026`"
+    **Nature 风格引用：** Zhu, Y., Isaha, M. B. & Zhang, X. De novo design of binder proteins targeting Helicobacter pylori adhesin BabA. bioRxiv (2026). https://doi.org/10.64898/2026.05.24.727452
+
+    **DOI/URL：** `10.64898/2026.05.24.727452`
+
+    **BibTeX key：** `zhu_novo_2026`
+
+    **Zotero item key：** `V6Y5EEZL`
+
+    **本章用途：** 第八章研究路线中的文献案例与方法借鉴。
+
+!!! quote "`yang_w_past_2026`"
+    **Nature 风格引用：** Yang, W., Wang, S., Lee, G. R., Zhang, J. Z., Courbet, A., Juergens, D. et al. The past, present and future of de novo protein design. Nature 652, 1139-1152 (2026). https://doi.org/10.1038/s41586-026-10328-7
+
+    **DOI/URL：** `10.1038/s41586-026-10328-7`
+
+    **BibTeX key：** `yang_w_past_2026`
+
+    **Zotero item key：** `TPR3JY6N`
+
+    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
+
+<!-- refs:end -->
 ## 实验/练习入口
 
 练习一：从项目池选择一个问题。打开 [附录 A](../appendices/research-workbench.md)，选择一个研究问题，填写问题、候选靶点、可用结构、候选分子或蛋白面板、可用方法、已有文献和下一步最小任务。

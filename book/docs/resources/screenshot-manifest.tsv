@@ -1,0 +1,9 @@
+chapter	file	source_type	purpose	status
+chapter-01	assets/screenshots/chapter-01-env-check.png	local-dry-run-teaching-asset	PowerShell / Linux shell 操作界面说明	accepted
+chapter-02	assets/screenshots/chapter-02-pymol-review.png	local-dry-run-teaching-asset	PyMOL / ChimeraX 操作界面说明	accepted
+chapter-03	assets/screenshots/chapter-03-docking-funnel.png	local-dry-run-teaching-asset	Uni-Dock / Vina-style dry-run 操作界面说明	accepted
+chapter-04	assets/screenshots/chapter-04-md-analysis.png	local-dry-run-teaching-asset	MDAnalysis / MDTraj-style analysis 操作界面说明	accepted
+chapter-05	assets/screenshots/chapter-05-boltz2-results.png	local-dry-run-teaching-asset	Boltz2 result table dry-run 操作界面说明	accepted
+chapter-06	assets/screenshots/chapter-06-protein-design-cycle.png	local-dry-run-teaching-asset	RFdiffusion / ProteinMPNN dry-run config 操作界面说明	accepted
+chapter-07	assets/screenshots/chapter-07-agent-verify-loop.png	local-dry-run-teaching-asset	Codex / Claude Code workflow 操作界面说明	accepted
+chapter-08	assets/screenshots/chapter-08-project-pool.png	local-dry-run-teaching-asset	research project pool / Chai-1 panel dry-run 操作界面说明	accepted

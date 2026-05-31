@@ -22,6 +22,22 @@ MD 的吸引力很强，因为它能生成轨迹、动画、RMSD 曲线、氢键
 
 本章的文献锚点包括 `chen_design_2024` 和 `gu_molecular_2023`。前者用于说明生成式多肽设计需要 MD 复核，后者用于讨论 MD 是否能改善蛋白-配体亲和力机器学习预测。对于 BioEmu 等更新工具，本项目当前以方法卡和外部主文献作为边界补充，正式 BibTeX 后续可继续补齐。
 
+### Imagegen 知识图谱
+
+![第 4 章知识图谱](../assets/imagegen/chapter-04-knowledge-map.png){ loading=lazy }
+
+| 编号 | 正文权威标签 |
+|:---:|:---|
+| 1 | 系统准备 |
+| 2 | 力场与参数 |
+| 3 | 平衡 |
+| 4 | 生产轨迹 |
+| 5 | RMSD/RMSF |
+| 6 | 聚类 |
+| 7 | 代表构象 |
+
+这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
+
 ## 核心概念
 
 MD 是基于力场和数值积分的原子运动模拟。力场定义原子间相互作用，积分算法推进时间，温控和压控维持体系条件，溶剂和离子模拟环境。输出轨迹不是单一答案，而是体系在特定模型和时间尺度下的采样结果。力场、初始结构、质子化、配体参数、水盒大小、离子浓度、约束、时间步长和模拟时间都会影响解释。
@@ -50,16 +66,81 @@ AI 采样与传统 MD 的边界必须清楚。BioEmu 一类模型旨在快速采
 
 第六步是结果回流。若轨迹显示 pose 不稳定，可以回到第 3 章重新定义 box 或配体状态；若发现多个稳定构象，可把代表构象带入第 5 章亲和力计算；若发现关键口袋开闭，可进入第 8 章机制假设；若参数或采样不足，应把结果标记为探索性，不进入强 claim。MD 的价值不在“跑出动画”，而在帮助项目做下一步决策。
 
+## 代码案例与软件操作
+
+![第 4 章流程解释图](../assets/imagegen/chapter-04-flow-md-analysis-loop.png){ loading=lazy }
+
+**轨迹分析到代表构象选择流程图** 的编号含义如下：
+
+| 编号 | 流程节点 |
+|:---:|:---|
+| 1 | 读取轨迹 |
+| 2 | 对齐 |
+| 3 | 计算指标 |
+| 4 | 聚类 |
+| 5 | 复核结构 |
+| 6 | 写入边界 |
+
+本节对应软件/界面：**MDAnalysis / MDTraj-style analysis**。场景是：用已经完成的小轨迹输出 RMSD 摘要，训练读者区分轨迹 QC、代表构象和科学解释。
+
+=== "可复制代码"
+
+    ```python
+    from pathlib import Path
+    import pandas as pd
+
+    rmsd = pd.read_csv('inputs/rmsd.tsv', sep='\t')
+    summary = {
+        'frames': len(rmsd),
+        'rmsd_mean_nm': round(rmsd['rmsd_nm'].mean(), 3),
+        'rmsd_max_nm': round(rmsd['rmsd_nm'].max(), 3),
+    }
+    Path('outputs').mkdir(exist_ok=True)
+    pd.Series(summary).to_csv('outputs/md_qc_summary.tsv', sep='\t', header=False)
+    ```
+
+=== "配套文件"
+
+    完整示例文件：[`chapter-04-md-summary.py`](../assets/code/chapter-04-md-summary.py)
+
+![第 4 章软件操作截图](../assets/screenshots/chapter-04-md-analysis.png){ loading=lazy }
+
+| 步骤 | 操作 |
+|:---:|:---|
+| 1 | 读取 topology 和 trajectory，并记录单位。 |
+| 2 | 计算 RMSD/RMSF、聚类和代表构象。 |
+| 3 | 把指标和人工复核写入实验记录。 |
+
+!!! warning "常见错误"
+    RMSD 稳定不等于结合稳定；需要结合活性位点、接触、能量或实验背景解释。
+
 ## 关键文献与 BibTeX key
 
-`chen_design_2024` 是本章的重要锚点之一。它展示了生成式深度学习设计候选多肽后，需要结合分子动力学模拟评估结构稳定性和相互作用。课程使用这篇文献强调：生成模型给出的候选结构只是起点，动态稳定性和结合模式需要后续复核。
+<!-- refs:start -->
 
-`gu_molecular_2023` 用于讨论 MD 是否能改善蛋白-配体亲和力机器学习预测。它适合放在第 4 章与第 5 章之间，提醒读者 MD 可以提供动态特征和代表构象，但是否改善预测取决于特征提取、模型、数据集和任务定义。
+!!! quote "`chen_design_2024`"
+    **Nature 风格引用：** Chen, S., Lin, T., Basu, R., Ritchey, J., Wang, S., Luo, Y. et al. Design of target specific peptide inhibitors using generative deep learning and molecular dynamics simulations. Nature Communications (2024). https://doi.org/10.1038/s41467-024-45766-2
 
-与 AlphaFold3、Boltz2、BioEmu 等模型相关的最新进展会影响本章边界。AlphaFold3 和 Boltz2 强化了多组分结构预测能力，BioEmu 一类模型强调构象景观采样。但在课程中，这些模型都不能替代对力场、轨迹、实验和适用范围的审慎判断。后续若 Zotero/BibTeX 补齐 BioEmu 主文献，应优先写入 `03_文献笔记/分子模拟与生成式设计.md`，再进入本章引用表。
+    **DOI/URL：** `10.1038/s41467-024-45766-2`
 
-完整引用见 [附录 C](../appendices/references.md)。
+    **BibTeX key：** `chen_design_2024`
 
+    **Zotero item key：** `BR4AMZPF`
+
+    **本章用途：** MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。
+
+!!! quote "`gu_molecular_2023`"
+    **Nature 风格引用：** Gu, S., Shen, C., Yu, J., Zhao, H., Liu, H., Liu, L. et al. Can molecular dynamics simulations improve predictions of protein-ligand binding affinity with machine learning?. Briefings in Bioinformatics 24, bbad008 (2023). https://doi.org/10.1093/bib/bbad008
+
+    **DOI/URL：** `10.1093/bib/bbad008`
+
+    **BibTeX key：** `gu_molecular_2023`
+
+    **Zotero item key：** `92GPX1OI`
+
+    **本章用途：** MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。
+
+<!-- refs:end -->
 ## 实验/练习入口
 
 练习一：为一个 docking pose 设计 MD 记录。选择第 3 章练习中的 top pose，写出初始结构、配体参数、力场、溶剂、离子、最小化、平衡和生产模拟计划。即使暂不运行，也要把参数和风险写清楚。

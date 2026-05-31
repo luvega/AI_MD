@@ -1,5 +1,5 @@
 site_name: "AI 辅助药物设计：从分子建模到研究工作台"
-site_description: "基于 AI_MD LLM Wiki 生成的课程讲义型在线书籍骨架"
+site_description: "基于 AI_MD LLM Wiki 生成的课程讲义型在线书籍"
 site_author: "AI_MD"
 site_url: "https://luvega.github.io/AI_MD/"
 docs_dir: docs
@@ -31,6 +31,15 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - tables
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
 
@@ -51,3 +60,8 @@ nav:
       - 附录 C Zotero 与 BibTeX 引用表: appendices/references.md
       - 附录 D AI 回归评测任务: appendices/ai-eval.md
       - 附录 E 知识边界与版权说明: appendices/boundaries.md
+  - 课程资源:
+      - 代码案例索引: resources/code-cases.md
+      - 截图索引: resources/screenshot-index.md
+      - Imagegen 图谱与 Prompt: resources/imagegen-prompts.md
+      - 复现实验资源: resources/reproducible-labs.md

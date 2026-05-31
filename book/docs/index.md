@@ -1,6 +1,6 @@
 # AI 辅助药物设计：从分子建模到研究工作台
 
-这是基于 AI_MD LLM Wiki 生成的课程讲义型在线书籍第二版。当前版本已从“可导航骨架”扩展为 8 章课程正文，每章围绕本地素材、Zotero/BibTeX 文献锚点、方法边界和研究工作台入口展开。它仍用于内部教学/组内培训，不替代原始课程资料，也不直接复制原始 PDF 或图表。
+这是基于 AI_MD LLM Wiki 生成的课程讲义型在线书籍第三版。当前版本已从“可导航骨架”扩展为 8 章课程正文，并为每章补充 Nature 风格引用卡片、Imagegen 知识图谱、流程解释图、代码案例和软件操作截图。它仍用于内部教学/组内培训，不替代原始课程资料，也不直接复制原始 PDF 或图表。
 
 ## 使用方式
 
@@ -8,6 +8,7 @@
 - 按问题检索：进入附录 A，按研究问题、靶点、方法和下一步实验定位资料。
 - 按引用复核：进入附录 C，检查每个 BibTeX key 对应的文献主题。
 - 按实验记录：进入附录 B，选择适合的实验模板后回到 AI_MD 知识库建立正式记录。
+- 按资源复现：进入课程资源，查看代码案例、截图索引、Imagegen prompt 和最小 dry-run 入口。
 
 ## 章节入口
 
@@ -31,6 +32,15 @@
 | 附录 C | Zotero 与 BibTeX 引用表 | [进入](appendices/references.md) |
 | 附录 D | AI 回归评测任务 | [进入](appendices/ai-eval.md) |
 | 附录 E | 知识边界与版权说明 | [进入](appendices/boundaries.md) |
+
+## 课程资源入口
+
+| 资源 | 用途 | 入口 |
+|:---|:---|:---|
+| 代码案例 | 每章一个可复制 dry-run 或解析脚本 | [进入](resources/code-cases.md) |
+| 截图索引 | 每章一个软件/界面教学截图及来源边界 | [进入](resources/screenshot-index.md) |
+| Imagegen 图谱 | 知识图谱、流程图和 prompt 记录 | [进入](resources/imagegen-prompts.md) |
+| 复现实验 | 代码、截图和最小复现状态汇总 | [进入](resources/reproducible-labs.md) |
 
 ## 来源边界
 

@@ -22,6 +22,22 @@
 
 本章也为第 8 章的正向虚拟筛选案例铺垫。第 8 章中的 UXS1、APE1、IDO1 和其他文献案例可以作为范文学习，但不能写成本项目结果。本章负责建立通用漏斗，第 8 章负责把漏斗放入研究问题和项目池。
 
+### Imagegen 知识图谱
+
+![第 3 章知识图谱](../assets/imagegen/chapter-03-knowledge-map.png){ loading=lazy }
+
+| 编号 | 正文权威标签 |
+|:---:|:---|
+| 1 | 受体准备 |
+| 2 | 配体库 |
+| 3 | box 定义 |
+| 4 | 打分 |
+| 5 | 重评分 |
+| 6 | 筛选规则 |
+| 7 | 实验候选 |
+
+这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
+
 ## 核心概念
 
 对接的三要素是受体、配体和搜索空间。受体决定口袋环境，配体决定化学空间，搜索空间决定算法探索范围。受体准备包括结构来源、链选择、缺失残基、质子化、金属离子、辅因子、水分子和电荷处理；配体准备包括结构格式、质子化、互变异构、手性、构象和能量最小化；搜索空间来自共晶配体、保守位点、突变位点、口袋预测或盲对接。三者任何一个不合理，最终 score 都缺少解释价值。
@@ -50,18 +66,103 @@ MSA 与 AI 结构预测的关系也需要进入对接思维。对于某些复合
 
 第七步是把结果放入证据层。对接输出可以支持“候选 A 在模型口袋中形成合理 pose”或“候选库中若干分子值得复核”，但不能单独支持“候选 A 是强效抑制剂”。如果要形成 claim，需要补文献、MD、自由能、实验或其他证据。`07_研究工作台/证据与claims矩阵.md` 是本项目记录这类边界的入口。
 
+## 代码案例与软件操作
+
+![第 3 章流程解释图](../assets/imagegen/chapter-03-flow-docking-funnel.png){ loading=lazy }
+
+**受体-配体-box-score-filter 漏斗图** 的编号含义如下：
+
+| 编号 | 流程节点 |
+|:---:|:---|
+| 1 | receptor |
+| 2 | ligands |
+| 3 | box |
+| 4 | score |
+| 5 | rescore |
+| 6 | filter |
+| 7 | shortlist |
+
+本节对应软件/界面：**Uni-Dock / Vina-style dry-run**。场景是：用最小受体和 3 个配体验证 box、输入格式、输出表和筛选阈值，而不是直接跑全库。
+
+=== "可复制代码"
+
+    ```bash
+    set -euo pipefail
+    mkdir -p outputs logs
+    cat > inputs/box.tsv <<'BOX'
+    cx	cy	cz	sx	sy	sz
+    12.4	-3.2	8.6	22	22	22
+    BOX
+    unidock --receptor inputs/receptor.pdbqt --ligand_index inputs/ligands.txt \
+      --center_x 12.4 --center_y -3.2 --center_z 8.6 \
+      --size_x 22 --size_y 22 --size_z 22 \
+      --dir outputs > logs/unidock-dry-run.log 2>&1
+    ```
+
+=== "配套文件"
+
+    完整示例文件：[`chapter-03-docking-dry-run.sh`](../assets/code/chapter-03-docking-dry-run.sh)
+
+![第 3 章软件操作截图](../assets/screenshots/chapter-03-docking-funnel.png){ loading=lazy }
+
+| 步骤 | 操作 |
+|:---:|:---|
+| 1 | 准备受体、配体和 box 参数表。 |
+| 2 | 先跑 1 receptor x 3 ligands 的 dry-run。 |
+| 3 | 把 score、pose 文件和过滤理由写入 manifest。 |
+
+!!! warning "常见错误"
+    docking score 只能做排序线索，不能写成结合自由能或实验 IC50。
+
 ## 关键文献与 BibTeX key
 
-`du_dockey_2023` 支撑大规模分子对接和虚拟筛选工具链。Dockey 的意义不只是提供一个软件名，而是体现批量筛选需要集成受体、配体、运行、可视化和结果管理。本章将其作为“批量 docking 工程化”的锚点。
+<!-- refs:start -->
 
-`agrawal_benchmarking_2019` 关注蛋白-肽 docking benchmark。它提醒我们，蛋白-肽体系与小分子 docking 不同，柔性、界面面积和构象采样难度更高。后续 Chai-1 PPI 和 protein design 任务需要继承这种谨慎态度。
+!!! quote "`du_dockey_2023`"
+    **Nature 风格引用：** Du, L., Geng, C., Zeng, Q., Huang, T., Tang, J., Chu, Y. et al. Dockey: a modern integrated tool for large-scale molecular docking and virtual screening. Briefings in Bioinformatics 24, bbad047 (2023). https://doi.org/10.1093/bib/bbad047
 
-`crampon_machine-learning_2022` 作为 machine-learning docking 方法综述，适合帮助读者理解 AI/ML 对 docking 的贡献：不仅可以参与 scoring，也可以参与 pose prediction、特征学习和重排序。但机器学习方法同样受到训练数据、化学空间和评价指标限制。
+    **DOI/URL：** `10.1093/bib/bbad047`
 
-`gu_benchmarking_2025` 是从 virtual screening 角度评价 AI-powered docking 的重要近期文献。课程使用它来强调：AI docking 的价值需要通过 virtual screening 任务、decoy 设置、enrichment、pose 质量和实际筛选目标共同评估，不能只凭模型宣传判断。
+    **BibTeX key：** `du_dockey_2023`
 
-完整引用见 [附录 C](../appendices/references.md)。第 8 章的 `sui_targeting_2026`、`shen_structure-based_2026` 和 `tomarchio_reproducible_2026` 会进一步展示正向虚拟筛选范文，但这些文献案例仍需与本项目实际结果分开。
+    **Zotero item key：** `UOUH33GQ`
 
+    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+
+!!! quote "`agrawal_benchmarking_2019`"
+    **Nature 风格引用：** Agrawal, P., Singh, H., Srivastava, H. K., Singh, S., Kishore, G. & Raghava, G. P. S. Benchmarking of different molecular docking methods for protein-peptide docking. BMC Bioinformatics 19, 426 (2019). https://doi.org/10.1186/s12859-018-2449-y
+
+    **DOI/URL：** `10.1186/s12859-018-2449-y`
+
+    **BibTeX key：** `agrawal_benchmarking_2019`
+
+    **Zotero item key：** `T2O1ECSF`
+
+    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+
+!!! quote "`crampon_machine-learning_2022`"
+    **Nature 风格引用：** Crampon, K., Giorkallos, A., Deldossi, M., Baud, S. & Steffenel, L. A. Machine-learning methods for ligand–protein molecular docking. Drug Discovery Today 27, 151–164 (2022). https://doi.org/10.1016/j.drudis.2021.09.007
+
+    **DOI/URL：** `10.1016/j.drudis.2021.09.007`
+
+    **BibTeX key：** `crampon_machine-learning_2022`
+
+    **Zotero item key：** `R2W3SF5S`
+
+    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+
+!!! quote "`gu_benchmarking_2025`"
+    **Nature 风格引用：** Gu, S., Shen, C., Zhang, X., Sun, H., Cai, H., Luo, H. et al. Benchmarking AI-powered docking methods from the perspective of virtual screening. Nature Machine Intelligence 7, 509–520 (2025). https://doi.org/10.1038/s42256-025-00993-0
+
+    **DOI/URL：** `10.1038/s42256-025-00993-0`
+
+    **BibTeX key：** `gu_benchmarking_2025`
+
+    **Zotero item key：** `57K986LK`
+
+    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+
+<!-- refs:end -->
 ## 实验/练习入口
 
 练习一：完成一次 docking dry-run。选择一个受体和一个小分子，写清结构来源、配体来源、box 来源、软件版本、参数和输出路径。运行可以是真实小任务，也可以是计划型 dry-run；关键是记录字段完整。最后用 PyMOL 或 Chimera 复核 top pose，并写出保留或淘汰理由。

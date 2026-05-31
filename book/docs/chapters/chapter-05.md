@@ -22,6 +22,22 @@
 
 本章和第 6 章也有直接接口。BoltzDesign1 和 Boltz2 体现了结构预测模型正在向 binder design 和 affinity prediction 扩展，而 RFdiffusion/RFD3 生成的候选 binder 也需要回到本章做亲和力或界面评估。
 
+### Imagegen 知识图谱
+
+![第 5 章知识图谱](../assets/imagegen/chapter-05-knowledge-map.png){ loading=lazy }
+
+| 编号 | 正文权威标签 |
+|:---:|:---|
+| 1 | 输入 YAML |
+| 2 | 结构预测 |
+| 3 | 亲和力输出 |
+| 4 | 置信度 |
+| 5 | 排序 |
+| 6 | 校准 |
+| 7 | 证据边界 |
+
+这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
+
 ## 核心概念
 
 结合自由能是亲和力解释的热力学核心。`ΔG_bind` 越负通常表示结合越有利，实验 Kd 越低通常表示亲和力越强，但这个关系依赖标准状态和实验条件。药物设计中常见误读是把任何“越负越好”的 score 都当成真实 ΔG。很多 docking score 是经验或半经验函数，量纲和物理含义并不等同于实验自由能。
@@ -48,16 +64,110 @@
 
 第六步是形成决策。亲和力预测结果可以支持“候选进入下一轮复核”“候选暂缓”“需要重新准备输入”“需要实验验证”这类决策。不要把模型输出直接写成“已验证强结合”。对于课题申请或论文草稿，建议使用“模型预测提示”“计算结果支持优先复核”“仍需实验验证”等保守表述。
 
+## 代码案例与软件操作
+
+![第 5 章流程解释图](../assets/imagegen/chapter-05-flow-boltz2-interpretation.png){ loading=lazy }
+
+**Boltz2 输入-输出-解释流程图** 的编号含义如下：
+
+| 编号 | 流程节点 |
+|:---:|:---|
+| 1 | FASTA/SMILES |
+| 2 | YAML |
+| 3 | prediction |
+| 4 | confidence |
+| 5 | rank |
+| 6 | interpret |
+
+本节对应软件/界面：**Boltz2 result table dry-run**。场景是：读取 Boltz2 结果表，生成排序摘要，并明确 affinity 输出是模型预测值而不是实验测定值。
+
+=== "可复制代码"
+
+    ```python
+    import pandas as pd
+
+    results = pd.read_csv('inputs/boltz2_results.tsv', sep='\t')
+    ranked = results.sort_values(['pred_affinity', 'confidence'], ascending=[True, False])
+    cols = ['candidate_id', 'pred_affinity', 'confidence', 'note']
+    ranked[cols].to_csv('outputs/boltz2_ranked.tsv', sep='\t', index=False)
+    print(ranked[cols].head(5).to_string(index=False))
+    ```
+
+=== "配套文件"
+
+    完整示例文件：[`chapter-05-boltz2-summary.py`](../assets/code/chapter-05-boltz2-summary.py)
+
+![第 5 章软件操作截图](../assets/screenshots/chapter-05-boltz2-results.png){ loading=lazy }
+
+| 步骤 | 操作 |
+|:---:|:---|
+| 1 | 检查 YAML 中链、配体和输入来源。 |
+| 2 | 读取 prediction/affinity/confidence 输出。 |
+| 3 | 按候选排序，并写清模型边界和待验证实验。 |
+
+!!! warning "常见错误"
+    不要只按单一 predicted affinity 下结论；必须同时看置信度、输入质量和适用域。
+
 ## 关键文献与 BibTeX key
 
-`passaro_boltz-2_2025` 是本章核心锚点。Boltz2 提出面向结构和亲和力预测的模型路线，强调在结合亲和力预测上接近更高成本物理方法的目标，同时提供更高效率。课程使用它时要同时强调潜力和边界：它可以成为早期药物发现中有价值的排序和结构-亲和力联合工具，但不能脱离输入质量和适用范围。
+<!-- refs:start -->
 
-`cho_boltzdesign1_2025` 连接第五章和第六章。它体现结构预测模型可以被反向用于 biomolecular binder design。对课程来说，这说明亲和力预测与蛋白设计正在融合，但生成候选仍需要序列设计、回折叠、界面复核和实验验证。
+!!! quote "`passaro_boltz-2_2025`"
+    **Nature 风格引用：** Passaro, S., Corso, G., Wohlwend, J., Reveiz, M., Thaler, S., Somnath, V. R. et al. Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction. bioRxiv (2025). https://doi.org/10.1101/2025.06.14.659707
 
-`wang_deepdtaf_2021` 代表深度学习蛋白-配体亲和力预测路线；`romero-molina_ppi-affinity_2022` 支撑 PPI/肽亲和力预测工具；`chang_ranking_2023` 说明 AlphaFold 类结构信息可以参与 peptide binder ranking；`gu_molecular_2023` 连接 MD 特征与亲和力机器学习；`abramson_accurate_2024` 和 `jumper_highly_2021` 则提供结构预测背景。
+    **DOI/URL：** `10.1101/2025.06.14.659707`
 
-完整引用见 [附录 C](../appendices/references.md)。本章引用时一律使用 BibTeX key，不用 Zotero item key 作为正式引用。
+    **BibTeX key：** `passaro_boltz-2_2025`
 
+    **Zotero item key：** `FF4V8LYV`
+
+    **本章用途：** 亲和力预测、置信度和排序解释的模型边界参考。
+
+!!! quote "`cho_boltzdesign1_2025`"
+    **Nature 风格引用：** Cho, Y., Pacesa, M., Zhang, Z., Correia, B. E. & Ovchinnikov, S. Boltzdesign1: Inverting All-Atom Structure Prediction Model for Generalized Biomolecular Binder Design. bioRxiv (2025). https://doi.org/10.1101/2025.04.06.647261
+
+    **DOI/URL：** `10.1101/2025.04.06.647261`
+
+    **BibTeX key：** `cho_boltzdesign1_2025`
+
+    **Zotero item key：** `CRM22UDT`
+
+    **本章用途：** 亲和力预测、置信度和排序解释的模型边界参考。
+
+!!! quote "`wang_deepdtaf_2021`"
+    **Nature 风格引用：** Wang, K., Zhou, R., Li, Y. & Li, M. DeepDTAF: a deep learning method to predict protein–ligand binding affinity. Briefings in Bioinformatics 22 (2021). https://doi.org/10.1093/bib/bbab072
+
+    **DOI/URL：** `10.1093/bib/bbab072`
+
+    **BibTeX key：** `wang_deepdtaf_2021`
+
+    **Zotero item key：** `95UTFQDM`
+
+    **本章用途：** 亲和力预测、置信度和排序解释的模型边界参考。
+
+!!! quote "`romero-molina_ppi-affinity_2022`"
+    **Nature 风格引用：** Romero-Molina, S., Ruiz-Blanco, Y. B., Mieres-Perez, J., Harms, M., Münch, J., Ehrmann, M. et al. PPI-Affinity: A Web Tool for the Prediction and Optimization of Protein–Peptide and Protein–Protein Binding Affinity. Journal of Proteome Research 21, 1829–1841 (2022). https://doi.org/10.1021/acs.jproteome.2c00020
+
+    **DOI/URL：** `10.1021/acs.jproteome.2c00020`
+
+    **BibTeX key：** `romero-molina_ppi-affinity_2022`
+
+    **Zotero item key：** `YIV9AVT4`
+
+    **本章用途：** MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。
+
+!!! quote "`chang_ranking_2023`"
+    **Nature 风格引用：** Chang, L. & Perez, A. Ranking Peptide Binders by Affinity with AlphaFold**. Angewandte Chemie International Edition 62 (2023). https://doi.org/10.1002/anie.202213362
+
+    **DOI/URL：** `10.1002/anie.202213362`
+
+    **BibTeX key：** `chang_ranking_2023`
+
+    **Zotero item key：** `CRT8PKH3`
+
+    **本章用途：** 结构来源、预测模型边界与可视化复核的文献锚点。
+
+<!-- refs:end -->
 ## 实验/练习入口
 
 练习一：解读 Boltz2 样例记录。阅读 `04_实验记录/Boltz2结果_l6D9Z7.md`，列出输入、输出、结构置信度、亲和力字段和人工判断。指出哪些内容可以作为方法样例，哪些不能作为普遍结论。

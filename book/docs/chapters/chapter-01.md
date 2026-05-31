@@ -22,6 +22,21 @@
 
 本章读法建议是先读 `index.md` 了解全局目录，再读本章讲义建立操作原则，然后回到方法卡完成最小练习。不要一开始就试图安装所有软件。更合理的顺序是先掌握路径、文件和日志，再在第 3 章、第 4 章、第 5 章和第 6 章分别安装或调用具体工具。
 
+### Imagegen 知识图谱
+
+![第 1 章知识图谱](../assets/imagegen/chapter-01-knowledge-map.png){ loading=lazy }
+
+| 编号 | 正文权威标签 |
+|:---:|:---|
+| 1 | 项目根目录 |
+| 2 | 命令行环境 |
+| 3 | 独立软件环境 |
+| 4 | 生化输入文件 |
+| 5 | 校验与日志 |
+| 6 | 实验记录 |
+
+这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
+
 ## 核心概念
 
 工作目录是所有命令的坐标原点。很多初学者在 Windows 文件管理器中可以找到文件，但在 Linux shell 中找不到，是因为没有意识到命令解释器总是从当前目录解析相对路径。`pwd`、`ls`、`cd`、`mkdir`、`cp`、`mv`、`rm`、`find`、`grep` 或 `rg` 看似普通，却决定了后续几乎所有工具能否找到输入。对于 AI_MD 这类项目，应始终先确认当前目录是项目根目录，再运行验证脚本、构建书籍或读取知识库文件。
@@ -50,12 +65,57 @@
 
 第六步是结果归档。临时输出不应直接写入课程正文；应先进入实验记录模板，确认哪些是原始输出，哪些是解析结果，哪些是人工判断，哪些只是失败记录。长期有价值的流程再沉淀为方法卡，有引用价值的论文再进入 Zotero/BibTeX，有教学价值的说明再进入在线书籍。这个流向能保证知识库既能服务 AI 检索，也能服务个人研究。
 
+## 代码案例与软件操作
+
+![第 1 章流程解释图](../assets/imagegen/chapter-01-flow-env-record.png){ loading=lazy }
+
+**环境检查到实验记录流程图** 的编号含义如下：
+
+| 编号 | 流程节点 |
+|:---:|:---|
+| 1 | 确认 cwd |
+| 2 | 检查 Python/conda |
+| 3 | 检查输入文件 |
+| 4 | 运行 dry-run |
+| 5 | 保存日志 |
+| 6 | 写入记录 |
+
+本节对应软件/界面：**PowerShell / Linux shell**。场景是：在项目根目录运行环境和输入文件 dry-run 检查，把输出转成实验记录字段。
+
+=== "可复制代码"
+
+    ```powershell
+    $ErrorActionPreference = 'Stop'
+    $run = '2026-05-31_dry-run'
+    New-Item -ItemType Directory -Force -Path $run, "$run/inputs", "$run/outputs", "$run/logs", "$run/notes" | Out-Null
+    python --version | Tee-Object -FilePath "$run/logs/python-version.log"
+    Get-ChildItem "$run/inputs" -Force | Out-File "$run/logs/input-list.txt"
+    "status	path	note" | Set-Content "$run/notes/qc.tsv"
+    "dry-run	$run	created minimal reproducible task folder" | Add-Content "$run/notes/qc.tsv"
+    ```
+
+=== "配套文件"
+
+    完整示例文件：[`chapter-01-env-check.ps1`](../assets/code/chapter-01-env-check.ps1)
+
+![第 1 章软件操作截图](../assets/screenshots/chapter-01-env-check.png){ loading=lazy }
+
+| 步骤 | 操作 |
+|:---:|:---|
+| 1 | 进入项目根目录并确认 `pwd`/`Get-Location`。 |
+| 2 | 检查 `python`、`conda`、输入目录和日志目录。 |
+| 3 | 把命令、版本、输入路径和退出状态写入记录。 |
+
+!!! warning "常见错误"
+    不要只截取终端成功画面；必须保留命令文本、环境版本、输入路径和日志路径。
+
 ## 关键文献与 BibTeX key
 
-本章不挂接正式 BibTeX key。原因不是本章不重要，而是它主要承担项目规范和操作基础，引用权威应来自后续各专业主题：结构预测见 `jumper_highly_2021`、`abramson_accurate_2024` 和 `akdel_structural_2022`；虚拟筛选见 `du_dockey_2023`、`agrawal_benchmarking_2019`、`crampon_machine-learning_2022` 和 `gu_benchmarking_2025`；MD 和 AI 采样见 `chen_design_2024` 与 `gu_molecular_2023`；亲和力与蛋白设计见第五、六章对应文献。
+<!-- refs:start -->
 
-如果后续要为本章补文献，优先方向应是三类：结构数据库和文件格式规范、HPC/科学计算可复现环境、化学信息学文件处理工具。软件安装教程、博客和论坛讨论可以作为操作参考，但不应作为课程核心学术引用。在线书籍中正式引用仍以 `references/references.bib` 为准，不用 Zotero item key 代替 BibTeX key。
+本章暂无正式 required BibTeX key。它承担运行规范、项目目录和可复现记录的基础训练；正式 SCI 文献锚点在后续结构预测、对接、MD、亲和力预测和蛋白设计章节中展开。
 
+<!-- refs:end -->
 ## 实验/练习入口
 
 练习一：建立一个空白计算任务目录。目录名采用日期加任务名，例如 `2026-05-31_docking-dry-run/`。在其中创建 `inputs/`、`outputs/`、`logs/`、`scripts/` 和 `notes/`。把一个 FASTA、一个 PDB 或一个 SDF 文件放入 `inputs/`，在 `notes/README.md` 中写明来源、用途和是否可公开。这个练习不要求跑任何复杂软件，目标是让读者习惯先建实验容器，再开始计算。

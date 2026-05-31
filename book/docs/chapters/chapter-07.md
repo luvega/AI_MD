@@ -22,6 +22,22 @@ AI_MD 项目的第一版已经有 `CLAUDE.md`、本地 skills、validator、grap
 
 本章没有正式 BibTeX key，因为其主要依据是本项目的工程协议和本地资料，而不是单篇药物设计论文。若后续要扩展，可补充 AI-assisted programming、research software engineering、reproducible computational notebooks 和 knowledge management 相关文献；但首版课程中，项目本身的可执行协议更重要。
 
+### Imagegen 知识图谱
+
+![第 7 章知识图谱](../assets/imagegen/chapter-07-knowledge-map.png){ loading=lazy }
+
+| 编号 | 正文权威标签 |
+|:---:|:---|
+| 1 | 任务说明 |
+| 2 | 读取来源 |
+| 3 | 制定计划 |
+| 4 | 工具执行 |
+| 5 | 验证 |
+| 6 | 评审 |
+| 7 | 沉淀知识 |
+
+这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
+
 ## 核心概念
 
 VibeCoding 不是“凭感觉让 AI 写代码”。在课程语境中，它指一种高上下文、强反馈、持续验证的协作方式。研究者给出目标、素材、约束和验收标准，Agent 读取项目结构、制定计划、修改文件、运行测试、报告结果。有效的 VibeCoding 依赖上下文质量：如果项目没有索引、没有规则、没有测试、没有引用映射，AI 只能靠猜；如果项目结构清晰，AI 就能成为稳定助手。
@@ -48,14 +64,54 @@ GitHub 与在线部署是发布出口，不是唯一来源。GitHub Pages 可以
 
 第六步是记录和发布。每轮重要更新应写入 `log.md` 或维护报告，说明做了什么、来源是什么、测试结果如何、仍有哪些待确认项。GitHub 提交信息应聚焦真实变化。若部署到 Pages，应确认构建成功、URL 可访问、导航正常、搜索正常、没有破损链接。
 
+## 代码案例与软件操作
+
+![第 7 章流程解释图](../assets/imagegen/chapter-07-flow-agent-verify-loop.png){ loading=lazy }
+
+**说明-执行-控制-验证-沉淀闭环图** 的编号含义如下：
+
+| 编号 | 流程节点 |
+|:---:|:---|
+| 1 | brief |
+| 2 | read |
+| 3 | plan |
+| 4 | execute |
+| 5 | validate |
+| 6 | write-back |
+
+本节对应软件/界面：**Codex / Claude Code workflow**。场景是：把 Agent 任务拆成可审查闭环：先读来源，再改文件，最后运行验证并写回维护记录。
+
+=== "可复制代码"
+
+    ```powershell
+    $ErrorActionPreference = 'Stop'
+    python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen
+    python tools/graph_health.py . --json --stale-days 180 | Out-File book/docs/resources/latest-graph-health.json
+    python -m unittest discover -s tests
+    ```
+
+=== "配套文件"
+
+    完整示例文件：[`chapter-07-agent-validation.ps1`](../assets/code/chapter-07-agent-validation.ps1)
+
+![第 7 章软件操作截图](../assets/screenshots/chapter-07-agent-verify-loop.png){ loading=lazy }
+
+| 步骤 | 操作 |
+|:---:|:---|
+| 1 | 给出明确目标、边界和禁止事项。 |
+| 2 | 让 Agent 先读索引、映射和相关章节。 |
+| 3 | 要求输出验证命令、失败项和后续沉淀位置。 |
+
+!!! warning "常见错误"
+    不要把 Agent 回答当作 provenance；真实依据必须回到文件路径、文献 key、测试输出和维护报告。
+
 ## 关键文献与 BibTeX key
 
-本章当前不设置正式 BibTeX key。它的权威来源是项目本地协议、课程原始资料和实际维护记录，而不是某一篇药物设计论文。在线书籍中的正式文献引用集中在结构预测、虚拟筛选、MD、亲和力、蛋白设计和项目案例章节。
+<!-- refs:start -->
 
-如果后续要扩展本章的文献层，建议优先补三类资料。第一类是 research software engineering 和 reproducible computational research，用于支撑“计算记录与验证”的方法论。第二类是 AI-assisted programming 或 agentic software engineering，用于讨论 Codex/Claude Code 类工具的工程边界。第三类是知识图谱、RAG 和科学知识库构建，用于解释为什么 LLM Wiki 需要 typed relations、entity index 和 regression eval。
+本章暂无正式 required BibTeX key。它承担运行规范、项目目录和可复现记录的基础训练；正式 SCI 文献锚点在后续结构预测、对接、MD、亲和力预测和蛋白设计章节中展开。
 
-即便补充这些文献，也应保持本章的实践导向。读者更需要知道“如何让 Agent 安全更新 AI_MD”，而不是阅读泛泛的 AI 工具介绍。所有引用补充都应进入 `references/references.bib` 和 `references/zotero-map.tsv` 后再进入正文。
-
+<!-- refs:end -->
 ## 实验/练习入口
 
 练习一：写一个 Agent 任务单。选择一个小任务，例如“为第 3 章新增一条文献锚点”或“为 Boltz2 样例补实验记录字段”。任务单必须包含目标、输入路径、允许修改文件、禁止事项、验收命令和输出格式。让另一个人或 AI 仅凭任务单执行，检查是否足够清楚。
