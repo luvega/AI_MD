@@ -4,7 +4,7 @@ created: 2026-05-30
 type: experiment-record
 status: complete
 topics: [type/experiment, status/complete, topic/boltz2, topic/affinity, chapter/5]
-source_files: ["第五章/boltz2在线/boltz2.json", "第五章/boltz2在线/boltz2_parsed/summary.json", "第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0.cif", "第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0_plddt.tsv"]
+source_files: ["06_原始学习素材/第五章/boltz2在线/boltz2.json", "06_原始学习素材/第五章/boltz2在线/boltz2_parsed/summary.json", "06_原始学习素材/第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0.cif", "06_原始学习素材/第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0_plddt.tsv"]
 zotero_items: ["FF4V8LYV"]
 bibtex_keys: ["passaro_boltz-2_2025"]
 related: ["../02_方法笔记/Boltz2亲和力预测.md", "../03_文献笔记/Boltz2亲和力预测.md"]
@@ -14,11 +14,11 @@ related: ["../02_方法笔记/Boltz2亲和力预测.md", "../03_文献笔记/Bol
 
 ## 数据来源
 
-- 原始 JSON：`第五章/boltz2在线/boltz2.json`
-- 解析脚本：`第五章/boltz2在线/extract_boltz2.py`
-- 解析摘要：`第五章/boltz2在线/boltz2_parsed/summary.json`
-- 输出结构：`第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0.cif`
-- pLDDT 表：`第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0_plddt.tsv`
+- 原始 JSON：`06_原始学习素材/第五章/boltz2在线/boltz2.json`
+- 解析脚本：`06_原始学习素材/第五章/boltz2在线/extract_boltz2.py`
+- 解析摘要：`06_原始学习素材/第五章/boltz2在线/boltz2_parsed/summary.json`
+- 输出结构：`06_原始学习素材/第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0.cif`
+- pLDDT 表：`06_原始学习素材/第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0_plddt.tsv`
 
 ## 已解析指标
 

@@ -22,6 +22,7 @@ __pycache__/
 node_modules/
 .venv/
 venv/
+book/site/
 
 # Large immutable raw sources stay on disk and are tracked by Markdown indexes,
 # not by local Git by default.
@@ -35,6 +36,9 @@ venv/
 *.pptx
 *.docx
 *.xlsx
+*.mp4
+*.opju
+*.opx
 
 # Local transient exports
 *.log

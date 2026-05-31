@@ -1,17 +1,17 @@
----
+﻿---
 title: "AI_MD LLM Wiki 总索引"
 created: 2026-05-30
 type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 7
-last_reviewed: 2026-05-30
-source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md"]
-zotero_items: []
-bibtex_keys: []
-related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30]
+source_count: 12
+last_reviewed: 2026-05-31
+source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml"]
+zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
+bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
+related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -19,6 +19,22 @@ relations:
     target: "00_项目说明/LLM Wiki运行手册.md"
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md"
+  - type: supports
+    target: "07_研究工作台/_index.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md"
+  - type: supports
+    target: "book/docs/index.md"
+  - type: updates
+    target: "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md"
 ---
 
 # AI_MD LLM Wiki 总索引
@@ -36,14 +52,26 @@ relations:
 | [LLM Wiki 运行手册](00_项目说明/LLM Wiki运行手册.md) | ingest、query、lint、update、git 操作流程 |
 | [概念关系规范](00_项目说明/概念关系规范.md) | typed relation 和 claims 规则 |
 | [项目说明索引](00_项目说明/_index.md) | 项目说明和维护报告入口 |
+| [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
+| [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义骨架，面向第 1-8 章和附录导航 |
+
+## 在线书籍
+
+| 入口 | 用途 |
+|:---|:---|
+| [在线书籍首页](book/docs/index.md) | 《AI 辅助药物设计：从分子建模到研究工作台》课程讲义首页 |
+| [章节映射表](book/book_map.toml) | 章节页面到 AI_MD wiki 来源和 BibTeX key 的 source of truth |
+| [MkDocs 配置](book/mkdocs.yml) | MkDocs Material 站点、导航、搜索和主题配置 |
+| [在线书籍校验器](tools/validate_online_book.py) | 检查章节区块、来源路径、BibTeX key、书内链接和 raw source 链接 |
+| [GitHub Pages workflow](.github/workflows/deploy-book.yml) | 推送到 `master` 后自动构建并发布在线书籍到 GitHub Pages |
 
 ## 章节索引
 
 | 章节 | 入口 | 状态 |
 |:---|:---|:---|
-| 第 1-6 章资料 | [第1-6章资料索引](01_课程章节索引/第1-6章资料索引.md) | 已建主索引 |
-| 第 1-5 章精读 | [章节精读索引](01_课程章节索引/章节精读/_index.md) | 已完成 |
-| 章节-文献映射 | [章节-文献锚点矩阵](01_课程章节索引/章节精读/章节-文献锚点矩阵.md) | 已完成 |
+| 第 1-8 章资料 | [第1-8章资料索引](01_课程章节索引/第1-8章资料索引.md) | 已更新 |
+| 第 1-8 章精读 | [章节精读索引](01_课程章节索引/章节精读/_index.md) | 第 8 章已补齐初版 |
+| 章节-文献映射 | [章节-文献锚点矩阵](01_课程章节索引/章节精读/章节-文献锚点矩阵.md) | P14 已补第 6/8 章锚点 |
 
 ## 方法线索引
 
@@ -57,6 +85,7 @@ relations:
 | Boltz2 与亲和力 | [Boltz2亲和力预测](02_方法笔记/Boltz2亲和力预测.md) | YAML、置信度、亲和力解释 |
 | 亲和力模型综述 | [亲和力模型综述](02_方法笔记/亲和力模型综述.md) | 模型选择和输出解释 |
 | 蛋白设计 | [RFdiffusion与蛋白设计](02_方法笔记/RFdiffusion与蛋白设计.md) | RFdiffusion、ProteinMPNN、BindCraft、LigandMPNN |
+| 互作蛋白虚拟筛选 | [Chai1互作蛋白虚拟筛选](02_方法笔记/Chai1互作蛋白虚拟筛选.md) | Chai-1 批量建模、aggregate score 排序和界面 QC |
 
 ## 文献与 Zotero
 
@@ -66,6 +95,19 @@ relations:
 | [Zotero 映射表](references/zotero-map.tsv) | Zotero item key、BibTeX key、主笔记、章节 |
 | [BibTeX 文件](references/references.bib) | 正式引用条目 |
 | [Zotero 候选表](references/zotero-candidates-2026-05-30.tsv) | 候选、正式提升和人工确认状态 |
+| [P14 文献锚定表](references/zotero-candidates-2026-05-31-P14.tsv) | 第六章 Nature 综述和第八章补充 PDF 的 Zotero/BibTeX 锚定记录 |
+
+## 研究工作台
+
+| 入口 | 用途 |
+|:---|:---|
+| [实体索引](07_研究工作台/实体索引.md) | 靶点、分子、方法、软件、论文、实验模板和章节的轻量实体层 |
+| [证据与 claims 矩阵](07_研究工作台/证据与claims矩阵.md) | docking score、Boltz2、RFD3、Chai-1 和 P14 文献案例的证据强度与边界 |
+| [研究问题与项目池](07_研究工作台/研究问题与项目池.md) | 把课程材料转成个人研究问题、候选靶点、缺口、下一步实验和可产出物 |
+| [阅读队列](07_研究工作台/阅读队列.md) | 后续精读和补 Zotero/BibTeX 锚点的优先级 |
+| [实验队列](07_研究工作台/实验队列.md) | 从项目池进入真实实验记录前的任务队列 |
+| [输出视图](07_研究工作台/输出视图.md) | 面向课件、综述、课题申请、实验记录和 AI Agent 评测的出口 |
+| [AI 回归评测集](07_研究工作台/AI回归评测集.md) | 每轮更新后验收 AI 是否能答出路径、文献 key、边界和待确认项 |
 
 ## 实验记录
 
@@ -75,14 +117,15 @@ relations:
 | [Boltz2 结果 l6D9Z7](04_实验记录/Boltz2结果_l6D9Z7.md) | 当前最完整的运行结果样例 |
 | [RFdiffusion 骨架生成模板](04_实验记录/模板_RFdiffusion骨架生成记录.md) | 第六章骨架生成记录 |
 | [ProteinMPNN 序列设计模板](04_实验记录/模板_ProteinMPNN序列设计记录.md) | 第六章序列设计记录 |
+| [Chai-1 互作蛋白虚拟筛选模板](04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md) | 第八章 PPI 筛选记录 |
 
 ## 原始资料和附件
 
 | 入口 | 用途 |
 |:---|:---|
 | [附件清单](05_附件索引/附件清单.md) | PDF、压缩包、脚本、表格、JSON、CIF、TSV 等附件 |
-| [PDF 全文提取总览](06_原始学习素材/PDF全文提取总览.md) | 6 份规范 PDF 的全文提取状态 |
-| [OCR 质量收敛报告](06_原始学习素材/PDF OCR质量收敛报告.md) | 54 个低文本页 OCR 结果 |
+| [PDF 全文提取总览](06_原始学习素材/PDF全文提取总览.md) | 12 份课程/补充 PDF 的全文提取状态 |
+| [OCR 质量收敛报告](06_原始学习素材/PDF OCR质量收敛报告.md) | 101 个低文本页 OCR 结果 |
 
 ## 维护报告
 
@@ -93,12 +136,19 @@ relations:
 | [P9 LLM Wiki Agent落地](00_项目说明/知识库维护报告-2026-05-30-P9-LLM-Wiki-Agent落地.md) | 根索引、日志、skill 联用和本地 Git 版本史 |
 | [P10 wiki-lint 健康检查](00_项目说明/知识库维护报告-2026-05-30-P10-wiki-lint健康检查.md) | LLM Wiki 高层健康检查、附件覆盖修复和 P11 schema 增强建议 |
 | [P11 schema 增强](00_项目说明/知识库维护报告-2026-05-30-P11-schema增强.md) | 核心方法卡、文献笔记和维护报告的 typed relations 补齐 |
+| [P12 新增原始素材全库更新](00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md) | 新增原始素材摄入、第六章 PDF 提取、章节精读和索引验收 |
+| [P13 第八章计算思路解析摄入](00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md) | 第八章资料解包、PDF 提取、Chai-1 方法卡和章节精读 |
+| [P14 文献锚定](00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md) | 第六章 Nature 综述和第八章补充 PDF 的 Zotero/BibTeX 映射 |
+| [P15-P19 研究知识图谱工作台](00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md) | 实体层、claims 层、个人研究工作台、AI 回归评测和输出视图 |
+| [P20 在线书籍骨架](00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md) | MkDocs Material 课程讲义骨架、章节映射和在线书籍校验器 |
+| [P21 GitHub Pages 部署配置](00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md) | `luvega/AI_MD` Pages workflow、站点 URL 和上线注意事项 |
 
 ## 综合与开放问题
 
 | 主题 | 当前状态 |
 |:---|:---|
-| 第 6 章运行结果 | 方法卡和模板已完成，`第六章/第六章RFD3_第七章.rar` 尚未解压运行 |
+| 第 6 章运行结果 | 新增 RFD3 PDF 已提取；尚未发现实际 RFD3 运行输出 |
+| 第 8 章资料 | 已解包并完成主 PDF/补充 PDF 提取、章节精读和 Chai-1 方法卡 |
 | Zotero 本地 API | 曾出现 HTTP 502；人工确认条目已在 P5 记录 |
 | OCR 人工复核 | 仍有少数页面正式引用前建议对照原 PDF |
 | Git 版本史 | 本轮启用本地 Git，不配置 remote、不 push |
@@ -111,10 +161,18 @@ relations:
 - [2026-05-30] maintenance | P9 LLM Wiki Agent落地报告
 - [2026-05-30] lint | P10 wiki-lint 健康检查
 - [2026-05-30] update | P11 schema 增强
+- [2026-05-31] ingest | P12 新增原始素材全库更新
+- [2026-05-31] ingest | P13 第八章计算思路解析摄入
+- [2026-05-31] zotero | P14 第六章/第八章文献锚定
+- [2026-05-31] update | P15-P19 研究知识图谱与个人工作台
+- [2026-05-31] update | P20 在线书籍分章节骨架
+- [2026-05-31] update | P21 GitHub Pages 部署配置
 
 ## 待确认项
 
 - 是否把 Obsidian Dataview 查询、Web Clipper 设置和固定首页写入 `.obsidian/` 配置。
 - 是否为本地 Git 版本史配置远程仓库；当前默认不配置 remote、不 push。
-- 第六章压缩包资料是否进入实际运行阶段；当前只完成方法卡和实验记录模板。
-- 是否进入 P12，按目录继续补齐旧笔记和模板页的 `wiki_role`、`claims` 和 typed `relations`。
+- 第六章补充资料是否进入实际运行阶段；当前只完成 PDF 提取、方法卡和实验记录模板。
+- Chai-1 工具链是否需要补正式方法论文或官方文档锚点；P14 只锚定第八章补充 PDF 和第六章 Nature 综述。
+- 图谱体检已能统计实体、孤立页、缺 key 和过期 review；下一轮可逐步给旧模板页补 `last_reviewed` 或确认是否从图谱扫描中排除。
+- 在线书籍首版是课程讲义骨架，不是公开教材成品；公开发布前仍需版权审查、图表替换和引用格式统一。

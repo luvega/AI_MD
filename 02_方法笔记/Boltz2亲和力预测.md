@@ -4,7 +4,7 @@ created: 2026-05-30
 type: method-note
 status: complete
 topics: [type/method, status/complete, topic/boltz2, topic/affinity, chapter/5]
-source_files: ["06_原始学习素材/第05章_亲和力计算/原始PDF/第五章AI多组分亲和力计算.pdf", "06_原始学习素材/第05章_亲和力计算/全文提取/第五章AI多组分亲和力计算/全文.md", "第五章/boltz2在线/boltz2.json", "第五章/boltz2在线/extract_boltz2.py", "第五章/boltz2在线/boltz2_parsed/summary.json"]
+source_files: ["06_原始学习素材/第05章_亲和力计算/原始PDF/第五章AI多组分亲和力计算.pdf", "06_原始学习素材/第05章_亲和力计算/全文提取/第五章AI多组分亲和力计算/全文.md", "06_原始学习素材/第五章/boltz2在线/boltz2.json", "06_原始学习素材/第五章/boltz2在线/extract_boltz2.py", "06_原始学习素材/第五章/boltz2在线/boltz2_parsed/summary.json"]
 zotero_items: ["FF4V8LYV", "CRM22UDT", "PE42AXJX"]
 bibtex_keys: ["passaro_boltz-2_2025", "cho_boltzdesign1_2025", "abramson_accurate_2024"]
 related: ["../01_课程章节索引/章节精读/第05章_AI多组分亲和力计算精读.md", "../04_实验记录/Boltz2结果_l6D9Z7.md", "../04_实验记录/模板_Boltz2亲和力记录.md", "../03_文献笔记/Boltz2亲和力预测.md", "../03_文献笔记/亲和力模型与肽结合排序.md"]
@@ -29,11 +29,11 @@ relations:
 
 ## 当前已有数据
 
-- 原始输出：`第五章/boltz2在线/boltz2.json`
-- 解析脚本：`第五章/boltz2在线/extract_boltz2.py`
-- 指标摘要：`第五章/boltz2在线/boltz2_parsed/summary.json`
-- 结构模型：`第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0.cif`
-- 残基层面 pLDDT：`第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0_plddt.tsv`
+- 原始输出：`06_原始学习素材/第五章/boltz2在线/boltz2.json`
+- 解析脚本：`06_原始学习素材/第五章/boltz2在线/extract_boltz2.py`
+- 指标摘要：`06_原始学习素材/第五章/boltz2在线/boltz2_parsed/summary.json`
+- 结构模型：`06_原始学习素材/第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0.cif`
+- 残基层面 pLDDT：`06_原始学习素材/第五章/boltz2在线/boltz2_parsed/l6D9Z7_model_0_plddt.tsv`
 
 ## 可执行流程
 

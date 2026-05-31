@@ -1,0 +1,126 @@
+book_title = "AI 辅助药物设计：从分子建模到研究工作台"
+audience = "课程讲义读者"
+version = "v0.1-navigation-skeleton"
+
+[[chapters]]
+title = "第 1 章 Linux 与生化计算基础"
+slug = "chapter-01"
+page = "chapters/chapter-01.md"
+chapter_source = "01_课程章节索引/章节精读/第01章_Linux与生化基础精读.md"
+method_sources = ["02_方法笔记/Linux与生化基础.md"]
+literature_sources = []
+experiment_sources = []
+workbench_sources = []
+required_bibtex_keys = []
+
+[[chapters]]
+title = "第 2 章 结构来源、PyMOL 与 Chimera 可视化"
+slug = "chapter-02"
+page = "chapters/chapter-02.md"
+chapter_source = "01_课程章节索引/章节精读/第02章_PyMOL与Chimera可视化精读.md"
+method_sources = ["02_方法笔记/PyMOL与Chimera可视化.md"]
+literature_sources = ["03_文献笔记/AlphaFold结构预测.md"]
+experiment_sources = []
+workbench_sources = []
+required_bibtex_keys = ["jumper_highly_2021", "abramson_accurate_2024", "akdel_structural_2022"]
+
+[[chapters]]
+title = "第 3 章 AI 多组分对接与虚拟筛选"
+slug = "chapter-03"
+page = "chapters/chapter-03.md"
+chapter_source = "01_课程章节索引/章节精读/第03章_AI多组分对接与虚拟筛选精读.md"
+method_sources = ["02_方法笔记/AI多组分对接与虚拟筛选.md", "02_方法笔记/MSA与Uni-Dock补充.md"]
+literature_sources = ["03_文献笔记/分子对接与虚拟筛选.md"]
+experiment_sources = ["04_实验记录/模板_对接虚拟筛选记录.md"]
+workbench_sources = ["07_研究工作台/证据与claims矩阵.md"]
+required_bibtex_keys = ["du_dockey_2023", "agrawal_benchmarking_2019", "crampon_machine-learning_2022", "gu_benchmarking_2025"]
+
+[[chapters]]
+title = "第 4 章 AI 采样、分子模拟与 MD 结果解释"
+slug = "chapter-04"
+page = "chapters/chapter-04.md"
+chapter_source = "01_课程章节索引/章节精读/第04章_AI采样与分子模拟精读.md"
+method_sources = ["02_方法笔记/MD_BioEmu_AI采样.md"]
+literature_sources = ["03_文献笔记/分子模拟与生成式设计.md"]
+experiment_sources = ["04_实验记录/模板_MD_BioEmu采样记录.md", "04_实验记录/蒙特卡洛采样.md"]
+workbench_sources = ["07_研究工作台/证据与claims矩阵.md"]
+required_bibtex_keys = ["chen_design_2024", "gu_molecular_2023"]
+
+[[chapters]]
+title = "第 5 章 亲和力预测、Boltz2 与模型评估"
+slug = "chapter-05"
+page = "chapters/chapter-05.md"
+chapter_source = "01_课程章节索引/章节精读/第05章_AI多组分亲和力计算精读.md"
+method_sources = ["02_方法笔记/Boltz2亲和力预测.md", "02_方法笔记/亲和力模型综述.md"]
+literature_sources = ["03_文献笔记/Boltz2亲和力预测.md", "03_文献笔记/亲和力模型与肽结合排序.md", "03_文献笔记/AlphaFold结构预测.md"]
+experiment_sources = ["04_实验记录/模板_Boltz2亲和力记录.md", "04_实验记录/Boltz2结果_l6D9Z7.md"]
+workbench_sources = ["07_研究工作台/证据与claims矩阵.md", "07_研究工作台/实验队列.md"]
+required_bibtex_keys = ["passaro_boltz-2_2025", "cho_boltzdesign1_2025", "wang_deepdtaf_2021", "romero-molina_ppi-affinity_2022", "chang_ranking_2023"]
+
+[[chapters]]
+title = "第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计"
+slug = "chapter-06"
+page = "chapters/chapter-06.md"
+chapter_source = "01_课程章节索引/章节精读/第06章_RFD3多组分设计精读.md"
+method_sources = ["02_方法笔记/RFdiffusion与蛋白设计.md"]
+literature_sources = ["03_文献笔记/RFdiffusion蛋白设计.md", "03_文献笔记/ProteinMPNN序列设计.md", "03_文献笔记/BindCraft与LigandMPNN.md"]
+experiment_sources = ["04_实验记录/模板_RFdiffusion骨架生成记录.md", "04_实验记录/模板_ProteinMPNN序列设计记录.md", "04_实验记录/模板_BindCraft_LigandMPNN设计记录.md"]
+workbench_sources = ["07_研究工作台/证据与claims矩阵.md", "07_研究工作台/实验队列.md"]
+required_bibtex_keys = ["watson_novo_2023", "ahern_atom_2025", "bennett_atomically_2025", "dauparas_robust_2022", "pacesa_bindcraft_2024", "dauparas_atomic_2025", "yang_w_past_2026"]
+
+[[chapters]]
+title = "第 7 章 VibeCoding、Claude Code 与 AI Agent 工作流"
+slug = "chapter-07"
+page = "chapters/chapter-07.md"
+chapter_source = "01_课程章节索引/章节精读/第07章_VibeCoding与ClaudeCode精读.md"
+method_sources = ["00_项目说明/LLM Wiki运行手册.md", "00_项目说明/插件与Skills调用说明.md"]
+literature_sources = []
+experiment_sources = []
+workbench_sources = ["07_研究工作台/AI回归评测集.md"]
+required_bibtex_keys = []
+
+[[chapters]]
+title = "第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合"
+slug = "chapter-08"
+page = "chapters/chapter-08.md"
+chapter_source = "01_课程章节索引/章节精读/第08章_计算思路解析精读.md"
+method_sources = ["02_方法笔记/Chai1互作蛋白虚拟筛选.md", "02_方法笔记/AI多组分对接与虚拟筛选.md", "02_方法笔记/RFdiffusion与蛋白设计.md"]
+literature_sources = ["03_文献笔记/分子对接与虚拟筛选.md", "03_文献笔记/RFdiffusion蛋白设计.md"]
+experiment_sources = ["04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md"]
+workbench_sources = ["07_研究工作台/实体索引.md", "07_研究工作台/证据与claims矩阵.md", "07_研究工作台/研究问题与项目池.md"]
+required_bibtex_keys = ["sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "yang_w_past_2026"]
+
+[[appendices]]
+title = "附录 A 研究问题与项目池"
+slug = "research-workbench"
+page = "appendices/research-workbench.md"
+workbench_sources = ["07_研究工作台/研究问题与项目池.md", "07_研究工作台/实体索引.md", "07_研究工作台/实验队列.md"]
+required_bibtex_keys = ["sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "passaro_boltz-2_2025"]
+
+[[appendices]]
+title = "附录 B 实验记录模板索引"
+slug = "experiment-templates"
+page = "appendices/experiment-templates.md"
+experiment_sources = ["04_实验记录/_index.md", "04_实验记录/模板_对接虚拟筛选记录.md", "04_实验记录/模板_Boltz2亲和力记录.md", "04_实验记录/模板_RFdiffusion骨架生成记录.md", "04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md"]
+required_bibtex_keys = []
+
+[[appendices]]
+title = "附录 C Zotero 与 BibTeX 引用表"
+slug = "references"
+page = "appendices/references.md"
+workbench_sources = ["references/zotero-map.tsv", "references/references.bib"]
+required_bibtex_keys = ["passaro_boltz-2_2025", "watson_novo_2023", "du_dockey_2023", "sui_targeting_2026", "yang_w_past_2026"]
+
+[[appendices]]
+title = "附录 D AI 回归评测任务"
+slug = "ai-eval"
+page = "appendices/ai-eval.md"
+workbench_sources = ["07_研究工作台/AI回归评测集.md", "tools/graph_health.py", "tools/validate_online_book.py"]
+required_bibtex_keys = ["sui_targeting_2026", "yang_w_past_2026", "passaro_boltz-2_2025"]
+
+[[appendices]]
+title = "附录 E 知识边界与版权说明"
+slug = "boundaries"
+page = "appendices/boundaries.md"
+workbench_sources = ["07_研究工作台/证据与claims矩阵.md", "00_项目说明/项目背景.md", "CLAUDE.md"]
+required_bibtex_keys = []

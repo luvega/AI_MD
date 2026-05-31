@@ -1,4 +1,4 @@
----
+﻿---
 title: "Linux 与生化基础"
 created: 2026-05-30
 type: method-note
@@ -7,7 +7,7 @@ topics: [type/method, status/active, topic/linux, chapter/1]
 source_files: ["06_原始学习素材/第01章_Linux与生化基础/原始PDF/第一章Linux与生化基础.pdf"]
 zotero_items: []
 bibtex_keys: []
-related: ["../01_课程章节索引/第1-6章资料索引.md"]
+related: ["../01_课程章节索引/第1-8章资料索引.md"]
 ---
 
 # Linux 与生化基础

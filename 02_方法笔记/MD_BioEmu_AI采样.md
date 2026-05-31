@@ -4,17 +4,19 @@ created: 2026-05-30
 type: method-note
 status: active
 topics: [type/method, status/active, topic/molecular-dynamics, topic/bioemu, chapter/4]
-source_files: ["06_原始学习素材/第04章_AI采样与分子模拟/原始PDF/第四章修改AI采样与多组分多修饰分子模拟.pdf", "06_原始学习素材/第04章_AI采样与分子模拟/全文提取/第四章修改AI采样与多组分多修饰分子模拟/全文.md", "第四章/第四章MD_bioemu.rar"]
+source_files: ["06_原始学习素材/第04章_AI采样与分子模拟/原始PDF/第四章修改AI采样与多组分多修饰分子模拟.pdf", "06_原始学习素材/第04章_AI采样与分子模拟/全文提取/第四章修改AI采样与多组分多修饰分子模拟/全文.md", "06_原始学习素材/第四章/补充资料/mdp纯蛋白体系", "06_原始学习素材/第四章/补充资料/金属离子力场", "06_原始学习素材/第四章/安装包与视频"]
 zotero_items: ["BR4AMZPF", "92GPX1OI"]
 bibtex_keys: ["chen_design_2024", "gu_molecular_2023"]
 related: ["../01_课程章节索引/章节精读/第04章_AI采样与分子模拟精读.md", "../03_文献笔记/分子模拟与生成式设计.md", "../04_实验记录/模板_MD_BioEmu采样记录.md"]
 wiki_role: method
-source_count: 5
-last_reviewed: 2026-05-30
+source_count: 7
+last_reviewed: 2026-05-31
 claims: [chen_design_2024, gu_molecular_2023]
 relations:
   - type: derived_from
     target: "../06_原始学习素材/第04章_AI采样与分子模拟/全文提取/第四章修改AI采样与多组分多修饰分子模拟/全文.md"
+  - type: derived_from
+    target: "../06_原始学习素材/第四章/补充资料/mdp纯蛋白体系/md.mdp"
   - type: supports
     target: "../03_文献笔记/分子模拟与生成式设计.md"
   - type: applies_to
@@ -29,7 +31,7 @@ relations:
 
 ## 知识库落点
 
-- 原始课程 PDF 和 RAR 资料保留在 `第四章/`。
+- 原始课程 PDF、GROMACS 参数、安装脚本、力场说明和可视化/自由能示例保留在 `06_原始学习素材/第四章/`。
 - 运行参数、自由能谷底结构抽提、BioEmu 结果解释写入 `04_实验记录/`，优先使用 `模板_MD_BioEmu采样记录.md`。
 - 与生成式多肽/抑制剂设计和 MD 验证相关的文献连接到 `chen_design_2024`。
 - 与 MD refinement 和机器学习亲和力预测边界相关的文献连接到 `gu_molecular_2023`。

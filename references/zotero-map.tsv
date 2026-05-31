@@ -20,3 +20,8 @@ AlphaFold peptide affinity ranking	CRT8PKH3	chang_ranking_2023	Ranking Peptide B
 MD-assisted affinity ML	92GPX1OI	gu_molecular_2023	Can molecular dynamics simulations improve predictions of protein-ligand binding affinity with machine learning?	2023	03_文献笔记/分子模拟与生成式设计.md	第四章;第五章
 AlphaFold peptide benchmark	VKKT2HE0	mcdonald_benchmarking_2023	Benchmarking AlphaFold2 on peptide structure prediction	2023	03_文献笔记/AlphaFold结构预测.md	第二章;第五章
 AlphaFold2 community assessment	5GOGPC63	akdel_structural_2022	A structural biology community assessment of AlphaFold2 applications	2022	03_文献笔记/AlphaFold结构预测.md	第二章
+De novo protein design review	TPR3JY6N	yang_w_past_2026	The past, present and future of de novo protein design	2026	03_文献笔记/RFdiffusion蛋白设计.md	第六章;第八章
+UXS1 virtual screening	QXKW6K78	sui_targeting_2026	Targeting UXS1-Dependent Glucuronate Detoxification Potentiates Metformin's Anti-Tumor Efficacy in Lung Adenocarcinoma	2026	03_文献笔记/分子对接与虚拟筛选.md	第八章
+APE1 virtual screening	YUMKNHSK	shen_structure-based_2026	Structure-based virtual screening identifies novel small-molecule inhibitors targeting the endonuclease active site of APE1	2026	03_文献笔记/分子对接与虚拟筛选.md	第八章
+Scaffold-aware ML virtual screening	Y4ARSYCQ	tomarchio_reproducible_2026	A Reproducible Hierarchical Virtual Screening Framework Integrating Scaffold-Aware Machine Learning, Ensemble Docking, and Molecular Dynamics: Application to IDO1	2026	03_文献笔记/分子对接与虚拟筛选.md	第八章
+BabA de novo binder design	V6Y5EEZL	zhu_novo_2026	De novo design of binder proteins targeting Helicobacter pylori adhesin BabA	2026	03_文献笔记/RFdiffusion蛋白设计.md	第八章;第六章

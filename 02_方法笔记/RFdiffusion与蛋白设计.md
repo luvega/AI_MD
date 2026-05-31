@@ -4,17 +4,19 @@ created: 2026-05-30
 type: method-note
 status: active
 topics: [type/method, status/active, topic/rfdiffusion, topic/protein-design, chapter/6]
-source_files: ["第六章/第六章RFD3_第七章.rar"]
-zotero_items: ["UKX5E6IB", "ZYFCZKMH", "EBQ7CNVI", "V2WLND5M", "QCD2DXXI", "UN6R4C6J"]
-bibtex_keys: ["watson_novo_2023", "ahern_atom_2025", "bennett_atomically_2025", "dauparas_robust_2022", "pacesa_bindcraft_2024", "dauparas_atomic_2025"]
+source_files: ["06_原始学习素材/第六章/第六七章RFD3多组分设计.pdf", "06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/全文.md", "06_原始学习素材/第六章/补充资料/rfd3_disco/区别.html", "06_原始学习素材/第六章/补充资料/蛋白设计最新文献/s41586-026-10328-7(1).pdf", "06_原始学习素材/第八章/解包/第八章思路解析/蛋白设计/蛋白设计.pdf"]
+zotero_items: ["UKX5E6IB", "ZYFCZKMH", "EBQ7CNVI", "V2WLND5M", "QCD2DXXI", "UN6R4C6J", "TPR3JY6N", "V6Y5EEZL"]
+bibtex_keys: ["watson_novo_2023", "ahern_atom_2025", "bennett_atomically_2025", "dauparas_robust_2022", "pacesa_bindcraft_2024", "dauparas_atomic_2025", "yang_w_past_2026", "zhu_novo_2026"]
 related: ["../03_文献笔记/RFdiffusion蛋白设计.md", "../03_文献笔记/ProteinMPNN序列设计.md", "../03_文献笔记/BindCraft与LigandMPNN.md", "../04_实验记录/模板_RFdiffusion骨架生成记录.md", "../04_实验记录/模板_ProteinMPNN序列设计记录.md", "../04_实验记录/模板_BindCraft_LigandMPNN设计记录.md"]
 wiki_role: method
-source_count: 7
-last_reviewed: 2026-05-30
-claims: [watson_novo_2023, ahern_atom_2025, bennett_atomically_2025, dauparas_robust_2022, pacesa_bindcraft_2024, dauparas_atomic_2025]
+source_count: 11
+last_reviewed: 2026-05-31
+claims: [watson_novo_2023, ahern_atom_2025, bennett_atomically_2025, dauparas_robust_2022, pacesa_bindcraft_2024, dauparas_atomic_2025, yang_w_past_2026, zhu_novo_2026]
 relations:
   - type: derived_from
-    target: "../第六章/第六章RFD3_第七章.rar"
+    target: "../06_原始学习素材/第六章/第六七章RFD3多组分设计.pdf"
+  - type: derived_from
+    target: "../06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/全文.md"
   - type: supports
     target: "../03_文献笔记/RFdiffusion蛋白设计.md"
   - type: extends
@@ -27,18 +29,19 @@ relations:
 
 # RFdiffusion 与蛋白设计
 
-第六章资料包指向 RFdiffusion/RFD3 与蛋白设计主题。知识库把这条方法线拆成四层：任务定义、骨架生成、序列设计、结构/功能复核。当前资料包尚未解压运行，本方法卡先给出可执行记录规范，后续任何实际运行都应按模板写入 `04_实验记录/`。
+第六章新增 PDF 指向 RFdiffusion/RFD3 与蛋白设计主题。知识库把这条方法线拆成四层：任务定义、骨架生成、序列设计、结构/功能复核。当前已有课件全文提取和 OCR，但尚未出现实际 RFD3 运行输出；后续任何实际运行都应按模板写入 `04_实验记录/`。
 
 ## 方法层次
 
 - RFdiffusion：从结构约束生成蛋白骨架。
 - RFdiffusion2：更细粒度地处理活性位点和原子级 scaffolding。
+- RFD3/RFdiffusion3：面向全原子、多组分复合物设计，覆盖蛋白、小分子、核酸、binder 和理论酶等复杂约束场景。
 - ProteinMPNN：给定骨架进行序列设计。
 - BindCraft/LigandMPNN：面向功能 binder 或配体环境的设计流程。
 
 ## 可执行流程
 
-1. 定义设计任务：de novo fold、motif scaffolding、enzyme active-site scaffolding、protein binder、antibody/binder 或 ligand-aware sequence design。
+1. 定义设计任务：de novo fold、motif scaffolding、enzyme active-site scaffolding、protein binder、antibody/binder、nucleic-acid binder 或 ligand-aware sequence design。
 2. 准备目标结构：记录 PDB/mmCIF/预测模型路径、链 ID、保留链、配体/金属/辅因子、低置信区和需要固定的 motif。
 3. 定义约束：记录 hotspot residues、contig map、固定残基、对称性、界面距离、活性位点几何或配体邻近残基。
 4. 运行骨架生成：记录 RFdiffusion/RFD3/RFdiffusion2 版本、checkpoint、seed、num_designs、输入 PDB、contig 和输出目录。
@@ -47,6 +50,18 @@ relations:
 7. 结构回折叠验证：用 AlphaFold2/AlphaFold3/Boltz2 或同类工具验证设计序列，记录 pLDDT、pTM/ipTM、PAE、interface pLDDT、motif RMSD 和是否保持目标界面。
 8. 功能复核：对 binder 看界面面积、氢键/盐桥/疏水接触、形状互补、电荷互补；对 enzyme scaffold 看活性位点几何、催化残基距离和底物方向；对 ligand-aware 设计看配体邻近残基构象。
 9. 进入后续验证：合格设计进入 docking、MD/BioEmu、Boltz2/亲和力预测、表达可行性评估或实验合成；失败设计保留淘汰原因。
+
+## 第六章课件锚点
+
+| 主题 | 来源页 | 方法含义 |
+|:---|:---|:---|
+| 蛋白设计范式演进 | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-003.md` | 从 Rosetta/AlphaFold 过渡到生成式 AI |
+| ProteinMPNN | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-016.md` | 骨架到序列的关键步骤 |
+| RFdiffusion | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-018.md` | 扩散生成蛋白结构和功能 |
+| RFdiffusion 演进 | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-021.md` | 从结构生成走向多分子体系生成 |
+| RFD3/RFdiffusion3 | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-035.md` | 全原子、多组分复杂约束设计 |
+| 核酸抑制剂设计 | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-081.md` | 转录因子/核酸药物场景 |
+| 理论酶设计 | `06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/pages/page-094.md` | 酶 scaffold、QM/DFT 假设和几何复核 |
 
 ## 输入检查表
 
@@ -99,3 +114,5 @@ relations:
 - `bennett_atomically_2025`：抗体和表位特异性 binder 设计扩展。
 - `dauparas_robust_2022`：ProteinMPNN 序列设计。
 - `pacesa_bindcraft_2024`、`dauparas_atomic_2025`：后续 binder 和 ligand-aware 设计。
+- `yang_w_past_2026`：第六章新增 Nature 综述锚点，用于把 de novo protein design 的历史、当前工具链和未来方向串到同一条方法谱系。
+- `zhu_novo_2026`：第八章 BabA binder 范文锚点，用于教学拆解 RFdiffusion3、ProteinMPNN、回折叠、对接和 MD 的流程边界。

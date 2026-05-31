@@ -4,14 +4,14 @@ created: 2026-05-30
 type: method-note
 status: active
 topics: [type/method, status/active, topic/docking, chapter/3]
-source_files: ["06_原始学习素材/第03章_AI多组分对接与虚拟筛选/原始PDF/第三章AI多组分对接与正-反-互作虚拟筛选.pdf", "06_原始学习素材/第03章_AI多组分对接与虚拟筛选/全文提取/第三章AI多组分对接与正-反-互作虚拟筛选/全文.md"]
-zotero_items: ["UOUH33GQ", "T2O1ECSF", "R2W3SF5S", "57K986LK"]
-bibtex_keys: ["du_dockey_2023", "agrawal_benchmarking_2019", "crampon_machine-learning_2022", "gu_benchmarking_2025"]
+source_files: ["06_原始学习素材/第03章_AI多组分对接与虚拟筛选/原始PDF/第三章AI多组分对接与正-反-互作虚拟筛选.pdf", "06_原始学习素材/第03章_AI多组分对接与虚拟筛选/全文提取/第三章AI多组分对接与正-反-互作虚拟筛选/全文.md", "06_原始学习素材/第八章/解包/第八章思路解析/正向虚拟筛选/一区14.1Advanced Science - 2026.pdf", "06_原始学习素材/第八章/解包/第八章思路解析/正向虚拟筛选/三区3.9正向虚拟筛选.pdf", "06_原始学习素材/第八章/解包/第八章思路解析/正向虚拟筛选/基于已有数据微调的机器学习的AI虚拟筛选.pdf"]
+zotero_items: ["UOUH33GQ", "T2O1ECSF", "R2W3SF5S", "57K986LK", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ"]
+bibtex_keys: ["du_dockey_2023", "agrawal_benchmarking_2019", "crampon_machine-learning_2022", "gu_benchmarking_2025", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026"]
 related: ["../01_课程章节索引/章节精读/第03章_AI多组分对接与虚拟筛选精读.md", "../03_文献笔记/分子对接与虚拟筛选.md", "../04_实验记录/模板_对接虚拟筛选记录.md", "MSA与Uni-Dock补充.md"]
 wiki_role: method
-source_count: 6
-last_reviewed: 2026-05-30
-claims: [du_dockey_2023, agrawal_benchmarking_2019, crampon_machine-learning_2022, gu_benchmarking_2025]
+source_count: 9
+last_reviewed: 2026-05-31
+claims: [du_dockey_2023, agrawal_benchmarking_2019, crampon_machine-learning_2022, gu_benchmarking_2025, sui_targeting_2026, shen_structure-based_2026, tomarchio_reproducible_2026]
 relations:
   - type: derived_from
     target: "../06_原始学习素材/第03章_AI多组分对接与虚拟筛选/全文提取/第三章AI多组分对接与正-反-互作虚拟筛选/全文.md"
@@ -29,7 +29,7 @@ relations:
 
 ## 知识库落点
 
-- 课程 PDF 已归档到 `06_原始学习素材/第03章_AI多组分对接与虚拟筛选/`；压缩包仍放在 `第三章/`。
+- 课程 PDF 已归档到 `06_原始学习素材/第03章_AI多组分对接与虚拟筛选/`；补充压缩包统一保留在 `06_原始学习素材/第三章/`。
 - 对接方法总结写入本笔记。
 - 具体靶点、配体、参数和结果应写入 `04_实验记录/`，优先使用 `模板_对接虚拟筛选记录.md`。
 - 文献依据见 `03_文献笔记/分子对接与虚拟筛选.md`。
@@ -90,6 +90,7 @@ relations:
 - `crampon_machine-learning_2022` 用于解释机器学习 docking/重打分的角色：它可以帮助排序或补充分数，但不能省略输入准备和 pose 复核。
 - `gu_benchmarking_2025` 用于 AI-powered docking 的 benchmark 视角，提醒第三章把 score、top pose 和后续验证分开记录。
 - `agrawal_benchmarking_2019` 用于蛋白-肽 docking 边界，肽链构象和界面接触必须单独复核。
+- `sui_targeting_2026`、`shen_structure-based_2026` 和 `tomarchio_reproducible_2026` 是第八章补充 PDF 的正式锚点，分别覆盖机制驱动靶点筛选、APE1 结构口袋虚拟筛选、scaffold-aware ML + ensemble docking + MD 的可复现筛选框架。
 
 ## Top Pose 复核表
 

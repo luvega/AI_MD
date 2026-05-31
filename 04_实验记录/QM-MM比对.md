@@ -4,7 +4,7 @@ created: 2026-05-30
 type: experiment-record
 status: active
 topics: [type/experiment, status/active, topic/affinity, chapter/5]
-source_files: ["第五章/QM-MM比对/QM_MM.html"]
+source_files: ["06_原始学习素材/第五章/QM-MM比对/QM_MM.html"]
 zotero_items: []
 bibtex_keys: []
 related: ["../02_方法笔记/亲和力模型综述.md"]
@@ -12,7 +12,7 @@ related: ["../02_方法笔记/亲和力模型综述.md"]
 
 # QM-MM 比对
 
-`第五章/QM-MM比对/QM_MM.html` 是第五章的本地网页实验资料，用于展示或比较 QM/MM 相关概念。
+`06_原始学习素材/第五章/QM-MM比对/QM_MM.html` 是第五章的本地网页实验资料，用于展示或比较 QM/MM 相关概念。
 
 ## 后续记录建议
 
