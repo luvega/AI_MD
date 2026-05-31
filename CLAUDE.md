@@ -14,7 +14,7 @@
 - 写作风格：自然流畅的中文，条列式，简洁直接，严谨的学术风格。
 - 如需更完整的项目背景，先读 `00_项目说明/项目背景.md`。
 
-这个项目是 AI 辅助分子建模、对接、分子模拟、亲和力预测和蛋白设计课程资料库。PDF 课件原件统一放入 `06_原始学习素材/`；压缩包、脚本、表格和网页实验等非 PDF 原始资料保留在原章节目录。新增 Markdown 文件负责索引、说明、全文提取、方法笔记、文献笔记和实验记录。
+这个项目是 AI 辅助分子建模、对接、分子模拟、亲和力预测和蛋白设计课程资料库。PDF 课件原件统一放入本地 `06_原始学习素材/`；该目录内容不上传 GitHub，Git 只保留空目录占位 `.gitkeep`。压缩包、脚本、表格和网页实验等非 PDF 原始资料保留在原章节目录或本地 raw 目录，新增 Markdown 文件负责索引、说明、方法笔记、文献笔记和实验记录。
 
 - 主要用途：把课程资料、运行结果和 Zotero 文献连接成可检索、可复用、可继续扩展的 AI 原生知识库和 LLM Wiki 第二大脑。
 - 当前资料：第一章到第八章课程 PDF/课件提取、第三章对接资料、第四章 MD/BioEmu/GROMACS/力场补充资料、第五章 Boltz2/亲和力/QM-MM/蒙特卡洛资料、第六章 RFD3/RFdiffusion 蛋白设计资料、第七章 VibeCoding/Claude Code 工具链资料、第八章计算思路解析、正向虚拟筛选、Chai-1 互作蛋白虚拟筛选和蛋白设计补充资料。
@@ -26,7 +26,7 @@
 
 | 层 | 本项目位置 | 规则 |
 |:---|:---|:---|
-| Raw sources | `06_原始学习素材/`、`references/` | 原始资料是 source of truth，默认只读 |
+| Raw sources | 本地 `06_原始学习素材/`、`references/` | 原始资料是 source of truth，默认只读；`06_原始学习素材/` 内容不上传 GitHub |
 | Wiki | `index.md`、`log.md`、`00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/`、`07_研究工作台/`、`book/docs/` | LLM 负责创建、更新、交叉引用和维护一致性 |
 | Schema | `CLAUDE.md`、`.claude/skills/`、`00_项目说明/LLM Wiki运行手册.md`、`tools/graph_health.py`、`tools/validate_online_book.py`、`book/book_map.toml` | 约束 Agent 如何 ingest、query、lint、update 和验收 |
 
@@ -40,7 +40,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - `03_文献笔记/`：从 Zotero 生成或链接的核心论文笔记。
 - `04_实验记录/`：Boltz2 结果、QM-MM、蒙特卡洛和后续运行记录。
 - `05_附件索引/`：压缩包、网盘链接、PDF、表格、脚本、JSON、CIF、TSV 等附件清单。
-- `06_原始学习素材/`：集中保存 PDF 课件原件、重复 PDF 待确认区、逐页全文提取结果和低文本页 OCR 补充结果。
+- `06_原始学习素材/`：本地集中保存 PDF 课件原件、重复 PDF 待确认区、逐页全文提取结果和低文本页 OCR 补充结果；GitHub 只保留 `.gitkeep` 占位，不上传目录内容。
 - `07_研究工作台/`：知识图谱实体索引、证据与 claims 矩阵、个人研究问题/项目池、阅读队列、实验队列、输出视图和 AI 回归评测集。
 - `book/`：MkDocs Material 在线书籍工程；`book/docs/` 是课程讲义页面，`book/book_map.toml` 是章节到 wiki 来源和 BibTeX key 的映射；`book/docs/resources/` 保存代码案例、截图索引、Imagegen prompt、复现实验资源、正文风格指南和润色报告。
 - `references/`：`references.bib` 和 `zotero-map.tsv`。
@@ -78,7 +78,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 
 ## 分类型处理规则
 
-- 课程资料：保留原始文件位置；PDF 课件统一归入 `06_原始学习素材/`，非 PDF 原始资料原则上只索引不移动。
+- 课程资料：保留原始文件位置；PDF 课件统一归入本地 `06_原始学习素材/`，非 PDF 原始资料原则上只索引不移动；该目录内容不得加入 Git。
 - 章节精读：放入 `01_课程章节索引/章节精读/`，必须连接原始课件、全文提取结果、方法卡和文献锚点。
 - 方法笔记：放入 `02_方法笔记/`，必须写清适用场景、输入、可执行流程、输出、质量门槛、失败模式和文献依据。
 - 文献笔记：放入 `03_文献笔记/`，必须包含 Zotero item key、BibTeX key、作者/年份/期刊或来源、核心发现、方法论、项目落点和使用边界。
@@ -103,7 +103,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - 更新在线书籍章节后，同步检查 `book/book_map.toml`、`book/mkdocs.yml`、`book/docs/`、`book/docs/resources/` 和 `tools/update_book_references.py`；需要重建引用区时运行该脚本，再运行在线书籍校验器与 MkDocs strict build。
 - 如果 Zotero 导出异常但 DOI/出版社元数据可确认，可以建立人工确认 BibTeX，但必须在 `references.bib` 的 `note` 字段和维护报告中说明。
 - 不移动、不删除、不重命名原始学习资料，除非我明确确认。
-- 本项目允许启用本地 Git 版本史；默认只记录 Markdown wiki、schema、skills、BibTeX、TSV、脚本和结构化文本，不记录 PDF/RAR/ZIP/Office 等大型不可变原始资料；默认不配置 remote、不 push。
+- 本项目允许启用本地 Git 版本史；默认只记录 Markdown wiki、schema、skills、BibTeX、TSV、脚本和结构化文本，不记录 `06_原始学习素材/` 目录内容，也不记录 PDF/RAR/ZIP/Office 等大型不可变原始资料。
 
 ## 笔记 frontmatter 模板
 
@@ -162,6 +162,6 @@ relations: []
 | 文件 | 类型 | 一句话说明 | 关联原始文件 | 关联 Zotero 条目 |
 |:---|:---|:---|:---|:---|
 
-索引应优先写相对路径。PDF 课件原件统一位于 `06_原始学习素材/`；非 PDF 原始资料仍保留在原章节目录时，只在索引和笔记中引用路径。
+索引应优先写相对路径。PDF 课件原件统一位于本地 `06_原始学习素材/`；非 PDF 原始资料仍保留在原章节目录时，只在索引和笔记中引用路径。远端 GitHub 仓库不保证这些 raw 路径存在。
 
-PDF 课件全文提取使用 `pdfplumber`/PyMuPDF；低文本页 OCR 使用本机 `C:\Program Files\Tesseract-OCR\tesseract.exe`、用户级语言包 `C:\Users\xsui\AppData\Local\Tesseract-OCR\tessdata` 和 `chi_sim+eng`。OCR 结果写入对应 PDF 提取目录的 `ocr/page-xxx.ocr.md`，并追加到 `全文.md`。OCR 收敛状态以 `06_原始学习素材/PDF OCR质量收敛报告.md` 为准；第 1-8 章课件结构化精读入口为 `01_课程章节索引/章节精读/_index.md`。
+PDF 课件全文提取使用 `pdfplumber`/PyMuPDF；低文本页 OCR 使用本机 `C:\Program Files\Tesseract-OCR\tesseract.exe`、用户级语言包 `C:\Users\xsui\AppData\Local\Tesseract-OCR\tessdata` 和 `chi_sim+eng`。OCR 结果写入本地对应 PDF 提取目录的 `ocr/page-xxx.ocr.md`，并追加到 `全文.md`。OCR 收敛状态以本地 `06_原始学习素材/PDF OCR质量收敛报告.md` 为准；第 1-8 章课件结构化精读入口为 `01_课程章节索引/章节精读/_index.md`。

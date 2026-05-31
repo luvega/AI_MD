@@ -34,3 +34,4 @@
 | [知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md](知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md) | maintenance-report | 记录第二版 8 章长文、5000 字符门槛、在线书籍校验器增强和验收结果。 | `book/`, `tools/validate_online_book.py` | 多个 |
 | [知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md](知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md) | maintenance-report | 记录 Nature 风格引用卡片、Imagegen 图谱、代码案例、截图资源和在线书籍校验器增强。 | `book/`, `references/`, `tools/` | 多个 |
 | [知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md](知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md) | maintenance-report | 记录 8 章正文教材化润色、reverse outline、claim-evidence map 和中文学术写作风格指南。 | `book/`, `tools/polish_book_chapters.py` |  |
+| [知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md](知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md) | maintenance-report | 记录 `06_原始学习素材/` 本地保留、GitHub 只保留 `.gitkeep` 占位和 raw 内容不上传规则。 | `.gitignore`, `06_原始学习素材/.gitkeep` |  |

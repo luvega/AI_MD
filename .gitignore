@@ -24,6 +24,12 @@ node_modules/
 venv/
 book/site/
 
+# Local-only raw learning materials. Keep the directory placeholder in Git, but
+# never upload raw sources, extracted text, OCR output, torrents, or unpacked
+# payloads.
+06_原始学习素材/*
+!06_原始学习素材/.gitkeep
+
 # Generated or unpacked raw-source working trees. Existing tracked files remain
 # tracked, but new OCR/extraction/unpacked payloads stay local by default.
 06_原始学习素材/**/全文提取/
