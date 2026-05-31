@@ -31,3 +31,4 @@
 | [知识库维护报告-2026-05-31-P20-在线书籍骨架.md](知识库维护报告-2026-05-31-P20-在线书籍骨架.md) | maintenance-report | 记录 MkDocs Material 在线书籍骨架、章节映射、附录和在线书籍校验器。 | `book/`, `tools/validate_online_book.py` | 多个 |
 | [知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md](知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md) | maintenance-report | 记录 `luvega/AI_MD` 的 GitHub Pages workflow、站点 URL 和推送前校验。 | `.github/workflows/deploy-book.yml`, `book/mkdocs.yml` | 多个 |
 | [知识库维护报告-2026-05-31-P22-第一版验收.md](知识库维护报告-2026-05-31-P22-第一版验收.md) | maintenance-report | 记录第一版的单元测试、在线书籍校验、MkDocs build、LLM Wiki 校验和 GitHub Pages 验收结果。 | `index.md`, `book/`, `tools/`, `.github/workflows/deploy-book.yml` | 多个 |
+| [知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md](知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md) | maintenance-report | 记录第二版 8 章长文、5000 字符门槛、在线书籍校验器增强和验收结果。 | `book/`, `tools/validate_online_book.py` | 多个 |

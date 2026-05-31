@@ -131,3 +131,10 @@ relations:
 - 运行 `python -m mkdocs build -f book/mkdocs.yml --strict`，MkDocs strict build 成功生成 `book/site`。
 - 运行 `validate_llm_wiki.py`，LLM Wiki 校验 `warnings: []`、`errors: []`。
 - 确认 GitHub Pages 最新 workflow 成功，`https://luvega.github.io/AI_MD/` 首页返回 HTTP 200。
+
+## [2026-05-31] update | P23 在线书籍第二版长文
+
+- 将 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 从第一版导航骨架扩写为第二版课程讲义正文，8 章均超过 5000 字符。
+- 更新 `book/docs/index.md` 和 `book/book_map.toml`，将在线书籍版本标记为 `v0.2-course-text`。
+- 增强 `tools/validate_online_book.py`，新增 `--min-chapter-chars`；补充单元测试覆盖章节长度门槛。
+- 新增 `00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md`，记录章节长度、引用边界和验收结果。

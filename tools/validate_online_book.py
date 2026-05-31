@@ -50,6 +50,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate AI_MD online book files.")
     parser.add_argument("--map", required=True, dest="map_path", help="Path to book_map.toml.")
     parser.add_argument("--book-root", required=True, help="Path to book/docs.")
+    parser.add_argument(
+        "--min-chapter-chars",
+        type=int,
+        default=0,
+        help="Require each chapter Markdown file to contain at least this many characters.",
+    )
     return parser.parse_args()
 
 
@@ -105,7 +111,12 @@ def check_bibtex_keys(entry: dict[str, Any], bibtex_keys: set[str], issues: list
             issues.append(Issue("missing BibTeX key", title, key))
 
 
-def check_chapter_sections(entry: dict[str, Any], book_root: Path, issues: list[Issue]) -> None:
+def check_chapter_sections(
+    entry: dict[str, Any],
+    book_root: Path,
+    issues: list[Issue],
+    min_chapter_chars: int = 0,
+) -> None:
     page = str(entry.get("page", "")).strip()
     title = str(entry.get("title", "<untitled>"))
     if not page:
@@ -116,6 +127,8 @@ def check_chapter_sections(entry: dict[str, Any], book_root: Path, issues: list[
         issues.append(Issue("missing page", title, page))
         return
     text = page_path.read_text(encoding="utf-8", errors="replace")
+    if min_chapter_chars > 0 and len(text) < min_chapter_chars:
+        issues.append(Issue("chapter too short", page, f"{len(text)} < {min_chapter_chars} characters"))
     for section in REQUIRED_CHAPTER_SECTIONS:
         if not re.search(rf"^##\s+{re.escape(section)}\s*$", text, flags=re.MULTILINE):
             issues.append(Issue("missing required section", page, section))
@@ -149,7 +162,7 @@ def check_internal_links(book_root: Path, issues: list[Issue]) -> None:
                 issues.append(Issue("broken internal link", rel_path, match.group(1)))
 
 
-def validate(book_map_path: Path, book_root: Path) -> list[Issue]:
+def validate(book_map_path: Path, book_root: Path, min_chapter_chars: int = 0) -> list[Issue]:
     repo_root = book_map_path.resolve().parents[1]
     data = load_book_map(book_map_path)
     bibtex_keys = load_bibtex_keys(repo_root)
@@ -160,7 +173,7 @@ def validate(book_map_path: Path, book_root: Path) -> list[Issue]:
             continue
         check_sources(entry, repo_root, issues)
         check_bibtex_keys(entry, bibtex_keys, issues)
-        check_chapter_sections(entry, book_root, issues)
+        check_chapter_sections(entry, book_root, issues, min_chapter_chars=min_chapter_chars)
 
     for entry in as_list(data.get("appendices")):
         if not isinstance(entry, dict):
@@ -180,7 +193,7 @@ def main() -> int:
     args = parse_args()
     book_map_path = Path(args.map_path).resolve()
     book_root = Path(args.book_root).resolve()
-    issues = validate(book_map_path, book_root)
+    issues = validate(book_map_path, book_root, min_chapter_chars=args.min_chapter_chars)
     print(f"checked map: {book_map_path}")
     print(f"checked book root: {book_root}")
     print(f"errors: {len(issues)}")

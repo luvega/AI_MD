@@ -61,9 +61,15 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
         )
         return root / "book" / "book_map.toml", root / "book" / "docs"
 
-    def run_validator(self, book_map: Path, book_root: Path, cwd: Path) -> subprocess.CompletedProcess[str]:
+    def run_validator(
+        self,
+        book_map: Path,
+        book_root: Path,
+        cwd: Path,
+        *extra_args: str,
+    ) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
-            [sys.executable, str(SCRIPT), "--map", str(book_map), "--book-root", str(book_root)],
+            [sys.executable, str(SCRIPT), "--map", str(book_map), "--book-root", str(book_root), *extra_args],
             cwd=cwd,
             text=True,
             capture_output=True,
@@ -109,6 +115,15 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("raw source link", result.stdout)
         self.assertIn("broken internal link", result.stdout)
+
+    def test_rejects_chapter_below_requested_character_floor(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            book_map, book_root = self.make_valid_workspace(root)
+            result = self.run_validator(book_map, book_root, root, "--min-chapter-chars", "5000")
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("chapter too short", result.stdout)
 
 
 if __name__ == "__main__":
