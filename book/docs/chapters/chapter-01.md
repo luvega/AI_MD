@@ -34,7 +34,9 @@
 
 ### Imagegen 知识图谱
 
-![第 1 章知识图谱](../assets/imagegen/chapter-01-knowledge-map.png){ loading=lazy }
+![图1.1 Linux 与生化计算项目结构知识图谱](../assets/imagegen/chapter-01-knowledge-map.png){ loading=lazy }
+
+**图1.1 Linux 与生化计算项目结构知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括Linux 与生化计算基础的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。
 
 | 编号 | 正文权威标签 |
 |:---:|:---|
@@ -45,7 +47,6 @@
 | 5 | 校验与日志 |
 | 6 | 实验记录 |
 
-这张图由 Imagegen 生成，用于把Linux 与生化计算基础中的对象、方法和证据边界先压缩成一张预览图。Linux 与生化计算基础的精确术语、参数和证据边界仍以表格和正文为准，图像只承担结构化预览作用。
 
 ### Mermaid 结构图
 
@@ -71,6 +72,8 @@ flowchart LR
     class verify decision
     class handoff output
 ```
+
+**图1.2 Linux 环境检查记录闭环结构图。** 本图为 Mermaid 教学示意图，展示项目根目录、环境检查、输入文件、dry-run、日志和实验记录之间的闭环关系；箭头表示阅读和记录依赖，不替代真实软件运行或实验验证，具体输入、输出和 QC 标准以正文为准。
 
 Linux 与生化计算基础的 Mermaid 源图和后续 scientific-schematics prompt 见 [Mermaid 图示与示意图设计](../resources/mermaid-schematics.md)。
 
@@ -113,9 +116,11 @@ Linux 与生化计算基础的方法流程要把从项目根目录到最小 dry-
 
 ## 代码案例与软件操作
 
-![第 1 章流程解释图](../assets/imagegen/chapter-01-flow-env-record.png){ loading=lazy }
+![图1.3 环境检查到实验记录流程图](../assets/imagegen/chapter-01-flow-env-record.png){ loading=lazy }
 
-**环境检查到实验记录流程图** 的编号含义如下：
+**图1.3 环境检查到实验记录流程图。** 本图为 Imagegen 生成的流程图，说明环境检查如何转化为可复核实验记录；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。
+
+图中编号节点与下表对应：
 
 | 编号 | 流程节点 |
 |:---:|:---|
@@ -144,7 +149,9 @@ Linux 与生化计算基础的方法流程要把从项目根目录到最小 dry-
 
     完整示例文件：[`chapter-01-env-check.ps1`](../assets/code/chapter-01-env-check.ps1)
 
-![第 1 章软件操作截图](../assets/screenshots/chapter-01-env-check.png){ loading=lazy }
+![图1.4 环境检查 dry-run 软件操作截图](../assets/screenshots/chapter-01-env-check.png){ loading=lazy }
+
+**图1.4 环境检查 dry-run 软件操作截图。** 本图为本地 dry-run 截图，展示终端输出、目录结构和最小记录字段；截图用于说明界面、文件或表格位置，不代表实验结果，读者应按本机路径替换参数并以正文操作表为准。
 
 | 步骤 | 操作 |
 |:---:|:---|

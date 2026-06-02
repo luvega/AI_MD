@@ -37,7 +37,9 @@
 
 ### Imagegen 知识图谱
 
-![第 3 章知识图谱](../assets/imagegen/chapter-03-knowledge-map.png){ loading=lazy }
+![图3.1 对接与虚拟筛选证据链知识图谱](../assets/imagegen/chapter-03-knowledge-map.png){ loading=lazy }
+
+**图3.1 对接与虚拟筛选证据链知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括对接与虚拟筛选证据链的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。
 
 | 编号 | 正文权威标签 |
 |:---:|:---|
@@ -49,7 +51,6 @@
 | 6 | 筛选规则 |
 | 7 | 实验候选 |
 
-这张图由 Imagegen 生成，用于把对接与虚拟筛选证据链中的对象、方法和证据边界先压缩成一张预览图。对接与虚拟筛选证据链的精确术语、参数和证据边界仍以表格和正文为准，图像只承担结构化预览作用。
 
 ### Mermaid 结构图
 
@@ -76,6 +77,8 @@ flowchart LR
     class pose_qc decision
     class shortlist,handoff output
 ```
+
+**图3.2 对接筛选证据漏斗结构图。** 本图为 Mermaid 教学示意图，展示受体准备、配体库、box 定义、对接运行、pose 复核和候选交接之间的漏斗关系；箭头表示阅读和记录依赖，不替代真实软件运行或实验验证，具体输入、输出和 QC 标准以正文为准。
 
 对接与虚拟筛选证据链的 Mermaid 源图和后续 scientific-schematics prompt 见 [Mermaid 图示与示意图设计](../resources/mermaid-schematics.md)。
 
@@ -118,9 +121,11 @@ flowchart LR
 
 ## 代码案例与软件操作
 
-![第 3 章流程解释图](../assets/imagegen/chapter-03-flow-docking-funnel.png){ loading=lazy }
+![图3.3 受体-配体-box-score-filter 漏斗流程图](../assets/imagegen/chapter-03-flow-docking-funnel.png){ loading=lazy }
 
-**受体-配体-box-score-filter 漏斗图** 的编号含义如下：
+**图3.3 受体-配体-box-score-filter 漏斗流程图。** 本图为 Imagegen 生成的流程图，说明受体、配体、box、score 和 filter 如何组成虚拟筛选记录；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。
+
+图中编号节点与下表对应：
 
 | 编号 | 流程节点 |
 |:---:|:---|
@@ -155,7 +160,9 @@ flowchart LR
 
     P31 候选 triage 脚本：[`chapter-03-aidd-triage-dry-run.py`](../assets/code/chapter-03-aidd-triage-dry-run.py)。该脚本输出 `parse_status`、`rule_of_five_pass`、`pose_qc_passed` 和 `filter_reason`，用于回写对接记录模板，不产生 docking score。
 
-![第 3 章软件操作截图](../assets/screenshots/chapter-03-docking-funnel.png){ loading=lazy }
+![图3.4 对接 dry-run 软件操作截图](../assets/screenshots/chapter-03-docking-funnel.png){ loading=lazy }
+
+**图3.4 对接 dry-run 软件操作截图。** 本图为本地 dry-run 截图，展示对接 dry-run 中的参数表、候选 triage 和 manifest 记录字段；截图用于说明界面、文件或表格位置，不代表实验结果，读者应按本机路径替换参数并以正文操作表为准。
 
 | 步骤 | 操作 |
 |:---:|:---|

@@ -47,3 +47,4 @@
 | [P33_Zotero正式锚点补齐报告.md](P33_Zotero正式锚点补齐报告.md) | maintenance-report | 记录 P32 三条候选文献的真实 Zotero item key 补齐、Chai-1 导入和 RFdiffusion3 重复项处理。 | `references/zotero-map.tsv`, `references/zotero-upgrades-2026-06-02-P33.tsv` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P34_中文教材可读性增强报告.md](P34_中文教材可读性增强报告.md) | maintenance-report | 记录 8 章主章节教材化扩写、P34 写作规则、可读性审计脚本和验收结果。 | `book/docs/chapters/`, `tools/audit_book_readability.py` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P35_中文教材去模板化与版本更新报告.md](P35_中文教材去模板化与版本更新报告.md) | maintenance-report | 记录 8 章主章节去模板化修订、prose-only 重复句审计、可读性审计器增强和 `v0.8.0` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_readability.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [P36_图注与图示出版规范化报告.md](P36_图注与图示出版规范化报告.md) | maintenance-report | 记录 8 章 32 个图位的出版式编号、图下注释、边界说明、图注审计器和 `v0.9.0` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_figures.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |

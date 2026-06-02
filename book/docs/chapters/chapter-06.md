@@ -37,7 +37,9 @@
 
 ### Imagegen 知识图谱
 
-![第 6 章知识图谱](../assets/imagegen/chapter-06-knowledge-map.png){ loading=lazy }
+![图6.1 RFdiffusion/RFD3-ProteinMPNN 设计链知识图谱](../assets/imagegen/chapter-06-knowledge-map.png){ loading=lazy }
+
+**图6.1 RFdiffusion/RFD3-ProteinMPNN 设计链知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括RFdiffusion/RFD3 与蛋白设计链的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。
 
 | 编号 | 正文权威标签 |
 |:---:|:---|
@@ -49,7 +51,6 @@
 | 6 | 界面评分 |
 | 7 | 实验交接 |
 
-这张图由 Imagegen 生成，用于把RFdiffusion/RFD3 与蛋白设计链中的对象、方法和证据边界先压缩成一张预览图。RFdiffusion/RFD3 与蛋白设计链的精确术语、参数和证据边界仍以表格和正文为准，图像只承担结构化预览作用。
 
 ### Mermaid 结构图
 
@@ -75,6 +76,8 @@ flowchart LR
     class interface_qc decision
     class design_pool,experiment output
 ```
+
+**图6.2 蛋白设计多阶段 QC 结构图。** 本图为 Mermaid 教学示意图，展示设计目标、骨架生成、序列设计、回折叠验证和人工复核之间的多阶段 QC；箭头表示阅读和记录依赖，不替代真实软件运行或实验验证，具体输入、输出和 QC 标准以正文为准。
 
 RFdiffusion/RFD3 与蛋白设计链的 Mermaid 源图和后续 scientific-schematics prompt 见 [Mermaid 图示与示意图设计](../resources/mermaid-schematics.md)。
 
@@ -117,9 +120,11 @@ RFdiffusion/RFD3 与蛋白设计链的方法流程要把从设计约束到候选
 
 ## 代码案例与软件操作
 
-![第 6 章流程解释图](../assets/imagegen/chapter-06-flow-protein-design-cycle.png){ loading=lazy }
+![图6.3 骨架生成到回折叠验证流程图](../assets/imagegen/chapter-06-flow-protein-design-cycle.png){ loading=lazy }
 
-**骨架生成到回折叠验证流程图** 的编号含义如下：
+**图6.3 骨架生成到回折叠验证流程图。** 本图为 Imagegen 生成的流程图，说明从骨架生成到回折叠验证的蛋白设计记录顺序；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。
+
+图中编号节点与下表对应：
 
 | 编号 | 流程节点 |
 |:---:|:---|
@@ -153,7 +158,9 @@ RFdiffusion/RFD3 与蛋白设计链的方法流程要把从设计约束到候选
 
     P31 设计 QC 脚本：[`chapter-06-design-qc-dry-run.py`](../assets/code/chapter-06-design-qc-dry-run.py)。该脚本输出 `motif_rmsd`、`refold_rmsd`、`pae_interface`、`interface_qc_passed` 和 `discard_reason`，用于决定是否进入 ProteinMPNN、回折叠或实验队列。
 
-![第 6 章软件操作截图](../assets/screenshots/chapter-06-protein-design-cycle.png){ loading=lazy }
+![图6.4 蛋白设计 dry-run 软件操作截图](../assets/screenshots/chapter-06-protein-design-cycle.png){ loading=lazy }
+
+**图6.4 蛋白设计 dry-run 软件操作截图。** 本图为本地 dry-run 截图，展示蛋白设计 dry-run 配置、QC 字段和候选状态记录；截图用于说明界面、文件或表格位置，不代表实验结果，读者应按本机路径替换参数并以正文操作表为准。
 
 | 步骤 | 操作 |
 |:---:|:---|

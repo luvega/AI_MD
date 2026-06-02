@@ -81,6 +81,14 @@ relations:
 - 更新 `00_项目说明/版本记录.md`，记录 P35 后的发布范围、验收命令和 P36 真实小样本运行目标。
 - 同步根索引、项目说明索引、在线书籍首页和 MkDocs 资源导航。
 
+## [2026-06-02] update | P36 图注与图示出版规范化
+
+- 将 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 的 32 个图位统一为 `图X.Y` 编号体系，覆盖 Imagegen 知识图谱、Mermaid 结构图、Imagegen 流程图和软件截图。
+- 为每张图补充图下注释和 alt text，图注说明对象、阅读顺序、来源边界和“不代表实验结果”等限制。
+- 将 `book/docs/resources/screenshot-index.md` 改为截图文件链接索引，避免资源页出现未编号图片。
+- 新增 `tools/audit_book_figures.py` 与 `tests/test_audit_book_figures.py`，图注审计结果为 8 章、32 图位、errors 0。
+- 新增 `book/docs/resources/p36-figure-caption-report.md` 与 `00_项目说明/P36_图注与图示出版规范化报告.md`，并将项目版本更新为 `v0.9.0`。
+
 ## [2026-06-02] update | P35 中文教材去模板化
 
 - 对 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 做章节专属化修订，减少跨章模板句。

@@ -35,7 +35,9 @@
 
 ### Imagegen 知识图谱
 
-![第 2 章知识图谱](../assets/imagegen/chapter-02-knowledge-map.png){ loading=lazy }
+![图2.1 结构来源与可视化证据知识图谱](../assets/imagegen/chapter-02-knowledge-map.png){ loading=lazy }
+
+**图2.1 结构来源与可视化证据知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括结构来源与可视化复核的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。
 
 | 编号 | 正文权威标签 |
 |:---:|:---|
@@ -46,7 +48,6 @@
 | 5 | 结构叠合 |
 | 6 | 证据边界 |
 
-这张图由 Imagegen 生成，用于把结构来源与可视化复核中的对象、方法和证据边界先压缩成一张预览图。结构来源与可视化复核的精确术语、参数和证据边界仍以表格和正文为准，图像只承担结构化预览作用。
 
 ### Mermaid 结构图
 
@@ -71,6 +72,8 @@ flowchart LR
     class boundary boundary_style
     class downstream output
 ```
+
+**图2.2 结构复核证据链结构图。** 本图为 Mermaid 教学示意图，展示结构来源、链选择、配体定位、坐标检查和复核记录之间的证据链；箭头表示阅读和记录依赖，不替代真实软件运行或实验验证，具体输入、输出和 QC 标准以正文为准。
 
 结构来源与可视化复核的 Mermaid 源图和后续 scientific-schematics prompt 见 [Mermaid 图示与示意图设计](../resources/mermaid-schematics.md)。
 
@@ -112,9 +115,11 @@ flowchart LR
 
 ## 代码案例与软件操作
 
-![第 2 章流程解释图](../assets/imagegen/chapter-02-flow-structure-review.png){ loading=lazy }
+![图2.3 PyMOL/ChimeraX 结构复核流程图](../assets/imagegen/chapter-02-flow-structure-review.png){ loading=lazy }
 
-**PyMOL/ChimeraX 结构复核流程图** 的编号含义如下：
+**图2.3 PyMOL/ChimeraX 结构复核流程图。** 本图为 Imagegen 生成的流程图，说明 PyMOL 或 ChimeraX 中从结构载入到复核记录的检查顺序；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。
+
+图中编号节点与下表对应：
 
 | 编号 | 流程节点 |
 |:---:|:---|
@@ -143,7 +148,9 @@ flowchart LR
 
     完整示例文件：[`chapter-02-structure-review.pml`](../assets/code/chapter-02-structure-review.pml)
 
-![第 2 章软件操作截图](../assets/screenshots/chapter-02-pymol-review.png){ loading=lazy }
+![图2.4 结构可视化 dry-run 软件操作截图](../assets/screenshots/chapter-02-pymol-review.png){ loading=lazy }
+
+**图2.4 结构可视化 dry-run 软件操作截图。** 本图为本地 dry-run 截图，展示结构可视化 dry-run 中的界面布局、对象选择和记录位置；截图用于说明界面、文件或表格位置，不代表实验结果，读者应按本机路径替换参数并以正文操作表为准。
 
 | 步骤 | 操作 |
 |:---:|:---|

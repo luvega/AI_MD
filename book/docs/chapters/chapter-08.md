@@ -37,7 +37,9 @@
 
 ### Imagegen 知识图谱
 
-![第 8 章知识图谱](../assets/imagegen/chapter-08-knowledge-map.png){ loading=lazy }
+![图8.1 研究工作台综合知识图谱](../assets/imagegen/chapter-08-knowledge-map.png){ loading=lazy }
+
+**图8.1 研究工作台综合知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括研究工作台综合路线的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。
 
 | 编号 | 正文权威标签 |
 |:---:|:---|
@@ -50,7 +52,6 @@
 | 7 | 证据 claim |
 | 8 | 输出任务 |
 
-这张图由 Imagegen 生成，用于把研究工作台综合路线中的对象、方法和证据边界先压缩成一张预览图。研究工作台综合路线的精确术语、参数和证据边界仍以表格和正文为准，图像只承担结构化预览作用。
 
 ### Mermaid 结构图
 
@@ -78,6 +79,8 @@ flowchart LR
     class claims boundary
     class output output_style
 ```
+
+**图8.2 寻靶-解码-造器证据路线结构图。** 本图为 Mermaid 教学示意图，展示研究问题、靶点证据、方法路由、候选生成和输出计划之间的工作台路线；箭头表示阅读和记录依赖，不替代真实软件运行或实验验证，具体输入、输出和 QC 标准以正文为准。
 
 研究工作台综合路线的 Mermaid 源图和后续 scientific-schematics prompt 见 [Mermaid 图示与示意图设计](../resources/mermaid-schematics.md)。
 
@@ -120,9 +123,11 @@ flowchart LR
 
 ## 代码案例与软件操作
 
-![第 8 章流程解释图](../assets/imagegen/chapter-08-flow-project-roadmap.png){ loading=lazy }
+![图8.3 寻靶-解码-造器项目路线图](../assets/imagegen/chapter-08-flow-project-roadmap.png){ loading=lazy }
 
-**寻靶-解码-造器项目路线图** 的编号含义如下：
+**图8.3 寻靶-解码-造器项目路线图。** 本图为 Imagegen 生成的流程图，说明寻靶、解码和造器三类任务如何进入项目池和下一步实验队列；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。
+
+图中编号节点与下表对应：
 
 | 编号 | 流程节点 |
 |:---:|:---|
@@ -157,7 +162,9 @@ flowchart LR
 
     P31 工作台优先级脚本：[`chapter-08-workbench-priority-dry-run.py`](../assets/code/chapter-08-workbench-priority-dry-run.py)。该脚本输出 `evidence_maturity`、`priority_score`、`decision` 和 `boundary_note`，强制区分文献案例、dry-run、本地计算和实验结果。
 
-![第 8 章软件操作截图](../assets/screenshots/chapter-08-project-pool.png){ loading=lazy }
+![图8.4 项目池与 Chai-1 边界 dry-run 截图](../assets/screenshots/chapter-08-project-pool.png){ loading=lazy }
+
+**图8.4 项目池与 Chai-1 边界 dry-run 截图。** 本图为本地 dry-run 截图，展示项目池 dry-run 中的证据成熟度、优先级和 Chai-1 边界字段；截图用于说明界面、文件或表格位置，不代表实验结果，读者应按本机路径替换参数并以正文操作表为准。
 
 | 步骤 | 操作 |
 |:---:|:---|
