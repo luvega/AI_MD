@@ -37,3 +37,5 @@
 | [知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md](知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md) | maintenance-report | 记录 8 章正文教材化润色、reverse outline、claim-evidence map 和中文学术写作风格指南。 | `book/`, `tools/polish_book_chapters.py` |  |
 | [知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md](知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md) | maintenance-report | 记录 `06_原始学习素材/` 本地保留、GitHub 只保留 `.gitkeep` 占位和 raw 内容不上传规则。 | `.gitignore`, `06_原始学习素材/.gitkeep` |  |
 | [P26_Codex技能集成报告.md](P26_Codex技能集成报告.md) | maintenance-report | 记录 scientific-agent-skills 精选技能的全局 Codex 安装、跳过项和 AI_MD 路由边界。 | `C:\Users\xsui\.codex\skills`, `tools/install_ai_md_codex_skills.ps1` |  |
+| [P27_Codex项目规则迁移报告.md](P27_Codex项目规则迁移报告.md) | maintenance-report | 记录 AI_MD 自有 `.claude/skills` 规则迁移为 `ai-md-*` 全局 Codex skills 的结果。 | `.claude/skills`, `tools/install_ai_md_project_codex_skills.ps1` |  |
+| [P28_重点章节Codex审稿报告.md](P28_重点章节Codex审稿报告.md) | maintenance-report | 记录第 3/5/6/8 章高风险表述、证据边界和 P29-P31 交接建议。 | `book/docs/chapters/`, `book/docs/resources/polish-report.md` |  |

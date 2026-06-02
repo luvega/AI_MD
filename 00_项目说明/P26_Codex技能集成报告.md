@@ -74,7 +74,7 @@ P26 已将第三方技能集成方式从项目内 `.claude/skills/` 改为全局
 - 原始资料仍在 `06_原始学习素材/` 本地保留，内容不上传 GitHub。
 - 在线书籍只写整理后的教学内容，不复制原始 PDF 图表，不把文献案例写成本项目结果。
 - 正式引用仍以 `references/references.bib` 和 `references/zotero-map.tsv` 为准。
-- 若后续需要迁移 AI_MD 自有 `.claude/skills`，应另开 P27，把这些项目规则重写为全局 Codex skills。
+- AI_MD 自有 `.claude/skills` 的全局 Codex skills 迁移已在 P27 完成；历史目录继续保留为来源和兼容层。
 
 ## 验收记录
 

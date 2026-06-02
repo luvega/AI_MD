@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
-source_count: 14
+source_count: 16
 last_reviewed: 2026-06-02
-source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02]
+claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -42,6 +42,10 @@ relations:
   - type: updates
     target: "00_项目说明/P26_Codex技能集成报告.md"
   - type: updates
+    target: "00_项目说明/P27_Codex项目规则迁移报告.md"
+  - type: updates
+    target: "00_项目说明/P28_重点章节Codex审稿报告.md"
+  - type: updates
     target: "00_项目说明/Codex技能调用矩阵.md"
 ---
 
@@ -59,6 +63,20 @@ relations:
 - 明确 AI_MD 仓库不再向 `.claude/skills/` 添加第三方 skill 副本；新增专业能力走全局 Codex skills。
 - 新增 `00_项目说明/P26_Codex技能集成报告.md`、`00_项目说明/Codex技能调用矩阵.md` 和 `tools/install_ai_md_codex_skills.ps1`。
 - 更新 `CLAUDE.md`、`00_项目说明/插件与Skills调用说明.md`、根索引和项目说明索引。
+
+## [2026-06-02] update | P27 Codex 项目规则迁移
+
+- 将 `.claude/skills` 中的 AI_MD 自有规则生成并安装为 7 个 `ai-md-*` 全局 Codex skills。
+- 新增 `tools/install_ai_md_project_codex_skills.ps1`，用于从历史项目规则重建全局 Codex skills。
+- 新增 `00_项目说明/P27_Codex项目规则迁移报告.md`，记录迁移映射、边界和 P28-P31 使用方式。
+- 更新 `CLAUDE.md`、`Codex技能调用矩阵.md`、`插件与Skills调用说明.md`、根索引和项目说明索引。
+
+## [2026-06-02] update | P28 重点章节 Codex 审稿
+
+- 使用 `peer-review`、`scientific-critical-thinking` 和 `scientific-writing` 原则审查第 3/5/6/8 章高风险表述。
+- 新增 `00_项目说明/P28_重点章节Codex审稿报告.md`，记录 docking score、predicted affinity、RFdiffusion/RFD3、ProteinMPNN、Chai-1 aggregate score 和文献案例的证据边界。
+- 本轮不改章节正文、不新增引用、不新增实验结果；P28 作为 P29 文献复核、P30 图示升级和 P31 dry-run 的交接基线。
+- 更新根索引、项目说明索引和 `Codex技能调用矩阵.md`。
 
 ## [2026-05-31] update | P24 在线书籍引用、代码和 Imagegen 图像增强
 

@@ -4,18 +4,22 @@ created: 2026-06-02
 type: project-doc
 status: active
 topics: [codex-skills, routing, online-book, data-analysis, writing]
-source_files: ["00_项目说明/P26_Codex技能集成报告.md", "CLAUDE.md"]
+source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "CLAUDE.md"]
 zotero_items: []
 bibtex_keys: []
-related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md"]
+related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md"]
 wiki_role: concept
-source_count: 2
+source_count: 4
 last_reviewed: 2026-06-02
 claims:
   - "AI_MD 下一版更新优先使用全局 Codex skills，而不是向 .claude/skills 添加第三方技能。"
+  - "AI_MD 自有项目规则已迁移为 ai-md-* 全局 Codex skills。"
+  - "P28 已完成第 3/5/6/8 章高风险 claim 第一轮审稿，可作为 P29-P31 的输入基线。"
 relations:
   - type: extends
     target: "插件与Skills调用说明.md"
+  - type: supports
+    target: "P28_重点章节Codex审稿报告.md"
 ---
 # Codex技能调用矩阵
 
@@ -26,10 +30,22 @@ relations:
 | 原则 | 执行方式 |
 |:---|:---|
 | 本地知识优先 | 先读 `CLAUDE.md`、`index.md`、相关 `_index.md` 和具体笔记，再调用外部技能。 |
-| Codex skill 优先 | 新增外部能力安装到 `C:\Users\xsui\.codex\skills`，不新增第三方 `.claude/skills`。 |
+| Codex skill 优先 | 项目规则使用 `ai-md-*` 全局 Codex skills；新增外部能力安装到 `C:\Users\xsui\.codex\skills`，不新增第三方 `.claude/skills`。 |
 | 来源边界保留 | 原始 PDF、课件、压缩包和 Office 文件只读，不复制进在线书籍。 |
 | 引用仍走项目元数据 | 正式引用以 `references/references.bib` 和 `references/zotero-map.tsv` 为准。 |
 | 完成前验证 | 内容、图谱、在线书籍和 GitHub Pages 相关更新必须运行对应校验。 |
+
+## AI_MD 项目规则
+
+| 场景 | 优先 Codex skill | 输出 |
+|:---|:---|:---|
+| 宽泛任务、阶段推进、跨模块选择 | `ai-md-router` | 路由到 ingest、query、takenote、Zotero、lint 或 update。 |
+| 新来源摄入 | `ai-md-ingest-source` | 来源类型、影响面、目标页面和验收建议。 |
+| 基于知识库回答 | `ai-md-query-wiki` | 基于索引和具体笔记的回答；必要时建议沉淀。 |
+| 长期内容写入 | `ai-md-takenote` | 正式 Markdown 笔记、frontmatter 和索引更新。 |
+| 维护验收 | `ai-md-update-vault` | 索引、链接、引用、附件和 raw 边界检查。 |
+| 高层健康检查 | `ai-md-wiki-lint` | 孤立页、重复概念、过期 claim 和图谱问题。 |
+| 文献映射 | `ai-md-zotero-literature-link` | 文献候选、BibTeX、Zotero 映射和文献笔记。 |
 
 ## 教材正文与文字修正
 
@@ -74,8 +90,8 @@ relations:
 
 ## 下一版更新建议
 
-1. 先用 `peer-review` 和 `scientific-critical-thinking` 审查第 3/5/6/8 章高风险 claim。
-2. 再用 `literature-review` 和 `citation-management` 补文献候选，但正式引用仍写入 `references/`。
-3. 用 `markdown-mermaid-writing` 和 `scientific-schematics` 规划每章可替换 Imagegen 图谱的文本化结构。
-4. 用 `datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 补充 dry-run 数据流程和实验记录模板。
+1. P28 已完成：`peer-review` 和 `scientific-critical-thinking` 已用于审查第 3/5/6/8 章高风险 claim，基线见 `P28_重点章节Codex审稿报告.md`。
+2. P29 下一步：用 `literature-review` 和 `citation-management` 补文献候选，但正式引用仍写入 `references/`。
+3. P30 下一步：用 `markdown-mermaid-writing` 和 `scientific-schematics` 规划每章可替换 Imagegen 图谱的文本化结构。
+4. P31 下一步：用 `datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 补充 dry-run 数据流程和实验记录模板。
 5. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。
