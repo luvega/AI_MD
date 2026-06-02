@@ -1,6 +1,6 @@
 # AI 辅助药物设计：从分子建模到研究工作台
 
-这是基于 AI_MD LLM Wiki 生成的课程讲义型在线书籍第六版，项目版本为 `v0.9.1`。当前版本已从“可导航骨架”扩展为 8 章课程正文，并为每章补充 Nature 风格引用卡片、Imagegen 知识图谱、流程解释图、代码案例、软件操作截图和 P33 后的 Zotero/BibTeX 正式锚点；P34 把主章节正文扩写为更适合连续阅读的教材讲解文本，P35 进一步消除跨章模板句，P36 统一每章 4 类图示的 `图X.Y` 编号、图下注释和来源边界，P37 将图中编号解释合并进图注以压缩版面。它仍用于内部教学/组内培训，不替代原始课程资料，也不直接复制原始 PDF 或图表。
+这是基于 AI_MD LLM Wiki 生成的课程讲义型在线书籍第六版，项目版本为 `v0.9.2`。当前版本已从“可导航骨架”扩展为 8 章课程正文，并为每章补充 Nature 风格引用卡片、Imagegen 知识图谱、流程解释图、代码案例、软件操作截图和 P33 后的 Zotero/BibTeX 正式锚点；P34 把主章节正文扩写为更适合连续阅读的教材讲解文本，P35 进一步消除跨章模板句，P36 统一每章 4 类图示的 `图X.Y` 编号、图下注释和来源边界，P37 将图中编号解释合并进图注以压缩版面，P38 将阶段性维护报告迁出在线教材内容层。它仍用于内部教学/组内培训，不替代原始课程资料，也不直接复制原始 PDF 或图表。
 
 ## 使用方式
 
@@ -44,11 +44,6 @@
 | 复现实验 | 代码、截图和最小复现状态汇总 | [进入](resources/reproducible-labs.md) |
 | AIDD dry-run | 第 3/5/6/8 章候选 triage、亲和力解释、设计 QC 和项目优先级脚本 | [进入](resources/aidd-dry-runs.md) |
 | 正文风格指南 | P25 中文教材化写作、证据边界和 provenance 保护规则 | [进入](resources/style-guide.md) |
-| 润色报告 | 8 章 reverse outline、claim-evidence map 和需作者确认项 | [进入](resources/polish-report.md) |
-| 可读性增强报告 | P34 外部写作规则提炼、章节扩写策略和可读性审计指标 | [进入](resources/p34-readability-report.md) |
-| 去模板化报告 | P35 章节专属化改写、prose-only 重复句审计和版本更新 | [进入](resources/p35-detemplate-report.md) |
-| 图注规范化报告 | P36 章节图号、图下注释、来源边界和图示审计结果 | [进入](resources/p36-figure-caption-report.md) |
-| 图注合并报告 | P37 将编号解释表并入图注后的版式压缩和审计结果 | [进入](resources/p37-caption-compaction-report.md) |
 
 ## 来源边界
 

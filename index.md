@@ -1,17 +1,17 @@
-﻿---
+---
 title: "AI_MD LLM Wiki 总索引"
 created: 2026-05-30
 type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 33
+source_count: 31
 last_reviewed: 2026-06-02
-source_files: ["VERSION", "CLAUDE.md", "00_项目说明/版本记录.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "00_项目说明/P36_图注与图示出版规范化报告.md", "00_项目说明/P37_图注编号解释合并报告.md", "book/docs/resources/p34-readability-report.md", "book/docs/resources/p35-detemplate-report.md", "book/docs/resources/p36-figure-caption-report.md", "book/docs/resources/p37-caption-compaction-report.md", "tools/audit_book_readability.py", "tools/audit_book_figures.py", "tests/test_audit_book_readability.py", "tests/test_audit_book_figures.py", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["VERSION", "CLAUDE.md", "00_项目说明/版本记录.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "00_项目说明/P36_图注与图示出版规范化报告.md", "00_项目说明/P37_图注编号解释合并报告.md", "tools/audit_book_readability.py", "tools/audit_book_figures.py", "tests/test_audit_book_readability.py", "tests/test_audit_book_figures.py", "00_项目说明/Codex技能调用矩阵.md", "00_项目说明/P38_???????????.md", "00_项目说明/book-stage-reports/_index.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02, p34_book_readability_2026_06_02, p35_book_detemplate_2026_06_02, v0_8_0_release_2026_06_02, p36_figure_caption_standard_2026_06_02, v0_9_0_release_2026_06_02, p37_caption_compaction_2026_06_02, v0_9_1_release_2026_06_02]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02, p34_book_readability_2026_06_02, p35_book_detemplate_2026_06_02, v0_8_0_release_2026_06_02, p36_figure_caption_standard_2026_06_02, v0_9_0_release_2026_06_02, p37_caption_compaction_2026_06_02, v0_9_1_release_2026_06_02, p38_reports_removed_from_book_content_2026_06_02, v0_9_2_release_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -94,7 +94,7 @@ relations:
 | [LLM Wiki 运行手册](00_项目说明/LLM Wiki运行手册.md) | ingest、query、lint、update、git 操作流程 |
 | [概念关系规范](00_项目说明/概念关系规范.md) | typed relation 和 claims 规则 |
 | [项目说明索引](00_项目说明/_index.md) | 项目说明和维护报告入口 |
-| [版本记录](00_项目说明/版本记录.md) | 当前项目版本、在线书籍版本、v0.9.1 发布范围和下一版目标 |
+| [版本记录](00_项目说明/版本记录.md) | 当前项目版本、在线书籍版本、v0.9.2 发布范围和下一版目标 |
 | [Codex 技能调用矩阵](00_项目说明/Codex技能调用矩阵.md) | P26 后全局 Codex skills 在写作、文献、图示和数据流程中的路由入口 |
 | [P27 Codex 项目规则迁移报告](00_项目说明/P27_Codex项目规则迁移报告.md) | AI_MD 自有项目规则迁移为 `ai-md-*` 全局 Codex skills 的记录 |
 | [P28 重点章节 Codex 审稿报告](00_项目说明/P28_重点章节Codex审稿报告.md) | 第 3/5/6/8 章 docking score、affinity、RFdiffusion/RFD3、Chai-1 等高风险表述审查 |
@@ -107,8 +107,10 @@ relations:
 | [P35 中文教材去模板化与版本更新报告](00_项目说明/P35_中文教材去模板化与版本更新报告.md) | 记录 8 章主章节去模板化修订、prose-only 重复句审计和 v0.8.0 版本更新 |
 | [P36 图注与图示出版规范化报告](00_项目说明/P36_图注与图示出版规范化报告.md) | 记录 8 章 32 个图位的 `图X.Y` 编号、图下注释、来源边界和 v0.9.0 版本更新 |
 | [P37 图注编号解释合并报告](00_项目说明/P37_图注编号解释合并报告.md) | 记录编号解释表并入图注、版式压缩、图注审计器增强和 v0.9.1 版本更新 |
+| [P38 在线教材报告页迁出报告](00_项目说明/P38_在线教材报告页迁出报告.md) | 记录 P25/P34/P35/P36/P37 阶段报告迁出在线教材内容层和 v0.9.2 版本更新 |
+| [在线书籍阶段报告索引](00_项目说明/book-stage-reports/_index.md) | 项目维护用阶段报告入口，不参与 MkDocs 在线教材发布 |
 | [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
-| [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第六版，项目版本 `v0.9.1`，包含第 1-8 章教材正文、Nature 引用、Imagegen/Mermaid 图示、合并编号说明的出版式图注、代码案例和课程资源 |
+| [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第六版，项目版本 `v0.9.2`，包含第 1-8 章教材正文、Nature 引用、Imagegen/Mermaid 图示、合并编号说明的出版式图注、代码案例和课程资源 |
 
 ## 在线书籍
 
@@ -125,11 +127,6 @@ relations:
 | [AIDD dry-run 数据流程](book/docs/resources/aidd-dry-runs.md) | P31 第 3/5/6/8 章候选 triage、亲和力解释、设计 QC 和项目优先级脚本 |
 | [截图索引](book/docs/resources/screenshot-index.md) | 每章软件/界面截图和来源边界 |
 | [中文教材正文风格指南](book/docs/resources/style-guide.md) | P25 段落功能、证据边界、术语和 provenance 保护规则 |
-| [P25 正文润色报告](book/docs/resources/polish-report.md) | 8 章 reverse outline、claim-evidence map 和需作者确认项 |
-| [P34 可读性增强报告](book/docs/resources/p34-readability-report.md) | 外部写作规则提炼、章节扩写策略和可读性审计指标 |
-| [P35 去模板化报告](book/docs/resources/p35-detemplate-report.md) | 章节专属化改写、prose-only 重复句审计和版本更新 |
-| [P36 图注规范化报告](book/docs/resources/p36-figure-caption-report.md) | 章节图号、图下注释、来源边界和图示审计结果 |
-| [P37 图注合并报告](book/docs/resources/p37-caption-compaction-report.md) | 编号解释表并入图注后的版式压缩和审计结果 |
 | [正文润色脚本](tools/polish_book_chapters.py) | 受控改写在线书籍章节正文并检查过强表述 |
 | [可读性审计脚本](tools/audit_book_readability.py) | 统计章节可读性正文长度、重点区块长度、重复模板句和过强表述 |
 | [图注审计脚本](tools/audit_book_figures.py) | 检查图号顺序、图注格式、图注长度、图片 alt text 和章节外图片 |

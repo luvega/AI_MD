@@ -12,9 +12,9 @@ claims:
   - "p36_figure_caption_standard_2026_06_02"
 relations:
   - type: updates
-    target: "../chapters/"
+    target: "../../book/docs/chapters/"
   - type: supports
-    target: "../../../tools/audit_book_figures.py"
+    target: "../../tools/audit_book_figures.py"
 ---
 # P36 图注规范化报告
 

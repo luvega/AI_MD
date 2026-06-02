@@ -90,7 +90,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - 项目说明和维护报告：放入 `00_项目说明/`，用于记录阶段性整理、验证结果、边界和待人工确认项。
 - 研究工作台：放入 `07_研究工作台/`，用于维护实体、claims、项目池、队列、输出视图和 AI 回归评测；不要把它写成新的长篇课件正文。
 - 在线书籍：放入 `book/docs/`，面向课程讲义读者；章节正文、Nature 风格引用卡片、代码案例、Imagegen 图谱、流程图和截图资源必须保留来源边界，不复制原始 PDF、图片、压缩包或 Office 文件，不把文献案例写成本项目结果。
-- 正文润色：优先遵守 `book/docs/resources/style-guide.md`；改写时保护引用卡片、代码块、图片链接、BibTeX key、Zotero item key、DOI/URL 和来源路径；高风险 claim 应写入 `book/docs/resources/polish-report.md`。
+- 正文润色：优先遵守 `book/docs/resources/style-guide.md`；改写时保护引用卡片、代码块、图片链接、BibTeX key、Zotero item key、DOI/URL 和来源路径；高风险 claim 应写入 `00_项目说明/book-stage-reports/polish-report.md`。
 - 综合索引和日志：根 `index.md` 和 `log.md` 用于 LLM Wiki 导航和演化记录。
 
 ## 搜索方式

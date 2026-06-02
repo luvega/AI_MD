@@ -39,7 +39,7 @@
 | [知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md](知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md) | maintenance-report | 记录 `06_原始学习素材/` 本地保留、GitHub 只保留 `.gitkeep` 占位和 raw 内容不上传规则。 | `.gitignore`, `06_原始学习素材/.gitkeep` |  |
 | [P26_Codex技能集成报告.md](P26_Codex技能集成报告.md) | maintenance-report | 记录 scientific-agent-skills 精选技能的全局 Codex 安装、跳过项和 AI_MD 路由边界。 | `C:\Users\xsui\.codex\skills`, `tools/install_ai_md_codex_skills.ps1` |  |
 | [P27_Codex项目规则迁移报告.md](P27_Codex项目规则迁移报告.md) | maintenance-report | 记录 AI_MD 自有 `.claude/skills` 规则迁移为 `ai-md-*` 全局 Codex skills 的结果。 | `.claude/skills`, `tools/install_ai_md_project_codex_skills.ps1` |  |
-| [P28_重点章节Codex审稿报告.md](P28_重点章节Codex审稿报告.md) | maintenance-report | 记录第 3/5/6/8 章高风险表述、证据边界和 P29-P31 交接建议。 | `book/docs/chapters/`, `book/docs/resources/polish-report.md` |  |
+| [P28_重点章节Codex审稿报告.md](P28_重点章节Codex审稿报告.md) | maintenance-report | 记录第 3/5/6/8 章高风险表述、证据边界和 P29-P31 交接建议。 | `book/docs/chapters/`, `00_项目说明/book-stage-reports/polish-report.md` |  |
 | [P29_文献与引用补强报告.md](P29_文献与引用补强报告.md) | maintenance-report | 记录第 3/5/6/8 章引用覆盖审计、Chai-1/RFD3/BindCraft 候选补强和后续 Zotero 入库边界。 | `references/`, `book/book_map.toml` | 多个 |
 | [P30_图示与版面升级报告.md](P30_图示与版面升级报告.md) | maintenance-report | 记录在线书籍 Mermaid source of truth、scientific-schematics prompt 和图示校验器增强。 | `book/docs/resources/mermaid-schematics.md`, `tools/validate_online_book.py` |  |
 | [P31_数据分析与AIDD dry-run报告.md](P31_数据分析与AIDD%20dry-run报告.md) | maintenance-report | 记录第 3/5/6/8 章 AIDD dry-run 脚本、实验记录字段和边界说明。 | `book/docs/resources/aidd-dry-runs.md`, `04_实验记录/` |  |
@@ -49,3 +49,5 @@
 | [P35_中文教材去模板化与版本更新报告.md](P35_中文教材去模板化与版本更新报告.md) | maintenance-report | 记录 8 章主章节去模板化修订、prose-only 重复句审计、可读性审计器增强和 `v0.8.0` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_readability.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P36_图注与图示出版规范化报告.md](P36_图注与图示出版规范化报告.md) | maintenance-report | 记录 8 章 32 个图位的出版式编号、图下注释、边界说明、图注审计器和 `v0.9.0` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_figures.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P37_图注编号解释合并报告.md](P37_图注编号解释合并报告.md) | maintenance-report | 记录编号解释表并入图注、版式压缩、图注审计器增强和 `v0.9.1` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_figures.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [P38_在线教材报告页迁出报告.md](P38_在线教材报告页迁出报告.md) | maintenance-report | 记录 P25/P34/P35/P36/P37 阶段报告迁出 `book/docs/`、在线教材导航清理和 `v0.9.2` 版本更新。 | `book/docs/index.md`, `book/mkdocs.yml`, `book-stage-reports/_index.md` |  |
+| [book-stage-reports/_index.md](book-stage-reports/_index.md) | project-doc | 保存 P25/P34/P35/P36/P37 阶段性维护报告；不作为在线教材内容发布。 | `book/docs/`, `00_项目说明/` |  |

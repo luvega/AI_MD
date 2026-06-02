@@ -7,7 +7,7 @@ topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
 source_count: 29
 last_reviewed: 2026-06-02
-source_files: ["VERSION", "CLAUDE.md", "index.md", "00_项目说明/版本记录.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "book/docs/resources/p34-readability-report.md", "book/docs/resources/p35-detemplate-report.md", "tools/audit_book_readability.py", "tests/test_audit_book_readability.py", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["VERSION", "CLAUDE.md", "index.md", "00_项目说明/版本记录.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "00_项目说明/book-stage-reports/p34-readability-report.md", "00_项目说明/book-stage-reports/p35-detemplate-report.md", "tools/audit_book_readability.py", "tests/test_audit_book_readability.py", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
@@ -81,12 +81,19 @@ relations:
 - 更新 `00_项目说明/版本记录.md`，记录 P35 后的发布范围、验收命令和 P36 真实小样本运行目标。
 - 同步根索引、项目说明索引、在线书籍首页和 MkDocs 资源导航。
 
+## [2026-06-02] update | P38 在线教材报告页迁出
+
+- 将 P25、P34、P35、P36 和 P37 阶段性报告从 `book/docs/resources/` 迁出到 `00_项目说明/book-stage-reports/`。
+- 从 `book/mkdocs.yml` 课程资源导航和 `book/docs/index.md` 资源表中移除阶段性报告入口，在线教材内容层只保留读者资源页。
+- 新增 `00_项目说明/book-stage-reports/_index.md` 和 `00_项目说明/P38_在线教材报告页迁出报告.md`，项目版本更新为 `v0.9.2`。
+- 保留阶段性报告作为项目维护资料，不修改章节正文、引用、代码、图片、截图或原始素材边界。
+
 ## [2026-06-02] update | P37 图注编号解释合并
 
 - 将 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 中知识图谱和流程图下方的编号解释表合并进对应图注。
 - 删除独立的 `编号 | 正文权威标签`、`编号 | 流程节点` 表格和“图中编号节点与下表对应”提示，使图注承担图意、编号含义和边界说明。
 - 增强 `tools/audit_book_figures.py`，新增独立编号表残留检查，并要求 `图X.1` / `图X.3` 图注包含内联编号说明。
-- 新增 `book/docs/resources/p37-caption-compaction-report.md` 和 `00_项目说明/P37_图注编号解释合并报告.md`，项目版本更新为 `v0.9.1`。
+- 新增 `00_项目说明/book-stage-reports/p37-caption-compaction-report.md` 和 `00_项目说明/P37_图注编号解释合并报告.md`，项目版本更新为 `v0.9.1`。
 
 ## [2026-06-02] update | P36 图注与图示出版规范化
 
@@ -94,19 +101,19 @@ relations:
 - 为每张图补充图下注释和 alt text，图注说明对象、阅读顺序、来源边界和“不代表实验结果”等限制。
 - 将 `book/docs/resources/screenshot-index.md` 改为截图文件链接索引，避免资源页出现未编号图片。
 - 新增 `tools/audit_book_figures.py` 与 `tests/test_audit_book_figures.py`，图注审计结果为 8 章、32 图位、errors 0。
-- 新增 `book/docs/resources/p36-figure-caption-report.md` 与 `00_项目说明/P36_图注与图示出版规范化报告.md`，并将项目版本更新为 `v0.9.0`。
+- 新增 `00_项目说明/book-stage-reports/p36-figure-caption-report.md` 与 `00_项目说明/P36_图注与图示出版规范化报告.md`，并将项目版本更新为 `v0.9.0`。
 
 ## [2026-06-02] update | P35 中文教材去模板化
 
 - 对 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 做章节专属化修订，减少跨章模板句。
 - 增强 `tools/audit_book_readability.py`，让 repeated sentences 只统计正文句子，排除标题、表格、列表、代码块、引用区和图片链接残留。
-- 新增 `book/docs/resources/p35-detemplate-report.md` 和 `00_项目说明/P35_中文教材去模板化与版本更新报告.md`。
+- 新增 `00_项目说明/book-stage-reports/p35-detemplate-report.md` 和 `00_项目说明/P35_中文教材去模板化与版本更新报告.md`。
 - P35 可读性审计结果：每章正文最小值 4078，平均值 4375.5，重点区块最小值 365，prose-only 重复句 0，errors 0。
 
 ## [2026-06-02] update | P34 中文教材可读性增强
 
 - 采用中等扩写和教材讲解风格，重写 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 的导读、核心概念、方法流程、代码案例解释、使用边界和延伸阅读。
-- 新增 `book/docs/resources/p34-readability-report.md` 和 `00_项目说明/P34_中文教材可读性增强报告.md`，记录外部写作规则提炼、章节改写策略、边界保护和需作者确认项。
+- 新增 `00_项目说明/book-stage-reports/p34-readability-report.md` 和 `00_项目说明/P34_中文教材可读性增强报告.md`，记录外部写作规则提炼、章节改写策略、边界保护和需作者确认项。
 - 新增 `tools/audit_book_readability.py` 与 `tests/test_audit_book_readability.py`，可统计章节可读性正文长度、重点区块长度、重复模板句和过强表述。
 - 本轮不新增科学事实、不新增文献、不重做 Imagegen 图；保留引用列表、代码块、图片路径、DOI、BibTeX/Zotero provenance 和 `06_原始学习素材/` 本地只读边界。
 
@@ -187,7 +194,7 @@ relations:
 ## [2026-05-31] update | P25 在线书籍正文润色与结构重排
 
 - 使用 research-paper-writing 和 academic-chinese-style 原则，对 8 个在线书籍主章节做教材化结构重排。
-- 新增 `tools/polish_book_chapters.py`、`book/docs/resources/style-guide.md` 和 `book/docs/resources/polish-report.md`。
+- 新增 `tools/polish_book_chapters.py`、`book/docs/resources/style-guide.md` 和 `00_项目说明/book-stage-reports/polish-report.md`。
 - 每章补充 reverse outline、claim-evidence map、来源路径表和更明确的证据边界。
 - 保留引用卡片、代码块、图片链接、BibTeX key、Zotero item key 和 DOI/URL，不处理未跟踪 torrent 文件。
 

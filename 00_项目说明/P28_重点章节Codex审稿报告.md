@@ -4,10 +4,10 @@ created: 2026-06-02
 type: maintenance-report
 status: active
 topics: [online-book, peer-review, scientific-critical-thinking, scientific-writing, p28]
-source_files: ["book/docs/chapters/chapter-03.md", "book/docs/chapters/chapter-05.md", "book/docs/chapters/chapter-06.md", "book/docs/chapters/chapter-08.md", "book/docs/resources/polish-report.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["book/docs/chapters/chapter-03.md", "book/docs/chapters/chapter-05.md", "book/docs/chapters/chapter-06.md", "book/docs/chapters/chapter-08.md", "00_项目说明/book-stage-reports/polish-report.md", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: []
 bibtex_keys: []
-related: ["P27_Codex项目规则迁移报告.md", "Codex技能调用矩阵.md", "../book/docs/resources/polish-report.md", "../07_研究工作台/证据与claims矩阵.md"]
+related: ["P27_Codex项目规则迁移报告.md", "Codex技能调用矩阵.md", "book-stage-reports/polish-report.md", "../07_研究工作台/证据与claims矩阵.md"]
 wiki_role: maintenance
 source_count: 6
 last_reviewed: 2026-06-02
@@ -18,7 +18,7 @@ relations:
   - type: extends
     target: "P27_Codex项目规则迁移报告.md"
   - type: supports
-    target: "../book/docs/resources/polish-report.md"
+    target: "book-stage-reports/polish-report.md"
   - type: supports
     target: "../07_研究工作台/证据与claims矩阵.md"
   - type: updates

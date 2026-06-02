@@ -72,8 +72,3 @@ nav:
       - 复现实验资源: resources/reproducible-labs.md
       - AIDD dry-run 数据流程: resources/aidd-dry-runs.md
       - 中文教材正文风格指南: resources/style-guide.md
-      - P25 正文润色报告: resources/polish-report.md
-      - P34 可读性增强报告: resources/p34-readability-report.md
-      - P35 去模板化报告: resources/p35-detemplate-report.md
-      - P36 图注规范化报告: resources/p36-figure-caption-report.md
-      - P37 图注合并报告: resources/p37-caption-compaction-report.md
