@@ -71,6 +71,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Require chapter Imagegen knowledge maps and a resources/imagegen-manifest.tsv.",
     )
+    parser.add_argument(
+        "--require-mermaid",
+        action="store_true",
+        help="Require each chapter to include a Mermaid diagram with accTitle and accDescr.",
+    )
     return parser.parse_args()
 
 
@@ -134,6 +139,7 @@ def check_chapter_sections(
     require_nature_refs: bool = False,
     require_imagegen: bool = False,
     imagegen_files: set[str] | None = None,
+    require_mermaid: bool = False,
 ) -> None:
     page = str(entry.get("page", "")).strip()
     title = str(entry.get("title", "<untitled>"))
@@ -186,6 +192,14 @@ def check_chapter_sections(
                 rel = image
             if imagegen_files is not None and rel not in imagegen_files:
                 issues.append(Issue("unregistered Imagegen asset", page, rel))
+
+    if require_mermaid:
+        mermaid_blocks = re.findall(r"(?ms)^\s*```mermaid\s*\n(.*?)^\s*```", text)
+        if not mermaid_blocks:
+            issues.append(Issue("missing Mermaid diagram", page, "expected at least one ```mermaid fenced block"))
+        for block in mermaid_blocks:
+            if "accTitle:" not in block or "accDescr:" not in block:
+                issues.append(Issue("inaccessible Mermaid diagram", page, "expected accTitle and accDescr"))
 
 
 def load_imagegen_manifest(book_root: Path, issues: list[Issue]) -> set[str]:
@@ -252,6 +266,7 @@ def validate(
     min_chapter_chars: int = 0,
     require_nature_refs: bool = False,
     require_imagegen: bool = False,
+    require_mermaid: bool = False,
 ) -> list[Issue]:
     repo_root = book_map_path.resolve().parents[1]
     data = load_book_map(book_map_path)
@@ -272,6 +287,7 @@ def validate(
             require_nature_refs=require_nature_refs,
             require_imagegen=require_imagegen,
             imagegen_files=imagegen_files,
+            require_mermaid=require_mermaid,
         )
 
     for entry in as_list(data.get("appendices")):
@@ -298,6 +314,7 @@ def main() -> int:
         min_chapter_chars=args.min_chapter_chars,
         require_nature_refs=args.require_nature_refs,
         require_imagegen=args.require_imagegen,
+        require_mermaid=args.require_mermaid,
     )
     print(f"checked map: {book_map_path}")
     print(f"checked book root: {book_root}")

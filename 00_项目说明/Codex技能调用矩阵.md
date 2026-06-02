@@ -4,18 +4,19 @@ created: 2026-06-02
 type: project-doc
 status: active
 topics: [codex-skills, routing, online-book, data-analysis, writing]
-source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "CLAUDE.md"]
+source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "CLAUDE.md"]
 zotero_items: []
 bibtex_keys: []
-related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md", "P29_文献与引用补强报告.md"]
+related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md", "P29_文献与引用补强报告.md", "P30_图示与版面升级报告.md"]
 wiki_role: concept
-source_count: 5
+source_count: 6
 last_reviewed: 2026-06-02
 claims:
   - "AI_MD 下一版更新优先使用全局 Codex skills，而不是向 .claude/skills 添加第三方技能。"
   - "AI_MD 自有项目规则已迁移为 ai-md-* 全局 Codex skills。"
   - "P28 已完成第 3/5/6/8 章高风险 claim 第一轮审稿，可作为 P29-P31 的输入基线。"
   - "P29 已完成第 3/5/6/8 章引用覆盖审计，并识别 Chai-1、RFD3/RFdiffusion3、BindCraft 三个候选补强。"
+  - "P30 已完成第 1-8 章 Mermaid 图示增强和 online book Mermaid 校验器增强。"
 relations:
   - type: extends
     target: "插件与Skills调用说明.md"
@@ -23,6 +24,8 @@ relations:
     target: "P28_重点章节Codex审稿报告.md"
   - type: supports
     target: "P29_文献与引用补强报告.md"
+  - type: supports
+    target: "P30_图示与版面升级报告.md"
 ---
 # Codex技能调用矩阵
 
@@ -95,6 +98,6 @@ relations:
 
 1. P28 已完成：`peer-review` 和 `scientific-critical-thinking` 已用于审查第 3/5/6/8 章高风险 claim，基线见 `P28_重点章节Codex审稿报告.md`。
 2. P29 已完成：`literature-review` 和 `citation-management` 已用于第 3/5/6/8 章引用覆盖审计，候选补强见 `P29_文献与引用补强报告.md` 和 `references/zotero-candidates-2026-06-02-P29.tsv`。
-3. P30 下一步：用 `markdown-mermaid-writing` 和 `scientific-schematics` 规划每章可替换 Imagegen 图谱的文本化结构。
+3. P30 已完成：`markdown-mermaid-writing` 和 `scientific-schematics` 已用于每章 Mermaid source-of-truth 和示意图 prompt，见 `book/docs/resources/mermaid-schematics.md`。
 4. P31 下一步：用 `datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 补充 dry-run 数据流程和实验记录模板。
 5. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。

@@ -53,7 +53,16 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
         for section in REQUIRED_SECTIONS:
             body = "- 内容骨架。\n"
             if section == "知识图谱入口":
-                body += "\n![chapter map](../assets/imagegen/chapter-01-knowledge-map.png)\n"
+                body += """
+                ![chapter map](../assets/imagegen/chapter-01-knowledge-map.png)
+
+                ```mermaid
+                flowchart LR
+                    accTitle: Test diagram
+                    accDescr: This diagram connects one test input to one test output.
+                    input["Input"] --> output["Output"]
+                ```
+                """
             if section == "代码案例与软件操作":
                 body += "\n```bash\npython --version\n```\n\n![screenshot](../assets/screenshots/chapter-01.png)\n"
             if section == "关键文献":
@@ -174,6 +183,20 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
 
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("unregistered Imagegen asset", result.stdout)
+
+    def test_rejects_missing_accessible_mermaid_when_required(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            book_map, book_root = self.make_valid_workspace(root)
+            chapter = book_root / "chapters" / "chapter-01.md"
+            text = chapter.read_text(encoding="utf-8")
+            text = text.replace("accTitle: Test diagram\n                    accDescr: This diagram connects one test input to one test output.\n", "")
+            chapter.write_text(text, encoding="utf-8")
+
+            result = self.run_validator(book_map, book_root, root, "--require-mermaid")
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("inaccessible Mermaid diagram", result.stdout)
 
 
 if __name__ == "__main__":

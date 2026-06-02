@@ -63,7 +63,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 9. 涉及研究决策时，先查 `07_研究工作台/实体索引.md` 和 `07_研究工作台/证据与claims矩阵.md`，区分课程资料、文献案例、项目结果和研究假设。
 10. 新建或更新笔记时，必须使用统一 frontmatter，补齐标签、来源文件、引用键和相关链接。
 11. 每次新建或更新笔记后，同步更新对应目录的 `_index.md`、必要时更新根 `index.md`，并向 `log.md` 追加条目。
-12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`；涉及在线书籍时运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen` 和 `mkdocs build -f book/mkdocs.yml --strict`；涉及正文润色时先运行或复查 `python tools/polish_book_chapters.py --check`。
+12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`；涉及在线书籍时运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen --require-mermaid` 和 `mkdocs build -f book/mkdocs.yml --strict`；涉及正文润色时先运行或复查 `python tools/polish_book_chapters.py --check`。
 13. 最后简要说明创建或更新了哪些文件、放在哪里、是否有待人工确认的信息。
 
 ## Codex skill / 插件联用规则

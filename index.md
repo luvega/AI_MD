@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 22
+source_count: 23
 last_reviewed: 2026-06-02
-source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -53,6 +53,8 @@ relations:
     target: "00_项目说明/P28_重点章节Codex审稿报告.md"
   - type: updates
     target: "00_项目说明/P29_文献与引用补强报告.md"
+  - type: updates
+    target: "00_项目说明/P30_图示与版面升级报告.md"
   - type: supports
     target: "00_项目说明/Codex技能调用矩阵.md"
 ---
@@ -76,6 +78,7 @@ relations:
 | [P27 Codex 项目规则迁移报告](00_项目说明/P27_Codex项目规则迁移报告.md) | AI_MD 自有项目规则迁移为 `ai-md-*` 全局 Codex skills 的记录 |
 | [P28 重点章节 Codex 审稿报告](00_项目说明/P28_重点章节Codex审稿报告.md) | 第 3/5/6/8 章 docking score、affinity、RFdiffusion/RFD3、Chai-1 等高风险表述审查 |
 | [P29 文献与引用补强报告](00_项目说明/P29_文献与引用补强报告.md) | 第 3/5/6/8 章引用覆盖审计和 Chai-1/RFD3/BindCraft 候选补强 |
+| [P30 图示与版面升级报告](00_项目说明/P30_图示与版面升级报告.md) | 第 1-8 章 Mermaid 图示、scientific-schematics prompt 和图示校验器增强 |
 | [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
 | [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第三版，包含第 1-8 章长文、Nature 引用、Imagegen 图谱、代码案例和课程资源 |
 
@@ -89,6 +92,7 @@ relations:
 | [在线书籍校验器](tools/validate_online_book.py) | 检查章节区块、来源路径、BibTeX key、书内链接和 raw source 链接 |
 | [引用区生成脚本](tools/update_book_references.py) | 从 BibTeX 和 Zotero 映射重建章节 Nature 风格引用卡片和附录 C |
 | [Imagegen 图谱记录](book/docs/resources/imagegen-prompts.md) | 记录章节知识图谱、流程图、prompt 摘要和验收状态 |
+| [Mermaid 图示与示意图设计](book/docs/resources/mermaid-schematics.md) | P30 每章 Mermaid source-of-truth 和 scientific-schematics prompt |
 | [代码案例索引](book/docs/resources/code-cases.md) | 每章 dry-run 或解析脚本入口 |
 | [截图索引](book/docs/resources/screenshot-index.md) | 每章软件/界面截图和来源边界 |
 | [中文教材正文风格指南](book/docs/resources/style-guide.md) | P25 段落功能、证据边界、术语和 provenance 保护规则 |
@@ -183,6 +187,7 @@ relations:
 | [P27 Codex 项目规则迁移](00_项目说明/P27_Codex项目规则迁移报告.md) | AI_MD 自有 `.claude/skills` 规则迁移为 `ai-md-*` 全局 Codex skills |
 | [P28 重点章节 Codex 审稿](00_项目说明/P28_重点章节Codex审稿报告.md) | 第 3/5/6/8 章高风险 claim、证据边界和 P29-P31 交接建议 |
 | [P29 文献与引用补强](00_项目说明/P29_文献与引用补强报告.md) | 第 3/5/6/8 章引用覆盖审计、补强候选和 Zotero 入库边界 |
+| [P30 图示与版面升级](00_项目说明/P30_图示与版面升级报告.md) | 在线书籍 Mermaid source of truth、示意图 prompt 和校验器增强 |
 
 ## 综合与开放问题
 
@@ -214,6 +219,7 @@ relations:
 - [2026-06-02] update | P27 Codex 项目规则迁移
 - [2026-06-02] update | P28 重点章节 Codex 审稿
 - [2026-06-02] update | P29 文献与引用补强
+- [2026-06-02] update | P30 图示与版面升级
 - [2026-05-31] git | P26 原始素材目录本地保留、不上传内容
 
 ## 待确认项

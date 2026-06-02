@@ -40,6 +40,7 @@
 | 代码案例 | 每章一个可复制 dry-run 或解析脚本 | [进入](resources/code-cases.md) |
 | 截图索引 | 每章一个软件/界面教学截图及来源边界 | [进入](resources/screenshot-index.md) |
 | Imagegen 图谱 | 知识图谱、流程图和 prompt 记录 | [进入](resources/imagegen-prompts.md) |
+| Mermaid 图示 | 每章 Mermaid source-of-truth 和 scientific-schematics prompt | [进入](resources/mermaid-schematics.md) |
 | 复现实验 | 代码、截图和最小复现状态汇总 | [进入](resources/reproducible-labs.md) |
 | 正文风格指南 | P25 中文教材化写作、证据边界和 provenance 保护规则 | [进入](resources/style-guide.md) |
 | 润色报告 | 8 章 reverse outline、claim-evidence map 和需作者确认项 | [进入](resources/polish-report.md) |

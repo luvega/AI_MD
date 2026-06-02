@@ -49,6 +49,36 @@
 
 这张图由 Imagegen 生成，用于帮助读者把本章对象、方法和证据关系先组织成可记忆结构。图中只保留短标题和编号，精确术语、参数和边界以上表及正文为准。
 
+### Mermaid 结构图
+
+```mermaid
+flowchart LR
+    accTitle: Affinity prediction interpretation
+    accDescr: This diagram links Boltz2 input quality, predicted affinity, confidence, calibration, and candidate handoff.
+
+    yaml["YAML and inputs"] --> prediction["Prediction run"]
+    prediction --> affinity["Predicted affinity"]
+    prediction --> confidence["Confidence metrics"]
+    affinity --> joint_read["Joint interpretation"]
+    confidence --> joint_read
+    joint_read --> calibration{"Calibration available?"}
+    calibration -->|Yes| priority["Candidate priority"]
+    calibration -->|No| caveat["Ranking only"]
+    priority --> experiment["Experiment queue"]
+    caveat --> experiment
+
+    classDef input fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
+    classDef process fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
+    classDef decision fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+    classDef output fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    class yaml input
+    class prediction,affinity,confidence,joint_read,caveat process
+    class calibration decision
+    class priority,experiment output
+```
+
+完整图示设计和后续科学示意图 prompt 见 [Mermaid 图示与示意图设计](../resources/mermaid-schematics.md)。
+
 ## 核心概念
 
 本节只保留支撑后续判断的核心概念。每个概念都应能回答一个具体问题：它约束什么输入、影响什么输出、需要怎样记录。
