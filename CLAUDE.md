@@ -28,7 +28,7 @@
 |:---|:---|:---|
 | Raw sources | 本地 `06_原始学习素材/`、`references/` | 原始资料是 source of truth，默认只读；`06_原始学习素材/` 内容不上传 GitHub |
 | Wiki | `index.md`、`log.md`、`00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/`、`07_研究工作台/`、`book/docs/` | LLM 负责创建、更新、交叉引用和维护一致性 |
-| Schema | `CLAUDE.md`、`.claude/skills/`、`00_项目说明/LLM Wiki运行手册.md`、`tools/graph_health.py`、`tools/validate_online_book.py`、`book/book_map.toml` | 约束 Agent 如何 ingest、query、lint、update 和验收 |
+| Schema | `CLAUDE.md`、历史项目规则 `.claude/skills/`、全局 Codex skills、`00_项目说明/LLM Wiki运行手册.md`、`tools/graph_health.py`、`tools/validate_online_book.py`、`book/book_map.toml` | 约束 Agent 如何 ingest、query、lint、update 和验收 |
 
 LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 负责验收知识库，`zotero-literature-link` 负责文献映射，`ingest-source`、`query-wiki`、`wiki-lint` 负责 LLM Wiki 层面的摄入、问答和健康检查。
 
@@ -48,7 +48,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - `tests/`：项目级脚本测试；当前包含 `test_graph_health.py` 和 `test_validate_online_book.py`。
 - `index.md`：LLM Wiki 内容型总索引。
 - `log.md`：追加式操作时间线。
-- `.claude/skills/`：本项目的本地知识库操作入口；宽泛任务先用 `ai-md-router` 判断是否需要 `takenote`、`zotero-literature-link` 或 `update-vault`。
+- `.claude/skills/`：历史项目内知识库规则入口；保留用于兼容既有 LLM Wiki 工作流，但不再作为第三方 skill 的新增安装位置。新的外部专业能力安装到全局 Codex skills：`C:/Users/xsui/.codex/skills/`。
 
 ## 每次输入内容时的处理顺序
 
@@ -66,8 +66,10 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`；涉及在线书籍时运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen` 和 `mkdocs build -f book/mkdocs.yml --strict`；涉及正文润色时先运行或复查 `python tools/polish_book_chapters.py --check`。
 13. 最后简要说明创建或更新了哪些文件、放在哪里、是否有待人工确认的信息。
 
-## Skill 联用规则
+## Codex skill / 插件联用规则
 
+- 全局 Codex skills：新增第三方专业能力统一安装到 `C:/Users/xsui/.codex/skills/`。P26 已安装 scientific-agent-skills 精选集；调用矩阵见 `00_项目说明/Codex技能调用矩阵.md`。
+- 历史项目内 `.claude/skills/`：继续作为 AI_MD 既有 LLM Wiki 工作流规则来源，但不再新增第三方 skill。若要迁移，应另开 P27 转写为全局 Codex skills。
 - `ai-md-router`：LLM Wiki Agent 入口，先判断任务是 ingest、query、lint、takenote、zotero 还是 update。
 - `ingest-source`：新来源摄入；识别来源和影响面后，交给 `takenote` 写入，再交给 `update-vault` 验收。
 - `query-wiki`：基于 `index.md`、目录 `_index.md` 和具体页面回答；有长期价值的答案再交给 `takenote` 沉淀。
@@ -75,6 +77,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - `takenote`：只负责规范写入知识，不负责全库验收。
 - `update-vault`：只负责维护验收和报告，不负责生成研究内容。
 - `zotero-literature-link`：只负责文献检索、候选、BibTeX 和映射；内容落笔仍遵守 `takenote` 格式。
+- 下一版在线教材正文、文献、图示和数据流程更新时，优先从 `scientific-writing`、`literature-review`、`citation-management`、`peer-review`、`scientific-critical-thinking`、`markdown-mermaid-writing`、`scientific-schematics`、`scientific-visualization`、`networkx`、`datamol`、`rdkit`、`medchem`、`molecular-dynamics` 和 `diffdock` 中选择最小必要集合。
 
 ## 分类型处理规则
 

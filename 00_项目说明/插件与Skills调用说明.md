@@ -4,19 +4,32 @@ created: 2026-05-30
 type: project-doc
 status: active
 topics: [plugin-routing, skills, zotero, chrome, life-science-research, workflow]
-source_files: ["CLAUDE.md", ".claude/skills"]
+source_files: ["CLAUDE.md", ".claude/skills", "C:/Users/xsui/.codex/skills", "P26_Codex技能集成报告.md"]
 zotero_items: []
 bibtex_keys: []
-related: ["知识库使用说明.md", "../.claude/skills/ai-md-router/SKILL.md"]
+related: ["知识库使用说明.md", "Codex技能调用矩阵.md", "P26_Codex技能集成报告.md"]
 ---
 # 插件与Skills调用说明
 
-这份说明用于让 AI_MD 后续整理任务自动选择必要插件和本地 skill。原则是先用本项目本地索引和规则，只有确实需要外部资料、浏览器状态或 Zotero 库时才调用插件。
+这份说明用于让 AI_MD 后续整理任务自动选择必要插件、全局 Codex skills 和历史项目内规则。原则是先用本项目本地索引和规则，只有确实需要外部资料、浏览器状态、Zotero 库或专业工作流时才调用外部能力。
+
+## P26当前策略
+
+- 新增第三方专业能力统一安装为全局 Codex skills：`C:/Users/xsui/.codex/skills/`。
+- AI_MD 仓库不再向 `.claude/skills/` 添加第三方 skill 副本；该目录只作为历史项目内 LLM Wiki 规则来源。
+- P26 已从 `K-Dense-AI/scientific-agent-skills` commit `93124850ef08487e423165554c54f0b333d5631d` 安装 21 个精选 Codex skills。
+- 下一版教材更新的具体调用见 `Codex技能调用矩阵.md`。
+- 新安装的全局 skills 需要重启 Codex 后才能稳定出现在会话技能列表中。
 
 ## 下一步计划
 
 | 阶段 | 目标 | 产物 | 优先插件/skill |
 |:---|:---|:---|:---|
+| P27 | AI_MD 自有规则迁移 | 将既有 `.claude/skills` 项目规则重写为全局 Codex skills | `skill-creator`、`building-llm-wiki` |
+| P28 | 下一版教材正文审校 | 第 3/5/6/8 章高风险 claim 审稿、文字润色和证据边界收敛 | `scientific-writing`、`peer-review`、`scientific-critical-thinking` |
+| P29 | 文献和引用补强 | 从候选文献到正式引用，复核 DOI、引用格式和文献边界 | `literature-review`、`citation-management`、`zotero-literature-link`、`Zotero` |
+| P30 | 图示与版面升级 | Mermaid 图、科学示意图、slides 出口和章节版面更新 | `markdown-mermaid-writing`、`scientific-schematics`、`scientific-slides` |
+| P31 | 数据分析流程补强 | 化合物、MD、对接和知识图谱 dry-run 流程 | `datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock`、`networkx` |
 | P3 | 方法卡可执行化 | 第 3-5 章方法卡补输入、命令、输出、质控点和文献锚点 | `ai-md-router`、`takenote`、必要时 `Life Science Research` |
 | P4 | 文献候选正式提升 | 从候选表选文献，导出 BibTeX，更新 `zotero-map.tsv` 和文献笔记 | `zotero-literature-link`、`Zotero`、`Life Science Research` |
 | P5 | Zotero 暂缓条目收敛 | 复核导出异常条目，必要时用 DOI/Crossref/出版社元数据人工确认 | `zotero-literature-link`、`Zotero`、必要时 `Life Science Research` |
@@ -24,7 +37,21 @@ related: ["知识库使用说明.md", "../.claude/skills/ai-md-router/SKILL.md"]
 | P7 | 自动维护检查 | 一键检查断链、未索引附件、缺失 BibTeX key、OCR/章节覆盖 | `update-vault` |
 | P9 | LLM Wiki Agent | 根索引、日志、ingest/query/lint 工作流、本地 Git 版本史 | `ai-md-router`、`ingest-source`、`query-wiki`、`wiki-lint`、`update-vault` |
 
-## 本地Skills
+## 全局 Codex skills
+
+| Skill | 触发场景 | 必读文件 | 输出 |
+|:---|:---|:---|:---|
+| `scientific-writing` | 教材正文、论文式段落、章节长文重写 | `book/docs/resources/style-guide.md`、相关章节 | 教材化正文和段落结构建议 |
+| `literature-review` | 章节文献补强、综述线索、研究问题背景 | `references/`、相关文献笔记 | 文献候选和证据边界 |
+| `citation-management` | DOI/题名/作者/期刊元数据复核 | `references/references.bib`、`zotero-map.tsv` | 引用元数据和 BibTeX 候选 |
+| `peer-review` | 章节审稿、缺口清单、方法风险评估 | 相关章节、方法卡和 claims 矩阵 | 审稿意见和修改建议 |
+| `scientific-critical-thinking` | 证据强度、bias、overclaim 检查 | `07_研究工作台/证据与claims矩阵.md` | claim-evidence status 和边界降级 |
+| `markdown-mermaid-writing` | 文本化图谱、流程图和章节结构图 | `book/docs/`、`07_研究工作台/实体索引.md` | Mermaid 图和 Markdown 图示 |
+| `scientific-schematics` | 科学示意图和 Imagegen/BioRender prompt 设计 | `book/docs/resources/imagegen-prompts.md` | 图示构图和 prompt |
+| `datamol`、`rdkit`、`medchem` | 化合物库处理、描述符、筛选规则 | 方法卡、实验模板和输入表 | AIDD dry-run 流程和代码案例 |
+| `molecular-dynamics`、`diffdock` | MD/对接教学流程和边界说明 | 第 3/4 章方法卡和实验模板 | dry-run、QC 和结果解释边界 |
+
+## 历史项目内规则
 
 | Skill | 触发场景 | 必读文件 | 输出 |
 |:---|:---|:---|:---|
@@ -52,7 +79,7 @@ related: ["知识库使用说明.md", "../.claude/skills/ai-md-router/SKILL.md"]
 
 1. 先读 `CLAUDE.md` 和本文件。
 2. 判断任务属于记录、文献、维护、网页、外部证据、文件提取还是跨模块整理。
-3. 选择最小必要集合：本地 skill 优先，插件只在需要外部能力时调用。
+3. 选择最小必要集合：AI_MD 本地索引和历史项目规则优先；需要专业写作、文献、图示或数据流程时调用全局 Codex skills；插件只在需要外部系统或浏览器/Zotero 能力时调用。
 4. 写入或更新 Markdown 时同步 `_index.md`。
 5. 涉及 Zotero 时同时记录 Zotero item key 和 BibTeX key；候选先进入 `references/zotero-candidates-YYYY-MM-DD.tsv`。
 6. 完成前运行验证，并在维护报告中记录通过项和待人工确认项。
@@ -72,7 +99,7 @@ related: ["知识库使用说明.md", "../.claude/skills/ai-md-router/SKILL.md"]
 
 - 位置：`C:/Users/xsui/.codex/skills/building-llm-wiki/`
 - 触发场景：把其他项目整理成 LLM Wiki、第二大脑、Obsidian vault、AI 原生知识库，或需要 raw sources / wiki / schema 三层建库、typed relations、Zotero/BibTeX provenance 和本地维护 skill。
-- 与本项目关系：AI_MD 继续使用项目内 `.claude/skills/` 作为日常执行入口；`building-llm-wiki` 用于把这套方法迁移到新项目或修复其他知识库 schema。
+- 与本项目关系：AI_MD 现阶段保留项目内 `.claude/skills/` 作为历史规则来源；新增第三方技能统一安装为全局 Codex skills。`building-llm-wiki` 用于维护 raw/wiki/schema 分层，也可作为后续 P27 迁移项目规则的参考。
 - 校验脚本：`C:/Users/xsui/.codex/skills/building-llm-wiki/scripts/validate_llm_wiki.py`
 
 ## P3方法卡可执行化建议

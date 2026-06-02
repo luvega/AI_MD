@@ -8,7 +8,8 @@
 | [LLM Wiki运行手册.md](LLM%20Wiki运行手册.md) | project-doc | 定义 ingest、query、lint、update、zotero 和 git 的操作步骤。 | `CLAUDE.md`, `.claude/skills/` |  |
 | [概念关系规范.md](概念关系规范.md) | project-doc | 定义 supports、contradicts、updates、depends_on、derived_from、applies_to 等 typed relations。 | `CLAUDE.md` |  |
 | [知识库使用说明.md](知识库使用说明.md) | project-doc | 说明如何使用索引、方法笔记、文献笔记和本地 Skills。 | `CLAUDE.md` |  |
-| [插件与Skills调用说明.md](插件与Skills调用说明.md) | project-doc | 说明本项目如何自动选择 Zotero、Chrome、Life Science Research 和本地 skills。 | `CLAUDE.md`, `.claude/skills/` |  |
+| [插件与Skills调用说明.md](插件与Skills调用说明.md) | project-doc | 说明本项目如何自动选择 Zotero、Chrome、Life Science Research、全局 Codex skills 和历史项目规则。 | `CLAUDE.md`, `C:\Users\xsui\.codex\skills`, `.claude/skills/` |  |
+| [Codex技能调用矩阵.md](Codex技能调用矩阵.md) | project-doc | 说明 P26 后全局 Codex skills 在教材正文、文献、图示和数据分析流程中的调用规则。 | `C:\Users\xsui\.codex\skills`, `CLAUDE.md` |  |
 | [Obsidian入口.md](Obsidian入口.md) | project-doc | Obsidian 浏览入口，串联章节、方法、文献、实验、附件和模板。 | `CLAUDE.md` |  |
 | [Obsidian模板/_index.md](Obsidian模板/_index.md) | project-doc | Obsidian 手动复制模板索引，覆盖方法卡、文献笔记、实验记录和章节精读。 | `CLAUDE.md` |  |
 | [知识库维护报告-2026-05-30.md](知识库维护报告-2026-05-30.md) | project-doc | 记录本次落地后的索引、引用和链接验证结果。 | 全项目 | 多个 |
@@ -35,3 +36,4 @@
 | [知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md](知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md) | maintenance-report | 记录 Nature 风格引用卡片、Imagegen 图谱、代码案例、截图资源和在线书籍校验器增强。 | `book/`, `references/`, `tools/` | 多个 |
 | [知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md](知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md) | maintenance-report | 记录 8 章正文教材化润色、reverse outline、claim-evidence map 和中文学术写作风格指南。 | `book/`, `tools/polish_book_chapters.py` |  |
 | [知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md](知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md) | maintenance-report | 记录 `06_原始学习素材/` 本地保留、GitHub 只保留 `.gitkeep` 占位和 raw 内容不上传规则。 | `.gitignore`, `06_原始学习素材/.gitkeep` |  |
+| [P26_Codex技能集成报告.md](P26_Codex技能集成报告.md) | maintenance-report | 记录 scientific-agent-skills 精选技能的全局 Codex 安装、跳过项和 AI_MD 路由边界。 | `C:\Users\xsui\.codex\skills`, `tools/install_ai_md_codex_skills.ps1` |  |
