@@ -40,7 +40,7 @@ class AuditBookFiguresCliTest(unittest.TestCase):
 
                 ![图1.1 test map](../assets/imagegen/chapter-01.png)
 
-                **图1.1 测试知识图谱。** 本图为教学示意图，用于说明节点关系；编号只用于定位，不承载精确参数，以正文为准。
+                **图1.1 测试知识图谱。** 本图为教学示意图，用于说明节点关系；编号只用于定位，不承载精确参数，以正文为准。节点编号：1=输入；2=输出。
 
                 ```mermaid
                 flowchart LR
@@ -68,6 +68,12 @@ class AuditBookFiguresCliTest(unittest.TestCase):
                 ![missing number](../assets/imagegen/chapter-01.png)
 
                 **图1.2 错号知识图谱。** 本图为教学示意图，用于说明节点关系；编号只用于定位，不承载精确参数，以正文为准。
+
+                图中编号节点与下表对应：
+
+                | 编号 | 流程节点 |
+                |:---:|:---|
+                | 1 | Input |
                 """,
             )
             self.write_text(
@@ -81,6 +87,7 @@ class AuditBookFiguresCliTest(unittest.TestCase):
         self.assertIn("figure number mismatch", result.stdout)
         self.assertIn("image alt missing figure number", result.stdout)
         self.assertIn("image outside chapter figure flow", result.stdout)
+        self.assertIn("standalone figure number table remains", result.stdout)
 
 
 if __name__ == "__main__":

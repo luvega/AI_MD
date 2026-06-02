@@ -13,6 +13,15 @@ from pathlib import Path
 
 IMAGE_RE = re.compile(r"!\[(?P<alt>[^\]]*)\]\((?P<src>[^)]*)\)(?P<attrs>\{[^}]*\})?")
 CAPTION_RE = re.compile(r"^\*\*图(?P<chapter>\d+)\.(?P<number>\d+)\s+(?P<title>[^。]+)。\*\*(?P<body>.*)$")
+NUMBER_TABLE_HEADERS = [
+    "|\u0020\u7f16\u53f7\u0020|\u0020\u6b63\u6587\u6743\u5a01\u6807\u7b7e\u0020|",
+    "|\u0020\u7f16\u53f7\u0020|\u0020\u6d41\u7a0b\u8282\u70b9\u0020|",
+]
+TABLE_REFERENCE_PHRASE = "\u56fe\u4e2d\u7f16\u53f7\u8282\u70b9\u4e0e\u4e0b\u8868\u5bf9\u5e94"
+CAPTION_NUMBER_TOKENS = {
+    1: "\u8282\u70b9\u7f16\u53f7\uff1a",
+    3: "\u6d41\u7a0b\u7f16\u53f7\uff1a",
+}
 BOUNDARY_TOKENS = [
     "教学示意图",
     "截图",
@@ -91,6 +100,9 @@ def audit_chapter(path: Path, min_caption_chars: int, min_figures: int) -> tuple
     errors: list[str] = []
     if min_figures and len(figures) < min_figures:
         errors.append(f"too few figures: {path.name}: {len(figures)} < {min_figures}")
+    for line_no, line in enumerate(lines, start=1):
+        if line.strip() in NUMBER_TABLE_HEADERS or TABLE_REFERENCE_PHRASE in line:
+            errors.append(f"standalone figure number table remains: {path.name}: line {line_no}")
     for expected_no, (kind, fig_idx, alt) in enumerate(figures, start=1):
         figure_no = f"图{chapter_no}.{expected_no}"
         caption_idx, caption = next_nonempty_line(lines, fig_idx + 1)
@@ -111,6 +123,9 @@ def audit_chapter(path: Path, min_caption_chars: int, min_figures: int) -> tuple
             )
         if not any(token in caption for token in BOUNDARY_TOKENS):
             errors.append(f"caption lacks source/boundary token: {path.name}: {figure_no}")
+        required_number_token = CAPTION_NUMBER_TOKENS.get(expected_no)
+        if required_number_token and required_number_token not in caption:
+            errors.append(f"caption lacks inline number explanation: {path.name}: {figure_no}")
         if kind == "image" and alt and figure_no not in alt:
             errors.append(f"image alt missing figure number: {path.name}: {figure_no}: line {fig_idx + 1}")
         records.append(

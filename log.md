@@ -81,6 +81,13 @@ relations:
 - 更新 `00_项目说明/版本记录.md`，记录 P35 后的发布范围、验收命令和 P36 真实小样本运行目标。
 - 同步根索引、项目说明索引、在线书籍首页和 MkDocs 资源导航。
 
+## [2026-06-02] update | P37 图注编号解释合并
+
+- 将 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 中知识图谱和流程图下方的编号解释表合并进对应图注。
+- 删除独立的 `编号 | 正文权威标签`、`编号 | 流程节点` 表格和“图中编号节点与下表对应”提示，使图注承担图意、编号含义和边界说明。
+- 增强 `tools/audit_book_figures.py`，新增独立编号表残留检查，并要求 `图X.1` / `图X.3` 图注包含内联编号说明。
+- 新增 `book/docs/resources/p37-caption-compaction-report.md` 和 `00_项目说明/P37_图注编号解释合并报告.md`，项目版本更新为 `v0.9.1`。
+
 ## [2026-06-02] update | P36 图注与图示出版规范化
 
 - 将 `book/docs/chapters/chapter-01.md` 至 `chapter-08.md` 的 32 个图位统一为 `图X.Y` 编号体系，覆盖 Imagegen 知识图谱、Mermaid 结构图、Imagegen 流程图和软件截图。

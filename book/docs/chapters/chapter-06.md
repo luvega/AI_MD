@@ -39,18 +39,7 @@
 
 ![图6.1 RFdiffusion/RFD3-ProteinMPNN 设计链知识图谱](../assets/imagegen/chapter-06-knowledge-map.png){ loading=lazy }
 
-**图6.1 RFdiffusion/RFD3-ProteinMPNN 设计链知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括RFdiffusion/RFD3 与蛋白设计链的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。
-
-| 编号 | 正文权威标签 |
-|:---:|:---|
-| 1 | 设计目标 |
-| 2 | 约束/热点 |
-| 3 | 骨架生成 |
-| 4 | 序列设计 |
-| 5 | 回折叠 |
-| 6 | 界面评分 |
-| 7 | 实验交接 |
-
+**图6.1 RFdiffusion/RFD3-ProteinMPNN 设计链知识图谱。** 本图为 Imagegen 生成的教学示意图，用中心概念和编号节点概括RFdiffusion/RFD3 与蛋白设计链的对象、方法入口、记录字段和证据边界；编号用于正文定位，不承载精确参数或运行结果，术语解释和判断口径以正文表格为准。 节点编号：1=设计目标；2=约束/热点；3=骨架生成；4=序列设计；5=回折叠；6=界面评分；7=实验交接。
 
 ### Mermaid 结构图
 
@@ -122,19 +111,7 @@ RFdiffusion/RFD3 与蛋白设计链的方法流程要把从设计约束到候选
 
 ![图6.3 骨架生成到回折叠验证流程图](../assets/imagegen/chapter-06-flow-protein-design-cycle.png){ loading=lazy }
 
-**图6.3 骨架生成到回折叠验证流程图。** 本图为 Imagegen 生成的流程图，说明从骨架生成到回折叠验证的蛋白设计记录顺序；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。
-
-图中编号节点与下表对应：
-
-| 编号 | 流程节点 |
-|:---:|:---|
-| 1 | target |
-| 2 | constraints |
-| 3 | backbone |
-| 4 | sequence |
-| 5 | fold |
-| 6 | score |
-| 7 | handoff |
+**图6.3 骨架生成到回折叠验证流程图。** 本图为 Imagegen 生成的流程图，说明从骨架生成到回折叠验证的蛋白设计记录顺序；它用于说明操作顺序、关键节点和记录交接位置，不代表实验结果，具体命令、参数和边界判断以正文代码块与步骤表为准。 流程编号：1=target；2=constraints；3=backbone；4=sequence；5=fold；6=score；7=handoff。
 
 本节用于训练 **6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计** 的最小复现意识。该配置模板用于记录设计目标和筛选阈值；真实运行需要补充模型来源、checkpoint、seed 和完整输出目录。
 

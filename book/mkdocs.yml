@@ -76,3 +76,4 @@ nav:
       - P34 可读性增强报告: resources/p34-readability-report.md
       - P35 去模板化报告: resources/p35-detemplate-report.md
       - P36 图注规范化报告: resources/p36-figure-caption-report.md
+      - P37 图注合并报告: resources/p37-caption-compaction-report.md
