@@ -2,8 +2,8 @@
 """Apply P25 teaching-prose polish to online book chapters.
 
 The script rewrites narrative sections only. It preserves generated reference
-blocks, fenced code blocks, image links, BibTeX keys, Zotero item keys, DOI/URL
-strings, and code asset names by avoiding those regions.
+blocks, fenced code blocks, image links, DOI/URL strings, and code asset names
+by avoiding those regions.
 """
 
 from __future__ import annotations
@@ -420,7 +420,7 @@ CHAPTERS: tuple[ChapterSpec, ...] = (
         exercises=(
             "把一个宽泛需求改写成包含范围、禁止事项和验收标准的 Agent brief。",
             "为一次章节更新列出必须读取的 5 个来源文件。",
-            "设计一个 AI 回归评测问题，要求答案包含路径、BibTeX key、边界和待确认项。",
+            "设计一个 AI 回归评测问题，要求答案包含路径、关键文献条目、边界和待确认项。",
         ),
         boundaries=(
             ("Agent 回答", "是工作产物线索。", "不能替代文件、引用、测试和维护记录。"),
@@ -634,6 +634,23 @@ def extra_teaching_note(spec: ChapterSpec) -> str:
             "后续每章只是在这一检查表上增加领域特定字段。"
             "读者完成本章后，应能独立判断一个计算任务是否具备继续分析的最低记录条件。"
             "这也是后续质量控制的起点。"
+            "\n\n课堂练习中，建议把本章检查表反复用于不同软件场景，直到路径、环境和日志记录成为默认动作。"
+            "这一习惯会降低后续章节的排错成本，也能让同一实验被他人复核。"
+        ),
+        "chapter-02": (
+            "\n\n结构复核的核心不是把图做得更美观，而是让每个视觉判断都能回到来源和操作记录。"
+            "读者在保存 PyMOL 或 ChimeraX 截图时，应同时记录结构 ID、链 ID、残基选择、视角命令和处理后的工作文件。"
+            "这样第 3 章定义 docking box、第 4 章建立模拟体系或第 6 章设定设计约束时，才能判断当前结构是否适合作为输入。"
+            "如果截图无法说明结构来自实验、预测还是人工处理版本，它就只能作为课堂示意图，不应作为研究判断依据。"
+        ),
+        "chapter-04": (
+            "\n\nMD 结果的解释应先回答“轨迹是否可用”，再讨论“观察是否有意义”。"
+            "读者需要把体系准备、平衡状态、采样长度、分析脚本和代表构象选择规则分开记录，避免用一张 RMSD 曲线覆盖所有判断。"
+            "对于 AI 采样结果，也应记录输入结构、生成条件、筛选指标和人工复核理由。"
+            "只有当这些信息能对应到具体文件和表格时，构象变化、接触频率或聚类代表结构才适合进入后续亲和力解释和研究假设。"
+            "\n\n在课堂练习中，建议先让学生用同一份轨迹分别写出“QC 结论”和“科学假设”。"
+            "前者关注模拟是否基本可用，后者关注可能的构象机制；两者分开后，读者更容易识别哪些判断仍需更长采样、重复模拟或实验验证。"
+            "\n\n这一步也是进入第 5 章亲和力解释前的必要过滤。"
         ),
         "chapter-07": (
             "\n\n对 AI Agent 工作流而言，最容易被忽略的是“谁对结论负责”。Agent 可以执行检索、改写、生成脚本和运行测试，但它不能替代研究者确认科学含义。"
@@ -654,6 +671,8 @@ def extra_teaching_note(spec: ChapterSpec) -> str:
             "否则，自动化只会放大不可追溯的错误。"
             "这一点应作为全书的默认协作前提。"
             "因此，本章的验收重点不是工具数量，而是任务能否被下一位研究者完整复核。"
+            "\n\n后续扩展在线教材时，本章的检查表应优先于任何单次生成速度。"
+            "只有可复核的自动化，才适合沉淀为课程资源。"
         ),
     }
     return notes.get(spec.slug, "")
@@ -752,8 +771,8 @@ def write_style_guide() -> None:
 ## 适用范围
 
 - 适用于 `book/docs/chapters/` 的教学正文、资源页说明和维护报告摘要。
-- 不改写 `<!-- refs:start -->...<!-- refs:end -->` 内的自动引用卡片。
-- 不改写代码块、图片链接、DOI/URL、BibTeX key、Zotero item key、文件路径和 manifest 字段。
+- 不改写 `<!-- refs:start -->...<!-- refs:end -->` 内的自动引用列表，引用区由生成脚本统一维护。
+- 不改写代码块、图片链接、DOI/URL、文件路径和 manifest 字段。
 
 ## 段落规则
 
@@ -774,7 +793,7 @@ def write_style_guide() -> None:
 ## 术语与 provenance
 
 - `docking score`、`predicted affinity`、`confidence`、`aggregate score`、`RFdiffusion/RFD3`、`ProteinMPNN`、`Chai-1` 保持术语一致。
-- Zotero item key 和 BibTeX key 必须原样保留，二者不能互换。
+- 章节正文不展示内部引用键或本地文献库条目编号；这些信息保留在 `references/` 元数据中，用于生成和 provenance 追踪。
 - 原始 PDF 和补充材料只作为来源，不直接复制图表到在线书籍。
 
 ## P25 来源
@@ -793,8 +812,9 @@ def write_report(changed: list[str]) -> None:
         "",
         "## 未改动边界",
         "",
-        "- `<!-- refs:start -->...<!-- refs:end -->` 引用卡片保持由 `tools/update_book_references.py` 生成。",
-        "- 代码块、图片链接、BibTeX key、Zotero item key、DOI/URL、代码文件名和 manifest 字段原样保留。",
+        "- `<!-- refs:start -->...<!-- refs:end -->` 引用列表保持由 `tools/update_book_references.py` 生成。",
+        "- 代码块、图片链接、DOI/URL、代码文件名和 manifest 字段原样保留。",
+        "- 章节正文不展示内部引用键或本地文献库条目编号；引用元数据继续保留在 `references/` 层。",
         "- 未跟踪的 `06_原始学习素材/*.torrent` 文件未纳入本轮处理。",
         "",
         "## 修改文件",

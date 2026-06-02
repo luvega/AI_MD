@@ -126,53 +126,25 @@
 !!! warning "常见错误"
     docking score 只能做排序线索，不能写成结合自由能或实验 IC50。
 
-## 关键文献与 BibTeX key
+## 关键文献
 
 <!-- refs:start -->
 
-!!! quote "`du_dockey_2023`"
-    **Nature 风格引用：** Du, L., Geng, C., Zeng, Q., Huang, T., Tang, J., Chu, Y. et al. Dockey: a modern integrated tool for large-scale molecular docking and virtual screening. Briefings in Bioinformatics 24, bbad047 (2023). https://doi.org/10.1093/bib/bbad047
+- Du, L., Geng, C., Zeng, Q., Huang, T., Tang, J., Chu, Y. et al. Dockey: a modern integrated tool for large-scale molecular docking and virtual screening. Briefings in Bioinformatics 24, bbad047 (2023). https://doi.org/10.1093/bib/bbad047
 
-    **DOI/URL：** `10.1093/bib/bbad047`
+  **本文内容简介：** 本文介绍 Dockey 平台在大规模分子对接、虚拟筛选和结果管理中的集成流程。
 
-    **BibTeX key：** `du_dockey_2023`
+- Agrawal, P., Singh, H., Srivastava, H. K., Singh, S., Kishore, G. & Raghava, G. P. S. Benchmarking of different molecular docking methods for protein-peptide docking. BMC Bioinformatics 19, 426 (2019). https://doi.org/10.1186/s12859-018-2449-y
 
-    **Zotero item key：** `UOUH33GQ`
+  **本文内容简介：** 本文比较多种蛋白-多肽对接方法的性能，为肽结合体系的模型选择提供基准。
 
-    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+- Crampon, K., Giorkallos, A., Deldossi, M., Baud, S. & Steffenel, L. A. Machine-learning methods for ligand–protein molecular docking. Drug Discovery Today 27, 151–164 (2022). https://doi.org/10.1016/j.drudis.2021.09.007
 
-!!! quote "`agrawal_benchmarking_2019`"
-    **Nature 风格引用：** Agrawal, P., Singh, H., Srivastava, H. K., Singh, S., Kishore, G. & Raghava, G. P. S. Benchmarking of different molecular docking methods for protein-peptide docking. BMC Bioinformatics 19, 426 (2019). https://doi.org/10.1186/s12859-018-2449-y
+  **本文内容简介：** 本文综述机器学习方法在配体-蛋白分子对接中的建模策略、特征和应用限制。
 
-    **DOI/URL：** `10.1186/s12859-018-2449-y`
+- Gu, S., Shen, C., Zhang, X., Sun, H., Cai, H., Luo, H. et al. Benchmarking AI-powered docking methods from the perspective of virtual screening. Nature Machine Intelligence 7, 509–520 (2025). https://doi.org/10.1038/s42256-025-00993-0
 
-    **BibTeX key：** `agrawal_benchmarking_2019`
-
-    **Zotero item key：** `T2O1ECSF`
-
-    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
-
-!!! quote "`crampon_machine-learning_2022`"
-    **Nature 风格引用：** Crampon, K., Giorkallos, A., Deldossi, M., Baud, S. & Steffenel, L. A. Machine-learning methods for ligand–protein molecular docking. Drug Discovery Today 27, 151–164 (2022). https://doi.org/10.1016/j.drudis.2021.09.007
-
-    **DOI/URL：** `10.1016/j.drudis.2021.09.007`
-
-    **BibTeX key：** `crampon_machine-learning_2022`
-
-    **Zotero item key：** `R2W3SF5S`
-
-    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
-
-!!! quote "`gu_benchmarking_2025`"
-    **Nature 风格引用：** Gu, S., Shen, C., Zhang, X., Sun, H., Cai, H., Luo, H. et al. Benchmarking AI-powered docking methods from the perspective of virtual screening. Nature Machine Intelligence 7, 509–520 (2025). https://doi.org/10.1038/s42256-025-00993-0
-
-    **DOI/URL：** `10.1038/s42256-025-00993-0`
-
-    **BibTeX key：** `gu_benchmarking_2025`
-
-    **Zotero item key：** `57K986LK`
-
-    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
+  **本文内容简介：** 本文从虚拟筛选角度评测 AI 驱动对接方法，比较排序能力、适用场景和局限。
 
 <!-- refs:end -->
 ## 实验/练习入口

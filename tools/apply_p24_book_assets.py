@@ -498,7 +498,7 @@ def update_chapters() -> None:
         if "### Imagegen 知识图谱" not in text:
             text = insert_before_heading(text, "核心概念", make_knowledge_block(chapter))
         if "## 代码案例与软件操作" not in text:
-            text = insert_before_heading(text, "关键文献与 BibTeX key", make_code_block(chapter))
+            text = insert_before_heading(text, "关键文献", make_code_block(chapter))
         path.write_text(text, encoding="utf-8")
 
 

@@ -74,6 +74,8 @@
 
 执行时应先完成小样例或 dry-run，再扩大到批量任务。任何失败样本、低置信度结果或人工排除理由，都应保留在 manifest 或实验记录中。
 
+结构复核的核心不是把图做得更美观，而是让每个视觉判断都能回到来源和操作记录。读者在保存 PyMOL 或 ChimeraX 截图时，应同时记录结构 ID、链 ID、残基选择、视角命令和处理后的工作文件。这样第 3 章定义 docking box、第 4 章建立模拟体系或第 6 章设定设计约束时，才能判断当前结构是否适合作为输入。如果截图无法说明结构来自实验、预测还是人工处理版本，它就只能作为课堂示意图，不应作为研究判断依据。
+
 ## 代码案例与软件操作
 
 ![第 2 章流程解释图](../assets/imagegen/chapter-02-flow-structure-review.png){ loading=lazy }
@@ -118,42 +120,21 @@
 !!! warning "常见错误"
     不要把 AlphaFold 预测结构当作实验结构；图注必须写清结构来源和置信度边界。
 
-## 关键文献与 BibTeX key
+## 关键文献
 
 <!-- refs:start -->
 
-!!! quote "`jumper_highly_2021`"
-    **Nature 风格引用：** Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O. et al. Highly accurate protein structure prediction with AlphaFold. Nature (2021). https://doi.org/10.1038/s41586-021-03819-2
+- Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O. et al. Highly accurate protein structure prediction with AlphaFold. Nature (2021). https://doi.org/10.1038/s41586-021-03819-2
 
-    **DOI/URL：** `10.1038/s41586-021-03819-2`
+  **本文内容简介：** 本文介绍 AlphaFold 在蛋白结构预测中的模型设计、CASP14 验证和结构生物学应用。
 
-    **BibTeX key：** `jumper_highly_2021`
+- Abramson, J., Adler, J., Dunger, J., Evans, R., Green, T., Pritzel, A. et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature (2024). https://doi.org/10.1038/s41586-024-07487-w
 
-    **Zotero item key：** `UYRXX2U2`
+  **本文内容简介：** 本文介绍 AlphaFold 3 对蛋白、核酸、小分子和修饰残基复合物结构的统一预测框架。
 
-    **本章用途：** 结构来源、预测模型边界与可视化复核的文献锚点。
+- Akdel, M., Pires, D. E. V., Porta Pardo, E., Jänes, J., Zalevsky, A. O., Mészáros, B. et al. A structural biology community assessment of AlphaFold2 applications. Nature Structural \& Molecular Biology 29, 1056-1067 (2022). https://doi.org/10.1038/s41594-022-00849-w
 
-!!! quote "`abramson_accurate_2024`"
-    **Nature 风格引用：** Abramson, J., Adler, J., Dunger, J., Evans, R., Green, T., Pritzel, A. et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature (2024). https://doi.org/10.1038/s41586-024-07487-w
-
-    **DOI/URL：** `10.1038/s41586-024-07487-w`
-
-    **BibTeX key：** `abramson_accurate_2024`
-
-    **Zotero item key：** `PE42AXJX`
-
-    **本章用途：** 结构来源、预测模型边界与可视化复核的文献锚点。
-
-!!! quote "`akdel_structural_2022`"
-    **Nature 风格引用：** Akdel, M., Pires, D. E. V., Porta Pardo, E., Jänes, J., Zalevsky, A. O., Mészáros, B. et al. A structural biology community assessment of AlphaFold2 applications. Nature Structural \& Molecular Biology 29, 1056-1067 (2022). https://doi.org/10.1038/s41594-022-00849-w
-
-    **DOI/URL：** `10.1038/s41594-022-00849-w`
-
-    **BibTeX key：** `akdel_structural_2022`
-
-    **Zotero item key：** `5GOGPC63`
-
-    **本章用途：** 结构来源、预测模型边界与可视化复核的文献锚点。
+  **本文内容简介：** 本文评估 AlphaFold2 在结构生物学中的应用范围、可靠性边界和社区使用经验。
 
 <!-- refs:end -->
 ## 实验/练习入口

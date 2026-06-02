@@ -4,8 +4,9 @@
 
 ## 未改动边界
 
-- `<!-- refs:start -->...<!-- refs:end -->` 引用卡片保持由 `tools/update_book_references.py` 生成。
-- 代码块、图片链接、BibTeX key、Zotero item key、DOI/URL、代码文件名和 manifest 字段原样保留。
+- `<!-- refs:start -->...<!-- refs:end -->` 引用列表保持由 `tools/update_book_references.py` 生成。
+- 代码块、图片链接、DOI/URL、代码文件名和 manifest 字段原样保留。
+- 章节正文不展示内部引用键或本地文献库条目编号；引用元数据继续保留在 `references/` 层。
 - 未跟踪的 `06_原始学习素材/*.torrent` 文件未纳入本轮处理。
 
 ## 修改文件

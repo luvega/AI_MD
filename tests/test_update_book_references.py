@@ -46,7 +46,7 @@ class UpdateBookReferencesCliTest(unittest.TestCase):
                 """
                 # Chapter
 
-                ## 关键文献与 BibTeX key
+                ## 关键文献
 
                 old content
                 """,
@@ -75,7 +75,9 @@ class UpdateBookReferencesCliTest(unittest.TestCase):
             chapter = (root / "book" / "docs" / "chapters" / "chapter-01.md").read_text(encoding="utf-8")
             self.assertIn("Doe, J. & Smith, J. Known method paper. Nature Methods 7, 12-19 (2026).", chapter)
             self.assertIn("https://doi.org/10.1000/example", chapter)
-            self.assertIn("Zotero item key：** `ABC123`", chapter)
+            self.assertIn("本文内容简介", chapter)
+            self.assertNotIn("BibTeX key", chapter)
+            self.assertNotIn("Zotero item key", chapter)
 
 
 if __name__ == "__main__":

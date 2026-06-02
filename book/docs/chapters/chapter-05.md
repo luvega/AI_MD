@@ -122,64 +122,29 @@
 !!! warning "常见错误"
     不要只按单一 predicted affinity 下结论；必须同时看置信度、输入质量和适用域。
 
-## 关键文献与 BibTeX key
+## 关键文献
 
 <!-- refs:start -->
 
-!!! quote "`passaro_boltz-2_2025`"
-    **Nature 风格引用：** Passaro, S., Corso, G., Wohlwend, J., Reveiz, M., Thaler, S., Somnath, V. R. et al. Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction. bioRxiv (2025). https://doi.org/10.1101/2025.06.14.659707
+- Passaro, S., Corso, G., Wohlwend, J., Reveiz, M., Thaler, S., Somnath, V. R. et al. Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction. bioRxiv (2025). https://doi.org/10.1101/2025.06.14.659707
 
-    **DOI/URL：** `10.1101/2025.06.14.659707`
+  **本文内容简介：** 本文介绍 Boltz-2 在复合物结构和结合亲和力预测中的模型设计、性能与开放资源。
 
-    **BibTeX key：** `passaro_boltz-2_2025`
+- Cho, Y., Pacesa, M., Zhang, Z., Correia, B. E. & Ovchinnikov, S. Boltzdesign1: Inverting All-Atom Structure Prediction Model for Generalized Biomolecular Binder Design. bioRxiv (2025). https://doi.org/10.1101/2025.04.06.647261
 
-    **Zotero item key：** `FF4V8LYV`
+  **本文内容简介：** 本文提出反向使用全原子结构预测模型进行广义生物分子结合体设计的方法。
 
-    **本章用途：** 亲和力预测、置信度和排序解释的模型边界参考。
+- Wang, K., Zhou, R., Li, Y. & Li, M. DeepDTAF: a deep learning method to predict protein–ligand binding affinity. Briefings in Bioinformatics 22 (2021). https://doi.org/10.1093/bib/bbab072
 
-!!! quote "`cho_boltzdesign1_2025`"
-    **Nature 风格引用：** Cho, Y., Pacesa, M., Zhang, Z., Correia, B. E. & Ovchinnikov, S. Boltzdesign1: Inverting All-Atom Structure Prediction Model for Generalized Biomolecular Binder Design. bioRxiv (2025). https://doi.org/10.1101/2025.04.06.647261
+  **本文内容简介：** 本文提出 DeepDTAF 深度学习模型，用于预测蛋白-配体结合亲和力。
 
-    **DOI/URL：** `10.1101/2025.04.06.647261`
+- Romero-Molina, S., Ruiz-Blanco, Y. B., Mieres-Perez, J., Harms, M., Münch, J., Ehrmann, M. et al. PPI-Affinity: A Web Tool for the Prediction and Optimization of Protein–Peptide and Protein–Protein Binding Affinity. Journal of Proteome Research 21, 1829–1841 (2022). https://doi.org/10.1021/acs.jproteome.2c00020
 
-    **BibTeX key：** `cho_boltzdesign1_2025`
+  **本文内容简介：** 本文介绍 PPI-Affinity 网络工具，用于预测并优化蛋白-肽和蛋白-蛋白结合亲和力。
 
-    **Zotero item key：** `CRM22UDT`
+- Chang, L. & Perez, A. Ranking Peptide Binders by Affinity with AlphaFold**. Angewandte Chemie International Edition 62 (2023). https://doi.org/10.1002/anie.202213362
 
-    **本章用途：** 亲和力预测、置信度和排序解释的模型边界参考。
-
-!!! quote "`wang_deepdtaf_2021`"
-    **Nature 风格引用：** Wang, K., Zhou, R., Li, Y. & Li, M. DeepDTAF: a deep learning method to predict protein–ligand binding affinity. Briefings in Bioinformatics 22 (2021). https://doi.org/10.1093/bib/bbab072
-
-    **DOI/URL：** `10.1093/bib/bbab072`
-
-    **BibTeX key：** `wang_deepdtaf_2021`
-
-    **Zotero item key：** `95UTFQDM`
-
-    **本章用途：** 亲和力预测、置信度和排序解释的模型边界参考。
-
-!!! quote "`romero-molina_ppi-affinity_2022`"
-    **Nature 风格引用：** Romero-Molina, S., Ruiz-Blanco, Y. B., Mieres-Perez, J., Harms, M., Münch, J., Ehrmann, M. et al. PPI-Affinity: A Web Tool for the Prediction and Optimization of Protein–Peptide and Protein–Protein Binding Affinity. Journal of Proteome Research 21, 1829–1841 (2022). https://doi.org/10.1021/acs.jproteome.2c00020
-
-    **DOI/URL：** `10.1021/acs.jproteome.2c00020`
-
-    **BibTeX key：** `romero-molina_ppi-affinity_2022`
-
-    **Zotero item key：** `YIV9AVT4`
-
-    **本章用途：** MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。
-
-!!! quote "`chang_ranking_2023`"
-    **Nature 风格引用：** Chang, L. & Perez, A. Ranking Peptide Binders by Affinity with AlphaFold**. Angewandte Chemie International Edition 62 (2023). https://doi.org/10.1002/anie.202213362
-
-    **DOI/URL：** `10.1002/anie.202213362`
-
-    **BibTeX key：** `chang_ranking_2023`
-
-    **Zotero item key：** `CRT8PKH3`
-
-    **本章用途：** 结构来源、预测模型边界与可视化复核的文献锚点。
+  **本文内容简介：** 本文探讨利用 AlphaFold 相关结构信息按亲和力排序肽结合体的策略。
 
 <!-- refs:end -->
 ## 实验/练习入口

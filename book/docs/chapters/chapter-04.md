@@ -78,6 +78,12 @@
 
 执行时应先完成小样例或 dry-run，再扩大到批量任务。任何失败样本、低置信度结果或人工排除理由，都应保留在 manifest 或实验记录中。
 
+MD 结果的解释应先回答“轨迹是否可用”，再讨论“观察是否有意义”。读者需要把体系准备、平衡状态、采样长度、分析脚本和代表构象选择规则分开记录，避免用一张 RMSD 曲线覆盖所有判断。对于 AI 采样结果，也应记录输入结构、生成条件、筛选指标和人工复核理由。只有当这些信息能对应到具体文件和表格时，构象变化、接触频率或聚类代表结构才适合进入后续亲和力解释和研究假设。
+
+在课堂练习中，建议先让学生用同一份轨迹分别写出“QC 结论”和“科学假设”。前者关注模拟是否基本可用，后者关注可能的构象机制；两者分开后，读者更容易识别哪些判断仍需更长采样、重复模拟或实验验证。
+
+这一步也是进入第 5 章亲和力解释前的必要过滤。
+
 ## 代码案例与软件操作
 
 ![第 4 章流程解释图](../assets/imagegen/chapter-04-flow-md-analysis-loop.png){ loading=lazy }
@@ -126,31 +132,17 @@
 !!! warning "常见错误"
     RMSD 稳定不等于结合稳定；需要结合活性位点、接触、能量或实验背景解释。
 
-## 关键文献与 BibTeX key
+## 关键文献
 
 <!-- refs:start -->
 
-!!! quote "`chen_design_2024`"
-    **Nature 风格引用：** Chen, S., Lin, T., Basu, R., Ritchey, J., Wang, S., Luo, Y. et al. Design of target specific peptide inhibitors using generative deep learning and molecular dynamics simulations. Nature Communications (2024). https://doi.org/10.1038/s41467-024-45766-2
+- Chen, S., Lin, T., Basu, R., Ritchey, J., Wang, S., Luo, Y. et al. Design of target specific peptide inhibitors using generative deep learning and molecular dynamics simulations. Nature Communications (2024). https://doi.org/10.1038/s41467-024-45766-2
 
-    **DOI/URL：** `10.1038/s41467-024-45766-2`
+  **本文内容简介：** 本文结合生成式深度学习、柔性肽对接和分子动力学设计靶向肽抑制剂。
 
-    **BibTeX key：** `chen_design_2024`
+- Gu, S., Shen, C., Yu, J., Zhao, H., Liu, H., Liu, L. et al. Can molecular dynamics simulations improve predictions of protein-ligand binding affinity with machine learning?. Briefings in Bioinformatics 24, bbad008 (2023). https://doi.org/10.1093/bib/bbad008
 
-    **Zotero item key：** `BR4AMZPF`
-
-    **本章用途：** MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。
-
-!!! quote "`gu_molecular_2023`"
-    **Nature 风格引用：** Gu, S., Shen, C., Yu, J., Zhao, H., Liu, H., Liu, L. et al. Can molecular dynamics simulations improve predictions of protein-ligand binding affinity with machine learning?. Briefings in Bioinformatics 24, bbad008 (2023). https://doi.org/10.1093/bib/bbad008
-
-    **DOI/URL：** `10.1093/bib/bbad008`
-
-    **BibTeX key：** `gu_molecular_2023`
-
-    **Zotero item key：** `92GPX1OI`
-
-    **本章用途：** MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。
+  **本文内容简介：** 本文讨论分子动力学模拟能否提升机器学习预测蛋白-配体亲和力的效果。
 
 <!-- refs:end -->
 ## 实验/练习入口

@@ -6,7 +6,7 @@
 
 - 按章节学习：从第 1 章到第 8 章顺序阅读，理解 AI 辅助药物设计的计算流程。
 - 按问题检索：进入附录 A，按研究问题、靶点、方法和下一步实验定位资料。
-- 按引用复核：进入附录 C，检查每个 BibTeX key 对应的文献主题。
+- 按引用复核：进入附录 C，检查关键文献列表、内容简介和来源边界。
 - 按实验记录：进入附录 B，选择适合的实验模板后回到 AI_MD 知识库建立正式记录。
 - 按资源复现：进入课程资源，查看代码案例、截图索引、Imagegen prompt 和最小 dry-run 入口。
 
@@ -29,7 +29,7 @@
 |:---|:---|:---|
 | 附录 A | 研究问题与项目池 | [进入](appendices/research-workbench.md) |
 | 附录 B | 实验记录模板索引 | [进入](appendices/experiment-templates.md) |
-| 附录 C | Zotero 与 BibTeX 引用表 | [进入](appendices/references.md) |
+| 附录 C | 参考文献表 | [进入](appendices/references.md) |
 | 附录 D | AI 回归评测任务 | [进入](appendices/ai-eval.md) |
 | 附录 E | 知识边界与版权说明 | [进入](appendices/boundaries.md) |
 

@@ -17,7 +17,7 @@ REQUIRED_SECTIONS = [
     "核心概念",
     "方法流程",
     "代码案例与软件操作",
-    "关键文献与 BibTeX key",
+    "关键文献",
     "实验/练习入口",
     "使用边界与常见误读",
     "延伸阅读与下一步",
@@ -56,8 +56,8 @@ class ValidateOnlineBookCliTest(unittest.TestCase):
                 body += "\n![chapter map](../assets/imagegen/chapter-01-knowledge-map.png)\n"
             if section == "代码案例与软件操作":
                 body += "\n```bash\npython --version\n```\n\n![screenshot](../assets/screenshots/chapter-01.png)\n"
-            if section == "关键文献与 BibTeX key":
-                body += "\n<!-- refs:start -->\n\n!!! quote \"`known_key`\"\n    **Nature 风格引用：** Known, A. Known paper. Source (2026).\n\n<!-- refs:end -->\n"
+            if section == "关键文献":
+                body += "\n<!-- refs:start -->\n\n- Known, A. Known paper. Source (2026).\n\n  **本文内容简介：** 本文介绍示例研究的核心问题、方法和证据边界。\n\n<!-- refs:end -->\n"
             chapter_body.append(f"## {section}\n\n{body}\n")
         chapter_body.append("[Home](../index.md)\n")
         self.write_text(root / "book" / "docs" / "chapters" / "chapter-01.md", "\n".join(chapter_body))

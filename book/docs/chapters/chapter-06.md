@@ -125,86 +125,37 @@
 !!! warning "常见错误"
     生成结构不是可表达蛋白；必须经过回折叠、界面复核、多样性和实验可行性过滤。
 
-## 关键文献与 BibTeX key
+## 关键文献
 
 <!-- refs:start -->
 
-!!! quote "`watson_novo_2023`"
-    **Nature 风格引用：** Watson, J. L., Juergens, D., Bennett, N. R., Trippe, B. L., Yim, J., Eisenach, H. E. et al. De novo design of protein structure and function with RFdiffusion. Nature (2023). https://doi.org/10.1038/s41586-023-06415-8
+- Watson, J. L., Juergens, D., Bennett, N. R., Trippe, B. L., Yim, J., Eisenach, H. E. et al. De novo design of protein structure and function with RFdiffusion. Nature (2023). https://doi.org/10.1038/s41586-023-06415-8
 
-    **DOI/URL：** `10.1038/s41586-023-06415-8`
+  **本文内容简介：** 本文介绍 RFdiffusion 通过扩散模型从分子约束生成蛋白结构和功能设计方案。
 
-    **BibTeX key：** `watson_novo_2023`
+- Ahern, W., Yim, J., Tischer, D., Salike, S., Woodbury, S. M., Kim, D. et al. Atom level enzyme active site scaffolding using RFdiffusion2. bioRxiv (2025). https://doi.org/10.1101/2025.04.09.648075
 
-    **Zotero item key：** `UKX5E6IB`
+  **本文内容简介：** 本文介绍 RFdiffusion2 在原子级酶活性位点支架设计中的建模和实验验证。
 
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
+- Bennett, N. R., Watson, J. L., Ragotte, R. J., Borst, A. J., See, D. L., Weidle, C. et al. Atomically accurate de novo design of antibodies with RFdiffusion. Nature (2025). https://doi.org/10.1038/s41586-025-09721-5
 
-!!! quote "`ahern_atom_2025`"
-    **Nature 风格引用：** Ahern, W., Yim, J., Tischer, D., Salike, S., Woodbury, S. M., Kim, D. et al. Atom level enzyme active site scaffolding using RFdiffusion2. bioRxiv (2025). https://doi.org/10.1101/2025.04.09.648075
+  **本文内容简介：** 本文展示结合 RFdiffusion2 和筛选实验从头设计表位特异性抗体的流程。
 
-    **DOI/URL：** `10.1101/2025.04.09.648075`
+- Dauparas, J., Anishchenko, I., Bennett, N., Bai, H., Ragotte, R. J., Milles, L. F. et al. Robust deep learning–based protein sequence design using ProteinMPNN. Science (2022). https://doi.org/10.1126/science.add2187
 
-    **BibTeX key：** `ahern_atom_2025`
+  **本文内容简介：** 本文提出 ProteinMPNN 深度学习序列设计方法，并用结构和功能实验验证其性能。
 
-    **Zotero item key：** `ZYFCZKMH`
+- Pacesa, M., Nickel, L., Schmidt, J., Pyatova, E., Schellhaas, C., Kissling, L. et al. BindCraft: one-shot design of functional protein binders. bioRxiv (2024). https://doi.org/10.1101/2024.09.30.615802
 
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
+  **本文内容简介：** 本文介绍 BindCraft 一步式蛋白结合体设计管线及其多靶点实验成功率。
 
-!!! quote "`bennett_atomically_2025`"
-    **Nature 风格引用：** Bennett, N. R., Watson, J. L., Ragotte, R. J., Borst, A. J., See, D. L., Weidle, C. et al. Atomically accurate de novo design of antibodies with RFdiffusion. Nature (2025). https://doi.org/10.1038/s41586-025-09721-5
+- Dauparas, J., Lee, G. R., Pecoraro, R., An, L., Anishchenko, I., Glasscock, C. et al. Atomic context-conditioned protein sequence design using LigandMPNN. Nature Methods (2025). https://doi.org/10.1038/s41592-025-02626-1
 
-    **DOI/URL：** `10.1038/s41586-025-09721-5`
+  **本文内容简介：** 本文介绍 LigandMPNN 在小分子、核苷酸和金属环境下进行蛋白序列设计的方法。
 
-    **BibTeX key：** `bennett_atomically_2025`
+- Yang, W., Wang, S., Lee, G. R., Zhang, J. Z., Courbet, A., Juergens, D. et al. The past, present and future of de novo protein design. Nature 652, 1139-1152 (2026). https://doi.org/10.1038/s41586-026-10328-7
 
-    **Zotero item key：** `EBQ7CNVI`
-
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
-
-!!! quote "`dauparas_robust_2022`"
-    **Nature 风格引用：** Dauparas, J., Anishchenko, I., Bennett, N., Bai, H., Ragotte, R. J., Milles, L. F. et al. Robust deep learning–based protein sequence design using ProteinMPNN. Science (2022). https://doi.org/10.1126/science.add2187
-
-    **DOI/URL：** `10.1126/science.add2187`
-
-    **BibTeX key：** `dauparas_robust_2022`
-
-    **Zotero item key：** `V2WLND5M`
-
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
-
-!!! quote "`pacesa_bindcraft_2024`"
-    **Nature 风格引用：** Pacesa, M., Nickel, L., Schmidt, J., Pyatova, E., Schellhaas, C., Kissling, L. et al. BindCraft: one-shot design of functional protein binders. bioRxiv (2024). https://doi.org/10.1101/2024.09.30.615802
-
-    **DOI/URL：** `10.1101/2024.09.30.615802`
-
-    **BibTeX key：** `pacesa_bindcraft_2024`
-
-    **Zotero item key：** `QCD2DXXI`
-
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
-
-!!! quote "`dauparas_atomic_2025`"
-    **Nature 风格引用：** Dauparas, J., Lee, G. R., Pecoraro, R., An, L., Anishchenko, I., Glasscock, C. et al. Atomic context-conditioned protein sequence design using LigandMPNN. Nature Methods (2025). https://doi.org/10.1038/s41592-025-02626-1
-
-    **DOI/URL：** `10.1038/s41592-025-02626-1`
-
-    **BibTeX key：** `dauparas_atomic_2025`
-
-    **Zotero item key：** `UN6R4C6J`
-
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
-
-!!! quote "`yang_w_past_2026`"
-    **Nature 风格引用：** Yang, W., Wang, S., Lee, G. R., Zhang, J. Z., Courbet, A., Juergens, D. et al. The past, present and future of de novo protein design. Nature 652, 1139-1152 (2026). https://doi.org/10.1038/s41586-026-10328-7
-
-    **DOI/URL：** `10.1038/s41586-026-10328-7`
-
-    **BibTeX key：** `yang_w_past_2026`
-
-    **Zotero item key：** `TPR3JY6N`
-
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
+  **本文内容简介：** 本文综述从头蛋白设计的发展脉络、当前能力和未来研究方向。
 
 <!-- refs:end -->
 ## 实验/练习入口

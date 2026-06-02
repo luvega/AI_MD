@@ -20,7 +20,7 @@ REQUIRED_CHAPTER_SECTIONS = [
     "核心概念",
     "方法流程",
     "代码案例与软件操作",
-    "关键文献与 BibTeX key",
+    "关键文献",
     "实验/练习入口",
     "使用边界与常见误读",
     "延伸阅读与下一步",
@@ -38,7 +38,7 @@ MARKDOWN_LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 MARKDOWN_IMAGE_PATTERN = re.compile(r"!\[[^\]]*\]\(([^)]+)\)")
 BIBTEX_ENTRY_PATTERN = re.compile(r"@\w+\s*\{\s*([^,\s]+)")
 FENCED_CODE_PATTERN = re.compile(r"^\s*```", re.MULTILINE)
-REFS_SECTION_PATTERN = re.compile(r"(?ms)^##\s+关键文献与 BibTeX key\s*\n(?P<body>.*?)(?=^## |\Z)")
+REFS_SECTION_PATTERN = re.compile(r"(?ms)^##\s+关键文献(?:与 BibTeX key)?\s*\n(?P<body>.*?)(?=^## |\Z)")
 
 
 @dataclass
@@ -64,7 +64,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--require-nature-refs",
         action="store_true",
-        help="Require refs:start/refs:end blocks and chapter BibTeX keys inside the reference section.",
+        help="Require refs:start/refs:end blocks and Nature-style reference entries inside the reference section.",
     )
     parser.add_argument(
         "--require-imagegen",
@@ -158,17 +158,18 @@ def check_chapter_sections(
     if require_nature_refs:
         match = REFS_SECTION_PATTERN.search(text)
         if not match:
-            issues.append(Issue("missing refs section", page, "关键文献与 BibTeX key"))
+            issues.append(Issue("missing refs section", page, "关键文献"))
         else:
             refs_body = match.group("body")
             if "<!-- refs:start -->" not in refs_body or "<!-- refs:end -->" not in refs_body:
                 issues.append(Issue("missing refs markers", page, "expected refs:start and refs:end"))
-            for key in as_list(entry.get("required_bibtex_keys")):
-                key = str(key).strip()
-                if key and f"`{key}`" not in refs_body:
-                    issues.append(Issue("missing chapter reference key", page, key))
-            if entry.get("required_bibtex_keys") and "Nature 风格引用" not in refs_body:
-                issues.append(Issue("missing Nature reference format", page, "Nature 风格引用"))
+            if entry.get("required_bibtex_keys") and not re.search(r"(?m)^-\s+\S", refs_body):
+                issues.append(Issue("missing reference list", page, "expected Markdown bullet reference entries"))
+            if entry.get("required_bibtex_keys") and "本文内容简介" not in refs_body:
+                issues.append(Issue("missing article summary", page, "本文内容简介"))
+            for summary in re.findall(r"\*\*本文内容简介：\*\*\s*([^\n]+)", refs_body):
+                if len(summary.strip()) > 100:
+                    issues.append(Issue("article summary too long", page, f"{len(summary.strip())} > 100 characters"))
 
     if require_imagegen:
         images = [normalize_link_target(match.group(1)) for match in MARKDOWN_IMAGE_PATTERN.finditer(text)]

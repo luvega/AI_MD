@@ -15,7 +15,7 @@ from typing import Any
 ENTRY_START_RE = re.compile(r"@(?P<type>\w+)\s*\{\s*(?P<key>[^,\s]+)\s*,", re.IGNORECASE)
 FIELD_RE = re.compile(r"(?P<name>[A-Za-z][A-Za-z0-9_-]*)\s*=\s*(?P<value>.+)")
 REF_SECTION_RE = re.compile(
-    r"(?ms)^## 关键文献与 BibTeX key\s*\n.*?(?=^## |\Z)",
+    r"(?ms)^## 关键文献(?:与 BibTeX key)?\s*\n.*?(?=^## |\Z)",
 )
 
 
@@ -230,31 +230,56 @@ def zotero_key_for(bibtex_key: str, zotero_rows: dict[str, dict[str, str]]) -> s
     return "待补"
 
 
-def chapter_usage(chapter_title: str, entry: BibEntry) -> str:
+def article_brief(entry: BibEntry) -> str:
     title = entry.fields.get("title", entry.key)
     lowered = title.lower()
-    if "alphafold" in lowered:
-        return "结构来源、预测模型边界与可视化复核的文献锚点。"
-    if "docking" in lowered or "virtual screening" in lowered:
-        return "对接/虚拟筛选流程、评分解释和文献案例边界。"
-    if "molecular dynamics" in lowered or "peptide" in lowered:
-        return "MD/采样或肽结合解释的文献案例，不等同于本项目运行结果。"
-    if "boltz" in lowered or "affinity" in lowered:
-        return "亲和力预测、置信度和排序解释的模型边界参考。"
-    if "diffusion" in lowered or "mpnn" in lowered or "bindcraft" in lowered or "protein design" in lowered:
-        return "蛋白设计流程、约束条件和验证标准的文献锚点。"
-    if "target" in lowered or "scaffold" in lowered:
-        return "第八章研究路线中的文献案例与方法借鉴。"
-    return f"{chapter_title} 的方法或证据背景参考。"
+    rules = [
+        ("highly accurate protein structure prediction with alphafold", "本文介绍 AlphaFold 在蛋白结构预测中的模型设计、CASP14 验证和结构生物学应用。"),
+        ("alphafold 3", "本文介绍 AlphaFold 3 对蛋白、核酸、小分子和修饰残基复合物结构的统一预测框架。"),
+        ("community assessment of alphafold2", "本文评估 AlphaFold2 在结构生物学中的应用范围、可靠性边界和社区使用经验。"),
+        ("dockey", "本文介绍 Dockey 平台在大规模分子对接、虚拟筛选和结果管理中的集成流程。"),
+        ("protein-peptide docking", "本文比较多种蛋白-多肽对接方法的性能，为肽结合体系的模型选择提供基准。"),
+        ("ligand–protein molecular docking", "本文综述机器学习方法在配体-蛋白分子对接中的建模策略、特征和应用限制。"),
+        ("ai-powered docking", "本文从虚拟筛选角度评测 AI 驱动对接方法，比较排序能力、适用场景和局限。"),
+        ("target specific peptide inhibitors", "本文结合生成式深度学习、柔性肽对接和分子动力学设计靶向肽抑制剂。"),
+        ("molecular dynamics simulations improve", "本文讨论分子动力学模拟能否提升机器学习预测蛋白-配体亲和力的效果。"),
+        ("boltz-2", "本文介绍 Boltz-2 在复合物结构和结合亲和力预测中的模型设计、性能与开放资源。"),
+        ("boltzdesign1", "本文提出反向使用全原子结构预测模型进行广义生物分子结合体设计的方法。"),
+        ("deepdtaf", "本文提出 DeepDTAF 深度学习模型，用于预测蛋白-配体结合亲和力。"),
+        ("ppi-affinity", "本文介绍 PPI-Affinity 网络工具，用于预测并优化蛋白-肽和蛋白-蛋白结合亲和力。"),
+        ("ranking peptide binders", "本文探讨利用 AlphaFold 相关结构信息按亲和力排序肽结合体的策略。"),
+        ("rfdiffusion2", "本文介绍 RFdiffusion2 在原子级酶活性位点支架设计中的建模和实验验证。"),
+        ("antibodies with rfdiffusion", "本文展示结合 RFdiffusion2 和筛选实验从头设计表位特异性抗体的流程。"),
+        ("rfdiffusion", "本文介绍 RFdiffusion 通过扩散模型从分子约束生成蛋白结构和功能设计方案。"),
+        ("proteinmpnn", "本文提出 ProteinMPNN 深度学习序列设计方法，并用结构和功能实验验证其性能。"),
+        ("bindcraft", "本文介绍 BindCraft 一步式蛋白结合体设计管线及其多靶点实验成功率。"),
+        ("ligandmpnn", "本文介绍 LigandMPNN 在小分子、核苷酸和金属环境下进行蛋白序列设计的方法。"),
+        ("past, present and future", "本文综述从头蛋白设计的发展脉络、当前能力和未来研究方向。"),
+        ("uxs1-dependent glucuronate detoxification", "本文研究 UXS1 依赖的葡萄糖醛酸解毒通路与二甲双胍抗肿瘤效应的关系。"),
+        ("ape1", "本文通过结构基础虚拟筛选发现靶向 APE1 内切酶活性位点的小分子抑制剂。"),
+        ("hierarchical virtual screening", "本文提出整合骨架感知机器学习、集合对接和分子动力学的可复现虚拟筛选框架。"),
+        ("helicobacter pylori adhesin baba", "本文报道靶向幽门螺杆菌黏附素 BabA 的从头蛋白结合体设计。"),
+    ]
+    for pattern, brief in rules:
+        if pattern in lowered:
+            return clamp_brief(brief)
+    return clamp_brief("本文围绕该主题提供方法背景、模型依据或案例证据，需结合正文边界理解。")
+
+
+def clamp_brief(text: str, limit: int = 100) -> str:
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip("，。；、 ") + "。"
 
 
 def render_refs_block(chapter_title: str, keys: list[str], bib_entries: dict[str, BibEntry], zotero_rows: dict[str, dict[str, str]]) -> str:
-    lines = ["## 关键文献与 BibTeX key", "", "<!-- refs:start -->"]
+    lines = ["## 关键文献", "", "<!-- refs:start -->"]
     if not keys:
         lines.extend(
             [
                 "",
-                "本章暂无正式 required BibTeX key。它承担运行规范、项目目录和可复现记录的基础训练；正式 SCI 文献锚点在后续结构预测、对接、MD、亲和力预测和蛋白设计章节中展开。",
+                "本章暂无正式关键文献列表。它承担运行规范、项目目录和可复现记录的基础训练；正式 SCI 文献锚点在后续章节中展开。",
                 "",
                 "<!-- refs:end -->",
                 "",
@@ -268,28 +293,17 @@ def render_refs_block(chapter_title: str, keys: list[str], bib_entries: dict[str
             lines.extend(
                 [
                     "",
-                    f"!!! warning \"缺失引用：`{key}`\"",
-                    "    `references/references.bib` 中未找到该 BibTeX key。",
+                    "!!! warning \"缺失引用\"",
+                    "    `references/references.bib` 中未找到对应的内部引用键。",
                 ]
             )
             continue
-        fields = entry.fields
-        doi = fields.get("doi", "").strip()
-        url = fields.get("url", "").strip()
-        locator = doi if doi else url if url else "待补"
         lines.extend(
             [
                 "",
-                f"!!! quote \"`{key}`\"",
-                f"    **Nature 风格引用：** {nature_reference(entry)}",
+                f"- {nature_reference(entry)}",
                 "",
-                f"    **DOI/URL：** `{locator}`",
-                "",
-                f"    **BibTeX key：** `{key}`",
-                "",
-                f"    **Zotero item key：** `{zotero_key_for(key, zotero_rows)}`",
-                "",
-                f"    **本章用途：** {chapter_usage(chapter_title, entry)}",
+                f"  **本文内容简介：** {article_brief(entry)}",
             ]
         )
     lines.extend(["", "<!-- refs:end -->", ""])
@@ -318,37 +332,32 @@ def render_appendix(data: dict[str, Any], bib_entries: dict[str, BibEntry], zote
             all_keys.append(key)
 
     lines = [
-        "# 附录 C Zotero 与 BibTeX 引用表",
+        "# 附录 C 参考文献表",
         "",
-        "本附录由 `tools/update_book_references.py` 从 `references/references.bib` 和 `references/zotero-map.tsv` 生成。正式写作使用 BibTeX key；Zotero item key 只用于本地文献库追踪和 PDF provenance。",
+        "本附录由 `tools/update_book_references.py` 从内部引用映射生成。页面只展示可读参考文献列表；引用键和本地文献库条目保留在项目元数据中。",
         "",
         "## 按章节索引",
         "",
     ]
     for chapter in data.get("chapters", []):
         keys = chapter.get("required_bibtex_keys", [])
-        key_text = "，".join(f"`{key}`" for key in keys) if keys else "暂无正式 BibTeX key"
+        key_text = f"{len(keys)} 篇关键文献" if keys else "暂无正式关键文献"
         lines.append(f"- **{chapter.get('title', '未命名章节')}**：{key_text}")
 
     lines.extend(["", "## 完整参考文献表", ""])
-    for key in all_keys:
+    for index, key in enumerate(all_keys, start=1):
         entry = bib_entries.get(key)
         if not entry:
-            lines.extend([f"### `{key}`", "", "- 状态：`references/references.bib` 中缺失。", ""])
+            lines.extend([f"### 参考文献 {index}", "", "- 状态：内部引用映射缺失对应条目。", ""])
             continue
-        fields = entry.fields
-        doi = fields.get("doi", "").strip()
-        url = fields.get("url", "").strip()
-        locator = doi if doi else url if url else "待补"
         chapters = "；".join(chapter_usage_map.get(key, ["附录引用"]))
         lines.extend(
             [
-                f"### `{key}`",
+                f"### 参考文献 {index}",
                 "",
-                f"- **Nature 风格引用：** {nature_reference(entry)}",
-                f"- **DOI/URL：** `{locator}`",
-                f"- **Zotero item key：** `{zotero_key_for(key, zotero_rows)}`",
-                f"- **关联章节/用途：** {chapters}",
+                f"- {nature_reference(entry)}",
+                f"- **本文内容简介：** {article_brief(entry)}",
+                f"- **关联章节：** {chapters}",
                 "",
             ]
         )
@@ -357,8 +366,8 @@ def render_appendix(data: dict[str, Any], bib_entries: dict[str, BibEntry], zote
         [
             "## 使用规则",
             "",
-            "- 章节正文使用 BibTeX key，例如 `passaro_boltz-2_2025`。",
-            "- Zotero item key 只用于本地库追踪，不作为正式引用 key。",
+            "- 章节正文只展示参考文献和 100 字以内的本文内容简介。",
+            "- 内部引用键和本地文献库条目只用于生成、校验和 provenance 追踪，不在读者页面展示。",
             "- 文献案例、教学范文和本项目结果必须在正文中分层标注。",
             "- DOI/URL 缺失时应回到 Zotero 或原出版页面补齐，不在章节中临时猜测。",
             "",

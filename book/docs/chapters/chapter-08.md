@@ -127,64 +127,29 @@
 !!! warning "常见错误"
     第八章补充 PDF 只能作为文献案例和方法借鉴；没有本地运行记录时不能写成本项目结果。
 
-## 关键文献与 BibTeX key
+## 关键文献
 
 <!-- refs:start -->
 
-!!! quote "`sui_targeting_2026`"
-    **Nature 风格引用：** Sui, Q., Chen, Z., Shan, G., Hu, Z., Jin, X., Liang, J. et al. Targeting UXS1-Dependent Glucuronate Detoxification Potentiates Metformin's Anti-Tumor Efficacy in Lung Adenocarcinoma. Advanced Science, e10542 (2026). https://doi.org/10.1002/advs.202510542
+- Sui, Q., Chen, Z., Shan, G., Hu, Z., Jin, X., Liang, J. et al. Targeting UXS1-Dependent Glucuronate Detoxification Potentiates Metformin's Anti-Tumor Efficacy in Lung Adenocarcinoma. Advanced Science, e10542 (2026). https://doi.org/10.1002/advs.202510542
 
-    **DOI/URL：** `10.1002/advs.202510542`
+  **本文内容简介：** 本文研究 UXS1 依赖的葡萄糖醛酸解毒通路与二甲双胍抗肿瘤效应的关系。
 
-    **BibTeX key：** `sui_targeting_2026`
+- Shen, T., Shen, H., Kong, Y., Qiang, W., Yu, X. & Wang, J. Structure-based virtual screening identifies novel small-molecule inhibitors targeting the endonuclease active site of APE1. Scientific Reports (2026). https://doi.org/10.1038/s41598-026-51975-0
 
-    **Zotero item key：** `QXKW6K78`
+  **本文内容简介：** 本文通过结构基础虚拟筛选发现靶向 APE1 内切酶活性位点的小分子抑制剂。
 
-    **本章用途：** 第八章研究路线中的文献案例与方法借鉴。
+- Tomarchio, E. G., Buccheri, R. & Rescifina, A. A Reproducible Hierarchical Virtual Screening Framework Integrating Scaffold-Aware Machine Learning, Ensemble Docking, and Molecular Dynamics: Application to IDO1. Journal of Chemical Information and Modeling (2026). https://doi.org/10.1021/acs.jcim.6c00967
 
-!!! quote "`shen_structure-based_2026`"
-    **Nature 风格引用：** Shen, T., Shen, H., Kong, Y., Qiang, W., Yu, X. & Wang, J. Structure-based virtual screening identifies novel small-molecule inhibitors targeting the endonuclease active site of APE1. Scientific Reports (2026). https://doi.org/10.1038/s41598-026-51975-0
+  **本文内容简介：** 本文提出整合骨架感知机器学习、集合对接和分子动力学的可复现虚拟筛选框架。
 
-    **DOI/URL：** `10.1038/s41598-026-51975-0`
+- Zhu, Y., Isaha, M. B. & Zhang, X. De novo design of binder proteins targeting Helicobacter pylori adhesin BabA. bioRxiv (2026). https://doi.org/10.64898/2026.05.24.727452
 
-    **BibTeX key：** `shen_structure-based_2026`
+  **本文内容简介：** 本文报道靶向幽门螺杆菌黏附素 BabA 的从头蛋白结合体设计。
 
-    **Zotero item key：** `YUMKNHSK`
+- Yang, W., Wang, S., Lee, G. R., Zhang, J. Z., Courbet, A., Juergens, D. et al. The past, present and future of de novo protein design. Nature 652, 1139-1152 (2026). https://doi.org/10.1038/s41586-026-10328-7
 
-    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
-
-!!! quote "`tomarchio_reproducible_2026`"
-    **Nature 风格引用：** Tomarchio, E. G., Buccheri, R. & Rescifina, A. A Reproducible Hierarchical Virtual Screening Framework Integrating Scaffold-Aware Machine Learning, Ensemble Docking, and Molecular Dynamics: Application to IDO1. Journal of Chemical Information and Modeling (2026). https://doi.org/10.1021/acs.jcim.6c00967
-
-    **DOI/URL：** `10.1021/acs.jcim.6c00967`
-
-    **BibTeX key：** `tomarchio_reproducible_2026`
-
-    **Zotero item key：** `Y4ARSYCQ`
-
-    **本章用途：** 对接/虚拟筛选流程、评分解释和文献案例边界。
-
-!!! quote "`zhu_novo_2026`"
-    **Nature 风格引用：** Zhu, Y., Isaha, M. B. & Zhang, X. De novo design of binder proteins targeting Helicobacter pylori adhesin BabA. bioRxiv (2026). https://doi.org/10.64898/2026.05.24.727452
-
-    **DOI/URL：** `10.64898/2026.05.24.727452`
-
-    **BibTeX key：** `zhu_novo_2026`
-
-    **Zotero item key：** `V6Y5EEZL`
-
-    **本章用途：** 第八章研究路线中的文献案例与方法借鉴。
-
-!!! quote "`yang_w_past_2026`"
-    **Nature 风格引用：** Yang, W., Wang, S., Lee, G. R., Zhang, J. Z., Courbet, A., Juergens, D. et al. The past, present and future of de novo protein design. Nature 652, 1139-1152 (2026). https://doi.org/10.1038/s41586-026-10328-7
-
-    **DOI/URL：** `10.1038/s41586-026-10328-7`
-
-    **BibTeX key：** `yang_w_past_2026`
-
-    **Zotero item key：** `TPR3JY6N`
-
-    **本章用途：** 蛋白设计流程、约束条件和验证标准的文献锚点。
+  **本文内容简介：** 本文综述从头蛋白设计的发展脉络、当前能力和未来研究方向。
 
 <!-- refs:end -->
 ## 实验/练习入口

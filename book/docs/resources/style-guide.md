@@ -5,8 +5,8 @@
 ## 适用范围
 
 - 适用于 `book/docs/chapters/` 的教学正文、资源页说明和维护报告摘要。
-- 不改写 `<!-- refs:start -->...<!-- refs:end -->` 内的自动引用卡片。
-- 不改写代码块、图片链接、DOI/URL、BibTeX key、Zotero item key、文件路径和 manifest 字段。
+- 不改写 `<!-- refs:start -->...<!-- refs:end -->` 内的自动引用列表，引用区由生成脚本统一维护。
+- 不改写代码块、图片链接、DOI/URL、文件路径和 manifest 字段。
 
 ## 段落规则
 
@@ -27,7 +27,7 @@
 ## 术语与 provenance
 
 - `docking score`、`predicted affinity`、`confidence`、`aggregate score`、`RFdiffusion/RFD3`、`ProteinMPNN`、`Chai-1` 保持术语一致。
-- Zotero item key 和 BibTeX key 必须原样保留，二者不能互换。
+- 章节正文不展示内部引用键或本地文献库条目编号；这些信息保留在 `references/` 元数据中，用于生成和 provenance 追踪。
 - 原始 PDF 和补充材料只作为来源，不直接复制图表到在线书籍。
 
 ## P25 来源
