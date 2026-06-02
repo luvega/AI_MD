@@ -7,6 +7,7 @@
 | [LLM Wiki Agent说明.md](LLM%20Wiki%20Agent说明.md) | project-doc | 说明 AI_MD 如何按 Karpathy LLM Wiki 模式落地 raw sources、wiki 和 schema 三层结构。 | `index.md`, `CLAUDE.md`, `.claude/skills/` |  |
 | [LLM Wiki运行手册.md](LLM%20Wiki运行手册.md) | project-doc | 定义 ingest、query、lint、update、zotero 和 git 的操作步骤。 | `CLAUDE.md`, `.claude/skills/` |  |
 | [概念关系规范.md](概念关系规范.md) | project-doc | 定义 supports、contradicts、updates、depends_on、derived_from、applies_to 等 typed relations。 | `CLAUDE.md` |  |
+| [版本记录.md](版本记录.md) | project-doc | 记录当前项目版本、在线书籍版本、发布范围、验收命令和下一版本目标。 | `VERSION`, `book/book_map.toml` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [知识库使用说明.md](知识库使用说明.md) | project-doc | 说明如何使用索引、方法笔记、文献笔记和本地 Skills。 | `CLAUDE.md` |  |
 | [插件与Skills调用说明.md](插件与Skills调用说明.md) | project-doc | 说明本项目如何自动选择 Zotero、Chrome、Life Science Research、全局 Codex skills 和历史项目规则。 | `CLAUDE.md`, `C:\Users\xsui\.codex\skills`, `.claude/skills/` |  |
 | [Codex技能调用矩阵.md](Codex技能调用矩阵.md) | project-doc | 说明 P26 后全局 Codex skills 在教材正文、文献、图示和数据分析流程中的调用规则。 | `C:\Users\xsui\.codex\skills`, `CLAUDE.md` |  |

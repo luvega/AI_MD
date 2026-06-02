@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
-source_count: 21
+source_count: 23
 last_reviewed: 2026-06-02
-source_files: ["CLAUDE.md", "index.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["VERSION", "CLAUDE.md", "index.md", "00_项目说明/版本记录.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02]
+claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -56,6 +56,8 @@ relations:
   - type: updates
     target: "00_项目说明/P33_Zotero正式锚点补齐报告.md"
   - type: updates
+    target: "00_项目说明/版本记录.md"
+  - type: updates
     target: "00_项目说明/Codex技能调用矩阵.md"
 ---
 
@@ -66,6 +68,13 @@ relations:
 `## [YYYY-MM-DD] operation | title`
 
 允许的 `operation`：`ingest`、`query`、`update`、`lint`、`zotero`、`ocr`、`git`、`maintenance`。
+
+## [2026-06-02] maintenance | v0.7.0 项目版本更新
+
+- 新增根 `VERSION`，将 AI_MD 当前项目版本固定为 `v0.7.0`。
+- 更新 `book/book_map.toml` 为 `v0.7-p33-zotero-anchored`，并把在线书籍首页说明更新为第四版。
+- 新增 `00_项目说明/版本记录.md`，记录发布范围、验收命令、GitHub Pages 地址和下一版 P34 目标。
+- 同步根索引、项目说明索引、文献索引、实体索引和 P32/P33 文献锚点说明，保持 Chai-1、RFdiffusion3/RFD3 与 BindCraft Nature 2025 的正式 Zotero/BibTeX provenance。
 
 ## [2026-06-02] update | P26 Codex skills 全局精选集成
 
