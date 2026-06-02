@@ -7,11 +7,11 @@ topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
 source_count: 27
 last_reviewed: 2026-06-02
-source_files: ["VERSION", "CLAUDE.md", "00_项目说明/版本记录.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["VERSION", "CLAUDE.md", "00_项目说明/版本记录.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "book/docs/resources/p34-readability-report.md", "book/docs/resources/p35-detemplate-report.md", "tools/audit_book_readability.py", "tests/test_audit_book_readability.py", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02, p34_book_readability_2026_06_02, p35_book_detemplate_2026_06_02, v0_8_0_release_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -62,9 +62,15 @@ relations:
   - type: updates
     target: "00_项目说明/P33_Zotero正式锚点补齐报告.md"
   - type: updates
+    target: "00_项目说明/P34_中文教材可读性增强报告.md"
+  - type: updates
+    target: "00_项目说明/P35_中文教材去模板化与版本更新报告.md"
+  - type: updates
     target: "00_项目说明/版本记录.md"
   - type: supports
     target: "00_项目说明/Codex技能调用矩阵.md"
+  - type: supports
+    target: "tools/audit_book_readability.py"
 ---
 
 # AI_MD LLM Wiki 总索引
@@ -91,8 +97,10 @@ relations:
 | [P31 数据分析与 AIDD dry-run 报告](00_项目说明/P31_数据分析与AIDD%20dry-run报告.md) | 第 3/5/6/8 章 dry-run 数据流程、代码案例和实验记录字段补强 |
 | [P32 文献候选正式化报告](00_项目说明/P32_文献候选正式化报告.md) | 将 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 候选提升为正式 BibTeX 和章节引用 |
 | [P33 Zotero 正式锚点补齐报告](00_项目说明/P33_Zotero正式锚点补齐报告.md) | 补齐 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 的真实 Zotero item key |
+| [P34 中文教材可读性增强报告](00_项目说明/P34_中文教材可读性增强报告.md) | 记录 8 章主章节教材化扩写、P34 写作规则和可读性审计结果 |
+| [P35 中文教材去模板化与版本更新报告](00_项目说明/P35_中文教材去模板化与版本更新报告.md) | 记录 8 章主章节去模板化修订、prose-only 重复句审计和 v0.8.0 版本更新 |
 | [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
-| [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第四版，项目版本 `v0.7.0`，包含第 1-8 章长文、Nature 引用、Imagegen 图谱、代码案例和课程资源 |
+| [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第五版，项目版本 `v0.8.0`，包含第 1-8 章去模板化教材正文、Nature 引用、Imagegen 图谱、代码案例和课程资源 |
 
 ## 在线书籍
 
@@ -110,7 +118,10 @@ relations:
 | [截图索引](book/docs/resources/screenshot-index.md) | 每章软件/界面截图和来源边界 |
 | [中文教材正文风格指南](book/docs/resources/style-guide.md) | P25 段落功能、证据边界、术语和 provenance 保护规则 |
 | [P25 正文润色报告](book/docs/resources/polish-report.md) | 8 章 reverse outline、claim-evidence map 和需作者确认项 |
+| [P34 可读性增强报告](book/docs/resources/p34-readability-report.md) | 外部写作规则提炼、章节扩写策略和可读性审计指标 |
+| [P35 去模板化报告](book/docs/resources/p35-detemplate-report.md) | 章节专属化改写、prose-only 重复句审计和版本更新 |
 | [正文润色脚本](tools/polish_book_chapters.py) | 受控改写在线书籍章节正文并检查过强表述 |
+| [可读性审计脚本](tools/audit_book_readability.py) | 统计章节可读性正文长度、重点区块长度、重复模板句和过强表述 |
 | [Codex 技能调用矩阵](00_项目说明/Codex技能调用矩阵.md) | 下一版教材正文、文献、图示和数据流程更新的全局 Codex skill 路由 |
 | [GitHub Pages workflow](.github/workflows/deploy-book.yml) | 推送到 `master` 后自动构建并发布在线书籍到 GitHub Pages |
 
@@ -206,7 +217,9 @@ relations:
 | [P31 数据分析与 AIDD dry-run](00_项目说明/P31_数据分析与AIDD%20dry-run报告.md) | 第 3/5/6/8 章 dry-run 脚本、AIDD 记录字段和模板升级 |
 | [P32 文献候选正式化](00_项目说明/P32_文献候选正式化报告.md) | Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 正式进入 BibTeX、章节引用和 claims 矩阵 |
 | [P33 Zotero 正式锚点补齐](00_项目说明/P33_Zotero正式锚点补齐报告.md) | Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 的真实 Zotero item key 已回写 |
-| [v0.7.0 版本记录](00_项目说明/版本记录.md) | P33 后的项目版本、在线书籍版本、发布范围、验收命令和 P34 目标 |
+| [P34 中文教材可读性增强](00_项目说明/P34_中文教材可读性增强报告.md) | 8 章主章节中等扩写、教材叙事规则和可读性审计结果 |
+| [P35 中文教材去模板化与版本更新](00_项目说明/P35_中文教材去模板化与版本更新报告.md) | 8 章章节专属化修订、重复句审计归零和 `v0.8.0` 版本更新 |
+| [v0.8.0 版本记录](00_项目说明/版本记录.md) | P35 后的项目版本、在线书籍版本、发布范围、验收命令和 P36 目标 |
 
 ## 综合与开放问题
 
@@ -216,7 +229,7 @@ relations:
 | 第 8 章资料 | 已解包并完成主 PDF/补充 PDF 提取、章节精读和 Chai-1 方法卡 |
 | Zotero 本地 API | P33 已从 `E:\Program Files\Zotero\zotero.exe` 启动 Zotero 9.0.4；Local API 和 Connector 可用 |
 | OCR 人工复核 | 仍有少数页面正式引用前建议对照原 PDF |
-| Git 版本史 | 当前发布版本为 `v0.7.0`；已配置 `origin=https://github.com/luvega/AI_MD.git`；`06_原始学习素材/` 内容本地保留但不上传 |
+| Git 版本史 | 当前发布版本为 `v0.8.0`；已配置 `origin=https://github.com/luvega/AI_MD.git`；`06_原始学习素材/` 内容本地保留但不上传 |
 
 ## 最近日志摘要
 
@@ -243,6 +256,9 @@ relations:
 - [2026-06-02] update | P32 文献候选正式化
 - [2026-06-02] update | P33 Zotero 正式锚点补齐
 - [2026-06-02] maintenance | v0.7.0 项目版本更新
+- [2026-06-02] update | P34 中文教材可读性增强
+- [2026-06-02] update | P35 中文教材去模板化
+- [2026-06-02] maintenance | v0.8.0 项目版本更新
 - [2026-05-31] git | P26 原始素材目录本地保留、不上传内容
 
 ## 待确认项
@@ -251,4 +267,4 @@ relations:
 - 第六章补充资料是否进入实际运行阶段；当前只完成 PDF 提取、方法卡和实验记录模板。
 - Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 已进入正式 BibTeX 与 Zotero 映射；下一步可转向最小真实运行样例。
 - 图谱体检已能统计实体、孤立页、缺 key 和过期 review；下一轮可逐步给旧模板页补 `last_reviewed` 或确认是否从图谱扫描中排除。
-- 在线书籍第四版已有 8 章长文、正式引用锚点和课程资源，但仍不是公开教材终稿；公开发布前仍需版权审查、图表替换、引用格式统一和人工学术审校。
+- 在线书籍 P35 版已把 8 章主章节修订为章节专属化教材正文，并通过 prose-only 重复句审计；公开发布前仍需版权审查、图表替换、引用格式统一和人工学术审校。

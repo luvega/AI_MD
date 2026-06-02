@@ -45,3 +45,5 @@
 | [P31_数据分析与AIDD dry-run报告.md](P31_数据分析与AIDD%20dry-run报告.md) | maintenance-report | 记录第 3/5/6/8 章 AIDD dry-run 脚本、实验记录字段和边界说明。 | `book/docs/resources/aidd-dry-runs.md`, `04_实验记录/` |  |
 | [P32_文献候选正式化报告.md](P32_文献候选正式化报告.md) | maintenance-report | 记录 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 候选文献正式 BibTeX 提升；P33 已补齐真实 Zotero key。 | `references/`, `book/book_map.toml` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P33_Zotero正式锚点补齐报告.md](P33_Zotero正式锚点补齐报告.md) | maintenance-report | 记录 P32 三条候选文献的真实 Zotero item key 补齐、Chai-1 导入和 RFdiffusion3 重复项处理。 | `references/zotero-map.tsv`, `references/zotero-upgrades-2026-06-02-P33.tsv` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [P34_中文教材可读性增强报告.md](P34_中文教材可读性增强报告.md) | maintenance-report | 记录 8 章主章节教材化扩写、P34 写作规则、可读性审计脚本和验收结果。 | `book/docs/chapters/`, `tools/audit_book_readability.py` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [P35_中文教材去模板化与版本更新报告.md](P35_中文教材去模板化与版本更新报告.md) | maintenance-report | 记录 8 章主章节去模板化修订、prose-only 重复句审计、可读性审计器增强和 `v0.8.0` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_readability.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
