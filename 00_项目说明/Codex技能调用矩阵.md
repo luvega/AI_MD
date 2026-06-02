@@ -4,12 +4,12 @@ created: 2026-06-02
 type: project-doc
 status: active
 topics: [codex-skills, routing, online-book, data-analysis, writing]
-source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "CLAUDE.md"]
-zotero_items: []
+source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "CLAUDE.md"]
+zotero_items: ["5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: []
-related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md", "P29_文献与引用补强报告.md", "P30_图示与版面升级报告.md", "P31_数据分析与AIDD dry-run报告.md", "P32_文献候选正式化报告.md"]
+related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md", "P29_文献与引用补强报告.md", "P30_图示与版面升级报告.md", "P31_数据分析与AIDD dry-run报告.md", "P32_文献候选正式化报告.md", "P33_Zotero正式锚点补齐报告.md"]
 wiki_role: concept
-source_count: 8
+source_count: 9
 last_reviewed: 2026-06-02
 claims:
   - "AI_MD 下一版更新优先使用全局 Codex skills，而不是向 .claude/skills 添加第三方技能。"
@@ -19,6 +19,7 @@ claims:
   - "P30 已完成第 1-8 章 Mermaid 图示增强和 online book Mermaid 校验器增强。"
   - "P31 已完成第 3/5/6/8 章 AIDD dry-run 脚本和实验记录模板字段补强。"
   - "P32 已完成 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 候选文献的正式 BibTeX 提升。"
+  - "P33 已完成 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 的真实 Zotero item key 回写。"
 relations:
   - type: extends
     target: "插件与Skills调用说明.md"
@@ -32,6 +33,8 @@ relations:
     target: "P31_数据分析与AIDD dry-run报告.md"
   - type: supports
     target: "P32_文献候选正式化报告.md"
+  - type: supports
+    target: "P33_Zotero正式锚点补齐报告.md"
 ---
 # Codex技能调用矩阵
 
@@ -106,6 +109,7 @@ relations:
 2. P29 已完成：`literature-review` 和 `citation-management` 已用于第 3/5/6/8 章引用覆盖审计，候选补强见 `P29_文献与引用补强报告.md` 和 `references/zotero-candidates-2026-06-02-P29.tsv`。
 3. P30 已完成：`markdown-mermaid-writing` 和 `scientific-schematics` 已用于每章 Mermaid source-of-truth 和示意图 prompt，见 `book/docs/resources/mermaid-schematics.md`。
 4. P31 已完成：`datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 已用于补充 dry-run 数据流程和实验记录模板，见 `P31_数据分析与AIDD dry-run报告.md`。
-5. P32 已完成：Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 已正式写入 BibTeX、章节引用区和文献笔记；Zotero item key 待桌面端补录。
-6. 下一轮建议进入 P33：补真实 Zotero item key，或把 P31 dry-run 升级为一个真实小样本运行记录。
-7. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。
+5. P32 已完成：Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 已正式写入 BibTeX、章节引用区和文献笔记。
+6. P33 已完成：真实 Zotero item key 已回写到 `references/zotero-map.tsv`；RFdiffusion3 重复项选择 `T2M6L289` 为 canonical。
+7. 下一轮建议进入 P34：把 P31 dry-run 升级为一个真实小样本运行记录，优先选择 Chai-1 或 RFD3/RFdiffusion3。
+8. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。

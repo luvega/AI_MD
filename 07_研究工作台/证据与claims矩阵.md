@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, claim-evidence, evidence-boundary, knowledge-graph]
 wiki_role: synthesis
-source_count: 11
+source_count: 12
 last_reviewed: 2026-06-02
-source_files: ["02_方法笔记/AI多组分对接与虚拟筛选.md", "02_方法笔记/Boltz2亲和力预测.md", "02_方法笔记/亲和力模型综述.md", "02_方法笔记/RFdiffusion与蛋白设计.md", "02_方法笔记/Chai1互作蛋白虚拟筛选.md", "01_课程章节索引/章节精读/章节-文献锚点矩阵.md", "references/zotero-candidates-2026-06-02-P29.tsv", "references/literature-upgrades-2026-06-02-P32.tsv", "00_项目说明/P29_文献与引用补强报告.md"]
-zotero_items: ["UOUH33GQ", "R2W3SF5S", "57K986LK", "FF4V8LYV", "TPR3JY6N", "V6Y5EEZL", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ"]
+source_files: ["02_方法笔记/AI多组分对接与虚拟筛选.md", "02_方法笔记/Boltz2亲和力预测.md", "02_方法笔记/亲和力模型综述.md", "02_方法笔记/RFdiffusion与蛋白设计.md", "02_方法笔记/Chai1互作蛋白虚拟筛选.md", "01_课程章节索引/章节精读/章节-文献锚点矩阵.md", "references/zotero-candidates-2026-06-02-P29.tsv", "references/literature-upgrades-2026-06-02-P32.tsv", "references/zotero-upgrades-2026-06-02-P33.tsv", "00_项目说明/P29_文献与引用补强报告.md"]
+zotero_items: ["UOUH33GQ", "R2W3SF5S", "57K986LK", "FF4V8LYV", "TPR3JY6N", "V6Y5EEZL", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["du_dockey_2023", "crampon_machine-learning_2022", "gu_benchmarking_2025", "passaro_boltz-2_2025", "yang_w_past_2026", "butcher_novo_2025", "pacesa_bindcraft_2025", "chai_discovery_chai-1_2024", "zhu_novo_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026"]
 related: ["_index.md", "实体索引.md", "研究问题与项目池.md", "AI回归评测集.md", "../00_项目说明/P29_文献与引用补强报告.md"]
-claims: [p16_claim_layer_2026_05_31, p29_literature_reinforcement_2026_06_02, p32_literature_upgrade_2026_06_02]
+claims: [p16_claim_layer_2026_05_31, p29_literature_reinforcement_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02]
 relations:
   - type: depends_on
     target: "实体索引.md"
@@ -50,8 +50,8 @@ relations:
 
 ## 当前优先补证点
 
-- Chai-1 `chai_discovery_chai-1_2024` 已完成正式 BibTeX 映射；仍待 Zotero Desktop 可用后补真实 item key。
-- RFD3/RFdiffusion3 `butcher_novo_2025` 已完成正式 BibTeX 映射；仍需真实运行结果样例，包括失败样例。
-- BindCraft `pacesa_bindcraft_2025` 已作为 Nature 2025 正式版本进入第六章；旧 `pacesa_bindcraft_2024` 仅保留历史 provenance。
+- Chai-1 `5286JS9F` / `chai_discovery_chai-1_2024` 已完成正式 Zotero/BibTeX 映射；仍需真实 Chai-1 小样本运行结果。
+- RFD3/RFdiffusion3 `T2M6L289` / `butcher_novo_2025` 已完成正式 Zotero/BibTeX 映射；仍需真实运行结果样例，包括失败样例。
+- BindCraft `UIPWC5CR` / `pacesa_bindcraft_2025` 已作为 Nature 2025 正式版本进入第六章；旧 `QCD2DXXI` / `pacesa_bindcraft_2024` 仅保留历史 provenance。
 - Boltz2 在本项目真实体系中的输入 YAML、结构置信度和亲和力解释记录。
 - docking score 与重打分结果在同一候选集上的一致性/冲突记录。

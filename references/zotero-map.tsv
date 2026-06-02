@@ -25,6 +25,6 @@ UXS1 virtual screening	QXKW6K78	sui_targeting_2026	Targeting UXS1-Dependent Gluc
 APE1 virtual screening	YUMKNHSK	shen_structure-based_2026	Structure-based virtual screening identifies novel small-molecule inhibitors targeting the endonuclease active site of APE1	2026	03_文献笔记/分子对接与虚拟筛选.md	第八章
 Scaffold-aware ML virtual screening	Y4ARSYCQ	tomarchio_reproducible_2026	A Reproducible Hierarchical Virtual Screening Framework Integrating Scaffold-Aware Machine Learning, Ensemble Docking, and Molecular Dynamics: Application to IDO1	2026	03_文献笔记/分子对接与虚拟筛选.md	第八章
 BabA de novo binder design	V6Y5EEZL	zhu_novo_2026	De novo design of binder proteins targeting Helicobacter pylori adhesin BabA	2026	03_文献笔记/RFdiffusion蛋白设计.md	第八章;第六章
-Chai-1 method anchor	待补正式锚点	chai_discovery_chai-1_2024	Chai-1: Decoding the molecular interactions of life	2024	03_文献笔记/Chai1方法与PPI筛选.md	第八章
-RFD3 method anchor	待补正式锚点	butcher_novo_2025	De novo design of all-atom biomolecular interactions with RFdiffusion3	2025	03_文献笔记/RFdiffusion蛋白设计.md	第六章
-BindCraft Nature publication	待补正式锚点	pacesa_bindcraft_2025	One-shot design of functional protein binders with BindCraft	2025	03_文献笔记/BindCraft与LigandMPNN.md	第六章
+Chai-1 method anchor	5286JS9F	chai_discovery_chai-1_2024	Chai-1: Decoding the molecular interactions of life	2024	03_文献笔记/Chai1方法与PPI筛选.md	第八章
+RFD3 method anchor	T2M6L289	butcher_novo_2025	De novo design of all-atom biomolecular interactions with RFdiffusion3	2025	03_文献笔记/RFdiffusion蛋白设计.md	第六章
+BindCraft Nature publication	UIPWC5CR	pacesa_bindcraft_2025	One-shot design of functional protein binders with BindCraft	2025	03_文献笔记/BindCraft与LigandMPNN.md	第六章

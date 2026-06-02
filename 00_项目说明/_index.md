@@ -42,4 +42,5 @@
 | [P29_文献与引用补强报告.md](P29_文献与引用补强报告.md) | maintenance-report | 记录第 3/5/6/8 章引用覆盖审计、Chai-1/RFD3/BindCraft 候选补强和后续 Zotero 入库边界。 | `references/`, `book/book_map.toml` | 多个 |
 | [P30_图示与版面升级报告.md](P30_图示与版面升级报告.md) | maintenance-report | 记录在线书籍 Mermaid source of truth、scientific-schematics prompt 和图示校验器增强。 | `book/docs/resources/mermaid-schematics.md`, `tools/validate_online_book.py` |  |
 | [P31_数据分析与AIDD dry-run报告.md](P31_数据分析与AIDD%20dry-run报告.md) | maintenance-report | 记录第 3/5/6/8 章 AIDD dry-run 脚本、实验记录字段和边界说明。 | `book/docs/resources/aidd-dry-runs.md`, `04_实验记录/` |  |
-| [P32_文献候选正式化报告.md](P32_文献候选正式化报告.md) | maintenance-report | 记录 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 候选文献正式 BibTeX 提升。 | `references/`, `book/book_map.toml` | 待补正式锚点 |
+| [P32_文献候选正式化报告.md](P32_文献候选正式化报告.md) | maintenance-report | 记录 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 候选文献正式 BibTeX 提升；P33 已补齐真实 Zotero key。 | `references/`, `book/book_map.toml` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [P33_Zotero正式锚点补齐报告.md](P33_Zotero正式锚点补齐报告.md) | maintenance-report | 记录 P32 三条候选文献的真实 Zotero item key 补齐、Chai-1 导入和 RFdiffusion3 重复项处理。 | `references/zotero-map.tsv`, `references/zotero-upgrades-2026-06-02-P33.tsv` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |

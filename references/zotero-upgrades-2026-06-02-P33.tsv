@@ -1,0 +1,4 @@
+topic	bibtex_key	zotero_item_key	zotero_status	canonical_decision	p33_note
+Chai-1 method anchor	chai_discovery_chai-1_2024	5286JS9F	imported	Use 5286JS9F as canonical Chai-1 method anchor.	Imported through Zotero Connector into collection WOJHNDDE / AI药物设计_蛋白与多肽 after local API became available.
+RFD3 method anchor	butcher_novo_2025	T2M6L289	existing	Use T2M6L289 as canonical RFD3/RFdiffusion3 item; 5IA9AEAN is a duplicate and is not mapped.	Two existing Zotero items exported the same BibTeX key butcher_j_novo_2025; AI_MD keeps local BibTeX key butcher_novo_2025.
+BindCraft publication upgrade	pacesa_bindcraft_2025	UIPWC5CR	existing	Use UIPWC5CR as canonical published Nature 2025 item.	Existing preprint item QCD2DXXI remains mapped to pacesa_bindcraft_2024 as historical provenance.

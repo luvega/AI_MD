@@ -1,4 +1,4 @@
 topic	bibtex_key	zotero_item_key	title	year	venue	doi	status	p32_note
-Chai-1 method anchor	chai_discovery_chai-1_2024	待补正式锚点	Chai-1: Decoding the molecular interactions of life	2024	bioRxiv	10.1101/2024.10.10.615955	formal-bibtex-added	Zotero Desktop local API unavailable; item key pending.
-RFD3 method anchor	butcher_novo_2025	待补正式锚点	De novo design of all-atom biomolecular interactions with RFdiffusion3	2025	bioRxiv	10.1101/2025.09.18.676967	formal-bibtex-added	Zotero Desktop local API unavailable; item key pending.
-BindCraft publication upgrade	pacesa_bindcraft_2025	待补正式锚点	One-shot design of functional protein binders with BindCraft	2025	Nature	10.1038/s41586-025-09429-6	formal-bibtex-added	Published Nature entry added; existing preprint key retained as historical record.
+Chai-1 method anchor	chai_discovery_chai-1_2024	5286JS9F	Chai-1: Decoding the molecular interactions of life	2024	bioRxiv	10.1101/2024.10.10.615955	zotero-anchored-p33	P33 imported to Zotero collection AI药物设计_蛋白与多肽; preprint status retained.
+RFD3 method anchor	butcher_novo_2025	T2M6L289	De novo design of all-atom biomolecular interactions with RFdiffusion3	2025	bioRxiv	10.1101/2025.09.18.676967	zotero-anchored-p33	P33 selected T2M6L289 as canonical; duplicate Zotero item 5IA9AEAN also found.
+BindCraft publication upgrade	pacesa_bindcraft_2025	UIPWC5CR	One-shot design of functional protein binders with BindCraft	2025	Nature	10.1038/s41586-025-09429-6	zotero-anchored-p33	P33 linked existing Nature 2025 Zotero item; old preprint key retained as historical record.
