@@ -8,7 +8,7 @@
 - 按问题检索：进入附录 A，按研究问题、靶点、方法和下一步实验定位资料。
 - 按引用复核：进入附录 C，检查关键文献列表、内容简介和来源边界。
 - 按实验记录：进入附录 B，选择适合的实验模板后回到 AI_MD 知识库建立正式记录。
-- 按资源复现：进入课程资源，查看代码案例、截图索引、Imagegen prompt 和最小 dry-run 入口。
+- 按资源复现：进入课程资源，查看代码案例、截图索引、Imagegen prompt、Mermaid 图示和 AIDD dry-run 入口。
 
 ## 章节入口
 
@@ -42,6 +42,7 @@
 | Imagegen 图谱 | 知识图谱、流程图和 prompt 记录 | [进入](resources/imagegen-prompts.md) |
 | Mermaid 图示 | 每章 Mermaid source-of-truth 和 scientific-schematics prompt | [进入](resources/mermaid-schematics.md) |
 | 复现实验 | 代码、截图和最小复现状态汇总 | [进入](resources/reproducible-labs.md) |
+| AIDD dry-run | 第 3/5/6/8 章候选 triage、亲和力解释、设计 QC 和项目优先级脚本 | [进入](resources/aidd-dry-runs.md) |
 | 正文风格指南 | P25 中文教材化写作、证据边界和 provenance 保护规则 | [进入](resources/style-guide.md) |
 | 润色报告 | 8 章 reverse outline、claim-evidence map 和需作者确认项 | [进入](resources/polish-report.md) |
 

@@ -70,5 +70,6 @@ nav:
       - Imagegen 图谱与 Prompt: resources/imagegen-prompts.md
       - Mermaid 图示与示意图设计: resources/mermaid-schematics.md
       - 复现实验资源: resources/reproducible-labs.md
+      - AIDD dry-run 数据流程: resources/aidd-dry-runs.md
       - 中文教材正文风格指南: resources/style-guide.md
       - P25 正文润色报告: resources/polish-report.md

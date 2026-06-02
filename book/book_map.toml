@@ -1,6 +1,6 @@
 book_title = "AI 辅助药物设计：从分子建模到研究工作台"
 audience = "课程讲义读者"
-version = "v0.4-p30-mermaid-schematics"
+version = "v0.5-p31-aidd-dry-runs"
 
 [[chapters]]
 title = "第 1 章 Linux 与生化计算基础"

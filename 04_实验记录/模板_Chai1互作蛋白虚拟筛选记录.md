@@ -61,15 +61,21 @@ relations:
 
 ## 结果汇总
 
-| target | status | max_score | mean_score | best_model_idx | best_model_file | interface_qc | decision |
-|:---|:---|---:|---:|---:|:---|:---|:---|
-| 待填 | success/error/skipped | 待填 | 待填 | 待填 | 待填 | pass/review/fail | 保留/复核/淘汰 |
+| target | status | max_score | mean_score | best_model_idx | best_model_file | evidence_maturity | interface_qc_passed | decision |
+|:---|:---|---:|---:|---:|:---|:---|:---|:---|
+| 待填 | success/error/skipped | 待填 | 待填 | 待填 | 待填 | case-study/dry-run/validated-computation/experimental-result | pass/review/fail | 保留/复核/淘汰 |
 
 ## Top 模型复核
 
 | target | chain_check | interface_contacts | clash | confidence_or_pae | biological_plausibility | note |
 |:---|:---|:---|:---|:---|:---|:---|
 | 待填 | pass/review/fail | 待填 | pass/review/fail | 待填 | pass/review/fail | 待填 |
+
+## P31 工作台分级
+
+| target | aggregate_score_boundary | evidence_maturity | candidate_priority | boundary_note |
+|:---|:---|:---|:---|:---|
+| 待填 | 排序线索，不是实验结合强度。 | case-study/dry-run/validated-computation/experimental-result | high/medium/low/review | 文献案例和本地结果必须分层记录。 |
 
 ## 结论
 

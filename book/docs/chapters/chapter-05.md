@@ -141,13 +141,16 @@ flowchart LR
 
     完整示例文件：[`chapter-05-boltz2-summary.py`](../assets/code/chapter-05-boltz2-summary.py)
 
+    P31 亲和力解释脚本：[`chapter-05-affinity-calibration-dry-run.py`](../assets/code/chapter-05-affinity-calibration-dry-run.py)。该脚本输出 `calibration_available`、`rank_bucket`、`interpretation` 和 `boundary_note`，用于把模型预测写成可审查的排序线索。
+
 ![第 5 章软件操作截图](../assets/screenshots/chapter-05-boltz2-results.png){ loading=lazy }
 
 | 步骤 | 操作 |
 |:---:|:---|
 | 1 | 检查 YAML 中链、配体和输入来源。 |
 | 2 | 读取 prediction/affinity/confidence 输出。 |
-| 3 | 按候选排序，并写清模型边界和待验证实验。 |
+| 3 | 对照已知阳性、阴性或同系列候选判断是否有校准条件。 |
+| 4 | 按候选排序，并写清模型边界和待验证实验。 |
 
 !!! warning "常见错误"
     不要只按单一 predicted affinity 下结论；必须同时看置信度、输入质量和适用域。

@@ -4,12 +4,12 @@ created: 2026-06-02
 type: project-doc
 status: active
 topics: [codex-skills, routing, online-book, data-analysis, writing]
-source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "CLAUDE.md"]
+source_files: ["00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "CLAUDE.md"]
 zotero_items: []
 bibtex_keys: []
-related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md", "P29_文献与引用补强报告.md", "P30_图示与版面升级报告.md"]
+related: ["插件与Skills调用说明.md", "P26_Codex技能集成报告.md", "P27_Codex项目规则迁移报告.md", "P28_重点章节Codex审稿报告.md", "P29_文献与引用补强报告.md", "P30_图示与版面升级报告.md", "P31_数据分析与AIDD dry-run报告.md"]
 wiki_role: concept
-source_count: 6
+source_count: 7
 last_reviewed: 2026-06-02
 claims:
   - "AI_MD 下一版更新优先使用全局 Codex skills，而不是向 .claude/skills 添加第三方技能。"
@@ -17,6 +17,7 @@ claims:
   - "P28 已完成第 3/5/6/8 章高风险 claim 第一轮审稿，可作为 P29-P31 的输入基线。"
   - "P29 已完成第 3/5/6/8 章引用覆盖审计，并识别 Chai-1、RFD3/RFdiffusion3、BindCraft 三个候选补强。"
   - "P30 已完成第 1-8 章 Mermaid 图示增强和 online book Mermaid 校验器增强。"
+  - "P31 已完成第 3/5/6/8 章 AIDD dry-run 脚本和实验记录模板字段补强。"
 relations:
   - type: extends
     target: "插件与Skills调用说明.md"
@@ -26,6 +27,8 @@ relations:
     target: "P29_文献与引用补强报告.md"
   - type: supports
     target: "P30_图示与版面升级报告.md"
+  - type: supports
+    target: "P31_数据分析与AIDD dry-run报告.md"
 ---
 # Codex技能调用矩阵
 
@@ -89,15 +92,16 @@ relations:
 | 统计检验与结果措辞 | `statistical-analysis` | 假设检验、报告句式和边界提示。 |
 | 发表级图表 | `scientific-visualization` | 多面板图、配色、图注和导出规范。 |
 | 知识图谱分析 | `networkx` | 节点、边、中心性、孤立节点和社区结构。 |
-| 化合物处理 | `datamol`、`rdkit` | SMILES/SDF 清洗、描述符、指纹、聚类和构象处理。 |
-| 药物化学筛选 | `medchem` | 成药性规则、结构警报和化合物库 triage。 |
+| 化合物处理 | `datamol`、`rdkit` | SMILES/SDF 清洗、描述符、指纹、聚类和构象处理；P31 已落实为第 3 章候选 triage dry-run。 |
+| 药物化学筛选 | `medchem` | 成药性规则、结构警报和化合物库 triage；P31 已固化结构警报与过滤理由字段。 |
 | MD 与轨迹分析 | `molecular-dynamics` | 体系设置、轨迹指标、代表构象和解释边界。 |
-| AI 对接示例 | `diffdock` | pose 预测和虚拟筛选教学流程；不输出亲和力结论。 |
+| AI 对接示例 | `diffdock` | pose 预测和虚拟筛选教学流程；不输出亲和力结论，P31 只记录 pose/confidence 边界字段。 |
 
 ## 下一版更新建议
 
 1. P28 已完成：`peer-review` 和 `scientific-critical-thinking` 已用于审查第 3/5/6/8 章高风险 claim，基线见 `P28_重点章节Codex审稿报告.md`。
 2. P29 已完成：`literature-review` 和 `citation-management` 已用于第 3/5/6/8 章引用覆盖审计，候选补强见 `P29_文献与引用补强报告.md` 和 `references/zotero-candidates-2026-06-02-P29.tsv`。
 3. P30 已完成：`markdown-mermaid-writing` 和 `scientific-schematics` 已用于每章 Mermaid source-of-truth 和示意图 prompt，见 `book/docs/resources/mermaid-schematics.md`。
-4. P31 下一步：用 `datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 补充 dry-run 数据流程和实验记录模板。
-5. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。
+4. P31 已完成：`datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 已用于补充 dry-run 数据流程和实验记录模板，见 `P31_数据分析与AIDD dry-run报告.md`。
+5. 下一轮建议进入 P32：把 P29 候选文献正式入库 Zotero/BibTeX，或把 P31 dry-run 升级为一个真实小样本运行记录。
+6. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。

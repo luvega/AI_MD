@@ -93,6 +93,14 @@ output:
 - 不确定性：
 - 可比较范围：
 
+## P31 预测校准与分级
+
+| candidate_id | predicted_metric | confidence | control_type | calibration_available | rank_bucket | interpretation | boundary_note |
+|:---|:---|---:|:---|:---|:---|:---|:---|
+|  | affinity_pic50 / probability / other |  | known_positive_like/negative_control_like/unknown | yes/no | high/medium/low/review |  | predicted affinity 不是实验 Kd、IC50 或活性。 |
+
+说明：只有在同靶点、同系列或有可靠对照时，预测读数才适合作为相对排序线索；缺少校准时只能写作未校准模型信号。
+
 ## 结论等级
 
 - `pass`：结构和界面置信度足够，亲和力读数可用于候选排序。

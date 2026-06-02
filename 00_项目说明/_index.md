@@ -41,3 +41,4 @@
 | [P28_重点章节Codex审稿报告.md](P28_重点章节Codex审稿报告.md) | maintenance-report | 记录第 3/5/6/8 章高风险表述、证据边界和 P29-P31 交接建议。 | `book/docs/chapters/`, `book/docs/resources/polish-report.md` |  |
 | [P29_文献与引用补强报告.md](P29_文献与引用补强报告.md) | maintenance-report | 记录第 3/5/6/8 章引用覆盖审计、Chai-1/RFD3/BindCraft 候选补强和后续 Zotero 入库边界。 | `references/`, `book/book_map.toml` | 多个 |
 | [P30_图示与版面升级报告.md](P30_图示与版面升级报告.md) | maintenance-report | 记录在线书籍 Mermaid source of truth、scientific-schematics prompt 和图示校验器增强。 | `book/docs/resources/mermaid-schematics.md`, `tools/validate_online_book.py` |  |
+| [P31_数据分析与AIDD dry-run报告.md](P31_数据分析与AIDD%20dry-run报告.md) | maintenance-report | 记录第 3/5/6/8 章 AIDD dry-run 脚本、实验记录字段和边界说明。 | `book/docs/resources/aidd-dry-runs.md`, `04_实验记录/` |  |

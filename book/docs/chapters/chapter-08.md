@@ -145,13 +145,16 @@ flowchart LR
 
     完整示例文件：[`chapter-08-project-priority.py`](../assets/code/chapter-08-project-priority.py)
 
+    P31 工作台优先级脚本：[`chapter-08-workbench-priority-dry-run.py`](../assets/code/chapter-08-workbench-priority-dry-run.py)。该脚本输出 `evidence_maturity`、`priority_score`、`decision` 和 `boundary_note`，强制区分文献案例、dry-run、本地计算和实验结果。
+
 ![第 8 章软件操作截图](../assets/screenshots/chapter-08-project-pool.png){ loading=lazy }
 
 | 步骤 | 操作 |
 |:---:|:---|
 | 1 | 为每个研究问题建立证据矩阵。 |
 | 2 | 选择虚拟筛选、PPI 或蛋白设计路线。 |
-| 3 | 按证据强度和实验可行性给下一步排序。 |
+| 3 | 标注证据成熟度：文献案例、dry-run、本地计算或实验结果。 |
+| 4 | 按证据强度和实验可行性给下一步排序。 |
 
 !!! warning "常见错误"
     第八章补充 PDF 只能作为文献案例和方法借鉴；没有本地运行记录时不能写成本项目结果。

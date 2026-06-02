@@ -143,13 +143,16 @@ flowchart LR
 
     完整示例文件：[`chapter-03-docking-dry-run.sh`](../assets/code/chapter-03-docking-dry-run.sh)
 
+    P31 候选 triage 脚本：[`chapter-03-aidd-triage-dry-run.py`](../assets/code/chapter-03-aidd-triage-dry-run.py)。该脚本输出 `parse_status`、`rule_of_five_pass`、`pose_qc_passed` 和 `filter_reason`，用于回写对接记录模板，不产生 docking score。
+
 ![第 3 章软件操作截图](../assets/screenshots/chapter-03-docking-funnel.png){ loading=lazy }
 
 | 步骤 | 操作 |
 |:---:|:---|
 | 1 | 准备受体、配体和 box 参数表。 |
 | 2 | 先跑 1 receptor x 3 ligands 的 dry-run。 |
-| 3 | 把 score、pose 文件和过滤理由写入 manifest。 |
+| 3 | 用 AIDD triage 表记录 SMILES 解析、描述符复核、pose QC 状态和过滤理由。 |
+| 4 | 把 score、pose 文件和过滤理由写入 manifest；没有 pose 复核时不得推进为命中结果。 |
 
 !!! warning "常见错误"
     docking score 只能做排序线索，不能写成结合自由能或实验 IC50。

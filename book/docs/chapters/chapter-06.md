@@ -141,13 +141,16 @@ flowchart LR
 
     完整示例文件：[`chapter-06-design-config.yaml`](../assets/code/chapter-06-design-config.yaml)
 
+    P31 设计 QC 脚本：[`chapter-06-design-qc-dry-run.py`](../assets/code/chapter-06-design-qc-dry-run.py)。该脚本输出 `motif_rmsd`、`refold_rmsd`、`pae_interface`、`interface_qc_passed` 和 `discard_reason`，用于决定是否进入 ProteinMPNN、回折叠或实验队列。
+
 ![第 6 章软件操作截图](../assets/screenshots/chapter-06-protein-design-cycle.png){ loading=lazy }
 
 | 步骤 | 操作 |
 |:---:|:---|
 | 1 | 定义靶点、motif、hotspot 和 contig。 |
 | 2 | 生成少量 backbone，再用 ProteinMPNN 设计序列。 |
-| 3 | 回折叠验证并筛掉低置信度/低多样性候选。 |
+| 3 | 回折叠验证并筛掉低置信度、低多样性或界面 QC 失败候选。 |
+| 4 | 将保留设计写入实验记录，保留 seed、checkpoint 和淘汰理由。 |
 
 !!! warning "常见错误"
     生成结构不是可表达蛋白；必须经过回折叠、界面复核、多样性和实验可行性过滤。
