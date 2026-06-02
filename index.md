@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 21
+source_count: 22
 last_reviewed: 2026-06-02
-source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -51,6 +51,8 @@ relations:
     target: "00_项目说明/P27_Codex项目规则迁移报告.md"
   - type: updates
     target: "00_项目说明/P28_重点章节Codex审稿报告.md"
+  - type: updates
+    target: "00_项目说明/P29_文献与引用补强报告.md"
   - type: supports
     target: "00_项目说明/Codex技能调用矩阵.md"
 ---
@@ -73,6 +75,7 @@ relations:
 | [Codex 技能调用矩阵](00_项目说明/Codex技能调用矩阵.md) | P26 后全局 Codex skills 在写作、文献、图示和数据流程中的路由入口 |
 | [P27 Codex 项目规则迁移报告](00_项目说明/P27_Codex项目规则迁移报告.md) | AI_MD 自有项目规则迁移为 `ai-md-*` 全局 Codex skills 的记录 |
 | [P28 重点章节 Codex 审稿报告](00_项目说明/P28_重点章节Codex审稿报告.md) | 第 3/5/6/8 章 docking score、affinity、RFdiffusion/RFD3、Chai-1 等高风险表述审查 |
+| [P29 文献与引用补强报告](00_项目说明/P29_文献与引用补强报告.md) | 第 3/5/6/8 章引用覆盖审计和 Chai-1/RFD3/BindCraft 候选补强 |
 | [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
 | [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第三版，包含第 1-8 章长文、Nature 引用、Imagegen 图谱、代码案例和课程资源 |
 
@@ -125,6 +128,8 @@ relations:
 | [BibTeX 文件](references/references.bib) | 正式引用条目 |
 | [Zotero 候选表](references/zotero-candidates-2026-05-30.tsv) | 候选、正式提升和人工确认状态 |
 | [P14 文献锚定表](references/zotero-candidates-2026-05-31-P14.tsv) | 第六章 Nature 综述和第八章补充 PDF 的 Zotero/BibTeX 锚定记录 |
+| [P29 引用覆盖审计表](references/literature-audit-2026-06-02-P29.tsv) | 第 3/5/6/8 章 book_map 引用覆盖与候选升级状态 |
+| [P29 文献补强候选表](references/zotero-candidates-2026-06-02-P29.tsv) | Chai-1、RFD3/RFdiffusion3 和 BindCraft 正式版本候选，待 Zotero 入库 |
 
 ## 研究工作台
 
@@ -177,6 +182,7 @@ relations:
 | [P26 Codex 技能集成](00_项目说明/P26_Codex技能集成报告.md) | scientific-agent-skills 精选技能全局安装、跳过项和路由边界 |
 | [P27 Codex 项目规则迁移](00_项目说明/P27_Codex项目规则迁移报告.md) | AI_MD 自有 `.claude/skills` 规则迁移为 `ai-md-*` 全局 Codex skills |
 | [P28 重点章节 Codex 审稿](00_项目说明/P28_重点章节Codex审稿报告.md) | 第 3/5/6/8 章高风险 claim、证据边界和 P29-P31 交接建议 |
+| [P29 文献与引用补强](00_项目说明/P29_文献与引用补强报告.md) | 第 3/5/6/8 章引用覆盖审计、补强候选和 Zotero 入库边界 |
 
 ## 综合与开放问题
 
@@ -207,6 +213,7 @@ relations:
 - [2026-06-02] update | P26 Codex skills 全局精选集成
 - [2026-06-02] update | P27 Codex 项目规则迁移
 - [2026-06-02] update | P28 重点章节 Codex 审稿
+- [2026-06-02] update | P29 文献与引用补强
 - [2026-05-31] git | P26 原始素材目录本地保留、不上传内容
 
 ## 待确认项

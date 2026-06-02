@@ -1,0 +1,22 @@
+chapter	required_bibtex_key	zotero_item_key	linked_note	reference_role	coverage_status	p29_comment
+chapter-03	du_dockey_2023	UOUH33GQ	03_文献笔记/分子对接与虚拟筛选.md	large-scale docking workflow	covered	Supports docking and virtual screening workflow framing.
+chapter-03	agrawal_benchmarking_2019	T2O1ECSF	03_文献笔记/分子对接与虚拟筛选.md	protein-peptide docking benchmark	covered	Supports top pose and peptide docking QC boundary.
+chapter-03	crampon_machine-learning_2022	R2W3SF5S	03_文献笔记/分子对接与虚拟筛选.md	ML docking review	covered	Supports machine-learning docking scope and limitations.
+chapter-03	gu_benchmarking_2025	57K986LK	03_文献笔记/分子对接与虚拟筛选.md	AI docking benchmark	covered	Supports AI-powered docking benchmarking and ranking limitations.
+chapter-05	passaro_boltz-2_2025	FF4V8LYV	03_文献笔记/Boltz2亲和力预测.md	Boltz2 affinity prediction	covered	Supports predicted affinity and confidence interpretation.
+chapter-05	cho_boltzdesign1_2025	CRM22UDT	03_文献笔记/Boltz2亲和力预测.md	structure-prediction inversion for binder design	covered	Supports binder-design extension but should not be treated as Boltz2 affinity validation.
+chapter-05	wang_deepdtaf_2021	95UTFQDM	03_文献笔记/亲和力模型与肽结合排序.md	deep learning affinity prediction	covered	Supports affinity model family and transfer-limit discussion.
+chapter-05	romero-molina_ppi-affinity_2022	YIV9AVT4	03_文献笔记/亲和力模型与肽结合排序.md	PPI and peptide affinity prediction	covered	Supports protein-peptide and PPI affinity use cases.
+chapter-05	chang_ranking_2023	CRT8PKH3	03_文献笔记/亲和力模型与肽结合排序.md	peptide binder ranking with AlphaFold	covered	Supports ranking rather than experimental activity language.
+chapter-06	watson_novo_2023	UKX5E6IB	03_文献笔记/RFdiffusion蛋白设计.md	RFdiffusion foundation paper	covered	Supports RFdiffusion design candidate boundary.
+chapter-06	ahern_atom_2025	ZYFCZKMH	03_文献笔记/RFdiffusion蛋白设计.md	RFdiffusion2 enzyme scaffolding preprint	covered	Supports atom-level active-site scaffolding context but is not RFD3-specific.
+chapter-06	bennett_atomically_2025	EBQ7CNVI	03_文献笔记/RFdiffusion蛋白设计.md	RFdiffusion antibody design	covered	Supports antibody design workflow and experimental screening boundary.
+chapter-06	dauparas_robust_2022	V2WLND5M	03_文献笔记/ProteinMPNN序列设计.md	ProteinMPNN sequence design	covered	Supports sequence-design after backbone generation.
+chapter-06	pacesa_bindcraft_2024	QCD2DXXI	03_文献笔记/BindCraft与LigandMPNN.md	BindCraft preprint	covered-needs-publication-upgrade	P29 identified a Nature 2025 publication; formal upgrade awaits Zotero import or mapping update.
+chapter-06	dauparas_atomic_2025	UN6R4C6J	03_文献笔记/BindCraft与LigandMPNN.md	LigandMPNN sequence design	covered	Supports ligand-context-conditioned sequence design.
+chapter-06	yang_w_past_2026	TPR3JY6N	03_文献笔记/RFdiffusion蛋白设计.md	de novo protein design review	covered	Supports review-level synthesis and boundary language.
+chapter-08	sui_targeting_2026	QXKW6K78	03_文献笔记/分子对接与虚拟筛选.md	UXS1 virtual screening case	covered	Case-study evidence only; not AI_MD project result.
+chapter-08	shen_structure-based_2026	YUMKNHSK	03_文献笔记/分子对接与虚拟筛选.md	APE1 virtual screening case	covered	Case-study evidence only; not AI_MD project result.
+chapter-08	tomarchio_reproducible_2026	Y4ARSYCQ	03_文献笔记/分子对接与虚拟筛选.md	reproducible hierarchical virtual screening case	covered	Case-study evidence for reproducible workflow organization.
+chapter-08	zhu_novo_2026	V6Y5EEZL	03_文献笔记/RFdiffusion蛋白设计.md	BabA de novo binder design case	covered	Case-study evidence only; preprint status should remain visible.
+chapter-08	yang_w_past_2026	TPR3JY6N	03_文献笔记/RFdiffusion蛋白设计.md	de novo protein design review	covered	Supports broad protein-design context.

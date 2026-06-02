@@ -39,3 +39,4 @@
 | [P26_Codex技能集成报告.md](P26_Codex技能集成报告.md) | maintenance-report | 记录 scientific-agent-skills 精选技能的全局 Codex 安装、跳过项和 AI_MD 路由边界。 | `C:\Users\xsui\.codex\skills`, `tools/install_ai_md_codex_skills.ps1` |  |
 | [P27_Codex项目规则迁移报告.md](P27_Codex项目规则迁移报告.md) | maintenance-report | 记录 AI_MD 自有 `.claude/skills` 规则迁移为 `ai-md-*` 全局 Codex skills 的结果。 | `.claude/skills`, `tools/install_ai_md_project_codex_skills.ps1` |  |
 | [P28_重点章节Codex审稿报告.md](P28_重点章节Codex审稿报告.md) | maintenance-report | 记录第 3/5/6/8 章高风险表述、证据边界和 P29-P31 交接建议。 | `book/docs/chapters/`, `book/docs/resources/polish-report.md` |  |
+| [P29_文献与引用补强报告.md](P29_文献与引用补强报告.md) | maintenance-report | 记录第 3/5/6/8 章引用覆盖审计、Chai-1/RFD3/BindCraft 候选补强和后续 Zotero 入库边界。 | `references/`, `book/book_map.toml` | 多个 |
