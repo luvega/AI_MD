@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, index]
 wiki_role: synthesis
-source_count: 24
+source_count: 25
 last_reviewed: 2026-06-02
-source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/Codex技能调用矩阵.md"]
+source_files: ["CLAUDE.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
-bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
+bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
 related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
-claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02]
+claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -57,6 +57,8 @@ relations:
     target: "00_项目说明/P30_图示与版面升级报告.md"
   - type: updates
     target: "00_项目说明/P31_数据分析与AIDD dry-run报告.md"
+  - type: updates
+    target: "00_项目说明/P32_文献候选正式化报告.md"
   - type: supports
     target: "00_项目说明/Codex技能调用矩阵.md"
 ---
@@ -82,6 +84,7 @@ relations:
 | [P29 文献与引用补强报告](00_项目说明/P29_文献与引用补强报告.md) | 第 3/5/6/8 章引用覆盖审计和 Chai-1/RFD3/BindCraft 候选补强 |
 | [P30 图示与版面升级报告](00_项目说明/P30_图示与版面升级报告.md) | 第 1-8 章 Mermaid 图示、scientific-schematics prompt 和图示校验器增强 |
 | [P31 数据分析与 AIDD dry-run 报告](00_项目说明/P31_数据分析与AIDD%20dry-run报告.md) | 第 3/5/6/8 章 dry-run 数据流程、代码案例和实验记录字段补强 |
+| [P32 文献候选正式化报告](00_项目说明/P32_文献候选正式化报告.md) | 将 Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 候选提升为正式 BibTeX 和章节引用 |
 | [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
 | [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第三版，包含第 1-8 章长文、Nature 引用、Imagegen 图谱、代码案例和课程资源 |
 
@@ -138,6 +141,7 @@ relations:
 | [P14 文献锚定表](references/zotero-candidates-2026-05-31-P14.tsv) | 第六章 Nature 综述和第八章补充 PDF 的 Zotero/BibTeX 锚定记录 |
 | [P29 引用覆盖审计表](references/literature-audit-2026-06-02-P29.tsv) | 第 3/5/6/8 章 book_map 引用覆盖与候选升级状态 |
 | [P29 文献补强候选表](references/zotero-candidates-2026-06-02-P29.tsv) | Chai-1、RFD3/RFdiffusion3 和 BindCraft 正式版本候选，待 Zotero 入库 |
+| [P32 文献正式化表](references/literature-upgrades-2026-06-02-P32.tsv) | Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 的正式 BibTeX 提升记录；Zotero item key 待补 |
 
 ## 研究工作台
 
@@ -193,6 +197,7 @@ relations:
 | [P29 文献与引用补强](00_项目说明/P29_文献与引用补强报告.md) | 第 3/5/6/8 章引用覆盖审计、补强候选和 Zotero 入库边界 |
 | [P30 图示与版面升级](00_项目说明/P30_图示与版面升级报告.md) | 在线书籍 Mermaid source of truth、示意图 prompt 和校验器增强 |
 | [P31 数据分析与 AIDD dry-run](00_项目说明/P31_数据分析与AIDD%20dry-run报告.md) | 第 3/5/6/8 章 dry-run 脚本、AIDD 记录字段和模板升级 |
+| [P32 文献候选正式化](00_项目说明/P32_文献候选正式化报告.md) | Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 正式进入 BibTeX、章节引用和 claims 矩阵 |
 
 ## 综合与开放问题
 
@@ -200,7 +205,7 @@ relations:
 |:---|:---|
 | 第 6 章运行结果 | 新增 RFD3 PDF 已提取；尚未发现实际 RFD3 运行输出 |
 | 第 8 章资料 | 已解包并完成主 PDF/补充 PDF 提取、章节精读和 Chai-1 方法卡 |
-| Zotero 本地 API | 曾出现 HTTP 502；人工确认条目已在 P5 记录 |
+| Zotero 本地 API | P32 检查时本地 API 未运行且未找到 `zotero.exe`；新增正式 BibTeX 后 item key 暂记为待补 |
 | OCR 人工复核 | 仍有少数页面正式引用前建议对照原 PDF |
 | Git 版本史 | 已配置 `origin=https://github.com/luvega/AI_MD.git`；`06_原始学习素材/` 内容本地保留但不上传 |
 
@@ -226,12 +231,13 @@ relations:
 - [2026-06-02] update | P29 文献与引用补强
 - [2026-06-02] update | P30 图示与版面升级
 - [2026-06-02] update | P31 数据分析与 AIDD dry-run
+- [2026-06-02] update | P32 文献候选正式化
 - [2026-05-31] git | P26 原始素材目录本地保留、不上传内容
 
 ## 待确认项
 
 - 是否把 Obsidian Dataview 查询、Web Clipper 设置和固定首页写入 `.obsidian/` 配置。
 - 第六章补充资料是否进入实际运行阶段；当前只完成 PDF 提取、方法卡和实验记录模板。
-- Chai-1 工具链是否需要补正式方法论文或官方文档锚点；P14 只锚定第八章补充 PDF 和第六章 Nature 综述。
+- Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 已进入正式 BibTeX 与章节引用；待 Zotero Desktop/API 可用后补正式 item key。
 - 图谱体检已能统计实体、孤立页、缺 key 和过期 review；下一轮可逐步给旧模板页补 `last_reviewed` 或确认是否从图谱扫描中排除。
 - 在线书籍第二版已有 8 章长文，但仍不是公开教材终稿；公开发布前仍需版权审查、图表替换、引用格式统一和人工学术审校。

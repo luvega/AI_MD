@@ -164,6 +164,8 @@ def format_author(author: str) -> str:
         return ""
     if "," in author:
         last, first = [part.strip() for part in author.split(",", 1)]
+        if not first:
+            return last
     else:
         parts = author.split()
         if len(parts) == 1:
@@ -249,6 +251,7 @@ def article_brief(entry: BibEntry) -> str:
         ("ppi-affinity", "本文介绍 PPI-Affinity 网络工具，用于预测并优化蛋白-肽和蛋白-蛋白结合亲和力。"),
         ("ranking peptide binders", "本文探讨利用 AlphaFold 相关结构信息按亲和力排序肽结合体的策略。"),
         ("rfdiffusion2", "本文介绍 RFdiffusion2 在原子级酶活性位点支架设计中的建模和实验验证。"),
+        ("rfdiffusion3", "本文介绍 RFdiffusion3 用于全原子生物分子相互作用设计的预印本方法。"),
         ("antibodies with rfdiffusion", "本文展示结合 RFdiffusion2 和筛选实验从头设计表位特异性抗体的流程。"),
         ("rfdiffusion", "本文介绍 RFdiffusion 通过扩散模型从分子约束生成蛋白结构和功能设计方案。"),
         ("proteinmpnn", "本文提出 ProteinMPNN 深度学习序列设计方法，并用结构和功能实验验证其性能。"),
@@ -259,6 +262,7 @@ def article_brief(entry: BibEntry) -> str:
         ("ape1", "本文通过结构基础虚拟筛选发现靶向 APE1 内切酶活性位点的小分子抑制剂。"),
         ("hierarchical virtual screening", "本文提出整合骨架感知机器学习、集合对接和分子动力学的可复现虚拟筛选框架。"),
         ("helicobacter pylori adhesin baba", "本文报道靶向幽门螺杆菌黏附素 BabA 的从头蛋白结合体设计。"),
+        ("chai-1", "本文介绍 Chai-1 对生物分子相互作用进行统一结构预测和约束建模的方法。"),
     ]
     for pattern, brief in rules:
         if pattern in lowered:

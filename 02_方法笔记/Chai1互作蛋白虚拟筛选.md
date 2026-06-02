@@ -4,14 +4,14 @@ created: 2026-05-31
 type: method-note
 status: draft
 topics: [type/method, status/draft, topic/ppi, topic/chai-1, topic/virtual-screening, chapter/8]
-source_files: ["06_原始学习素材/第八章/解包/第八章思路解析/互作蛋白虚拟筛选/batch_predict.py", "06_原始学习素材/第八章/解包/第八章思路解析/互作蛋白虚拟筛选/score.py", "06_原始学习素材/第八章/全文提取/第八章计算思路解析/全文.md"]
-zotero_items: []
-bibtex_keys: []
-related: ["../01_课程章节索引/章节精读/第08章_计算思路解析精读.md", "../04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md", "AI多组分对接与虚拟筛选.md", "Boltz2亲和力预测.md"]
+source_files: ["06_原始学习素材/第八章/解包/第八章思路解析/互作蛋白虚拟筛选/batch_predict.py", "06_原始学习素材/第八章/解包/第八章思路解析/互作蛋白虚拟筛选/score.py", "06_原始学习素材/第八章/全文提取/第八章计算思路解析/全文.md", "references/references.bib"]
+zotero_items: ["待补正式锚点"]
+bibtex_keys: ["chai_discovery_chai-1_2024"]
+related: ["../01_课程章节索引/章节精读/第08章_计算思路解析精读.md", "../04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md", "../03_文献笔记/Chai1方法与PPI筛选.md", "AI多组分对接与虚拟筛选.md", "Boltz2亲和力预测.md"]
 wiki_role: method
-source_count: 3
-last_reviewed: 2026-05-31
-claims: [p13_chai1_ppi_screening_2026_05_31]
+source_count: 4
+last_reviewed: 2026-06-02
+claims: [p13_chai1_ppi_screening_2026_05_31, chai_discovery_chai-1_2024]
 relations:
   - type: derived_from
     target: "../06_原始学习素材/第八章/解包/第八章思路解析/互作蛋白虚拟筛选/batch_predict.py"
@@ -19,6 +19,8 @@ relations:
     target: "../06_原始学习素材/第八章/解包/第八章思路解析/互作蛋白虚拟筛选/score.py"
   - type: applies_to
     target: "../04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md"
+  - type: supports
+    target: "../03_文献笔记/Chai1方法与PPI筛选.md"
   - type: extends
     target: "AI多组分对接与虚拟筛选.md"
 ---
@@ -28,6 +30,8 @@ relations:
 ## 本方法定位
 
 本方法卡把第八章“互作蛋白虚拟筛选”脚本整理成可复现记录规范。它适合一个 query 蛋白对多个 target 蛋白做批量复合物建模和初筛排序。当前仓库只有脚本和课程资料，没有实际 Chai-1 运行输出。
+
+P32 已补入 `chai_discovery_chai-1_2024` 作为正式 BibTeX 方法锚点。由于 Zotero Desktop 本地 API 不可用，Zotero item key 暂记为 `待补正式锚点`。
 
 ## 输入结构
 

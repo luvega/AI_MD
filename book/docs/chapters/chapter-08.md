@@ -163,6 +163,10 @@ flowchart LR
 
 <!-- refs:start -->
 
+- Chai Discovery, Boitreaud, J., Dent, J., McPartlon, M., Meier, J., Reis, V. et al. Chai-1: Decoding the molecular interactions of life. bioRxiv (2024). https://doi.org/10.1101/2024.10.10.615955
+
+  **本文内容简介：** 本文介绍 Chai-1 对生物分子相互作用进行统一结构预测和约束建模的方法。
+
 - Sui, Q., Chen, Z., Shan, G., Hu, Z., Jin, X., Liang, J. et al. Targeting UXS1-Dependent Glucuronate Detoxification Potentiates Metformin's Anti-Tumor Efficacy in Lung Adenocarcinoma. Advanced Science, e10542 (2026). https://doi.org/10.1002/advs.202510542
 
   **本文内容简介：** 本文研究 UXS1 依赖的葡萄糖醛酸解毒通路与二甲双胍抗肿瘤效应的关系。

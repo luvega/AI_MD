@@ -9,9 +9,9 @@
 - **第 3 章 AI 多组分对接与虚拟筛选**：4 篇关键文献
 - **第 4 章 AI 采样、分子模拟与 MD 结果解释**：2 篇关键文献
 - **第 5 章 亲和力预测、Boltz2 与模型评估**：5 篇关键文献
-- **第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计**：7 篇关键文献
+- **第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计**：8 篇关键文献
 - **第 7 章 VibeCoding、Claude Code 与 AI Agent 工作流**：暂无正式关键文献
-- **第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合**：5 篇关键文献
+- **第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合**：6 篇关键文献
 
 ## 完整参考文献表
 
@@ -113,53 +113,65 @@
 
 ### 参考文献 17
 
+- Butcher, J., Krishna, R., Mitra, R., Brent, R. I., Li, Y., Corley, N. et al. De novo design of all-atom biomolecular interactions with RFdiffusion3. bioRxiv (2025). https://doi.org/10.1101/2025.09.18.676967
+- **本文内容简介：** 本文介绍 RFdiffusion3 用于全原子生物分子相互作用设计的预印本方法。
+- **关联章节：** 第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计
+
+### 参考文献 18
+
 - Bennett, N. R., Watson, J. L., Ragotte, R. J., Borst, A. J., See, D. L., Weidle, C. et al. Atomically accurate de novo design of antibodies with RFdiffusion. Nature (2025). https://doi.org/10.1038/s41586-025-09721-5
 - **本文内容简介：** 本文展示结合 RFdiffusion2 和筛选实验从头设计表位特异性抗体的流程。
 - **关联章节：** 第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计
 
-### 参考文献 18
+### 参考文献 19
 
 - Dauparas, J., Anishchenko, I., Bennett, N., Bai, H., Ragotte, R. J., Milles, L. F. et al. Robust deep learning–based protein sequence design using ProteinMPNN. Science (2022). https://doi.org/10.1126/science.add2187
 - **本文内容简介：** 本文提出 ProteinMPNN 深度学习序列设计方法，并用结构和功能实验验证其性能。
 - **关联章节：** 第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计
 
-### 参考文献 19
+### 参考文献 20
 
-- Pacesa, M., Nickel, L., Schmidt, J., Pyatova, E., Schellhaas, C., Kissling, L. et al. BindCraft: one-shot design of functional protein binders. bioRxiv (2024). https://doi.org/10.1101/2024.09.30.615802
+- Pacesa, M., Nickel, L., Schellhaas, C., Schmidt, J., Pyatova, E., Kissling, L. et al. One-shot design of functional protein binders with BindCraft. Nature 646, 483-492 (2025). https://doi.org/10.1038/s41586-025-09429-6
 - **本文内容简介：** 本文介绍 BindCraft 一步式蛋白结合体设计管线及其多靶点实验成功率。
 - **关联章节：** 第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计
 
-### 参考文献 20
+### 参考文献 21
 
 - Dauparas, J., Lee, G. R., Pecoraro, R., An, L., Anishchenko, I., Glasscock, C. et al. Atomic context-conditioned protein sequence design using LigandMPNN. Nature Methods (2025). https://doi.org/10.1038/s41592-025-02626-1
 - **本文内容简介：** 本文介绍 LigandMPNN 在小分子、核苷酸和金属环境下进行蛋白序列设计的方法。
 - **关联章节：** 第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计
 
-### 参考文献 21
+### 参考文献 22
 
 - Yang, W., Wang, S., Lee, G. R., Zhang, J. Z., Courbet, A., Juergens, D. et al. The past, present and future of de novo protein design. Nature 652, 1139-1152 (2026). https://doi.org/10.1038/s41586-026-10328-7
 - **本文内容简介：** 本文综述从头蛋白设计的发展脉络、当前能力和未来研究方向。
 - **关联章节：** 第 6 章 RFD3/RFdiffusion、ProteinMPNN 与蛋白设计；第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合
 
-### 参考文献 22
+### 参考文献 23
+
+- Chai Discovery, Boitreaud, J., Dent, J., McPartlon, M., Meier, J., Reis, V. et al. Chai-1: Decoding the molecular interactions of life. bioRxiv (2024). https://doi.org/10.1101/2024.10.10.615955
+- **本文内容简介：** 本文介绍 Chai-1 对生物分子相互作用进行统一结构预测和约束建模的方法。
+- **关联章节：** 第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合
+
+### 参考文献 24
 
 - Sui, Q., Chen, Z., Shan, G., Hu, Z., Jin, X., Liang, J. et al. Targeting UXS1-Dependent Glucuronate Detoxification Potentiates Metformin's Anti-Tumor Efficacy in Lung Adenocarcinoma. Advanced Science, e10542 (2026). https://doi.org/10.1002/advs.202510542
 - **本文内容简介：** 本文研究 UXS1 依赖的葡萄糖醛酸解毒通路与二甲双胍抗肿瘤效应的关系。
 - **关联章节：** 第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合
 
-### 参考文献 23
+### 参考文献 25
 
 - Shen, T., Shen, H., Kong, Y., Qiang, W., Yu, X. & Wang, J. Structure-based virtual screening identifies novel small-molecule inhibitors targeting the endonuclease active site of APE1. Scientific Reports (2026). https://doi.org/10.1038/s41598-026-51975-0
 - **本文内容简介：** 本文通过结构基础虚拟筛选发现靶向 APE1 内切酶活性位点的小分子抑制剂。
 - **关联章节：** 第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合
 
-### 参考文献 24
+### 参考文献 26
 
 - Tomarchio, E. G., Buccheri, R. & Rescifina, A. A Reproducible Hierarchical Virtual Screening Framework Integrating Scaffold-Aware Machine Learning, Ensemble Docking, and Molecular Dynamics: Application to IDO1. Journal of Chemical Information and Modeling (2026). https://doi.org/10.1021/acs.jcim.6c00967
 - **本文内容简介：** 本文提出整合骨架感知机器学习、集合对接和分子动力学的可复现虚拟筛选框架。
 - **关联章节：** 第 8 章 研究思路解析：寻靶、虚拟筛选、PPI 与蛋白设计整合
 
-### 参考文献 25
+### 参考文献 27
 
 - Zhu, Y., Isaha, M. B. & Zhang, X. De novo design of binder proteins targeting Helicobacter pylori adhesin BabA. bioRxiv (2026). https://doi.org/10.64898/2026.05.24.727452
 - **本文内容简介：** 本文报道靶向幽门螺杆菌黏附素 BabA 的从头蛋白结合体设计。
