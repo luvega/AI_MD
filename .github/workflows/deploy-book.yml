@@ -1,4 +1,5 @@
 name: Deploy online book
+# Rebuilt repository deployment workflow.
 
 on:
   push:
