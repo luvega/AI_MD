@@ -50,4 +50,5 @@
 | [P36_图注与图示出版规范化报告.md](P36_图注与图示出版规范化报告.md) | maintenance-report | 记录 8 章 32 个图位的出版式编号、图下注释、边界说明、图注审计器和 `v0.9.0` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_figures.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P37_图注编号解释合并报告.md](P37_图注编号解释合并报告.md) | maintenance-report | 记录编号解释表并入图注、版式压缩、图注审计器增强和 `v0.9.1` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_figures.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P38_在线教材报告页迁出报告.md](P38_在线教材报告页迁出报告.md) | maintenance-report | 记录 P25/P34/P35/P36/P37 阶段报告迁出 `book/docs/`、在线教材导航清理和 `v0.9.2` 版本更新。 | `book/docs/index.md`, `book/mkdocs.yml`, `book-stage-reports/_index.md` |  |
-| [book-stage-reports/_index.md](book-stage-reports/_index.md) | project-doc | 保存 P25/P34/P35/P36/P37 阶段性维护报告；不作为在线教材内容发布。 | `book/docs/`, `00_项目说明/` |  |
+| [book-stage-reports/_index.md](book-stage-reports/_index.md) | project-doc | 保存 P25/P34/P35/P36/P37/P39 阶段性维护报告；不作为在线教材内容发布。 | `book/docs/`, `00_项目说明/` |  |
+| [book-stage-reports/p39-reviewer-revision-report.md](book-stage-reports/p39-reviewer-revision-report.md) | maintenance-report | 记录 P39 审稿导向教材修订、文献使用说明、案例走读、P39 审计器和 `v0.9.3` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_review_readiness.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
