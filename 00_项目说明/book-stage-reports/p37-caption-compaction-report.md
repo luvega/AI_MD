@@ -12,9 +12,9 @@ claims:
   - "p37_caption_compaction_2026_06_02"
 relations:
   - type: updates
-    target: "../../book/docs/chapters/"
+    target: "../P40_旧版在线图书删除记录.md"
   - type: supports
-    target: "../../tools/audit_book_figures.py"
+    target: "../P40_旧版在线图书删除记录.md"
 ---
 # P37 图注编号解释合并报告
 

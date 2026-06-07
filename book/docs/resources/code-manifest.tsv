@@ -1,9 +1,0 @@
-chapter	file	language	purpose	status
-chapter-01	assets/code/chapter-01-env-check.ps1	powershell	在项目根目录运行环境和输入文件 dry-run 检查，把输出转成实验记录字段。	accepted
-chapter-02	assets/code/chapter-02-structure-review.pml	pymol	用同一套视图命令复核实验结构和预测结构，避免只凭漂亮渲染判断结构可信度。	accepted
-chapter-03	assets/code/chapter-03-docking-dry-run.sh	bash	用最小受体和 3 个配体验证 box、输入格式、输出表和筛选阈值，而不是直接跑全库。	accepted
-chapter-04	assets/code/chapter-04-md-summary.py	python	用已经完成的小轨迹输出 RMSD 摘要，训练读者区分轨迹 QC、代表构象和科学解释。	accepted
-chapter-05	assets/code/chapter-05-boltz2-summary.py	python	读取 Boltz2 结果表，生成排序摘要，并明确 affinity 输出是模型预测值而不是实验测定值。	accepted
-chapter-06	assets/code/chapter-06-design-config.yaml	yaml	用配置模板记录 target、contig、hotspot、seed 和输出筛选规则，先做小批量 dry-run。	accepted
-chapter-07	assets/code/chapter-07-agent-validation.ps1	powershell	把 Agent 任务拆成可审查闭环：先读来源，再改文件，最后运行验证并写回维护记录。	accepted
-chapter-08	assets/code/chapter-08-project-priority.py	python	把候选项目拆成证据、方法、缺口、下一步实验和可产出物，防止把文献案例误写成本项目结果。	accepted

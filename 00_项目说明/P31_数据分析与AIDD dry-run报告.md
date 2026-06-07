@@ -7,7 +7,7 @@ topics: [online-book, aidd, dry-run, data-analysis, p31]
 source_files: ["book/docs/resources/aidd-dry-runs.md", "book/docs/assets/code/chapter-03-aidd-triage-dry-run.py", "book/docs/assets/code/chapter-05-affinity-calibration-dry-run.py", "book/docs/assets/code/chapter-06-design-qc-dry-run.py", "book/docs/assets/code/chapter-08-workbench-priority-dry-run.py", "04_实验记录/模板_对接虚拟筛选记录.md", "04_实验记录/模板_Boltz2亲和力记录.md", "04_实验记录/模板_RFdiffusion骨架生成记录.md", "04_实验记录/模板_Chai1互作蛋白虚拟筛选记录.md"]
 zotero_items: []
 bibtex_keys: []
-related: ["P28_重点章节Codex审稿报告.md", "P30_图示与版面升级报告.md", "../book/docs/resources/aidd-dry-runs.md", "../book/docs/resources/code-cases.md", "../04_实验记录/_index.md"]
+related: ["P28_重点章节Codex审稿报告.md", "P30_图示与版面升级报告.md", "P40_旧版在线图书删除记录.md", "P40_旧版在线图书删除记录.md", "../04_实验记录/_index.md"]
 wiki_role: maintenance
 source_count: 9
 last_reviewed: 2026-06-02
@@ -18,9 +18,9 @@ relations:
   - type: extends
     target: "P30_图示与版面升级报告.md"
   - type: updates
-    target: "../book/docs/resources/aidd-dry-runs.md"
+    target: "P40_旧版在线图书删除记录.md"
   - type: updates
-    target: "../book/docs/resources/code-cases.md"
+    target: "P40_旧版在线图书删除记录.md"
   - type: updates
     target: "../04_实验记录/模板_对接虚拟筛选记录.md"
   - type: updates

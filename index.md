@@ -10,7 +10,7 @@ last_reviewed: 2026-06-06
 source_files: ["VERSION", "CLAUDE.md", "00_项目说明/版本记录.md", "00_项目说明/LLM Wiki Agent说明.md", "07_研究工作台/_index.md", "book/book_map.toml", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "00_项目说明/P36_图注与图示出版规范化报告.md", "00_项目说明/P37_图注编号解释合并报告.md", "00_项目说明/P38_在线教材报告页迁出报告.md", "00_项目说明/book-stage-reports/_index.md", "00_项目说明/book-stage-reports/p39-reviewer-revision-report.md", "tools/audit_book_readability.py", "tools/audit_book_figures.py", "tools/audit_book_review_readiness.py", "tests/test_audit_book_readability.py", "tests/test_audit_book_figures.py", "tests/test_audit_book_review_readiness.py", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
-related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "book/docs/index.md"]
+related: ["log.md", "00_项目说明/Obsidian入口.md", "00_项目说明/LLM Wiki运行手册.md", "07_研究工作台/_index.md", "大纲.md", "00_项目说明/P40_旧版在线图书删除记录.md"]
 claims: [p10_wiki_lint_2026_05_30, p11_schema_enhancement_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p23_online_book_v2_course_text_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02, p34_book_readability_2026_06_02, p35_book_detemplate_2026_06_02, v0_8_0_release_2026_06_02, p36_figure_caption_standard_2026_06_02, v0_9_0_release_2026_06_02, p37_caption_compaction_2026_06_02, v0_9_1_release_2026_06_02, p38_reports_removed_from_book_content_2026_06_02, v0_9_2_release_2026_06_02, p39_reviewer_revision_2026_06_06, v0_9_3_release_2026_06_06]
 relations:
   - type: depends_on
@@ -32,7 +32,7 @@ relations:
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md"
   - type: supports
-    target: "book/docs/index.md"
+    target: "大纲.md"
   - type: updates
     target: "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md"
   - type: updates
@@ -74,11 +74,7 @@ relations:
   - type: supports
     target: "00_项目说明/Codex技能调用矩阵.md"
   - type: supports
-    target: "tools/audit_book_readability.py"
-  - type: supports
-    target: "tools/audit_book_figures.py"
-  - type: supports
-    target: "tools/audit_book_review_readiness.py"
+    target: "00_项目说明/P40_旧版在线图书删除记录.md"
   - type: updates
     target: "00_项目说明/book-stage-reports/p39-reviewer-revision-report.md"
 ---
@@ -115,29 +111,17 @@ relations:
 | [P39 审稿导向教材修订报告](00_项目说明/book-stage-reports/p39-reviewer-revision-report.md) | 记录 academic-research-suite 审稿框架下的正文修订、文献使用说明、案例走读和 v0.9.3 版本更新 |
 | [在线书籍阶段报告索引](00_项目说明/book-stage-reports/_index.md) | 项目维护用阶段报告入口，不参与 MkDocs 在线教材发布 |
 | [研究工作台索引](07_研究工作台/_index.md) | 实体、claims、项目池、队列、输出视图和 AI 回归评测入口 |
-| [在线书籍首页](book/docs/index.md) | MkDocs Material 课程讲义第七版，项目版本 `v0.9.3`，包含第 1-8 章教材正文、Nature 引用、Imagegen/Mermaid 图示、合并编号说明的出版式图注、代码案例、课程资源和 P39 案例走读 |
+| [P40 旧版在线图书删除记录](00_项目说明/P40_旧版在线图书删除记录.md) | 记录旧版 `book/`、GitHub Pages workflow、旧书脚本和旧书测试的删除范围 |
 
-## 在线书籍
+## 教材生成状态
 
 | 入口 | 用途 |
 |:---|:---|
-| [在线书籍首页](book/docs/index.md) | 《AI 辅助药物设计：从分子建模到研究工作台》课程讲义首页 |
-| [章节映射表](book/book_map.toml) | 章节页面到 AI_MD wiki 来源和 BibTeX key 的 source of truth |
-| [MkDocs 配置](book/mkdocs.yml) | MkDocs Material 站点、导航、搜索和主题配置 |
-| [在线书籍校验器](tools/validate_online_book.py) | 检查章节区块、来源路径、BibTeX key、书内链接和 raw source 链接 |
-| [引用区生成脚本](tools/update_book_references.py) | 从 BibTeX 和 Zotero 映射重建章节 Nature 风格引用卡片和附录 C |
-| [Imagegen 图谱记录](book/docs/resources/imagegen-prompts.md) | 记录章节知识图谱、流程图、prompt 摘要和验收状态 |
-| [Mermaid 图示与示意图设计](book/docs/resources/mermaid-schematics.md) | P30 每章 Mermaid source-of-truth 和 scientific-schematics prompt |
-| [代码案例索引](book/docs/resources/code-cases.md) | 每章 dry-run 或解析脚本入口 |
-| [AIDD dry-run 数据流程](book/docs/resources/aidd-dry-runs.md) | P31 第 3/5/6/8 章候选 triage、亲和力解释、设计 QC 和项目优先级脚本 |
-| [截图索引](book/docs/resources/screenshot-index.md) | 每章软件/界面截图和来源边界 |
-| [中文教材正文风格指南](book/docs/resources/style-guide.md) | P25 段落功能、证据边界、术语和 provenance 保护规则 |
-| [正文润色脚本](tools/polish_book_chapters.py) | 受控改写在线书籍章节正文并检查过强表述 |
-| [可读性审计脚本](tools/audit_book_readability.py) | 统计章节可读性正文长度、重点区块长度、重复模板句和过强表述 |
-| [图注审计脚本](tools/audit_book_figures.py) | 检查图号顺序、图注格式、图注长度、图片 alt text 和章节外图片 |
-| [审稿就绪审计脚本](tools/audit_book_review_readiness.py) | 检查 P39 模板句残留、文献使用说明、案例走读、高风险 claim 边界和阶段报告目录边界 |
+| [12 章教材大纲](大纲.md) | 当前教材结构来源，规定 12 章路径和原始素材依据 |
+| [章节生成工作区](chapters/) | 当前逐章大纲和正文草稿位置；正文确认前不写入发布层 |
+| [AGENTs.md](AGENTs.md) | AI_MD 在线教材和章节写作的当前约束 |
+| [P40 删除记录](00_项目说明/P40_旧版在线图书删除记录.md) | 说明旧版在线图书已删除，列出保留范围和待重建发布层规则 |
 | [Codex 技能调用矩阵](00_项目说明/Codex技能调用矩阵.md) | 下一版教材正文、文献、图示和数据流程更新的全局 Codex skill 路由 |
-| [GitHub Pages workflow](.github/workflows/deploy-book.yml) | 推送到 `master` 后自动构建并发布在线书籍到 GitHub Pages |
 
 ## 章节索引
 

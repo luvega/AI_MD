@@ -10,7 +10,7 @@ last_reviewed: 2026-05-31
 source_files: [".github/workflows/deploy-book.yml", "book/mkdocs.yml", "book/book_map.toml", "tools/validate_online_book.py", "book/docs/index.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026"]
-related: ["../index.md", "../log.md", "../book/docs/index.md", "知识库维护报告-2026-05-31-P20-在线书籍骨架.md"]
+related: ["../index.md", "../log.md", "P40_旧版在线图书删除记录.md", "知识库维护报告-2026-05-31-P20-在线书籍骨架.md"]
 claims: [p21_github_pages_deploy_2026_05_31]
 relations:
   - type: updates
@@ -18,7 +18,7 @@ relations:
   - type: updates
     target: "../log.md"
   - type: updates
-    target: "../book/mkdocs.yml"
+    target: "P40_旧版在线图书删除记录.md"
   - type: extends
     target: "知识库维护报告-2026-05-31-P20-在线书籍骨架.md"
 ---

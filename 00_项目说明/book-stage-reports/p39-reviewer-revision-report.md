@@ -12,13 +12,13 @@ claims:
   - "p39_reviewer_revision_2026_06_06"
 relations:
   - type: updates
-    target: "../../book/docs/chapters/chapter-01.md"
+    target: "../P40_旧版在线图书删除记录.md"
   - type: updates
-    target: "../../book/docs/chapters/chapter-08.md"
+    target: "../P40_旧版在线图书删除记录.md"
   - type: supports
-    target: "../../tools/audit_book_review_readiness.py"
+    target: "../P40_旧版在线图书删除记录.md"
   - type: supports
-    target: "../../book/book_map.toml"
+    target: "../P40_旧版在线图书删除记录.md"
 ---
 # P39 审稿导向教材修订报告
 

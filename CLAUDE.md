@@ -27,8 +27,8 @@
 | 层 | 本项目位置 | 规则 |
 |:---|:---|:---|
 | Raw sources | 本地 `06_原始学习素材/`、`references/` | 原始资料是 source of truth，默认只读；`06_原始学习素材/` 内容不上传 GitHub |
-| Wiki | `index.md`、`log.md`、`00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/`、`07_研究工作台/`、`book/docs/` | LLM 负责创建、更新、交叉引用和维护一致性 |
-| Schema | `CLAUDE.md`、历史项目规则 `.claude/skills/`、全局 Codex skills、`00_项目说明/LLM Wiki运行手册.md`、`tools/graph_health.py`、`tools/validate_online_book.py`、`book/book_map.toml` | 约束 Agent 如何 ingest、query、lint、update 和验收 |
+| Wiki | `index.md`、`log.md`、`00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/`、`07_研究工作台/`、`chapters/` | LLM 负责创建、更新、交叉引用和维护一致性 |
+| Schema | `CLAUDE.md`、`AGENTs.md`、历史项目规则 `.claude/skills/`、全局 Codex skills、`00_项目说明/LLM Wiki运行手册.md`、`大纲.md`、`tools/graph_health.py` | 约束 Agent 如何 ingest、query、lint、update 和验收 |
 
 LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 负责验收知识库，`zotero-literature-link` 负责文献映射，`ingest-source`、`query-wiki`、`wiki-lint` 负责 LLM Wiki 层面的摄入、问答和健康检查。
 
@@ -42,10 +42,11 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - `05_附件索引/`：压缩包、网盘链接、PDF、表格、脚本、JSON、CIF、TSV 等附件清单。
 - `06_原始学习素材/`：本地集中保存 PDF 课件原件、重复 PDF 待确认区、逐页全文提取结果和低文本页 OCR 补充结果；GitHub 只保留 `.gitkeep` 占位，不上传目录内容。
 - `07_研究工作台/`：知识图谱实体索引、证据与 claims 矩阵、个人研究问题/项目池、阅读队列、实验队列、输出视图和 AI 回归评测集。
-- `book/`：MkDocs Material 在线书籍工程；`book/docs/` 是课程讲义页面，`book/book_map.toml` 是章节到 wiki 来源和 BibTeX key 的映射；`book/docs/resources/` 保存代码案例、截图索引、Imagegen prompt、复现实验资源、正文风格指南和润色报告。
+- `chapters/`：12 章教材生成工作区；`chapters/chapter-XX/本章大纲.md` 是逐章写作准备区，`正文.md` 是确认后的章节正文草稿。
+- `book/`：旧版 MkDocs Material 在线书籍工程已删除。12 章结构确认前不重建发布层；后续若重建，应从 `大纲.md` 和 `chapters/` 生成新的 `book/`，不复用旧版 `book/docs/`。
 - `references/`：`references.bib` 和 `zotero-map.tsv`。
-- `tools/`：项目级体检和维护脚本；当前包含 `graph_health.py` 和 `validate_online_book.py`。
-- `tests/`：项目级脚本测试；当前包含 `test_graph_health.py` 和 `test_validate_online_book.py`。
+- `tools/`：项目级体检和维护脚本；当前保留 `graph_health.py`。
+- `tests/`：项目级脚本测试；当前保留 `test_graph_health.py`。
 - `index.md`：LLM Wiki 内容型总索引。
 - `log.md`：追加式操作时间线。
 - `.claude/skills/`：历史项目内知识库规则来源；P27 已将这些规则生成并安装为 `ai-md-*` 全局 Codex skills。该目录保留用于兼容既有文档，但不再作为第三方 skill 的新增安装位置。
@@ -63,7 +64,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 9. 涉及研究决策时，先查 `07_研究工作台/实体索引.md` 和 `07_研究工作台/证据与claims矩阵.md`，区分课程资料、文献案例、项目结果和研究假设。
 10. 新建或更新笔记时，必须使用统一 frontmatter，补齐标签、来源文件、引用键和相关链接。
 11. 每次新建或更新笔记后，同步更新对应目录的 `_index.md`、必要时更新根 `index.md`，并向 `log.md` 追加条目。
-12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`；涉及在线书籍时运行 `python tools/validate_online_book.py --map book/book_map.toml --book-root book/docs --require-nature-refs --require-imagegen --require-mermaid` 和 `mkdocs build -f book/mkdocs.yml --strict`；涉及正文润色时先运行或复查 `python tools/polish_book_chapters.py --check`。
+12. 完成内容写入后运行或建议 `/update-vault` 验收；涉及图谱健康时运行 `python tools/graph_health.py . --json --stale-days 180`。涉及新在线教材发布层时，先重建新的 `book/` 工程和对应校验脚本，再运行发布层校验；不要调用已删除的旧版 `validate_online_book.py`、`polish_book_chapters.py` 或 MkDocs 配置。
 13. 最后简要说明创建或更新了哪些文件、放在哪里、是否有待人工确认的信息。
 
 ## Codex skill / 插件联用规则
@@ -77,7 +78,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - `takenote`：只负责规范写入知识，不负责全库验收。
 - `update-vault`：只负责维护验收和报告，不负责生成研究内容。
 - `zotero-literature-link`：只负责文献检索、候选、BibTeX 和映射；内容落笔仍遵守 `takenote` 格式。
-- 下一版在线教材正文、文献、图示和数据流程更新时，优先从 `scientific-writing`、`literature-review`、`citation-management`、`peer-review`、`scientific-critical-thinking`、`markdown-mermaid-writing`、`scientific-schematics`、`scientific-visualization`、`networkx`、`datamol`、`rdkit`、`medchem`、`molecular-dynamics` 和 `diffdock` 中选择最小必要集合。
+- 下一版在线教材正文、文献、图示和数据流程重建时，优先从 `scientific-writing`、`literature-review`、`citation-management`、`peer-review`、`scientific-critical-thinking`、`markdown-mermaid-writing`、`scientific-schematics`、`scientific-visualization`、`networkx`、`datamol`、`rdkit`、`medchem`、`molecular-dynamics` 和 `diffdock` 中选择最小必要集合。
 
 ## 分类型处理规则
 
@@ -89,8 +90,9 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - 附件索引：放入 `05_附件索引/`，只记录路径、类型、用途和关联章节，不复制或重命名原始附件，除非我明确要求。
 - 项目说明和维护报告：放入 `00_项目说明/`，用于记录阶段性整理、验证结果、边界和待人工确认项。
 - 研究工作台：放入 `07_研究工作台/`，用于维护实体、claims、项目池、队列、输出视图和 AI 回归评测；不要把它写成新的长篇课件正文。
-- 在线书籍：放入 `book/docs/`，面向课程讲义读者；章节正文、Nature 风格引用卡片、代码案例、Imagegen 图谱、流程图和截图资源必须保留来源边界，不复制原始 PDF、图片、压缩包或 Office 文件，不把文献案例写成本项目结果。
-- 正文润色：优先遵守 `book/docs/resources/style-guide.md`；改写时保护引用卡片、代码块、图片链接、BibTeX key、Zotero item key、DOI/URL 和来源路径；高风险 claim 应写入 `00_项目说明/book-stage-reports/polish-report.md`。
+- 教材正文：当前先放入 `chapters/chapter-XX/正文.md`，面向课程学习者；章节正文、引用、代码案例、图示和截图资源必须保留来源边界，不复制原始 PDF、图片、压缩包或 Office 文件，不把文献案例写成本项目结果。
+- 在线书籍：旧版 `book/` 已删除；后续新建 `book/docs/` 时，应从当前 12 章正文草稿、来源材料和新发布规则生成，不把旧 P20-P39 发布层作为正文来源。
+- 正文润色：优先遵守 `AGENTs.md`、`大纲.md` 和本章大纲；改写时保护引用卡片、代码块、图片链接、BibTeX key、Zotero item key、DOI/URL 和来源路径；高风险 claim 应写入本章大纲或维护报告的待确认项。
 - 综合索引和日志：根 `index.md` 和 `log.md` 用于 LLM Wiki 导航和演化记录。
 
 ## 搜索方式
@@ -103,7 +105,7 @@ LLM Wiki Agent 是总调度器。`takenote` 负责写入知识，`update-vault` 
 - 重要 ingest、query、update、lint、zotero、ocr、git、maintenance 操作后追加 `log.md`。
 - 更新文献映射后，同步检查 `references/references.bib`、`references/zotero-map.tsv`、相关文献笔记和章节锚点矩阵。
 - 更新实体、claims、项目池或 AI 评测任务后，同步检查 `07_研究工作台/_index.md`，并运行 `tools/graph_health.py` 观察图谱健康信号。
-- 更新在线书籍章节后，同步检查 `book/book_map.toml`、`book/mkdocs.yml`、`book/docs/`、`book/docs/resources/` 和 `tools/update_book_references.py`；需要重建引用区时运行该脚本，再运行在线书籍校验器与 MkDocs strict build。
+- 更新教材章节后，同步检查 `大纲.md`、对应 `chapters/chapter-XX/本章大纲.md`、`chapters/chapter-XX/正文.md`、相关来源材料和引用映射。只有在新 `book/` 发布层重建后，才同步检查新的发布配置、资源页和发布层校验脚本。
 - 如果 Zotero 导出异常但 DOI/出版社元数据可确认，可以建立人工确认 BibTeX，但必须在 `references.bib` 的 `note` 字段和维护报告中说明。
 - 不移动、不删除、不重命名原始学习资料，除非我明确确认。
 - 本项目允许启用本地 Git 版本史；默认只记录 Markdown wiki、schema、skills、BibTeX、TSV、脚本和结构化文本，不记录 `06_原始学习素材/` 目录内容，也不记录 PDF/RAR/ZIP/Office 等大型不可变原始资料。

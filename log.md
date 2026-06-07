@@ -60,7 +60,7 @@ relations:
   - type: updates
     target: "00_项目说明/P35_中文教材去模板化与版本更新报告.md"
   - type: supports
-    target: "tools/audit_book_readability.py"
+    target: "00_项目说明/P40_旧版在线图书删除记录.md"
   - type: updates
     target: "00_项目说明/版本记录.md"
   - type: updates
@@ -74,6 +74,13 @@ relations:
 `## [YYYY-MM-DD] operation | title`
 
 允许的 `operation`：`ingest`、`query`、`update`、`lint`、`zotero`、`ocr`、`git`、`maintenance`。
+
+## [2026-06-06] maintenance | 旧版在线图书删除
+
+- 删除旧版 `book/` 在线教材工程，包含旧 `book/docs/` 源页面、`book/site/` 本地构建、MkDocs 配置、章节映射、旧资源页和图像资产。
+- 删除 `.github/workflows/deploy-book.yml`，停止旧 GitHub Pages workflow 继续依赖已删除的发布层。
+- 删除旧书专用脚本和测试：`validate_online_book.py`、`polish_book_chapters.py`、`update_book_references.py`、`apply_p24_book_assets.py`、`audit_book_*` 及对应 `tests/test_*book*.py`。
+- 更新 `大纲.md`、`AGENTs.md`、`CLAUDE.md` 和根索引，把当前生成入口切换到 `chapters/` 12 章工作区；新增 `00_项目说明/P40_旧版在线图书删除记录.md`。
 
 ## [2026-06-06] maintenance | v0.9.3 项目版本更新
 
@@ -312,3 +319,21 @@ relations:
 - 更新 `book/docs/index.md` 和 `book/book_map.toml`，将在线书籍版本标记为 `v0.2-course-text`。
 - 增强 `tools/validate_online_book.py`，新增 `--min-chapter-chars`；补充单元测试覆盖章节长度门槛。
 - 新增 `00_项目说明/知识库维护报告-2026-05-31-P23-在线书籍第二版长文.md`，记录章节长度、引用边界和验收结果。
+
+## [2026-06-06] update | 第 4 章分子对接与虚拟筛选正文
+
+- 按 `大纲.md` 和 `chapters/chapter-04/本章大纲.md`，新增 `chapters/chapter-04/正文.md`，并同步更新在线教材 `book/docs/chapters/chapter-04.md`。
+- 同步调整 `book/book_map.toml` 与 `book/mkdocs.yml` 的第 4 章标题、来源材料和 BibTeX key，正文采用原始第三章对接素材、章节精读、方法卡、文献笔记、实验模板和 claims 矩阵。
+- 本轮未复制原始 PDF、课件截图、Office 文件或压缩包；在线页暂复用已验收的对接类教学图、dry-run 脚本和截图资源，后续可再生成第 4 章专属资源。
+
+## [2026-06-06] update | 第 3 章结构准备正文
+
+- 按 `大纲.md` 和 `chapters/chapter-03/本章大纲.md` 将在线教材第 3 章重写为“结构建模、结合位点与体系准备”，聚焦对接前结构来源、位点假设、体系组分和 QC 清单。
+- 同步更新 `book/book_map.toml` 与 `book/mkdocs.yml` 中第 3 章标题和关键文献映射；原始课件与 OCR 摘要只作为本地来源，不直接链接到在线教材。
+
+## [2026-06-06] update | 第 3 章正文生成区重建
+
+- 根据作者确认项，将第 3 章标题固定为“结构建模、结合位点与体系准备”，并明确本章只处理 docking 前准备；docking 运行、打分排序和虚拟筛选解释后移到第 4 章。
+- 更新 `chapters/chapter-03/本章大纲.md`，把待确认项改为已确认项，并将后续写作入口从旧 `book/docs/` 改为当前 `chapters/chapter-03/正文.md`。
+- 新增 `chapters/chapter-03/正文.md`、`chapters/chapter-03/assets/component_manifest_example.tsv` 和 `chapters/chapter-03/assets/chapter-03-structure-prep-map.svg`，用于第三章正文、练习模板和本章专属教学图。
+- 本轮不调用已删除的旧 MkDocs 发布层和旧在线教材校验脚本；使用当前项目保留的图谱健康检查、单元测试和 diff 空白检查。

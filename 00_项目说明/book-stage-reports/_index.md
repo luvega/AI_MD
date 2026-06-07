@@ -13,9 +13,9 @@ claims:
   - "p39_reviewer_revision_2026_06_06"
 relations:
   - type: supports
-    target: "../../book/docs/index.md"
+    target: "../P40_旧版在线图书删除记录.md"
   - type: supports
-    target: "../../book/mkdocs.yml"
+    target: "../P40_旧版在线图书删除记录.md"
   - type: supports
     target: "p39-reviewer-revision-report.md"
 ---

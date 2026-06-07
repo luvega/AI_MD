@@ -38,7 +38,7 @@ relations:
 ---
 # Codex技能调用矩阵
 
-本矩阵用于下一版 AI_MD 在线教材和研究工作台更新。Codex skills 负责提供专业工作流；AI_MD 项目规则负责限制写入范围、来源边界和验收方式。
+本矩阵用于下一版 AI_MD 教材正文和研究工作台更新。旧版 `book/` 在线教材工程已删除；Codex skills 负责提供专业工作流，AI_MD 项目规则负责限制写入范围、来源边界和验收方式。
 
 ## 总原则
 
@@ -46,9 +46,9 @@ relations:
 |:---|:---|
 | 本地知识优先 | 先读 `CLAUDE.md`、`index.md`、相关 `_index.md` 和具体笔记，再调用外部技能。 |
 | Codex skill 优先 | 项目规则使用 `ai-md-*` 全局 Codex skills；新增外部能力安装到 `C:\Users\xsui\.codex\skills`，不新增第三方 `.claude/skills`。 |
-| 来源边界保留 | 原始 PDF、课件、压缩包和 Office 文件只读，不复制进在线书籍。 |
+| 来源边界保留 | 原始 PDF、课件、压缩包和 Office 文件只读，不复制进教材正文或未来发布层。 |
 | 引用仍走项目元数据 | 正式引用以 `references/references.bib` 和 `references/zotero-map.tsv` 为准。 |
-| 完成前验证 | 内容、图谱、在线书籍和 GitHub Pages 相关更新必须运行对应校验。 |
+| 完成前验证 | 当前先运行章节来源检查、LLM Wiki 校验和 `tools/graph_health.py`；新在线发布层重建后再建立对应发布校验。 |
 
 ## AI_MD 项目规则
 
@@ -107,9 +107,9 @@ relations:
 
 1. P28 已完成：`peer-review` 和 `scientific-critical-thinking` 已用于审查第 3/5/6/8 章高风险 claim，基线见 `P28_重点章节Codex审稿报告.md`。
 2. P29 已完成：`literature-review` 和 `citation-management` 已用于第 3/5/6/8 章引用覆盖审计，候选补强见 `P29_文献与引用补强报告.md` 和 `references/zotero-candidates-2026-06-02-P29.tsv`。
-3. P30 已完成：`markdown-mermaid-writing` 和 `scientific-schematics` 已用于每章 Mermaid source-of-truth 和示意图 prompt，见 `book/docs/resources/mermaid-schematics.md`。
+3. P30 已完成：`markdown-mermaid-writing` 和 `scientific-schematics` 曾用于旧版 8 章 Mermaid source-of-truth 和示意图 prompt；P40 后这些旧发布资源已删除，只保留历史报告。
 4. P31 已完成：`datamol`、`rdkit`、`medchem`、`molecular-dynamics`、`diffdock` 已用于补充 dry-run 数据流程和实验记录模板，见 `P31_数据分析与AIDD dry-run报告.md`。
 5. P32 已完成：Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 已正式写入 BibTeX、章节引用区和文献笔记。
 6. P33 已完成：真实 Zotero item key 已回写到 `references/zotero-map.tsv`；RFdiffusion3 重复项选择 `T2M6L289` 为 canonical。
 7. 下一轮建议进入 P34：把 P31 dry-run 升级为一个真实小样本运行记录，优先选择 Chai-1 或 RFD3/RFdiffusion3。
-8. 每轮更新后运行在线书籍校验、MkDocs 构建、LLM Wiki 校验和图谱体检。
+8. 每轮更新后运行 LLM Wiki 校验和图谱体检；只有新 `book/` 发布层重建后，才运行新的在线书籍校验、MkDocs 构建或 GitHub Pages workflow。
