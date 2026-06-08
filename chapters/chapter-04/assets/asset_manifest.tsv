@@ -1,0 +1,6 @@
+asset_id	type	path	source_basis	alt_text	status
+chapter-04-docking-evidence-map	imagegen	chapter-04/assets/imagegen/chapter-04-docking-evidence-map.png	第4章大纲与对接方法卡	对接与虚拟筛选证据链知识图谱	ready
+chapter-04-docking-funnel	imagegen	chapter-04/assets/imagegen/chapter-04-docking-funnel.png	第4章大纲与UniDock dry-run流程	受体、配体、box、score和filter漏斗图	ready
+chapter-04-unidock-dry-run	screenshot	chapter-04/assets/screenshots/chapter-04-unidock-dry-run.png	第4章dry-run脚本	UniDock类dry-run记录截图	ready
+chapter-04-unidock-dry-run-script	code	chapter-04/assets/code/chapter-04-unidock-dry-run.sh	第4章UniDock记录字段	教学dry-run脚本	ready
+chapter-04-docking-manifest-example	code	chapter-04/assets/code/chapter-04-docking_manifest_example.tsv	第4章结果表字段	教学用对接manifest示例	ready

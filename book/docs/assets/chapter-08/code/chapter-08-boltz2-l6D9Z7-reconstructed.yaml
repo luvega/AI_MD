@@ -1,0 +1,29 @@
+# Reconstructed teaching YAML for the local l6D9Z7 Boltz-2 sample.
+# This is not the original submitted YAML. It is reconstructed from:
+# - local output CIF/pLDDT sequence and U4U component;
+# - course page 68 screenshot showing protein chain A, ligand CCD U4U,
+#   and a covalent bond from A:12:SG to LIG:1:C22;
+# - Boltz prediction schema verified from official docs on 2026-06-08.
+#
+# Formal rerun command template:
+# boltz predict chapter-08-boltz2-l6D9Z7-reconstructed.yaml `
+#   --use_msa_server `
+#   --use_potentials `
+#   --seed 12345 `
+#   --out_dir runs/chapter-08/l6D9Z7-rerun-YYYYMMDD
+
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: MTEYKLVVVGACGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHHYREQIKRVKDSEDVPMVLVGNKCDLPSRTVDTKQAQDLARSYGIPFIETSAKTRQGVDDAFYTLVREIRKHKE
+  - ligand:
+      id: LIG
+      ccd: U4U
+constraints:
+  - bond:
+      atom1: [A, 12, SG]
+      atom2: [LIG, 1, C22]
+properties:
+  - affinity:
+      binder: LIG

@@ -7,7 +7,7 @@
 | [LLM Wiki Agent说明.md](LLM%20Wiki%20Agent说明.md) | project-doc | 说明 AI_MD 如何按 Karpathy LLM Wiki 模式落地 raw sources、wiki 和 schema 三层结构。 | `index.md`, `CLAUDE.md`, `.claude/skills/` |  |
 | [LLM Wiki运行手册.md](LLM%20Wiki运行手册.md) | project-doc | 定义 ingest、query、lint、update、zotero 和 git 的操作步骤。 | `CLAUDE.md`, `.claude/skills/` |  |
 | [概念关系规范.md](概念关系规范.md) | project-doc | 定义 supports、contradicts、updates、depends_on、derived_from、applies_to 等 typed relations。 | `CLAUDE.md` |  |
-| [版本记录.md](版本记录.md) | project-doc | 记录当前项目版本、在线书籍版本、发布范围、验收命令和下一版本目标。 | `VERSION`, `book/book_map.toml` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [版本记录.md](版本记录.md) | project-doc | 记录当前项目版本、在线书籍版本、发布范围、验收命令和下一版本目标。 | `VERSION`, `book/mkdocs.yml` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [知识库使用说明.md](知识库使用说明.md) | project-doc | 说明如何使用索引、方法笔记、文献笔记和本地 Skills。 | `CLAUDE.md` |  |
 | [插件与Skills调用说明.md](插件与Skills调用说明.md) | project-doc | 说明本项目如何自动选择 Zotero、Chrome、Life Science Research、全局 Codex skills 和历史项目规则。 | `CLAUDE.md`, `C:\Users\xsui\.codex\skills`, `.claude/skills/` |  |
 | [Codex技能调用矩阵.md](Codex技能调用矩阵.md) | project-doc | 说明 P26 后全局 Codex skills 在教材正文、文献、图示和数据分析流程中的调用规则。 | `C:\Users\xsui\.codex\skills`, `CLAUDE.md` |  |
@@ -52,3 +52,4 @@
 | [P38_在线教材报告页迁出报告.md](P38_在线教材报告页迁出报告.md) | maintenance-report | 记录 P25/P34/P35/P36/P37 阶段报告迁出 `book/docs/`、在线教材导航清理和 `v0.9.2` 版本更新。 | `book/docs/index.md`, `book/mkdocs.yml`, `book-stage-reports/_index.md` |  |
 | [book-stage-reports/_index.md](book-stage-reports/_index.md) | project-doc | 保存 P25/P34/P35/P36/P37/P39 阶段性维护报告；不作为在线教材内容发布。 | `book/docs/`, `00_项目说明/` |  |
 | [book-stage-reports/p39-reviewer-revision-report.md](book-stage-reports/p39-reviewer-revision-report.md) | maintenance-report | 记录 P39 审稿导向教材修订、文献使用说明、案例走读、P39 审计器和 `v0.9.3` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_review_readiness.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [P41_十二章在线图书重建报告.md](P41_十二章在线图书重建报告.md) | maintenance-report | 记录 12 章正文上线、蓝白配色发布层、同步脚本、校验器和 GitHub Pages workflow 重建。 | `chapters/`, `book/`, `.github/workflows/deploy-book.yml` |  |

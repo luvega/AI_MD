@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="470" viewBox="0 0 760 470" role="img" aria-labelledby="title desc">
+  <title id="title">l6D9Z7 Boltz-2 output QC summary</title>
+  <desc id="desc">Aggregate confidence, affinity and pLDDT fields generated from local summary and pLDDT TSV.</desc>
+  <style>
+    text { font-family: Arial, "Microsoft YaHei", sans-serif; fill: #1f2933; }
+    .small { font-size: 13px; fill: #52616b; }
+    .title { font-size: 23px; font-weight: 700; }
+    .subtitle { font-size: 14px; fill: #52616b; }
+    .label { font-size: 14px; }
+    .value { font-size: 13px; text-anchor: start; fill: #27323a; }
+    .track { fill: #e6edf2; }
+    .panel { fill: #f8fafc; stroke: #d7dee5; stroke-width: 1; rx: 6; }
+    .badge { fill: #fff7ed; stroke: #fdba74; stroke-width: 1; rx: 5; }
+  </style>
+  <rect x="16" y="16" width="728" height="438" class="panel"/>
+  <text x="36" y="55" class="title">l6D9Z7 Boltz-2 输出复核摘要</text>
+  <text x="36" y="82" class="subtitle">目标身份按序列和课程截图复核为 KRAS G12C；配体为 CCD U4U。原始输入 YAML、seed 和平台仍需正式运行记录确认。</text>
+  <rect x="36" y="103" width="670" height="34" class="badge"/>
+  <text x="52" y="125" class="small">结构图性质：由 summary.json 和 pLDDT TSV 生成的聚合 QC 图，不替代 3D 口袋与共价键可视化复核。</text>
+  <text x="36" y="154" class="label">confidence</text><rect x="250" y="142" width="280" height="14" rx="2" class="track"/><rect x="250" y="142" width="254" height="14" rx="2" fill="#2c7fb8"/><text x="548" y="154" class="value">0.910</text>
+<text x="36" y="188" class="label">iptm</text><rect x="250" y="176" width="280" height="14" rx="2" class="track"/><rect x="250" y="176" width="268" height="14" rx="2" fill="#2ca25f"/><text x="548" y="188" class="value">0.960</text>
+<text x="36" y="222" class="label">complex plddt</text><rect x="250" y="210" width="280" height="14" rx="2" class="track"/><rect x="250" y="210" width="251" height="14" rx="2" fill="#756bb1"/><text x="548" y="222" class="value">0.898</text>
+<text x="36" y="256" class="label">complex iplddt</text><rect x="250" y="244" width="280" height="14" rx="2" class="track"/><rect x="250" y="244" width="242" height="14" rx="2" fill="#31a354"/><text x="548" y="256" class="value">0.865</text>
+<text x="36" y="290" class="label">affinity probability</text><rect x="250" y="278" width="280" height="14" rx="2" class="track"/><rect x="250" y="278" width="258" height="14" rx="2" fill="#de2d26"/><text x="548" y="290" class="value">0.922</text>
+<text x="36" y="324" class="label">protein mean pLDDT</text><rect x="250" y="312" width="280" height="14" rx="2" class="track"/><rect x="250" y="312" width="252" height="14" rx="2" fill="#3182bd"/><text x="548" y="324" class="value">90.197</text>
+<text x="36" y="358" class="label">ligand mean pLDDT</text><rect x="250" y="346" width="280" height="14" rx="2" class="track"/><rect x="250" y="346" width="244" height="14" rx="2" fill="#e6550d"/><text x="548" y="358" class="value">87.280</text>
+  <text x="36" y="420" class="small">protein residues: 168; protein pLDDT &lt;70 residues: 19; ligand atoms: 1; affinity_pic50: 8.345</text>
+  <text x="36" y="442" class="small">Source kept local: 06_原始学习素材/第五章/boltz2在线/boltz2_parsed/</text>
+</svg>

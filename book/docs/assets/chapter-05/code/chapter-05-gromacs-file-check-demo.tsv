@@ -1,0 +1,7 @@
+kind	file	status	purpose	note
+structure	protein.pdb	pass	initial protein or complex structure	present
+topology	topol.top	pass	main topology file	present
+parameter	em.mdp	pass	energy minimization parameters	present
+parameter	nvt.mdp	pass	constant-volume equilibration parameters	present
+parameter	npt.mdp	pass	constant-pressure equilibration parameters	present
+parameter	md.mdp	pass	production MD parameters	present

@@ -5,13 +5,13 @@ type: project-doc
 status: active
 topics: [type/project, status/active, llm-wiki, log]
 wiki_role: maintenance
-source_count: 32
-last_reviewed: 2026-06-06
-source_files: ["VERSION", "CLAUDE.md", "index.md", "00_项目说明/版本记录.md", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "00_项目说明/book-stage-reports/p34-readability-report.md", "00_项目说明/book-stage-reports/p35-detemplate-report.md", "00_项目说明/book-stage-reports/p39-reviewer-revision-report.md", "tools/audit_book_readability.py", "tools/audit_book_review_readiness.py", "tests/test_audit_book_readability.py", "tests/test_audit_book_review_readiness.py", "00_项目说明/Codex技能调用矩阵.md"]
+source_count: 37
+last_reviewed: 2026-06-08
+source_files: ["VERSION", "CLAUDE.md", "index.md", "00_项目说明/版本记录.md", "00_项目说明/P41_十二章在线图书重建报告.md", "book/mkdocs.yml", "tools/sync_online_book.py", "tools/validate_online_book.py", "tests/test_online_book_publish.py", ".github/workflows/deploy-book.yml", "00_项目说明/知识库维护报告-2026-05-31-P12-新增原始素材全库更新.md", "00_项目说明/知识库维护报告-2026-05-31-P13-第八章计算思路解析摄入.md", "00_项目说明/知识库维护报告-2026-05-31-P14-文献锚定.md", "00_项目说明/知识库维护报告-2026-05-31-P15-P19-研究知识图谱工作台.md", "00_项目说明/知识库维护报告-2026-05-31-P20-在线书籍骨架.md", "00_项目说明/知识库维护报告-2026-05-31-P21-GitHub-Pages部署配置.md", "00_项目说明/知识库维护报告-2026-05-31-P22-第一版验收.md", "00_项目说明/知识库维护报告-2026-05-31-P24-在线书籍引用代码图像增强.md", "00_项目说明/知识库维护报告-2026-05-31-P25-在线书籍正文润色与结构重排.md", "00_项目说明/知识库维护报告-2026-05-31-P26-原始素材目录本地保留.md", "00_项目说明/P26_Codex技能集成报告.md", "00_项目说明/P27_Codex项目规则迁移报告.md", "00_项目说明/P28_重点章节Codex审稿报告.md", "00_项目说明/P29_文献与引用补强报告.md", "00_项目说明/P30_图示与版面升级报告.md", "00_项目说明/P31_数据分析与AIDD dry-run报告.md", "00_项目说明/P32_文献候选正式化报告.md", "00_项目说明/P33_Zotero正式锚点补齐报告.md", "00_项目说明/P34_中文教材可读性增强报告.md", "00_项目说明/P35_中文教材去模板化与版本更新报告.md", "00_项目说明/book-stage-reports/p34-readability-report.md", "00_项目说明/book-stage-reports/p35-detemplate-report.md", "00_项目说明/book-stage-reports/p39-reviewer-revision-report.md", "tools/audit_book_readability.py", "tools/audit_book_review_readiness.py", "tests/test_audit_book_readability.py", "tests/test_audit_book_review_readiness.py", "00_项目说明/Codex技能调用矩阵.md"]
 zotero_items: ["TPR3JY6N", "QXKW6K78", "YUMKNHSK", "Y4ARSYCQ", "V6Y5EEZL", "5286JS9F", "T2M6L289", "UIPWC5CR"]
 bibtex_keys: ["yang_w_past_2026", "sui_targeting_2026", "shen_structure-based_2026", "tomarchio_reproducible_2026", "zhu_novo_2026", "chai_discovery_chai-1_2024", "butcher_novo_2025", "pacesa_bindcraft_2025"]
 related: ["index.md", "00_项目说明/LLM Wiki运行手册.md"]
-claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02, p34_book_readability_2026_06_02, p35_book_detemplate_2026_06_02, v0_8_0_release_2026_06_02, p39_reviewer_revision_2026_06_06, v0_9_3_release_2026_06_06]
+claims: [p11_schema_enhancement_2026_05_30, p12_reusable_skill_2026_05_30, p12_new_raw_ingest_2026_05_31, p13_chapter_8_ingest_2026_05_31, p14_literature_anchoring_2026_05_31, p15_entity_layer_2026_05_31, p16_claim_layer_2026_05_31, p17_research_workbench_2026_05_31, p18_ai_eval_suite_2026_05_31, p19_output_views_2026_05_31, p20_online_book_skeleton_2026_05_31, p21_github_pages_deploy_2026_05_31, p22_first_version_acceptance_2026_05_31, p24_online_book_reference_code_imagegen_2026_05_31, p25_online_book_academic_polish_2026_05_31, p26_raw_sources_git_exclusion_2026_05_31, p26_codex_skills_integration_2026_06_02, p27_codex_project_rules_migration_2026_06_02, p28_high_risk_chapter_review_2026_06_02, p29_literature_reinforcement_2026_06_02, p30_mermaid_schematics_2026_06_02, p31_aidd_dry_run_2026_06_02, p32_literature_upgrade_2026_06_02, p33_zotero_anchoring_2026_06_02, v0_7_0_release_2026_06_02, p34_book_readability_2026_06_02, p35_book_detemplate_2026_06_02, v0_8_0_release_2026_06_02, p39_reviewer_revision_2026_06_06, v0_9_3_release_2026_06_06, p41_online_book_rebuild_2026_06_08, v1_0_0_release_2026_06_08]
 relations:
   - type: depends_on
     target: "CLAUDE.md"
@@ -62,6 +62,8 @@ relations:
   - type: supports
     target: "00_项目说明/P40_旧版在线图书删除记录.md"
   - type: updates
+    target: "00_项目说明/P41_十二章在线图书重建报告.md"
+  - type: updates
     target: "00_项目说明/版本记录.md"
   - type: updates
     target: "00_项目说明/Codex技能调用矩阵.md"
@@ -74,6 +76,13 @@ relations:
 `## [YYYY-MM-DD] operation | title`
 
 允许的 `operation`：`ingest`、`query`、`update`、`lint`、`zotero`、`ocr`、`git`、`maintenance`。
+
+## [2026-06-08] update | P41 十二章在线图书重建
+
+- 从 `大纲.md` 和 `chapters/chapter-01/正文.md` 至 `chapters/chapter-12/正文.md` 重建 `book/` 发布层；本轮不复制 `本章大纲.md`。
+- 新增 `tools/sync_online_book.py`、`tools/validate_online_book.py`、`tests/test_online_book_publish.py` 和 `.github/workflows/deploy-book.yml`，恢复 GitHub Pages 自动构建发布。
+- 在线教材采用蓝白配色，发布页过滤原始素材路径、旧 `book/docs`/`book/site` 路径、阶段报告入口和待作者确认项。
+- 新增 `00_项目说明/P41_十二章在线图书重建报告.md`，项目版本更新为 `v1.0.0`。
 
 ## [2026-06-06] maintenance | 旧版在线图书删除
 
@@ -337,3 +346,25 @@ relations:
 - 更新 `chapters/chapter-03/本章大纲.md`，把待确认项改为已确认项，并将后续写作入口从旧 `book/docs/` 改为当前 `chapters/chapter-03/正文.md`。
 - 新增 `chapters/chapter-03/正文.md`、`chapters/chapter-03/assets/component_manifest_example.tsv` 和 `chapters/chapter-03/assets/chapter-03-structure-prep-map.svg`，用于第三章正文、练习模板和本章专属教学图。
 - 本轮不调用已删除的旧 MkDocs 发布层和旧在线教材校验脚本；使用当前项目保留的图谱健康检查、单元测试和 diff 空白检查。
+
+## [2026-06-08] update | 第 5 章分子动力学模拟基础流程正文
+
+- 按 `大纲.md` 和更新后的 `chapters/chapter-05/本章大纲.md`，新增 `chapters/chapter-05/正文.md`，聚焦 GROMACS 文件、拓扑、系统准备、EM/NVT/NPT/production 和复杂体系参数边界。
+- 新增 `chapters/chapter-05/assets/code/chapter-05-gromacs-file-check.py`，用于教学 dry-run 检查 `protein.pdb`、`topol.top` 和基础 `.mdp` 文件清单；生成示例输出 `chapter-05-gromacs-file-check-demo.tsv`。
+- 本轮确认当前 Git 工作区中的 `06_原始学习素材/` 只有 `.gitkeep`，因此正文只使用已整理的章节精读、方法笔记、文献笔记、实验模板、claims 矩阵和 `references.bib`，不引用缺失原始课件页码或截图。
+- 验收执行了第 5 章 dry-run、禁用套话检查、段落长度检查、`python -m unittest discover -s tests` 和 `python tools/graph_health.py . --json --stale-days 180`；图谱健康报告仍有既有 `missing_last_reviewed` 与孤立页提示。
+
+## [2026-06-08] update | 第 4 章分子对接与虚拟筛选正文重建
+
+- 按 `AGENTs.md` 新规则更新 `大纲.md` 和 `chapters/chapter-04/本章大纲.md`，将 4.2 从 `SurDock/Transform-AF3` 调整为 `SurfDock 与复合物结构预测`。
+- 基于原始对接素材、全文提取、方法卡、文献笔记、实验记录模板和 claims 矩阵，重写 `chapters/chapter-04/正文.md`；正文不再引用旧 `book/` 发布层或第 3 章复用资源。
+- 新增第 4 章专属资源：`chapters/chapter-04/assets/imagegen/` 两张教学 PNG、`assets/screenshots/chapter-04-unidock-dry-run.png`、`assets/code/chapter-04-unidock-dry-run.sh`、示例 manifest 和 `asset_manifest.tsv`。
+- 本轮统一工具名来源：`SurfDock` 采用 Nature Methods 论文与 GitHub 仓库写法；`Transform-AF3` 未检索到可确认主来源，保留为待作者确认项，不进入正式工具清单。
+- 验收执行了段落长度检查、禁用套话/旧路径检查、资源路径存在性检查、dry-run 脚本试运行、图片人工抽查和 `git diff --check`。
+
+## [2026-06-08] update | 第 9 章生成式蛋白设计基础正文
+
+- 按 `AGENTs.md`、`大纲.md` 和更新后的 `chapters/chapter-09/本章大纲.md`，新增 `chapters/chapter-09/正文.md`。
+- 正文基于 `06_原始学习素材/第六七章RFD3多组分设计.md`、`06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/全文.md` 和 `extraction-report.md`，聚焦 RFdiffusion 系列、RFD3 输入配置、hotspot 选择、pLDDT/PAE/iPAE/RMSD 指标边界和随机骨架 dry-run 练习。
+- 本轮保持第 9 章与第 10 章边界：binder、短肽、迷你蛋白、核酸抑制剂、理论酶和 ProteinMPNN / LigandMPNN 闭环只作为下一章入口，不在第 9 章展开。
+- 验收执行了禁用套话和旧发布层路径检查、段落长度检查、连续纯文字段落检查和章节标题完整性检查；软件安装仓库、`rc-foundry[all]`、checkpoint 路径和完整运行命令仍需按当前版本复核。

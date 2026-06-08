@@ -1,0 +1,146 @@
+:root {
+  --md-primary-fg-color: #0b5ed7;
+  --md-primary-fg-color--light: #3b82f6;
+  --md-primary-fg-color--dark: #084298;
+  --md-accent-fg-color: #0284c7;
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: #172033;
+  --md-typeset-a-color: #0b5ed7;
+  --ai-md-blue-50: #eff6ff;
+  --ai-md-blue-100: #dbeafe;
+  --ai-md-blue-700: #1d4ed8;
+  --ai-md-border: #bfdbfe;
+}
+
+body {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.md-header,
+.md-tabs {
+  background: #0b5ed7;
+}
+
+.md-main__inner {
+  margin-top: 1.4rem;
+}
+
+.md-typeset h1 {
+  color: #0b3d91;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.md-typeset h2 {
+  color: #0b5ed7;
+  border-bottom: 1px solid var(--ai-md-border);
+  padding-bottom: 0.28rem;
+}
+
+.md-typeset h3 {
+  color: #1d4ed8;
+}
+
+.md-typeset a {
+  color: #0b5ed7;
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--ai-md-border);
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--ai-md-blue-50);
+  color: #0b3d91;
+}
+
+.md-typeset code {
+  background: var(--ai-md-blue-50);
+  color: #084298;
+}
+
+.md-typeset pre > code {
+  background: #f8fbff;
+}
+
+.md-typeset blockquote {
+  border-left-color: #3b82f6;
+  background: var(--ai-md-blue-50);
+  color: #1e3a8a;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-color: var(--ai-md-border);
+}
+
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: #0b5ed7;
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body,
+  .md-container,
+  .md-main,
+  .md-grid,
+  .md-main__inner,
+  .md-content,
+  .md-content__inner,
+  .md-typeset {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .md-content__inner {
+    box-sizing: border-box;
+    width: calc(100vw - 1.6rem);
+    max-width: calc(100vw - 1.6rem);
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+  }
+
+  .md-header__title {
+    font-size: 0.78rem;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.18rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.35rem;
+  }
+
+  .md-typeset {
+    overflow-wrap: anywhere;
+  }
+
+  .md-typeset p,
+  .md-typeset li {
+    overflow-wrap: anywhere;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .md-typeset code {
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .md-typeset pre,
+  .md-typeset table:not([class]) {
+    display: block;
+    overflow-x: auto;
+  }
+}

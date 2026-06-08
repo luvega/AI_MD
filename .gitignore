@@ -23,6 +23,9 @@ node_modules/
 .venv/
 venv/
 book/site/
+.tmp-qa/
+.chrome-cdp.pid
+.mkdocs-serve.pid
 
 # Local-only raw learning materials. Keep the directory placeholder in Git, but
 # never upload raw sources, extracted text, OCR output, torrents, or unpacked

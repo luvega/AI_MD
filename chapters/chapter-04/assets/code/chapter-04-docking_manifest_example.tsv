@@ -1,0 +1,4 @@
+ligand_id	rank	score_placeholder	pose_path	pose_qc_passed	filter_reason	next_step
+LIG001	1	mock_-7.6	outputs/result1/LIG001_pose1.pdbqt	pending	teaching_placeholder	visual_pose_qc
+LIG002	2	mock_-6.9	outputs/result1/LIG002_pose1.pdbqt	pending	teaching_placeholder	visual_pose_qc
+LIG003	3	mock_-5.4	outputs/result1/LIG003_pose1.pdbqt	pending	teaching_placeholder	visual_pose_qc
