@@ -32,6 +32,7 @@ relations:
 3. `takenote` 写入方法笔记、文献笔记、实验记录、附件说明或项目说明。
 4. 更新对应 `_index.md`、根 `index.md` 和 `log.md`。
 5. `update-vault` 验收索引、断链、附件、BibTeX、PDF/OCR 覆盖。
+6. 如果新来源影响教材正文，只记录 Book 轨待办；不自动更新 `chapters/` 或 `book/`。
 
 ## query：基于 wiki 回答
 
@@ -54,6 +55,25 @@ relations:
 2. 文献更新先用 `zotero-literature-link`，再用 `takenote` 更新笔记。
 3. 所有内容更新后追加 `log.md`。
 4. 完成前运行 `update-vault`。
+
+## book：在线书显式轨
+
+Wiki 维护和 Book 写作默认分离。只有用户明确要求“更新在线书”“同步 book”“发布层”“MkDocs”“GitHub Pages”“写第 X 章正文”时，才进入 Book 轨。
+
+Book 轨流程：
+
+1. 先读 `AGENTs.md`、`大纲.md` 和对应 `chapters/chapter-XX/本章大纲.md`。
+2. 只在确认正文任务后更新 `chapters/chapter-XX/正文.md` 或章节资产。
+3. 只有在用户要求同步发布层时，才运行 `python tools\sync_online_book.py`。
+4. 只有在用户要求校验或发布在线书时，才运行 `python tools\validate_online_book.py` 和 `python -m mkdocs build -f book\mkdocs.yml --strict`。
+5. Book 轨更新完成后可回写 wiki 维护报告和 `log.md`，但不能把 `book/docs` 反向当作正文或 wiki 来源。
+
+Wiki 轨禁止项：
+
+- 不运行 `tools/sync_online_book.py`。
+- 不改 `book/docs/`、`book/site/` 或 `.github/workflows/deploy-book.yml`。
+- 不改 `chapters/chapter-XX/正文.md`。
+- 不把文献补强、附件索引、OCR 修复或方法卡更新自动写进在线书。
 
 ## git：本地版本史
 

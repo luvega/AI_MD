@@ -38,7 +38,7 @@ relations:
 ---
 # Codex技能调用矩阵
 
-本矩阵用于下一版 AI_MD 教材正文和研究工作台更新。旧版 `book/` 在线教材工程已删除；Codex skills 负责提供专业工作流，AI_MD 项目规则负责限制写入范围、来源边界和验收方式。
+本矩阵用于 AI_MD 知识库、教材正文和研究工作台更新。旧版内容不完整的 `book/` 已删除；当前工作必须先判断属于 Wiki 轨还是 Book 轨。Codex skills 负责提供专业工作流，AI_MD 项目规则负责限制写入范围、来源边界和验收方式。
 
 ## 总原则
 
@@ -48,7 +48,8 @@ relations:
 | Codex skill 优先 | 项目规则使用 `ai-md-*` 全局 Codex skills；新增外部能力安装到 `C:\Users\xsui\.codex\skills`，不新增第三方 `.claude/skills`。 |
 | 来源边界保留 | 原始 PDF、课件、压缩包和 Office 文件只读，不复制进教材正文或未来发布层。 |
 | 引用仍走项目元数据 | 正式引用以 `references/references.bib` 和 `references/zotero-map.tsv` 为准。 |
-| 完成前验证 | 当前先运行章节来源检查、LLM Wiki 校验和 `tools/graph_health.py`；新在线发布层重建后再建立对应发布校验。 |
+| Wiki/Book 分轨 | Wiki 维护默认不更新 `chapters/chapter-XX/正文.md` 或 `book/`；Book 写作和发布必须由用户明确触发。 |
+| 完成前验证 | Wiki 轨运行 LLM Wiki 校验、raw-source 审计和 `tools/graph_health.py`；Book 轨才运行 `sync_online_book.py`、在线书校验和 MkDocs build。 |
 
 ## AI_MD 项目规则
 
@@ -61,6 +62,13 @@ relations:
 | 维护验收 | `ai-md-update-vault` | 索引、链接、引用、附件和 raw 边界检查。 |
 | 高层健康检查 | `ai-md-wiki-lint` | 孤立页、重复概念、过期 claim 和图谱问题。 |
 | 文献映射 | `ai-md-zotero-literature-link` | 文献候选、BibTeX、Zotero 映射和文献笔记。 |
+
+## Wiki 轨与 Book 轨
+
+| 轨道 | 触发词 | 可写范围 | 禁止项 |
+|:---|:---|:---|:---|
+| Wiki 轨 | 整理资料、更新 wiki、方法卡、文献笔记、实验记录、`/update-vault`、`wiki-lint` | `00_项目说明/`、`01_课程章节索引/`、`02_方法笔记/`、`03_文献笔记/`、`04_实验记录/`、`05_附件索引/`、`07_研究工作台/`、`references/`、`index.md`、`log.md` | 不改 `chapters/chapter-XX/正文.md`，不改 `book/`，不运行 `sync_online_book.py` |
+| Book 轨 | 写章节正文、更新在线书、同步 book、发布层、MkDocs、GitHub Pages | `大纲.md`、`chapters/chapter-XX/本章大纲.md`、`chapters/chapter-XX/正文.md`、`chapters/chapter-XX/assets/`、`book/` | 不从 `book/docs` 反向生成 wiki 或正文；不复制 raw sources |
 
 ## 教材正文与文字修正
 
@@ -112,4 +120,4 @@ relations:
 5. P32 已完成：Chai-1、RFdiffusion3/RFD3 和 BindCraft Nature 2025 已正式写入 BibTeX、章节引用区和文献笔记。
 6. P33 已完成：真实 Zotero item key 已回写到 `references/zotero-map.tsv`；RFdiffusion3 重复项选择 `T2M6L289` 为 canonical。
 7. 下一轮建议进入 P34：把 P31 dry-run 升级为一个真实小样本运行记录，优先选择 Chai-1 或 RFD3/RFdiffusion3。
-8. 每轮更新后运行 LLM Wiki 校验和图谱体检；只有新 `book/` 发布层重建后，才运行新的在线书籍校验、MkDocs 构建或 GitHub Pages workflow。
+8. 每轮 Wiki 更新后只运行 LLM Wiki 校验、raw-source 审计和图谱体检；只有用户明确进入 Book 轨，才运行在线书籍校验、MkDocs 构建或 GitHub Pages workflow。

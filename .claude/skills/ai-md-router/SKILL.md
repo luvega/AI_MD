@@ -24,6 +24,7 @@ description: 当用户提出 AI_MD 项目的宽泛整理、继续推进、下一
 | 记录想法、整理附件、写方法/实验/项目笔记 | `takenote` | 必要时按来源类型调用工具 |
 | Zotero 检索、文献候选、BibTeX、引用映射 | `zotero-literature-link` | `Zotero`；必要时用 `Life Science Research` 交叉验证 PubMed/PMC |
 | 重建索引、断链、附件遗漏、OCR/章节覆盖检查 | `update-vault` | 必要时用 `pdf` 或本地 shell 验证 |
+| 在线书、章节正文、MkDocs、GitHub Pages、同步发布层 | 进入 Book 轨，先读 `AGENTs.md`、`大纲.md` 和对应本章大纲 | 只有用户明确触发时才运行 `sync_online_book.py`、`validate_online_book.py` 或 MkDocs |
 | 远程网页、课程页面、浏览器态资料 | 本 skill 先路由 | 用户点名 `@chrome` 或需要浏览器态时用 `Chrome` |
 | 生命科学外部证据、数据库、PubMed/PDB/UniProt/AlphaFold | 本 skill 先路由 | `Life Science Research` 及其具体数据库 skill |
 | 宽泛“继续整理” | 本 skill 制定 P0/P1/P2/P3 风格小阶段 | 根据阶段调用上面的最小集合 |
@@ -36,6 +37,7 @@ description: 当用户提出 AI_MD 项目的宽泛整理、继续推进、下一
 - 候选文献先进入 `references/zotero-candidates-YYYY-MM-DD.tsv`，正式确认后才进入 `references/zotero-map.tsv`。
 - 写入内容后追加 `log.md`，再用 `update-vault` 做范围内验收。
 - 完成前至少运行一次验证：索引覆盖、Markdown 断链、BibTeX key、章节/附件覆盖按任务范围检查。
+- Wiki 任务默认不触碰 `book/` 或 `chapters/chapter-XX/正文.md`；教材正文和在线发布层必须由用户显式触发。
 
 ## 下一步默认优先级
 

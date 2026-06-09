@@ -10,3 +10,4 @@
 | [zotero-candidates-2026-06-02-P29.tsv](zotero-candidates-2026-06-02-P29.tsv) | candidate-map | P29 Chai-1、RFD3/RFdiffusion3 和 BindCraft 正式版本补强候选；P32/P33 已正式化。 | GitHub、PubMed/PMC、Nature/DOI 元数据 | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [literature-upgrades-2026-06-02-P32.tsv](literature-upgrades-2026-06-02-P32.tsv) | reference-upgrade | P32 把 Chai-1、RFD3/RFdiffusion3 和 BindCraft Nature 2025 写入正式 BibTeX；P33 已回写真实 Zotero key。 | CrossRef/DOI 元数据、Zotero local API | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [zotero-upgrades-2026-06-02-P33.tsv](zotero-upgrades-2026-06-02-P33.tsv) | reference-map | P33 Zotero 正式锚点补齐表，记录 Chai-1 导入、RFdiffusion3 重复项 canonical 选择和 BindCraft 2025 已有条目。 | Zotero local API、Zotero Connector | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
+| [zotero-candidates-2026-06-08-ch08.tsv](zotero-candidates-2026-06-08-ch08.tsv) | candidate-map | 第 8 章 PLANET、GAABind、Interformer、BALM 的联网核对候选锚点。 | Crossref/DOI/出版社页面 | 待导入 |

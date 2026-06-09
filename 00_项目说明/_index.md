@@ -13,6 +13,7 @@
 | [Codex技能调用矩阵.md](Codex技能调用矩阵.md) | project-doc | 说明 P26 后全局 Codex skills 在教材正文、文献、图示和数据分析流程中的调用规则。 | `C:\Users\xsui\.codex\skills`, `CLAUDE.md` |  |
 | [Obsidian入口.md](Obsidian入口.md) | project-doc | Obsidian 浏览入口，串联章节、方法、文献、实验、附件和模板。 | `CLAUDE.md` |  |
 | [Obsidian模板/_index.md](Obsidian模板/_index.md) | project-doc | Obsidian 手动复制模板索引，覆盖方法卡、文献笔记、实验记录和章节精读。 | `CLAUDE.md` |  |
+| [Wiki与Book分轨规则.md](Wiki与Book分轨规则.md) | project-doc | 明确 Wiki 维护默认不更新在线书，Book 写作和发布必须由用户显式触发。 | `CLAUDE.md`, `AGENTs.md` |  |
 | [知识库维护报告-2026-05-30.md](知识库维护报告-2026-05-30.md) | project-doc | 记录本次落地后的索引、引用和链接验证结果。 | 全项目 | 多个 |
 | [知识库维护报告-2026-05-30-PDF提取.md](知识库维护报告-2026-05-30-PDF提取.md) | maintenance-report | 记录 PDF 课件统一归档、全文提取和质量检查结果。 | `06_原始学习素材/` |  |
 | [知识库维护报告-2026-05-30-P0-P1.md](知识库维护报告-2026-05-30-P0-P1.md) | maintenance-report | 记录 OCR 质量收敛和第 1-5 章章节精读笔记生成结果。 | `06_原始学习素材/` |  |
@@ -53,3 +54,5 @@
 | [book-stage-reports/_index.md](book-stage-reports/_index.md) | project-doc | 保存 P25/P34/P35/P36/P37/P39 阶段性维护报告；不作为在线教材内容发布。 | `book/docs/`, `00_项目说明/` |  |
 | [book-stage-reports/p39-reviewer-revision-report.md](book-stage-reports/p39-reviewer-revision-report.md) | maintenance-report | 记录 P39 审稿导向教材修订、文献使用说明、案例走读、P39 审计器和 `v0.9.3` 版本更新。 | `book/docs/chapters/`, `tools/audit_book_review_readiness.py`, `VERSION` | `5286JS9F`, `T2M6L289`, `UIPWC5CR` |
 | [P41_十二章在线图书重建报告.md](P41_十二章在线图书重建报告.md) | maintenance-report | 记录 12 章正文上线、蓝白配色发布层、同步脚本、校验器和 GitHub Pages workflow 重建。 | `chapters/`, `book/`, `.github/workflows/deploy-book.yml` |  |
+| [P42_原始素材更新后全项目重建报告.md](P42_原始素材更新后全项目重建报告.md) | maintenance-report | 记录原始素材更新后的 raw 审计、索引补齐、旧 book 边界修正、12 章发布层同步和验收结果。 | `06_原始学习素材/`, `tools/audit_raw_sources.py`, `book/` |  |
+| [P43_Wiki与Book分轨保护报告.md](P43_Wiki与Book分轨保护报告.md) | maintenance-report | 记录 Wiki 与 Book 分轨保护规则、schema 更新和默认不触碰在线书的验收口径。 | `CLAUDE.md`, `AGENTs.md`, `.claude/skills/` |  |

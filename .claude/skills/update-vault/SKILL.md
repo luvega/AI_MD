@@ -28,6 +28,13 @@ description: 当用户想维护 AI_MD 知识库、重建索引、检查断链、
 9. LLM Wiki 根索引：确认新增 Markdown 出现在目录 `_index.md` 和根 `index.md`。
 10. 日志检查：确认重要 ingest、query、update、lint、zotero、ocr、git、maintenance 操作已追加到 `log.md`。
 
+## Book 写入保护
+
+- 本 skill 只维护 LLM Wiki，不维护在线书。
+- 默认不修改 `book/`、`chapters/chapter-XX/正文.md`、`chapters/chapter-XX/assets/` 或 `.github/workflows/deploy-book.yml`。
+- 默认不运行 `tools/sync_online_book.py`、`tools/validate_online_book.py`、MkDocs build 或 GitHub Pages workflow。
+- 如果发现 wiki 更新影响教材正文，只在维护报告中列为“Book 轨待办”；必须等用户明确要求“更新在线书 / 同步 book / 写章节正文 / 发布”后再进入 Book 轨。
+
 ## 输出报告
 
 维护完成后，在 `00_项目说明/` 新增或更新维护报告，包含：
@@ -51,3 +58,4 @@ description: 当用户想维护 AI_MD 知识库、重建索引、检查断链、
 - 允许检查 Git 状态；只有用户明确要求时才初始化或提交。
 - 不写入 Zotero，除非用户明确要求。
 - 不生成研究内容；如发现内容缺口，只报告给 LLM Wiki Agent，再由 `takenote` 处理。
+- 不更新在线教材发布层；Book 轨由 `AGENTs.md` 约束并需用户显式触发。

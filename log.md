@@ -368,3 +368,18 @@ relations:
 - 正文基于 `06_原始学习素材/第六七章RFD3多组分设计.md`、`06_原始学习素材/第六章/全文提取/第六七章RFD3多组分设计/全文.md` 和 `extraction-report.md`，聚焦 RFdiffusion 系列、RFD3 输入配置、hotspot 选择、pLDDT/PAE/iPAE/RMSD 指标边界和随机骨架 dry-run 练习。
 - 本轮保持第 9 章与第 10 章边界：binder、短肽、迷你蛋白、核酸抑制剂、理论酶和 ProteinMPNN / LigandMPNN 闭环只作为下一章入口，不在第 9 章展开。
 - 验收执行了禁用套话和旧发布层路径检查、段落长度检查、连续纯文字段落检查和章节标题完整性检查；软件安装仓库、`rc-foundry[all]`、checkpoint 路径和完整运行命令仍需按当前版本复核。
+
+## [2026-06-09] maintenance | P42 原始素材更新后全项目重建
+
+- 按 `building-llm-wiki` 三层规则重新审计 `06_原始学习素材/`：当前 raw 文件 1076 个，PDF 14 个，12 个 PDF 已有提取报告，2 个补充 PDF 保留为附件/文献锚点，后续按需提取。
+- 新增 `tools/audit_raw_sources.py`，并补齐 `06_原始学习素材/_index.md` 与 `05_附件索引/附件清单.md` 中 8 个根级课程 Markdown 原文入口；关键附件索引缺口 0，根级 Markdown 来源索引缺口 0。
+- 修正 `CLAUDE.md`、`AGENTs.md`、`大纲.md` 和第 5 章来源声明：旧版内容不完整的 `book/` 已删除；当前 `book/` 只从 12 章 `正文.md` 同步生成，不能反向作为正文来源。
+- 重新运行 `python tools\sync_online_book.py`，同步 12 章发布层，并通过在线书校验、pytest、MkDocs strict build、LLM Wiki 校验、raw-source 审计和图谱健康检查。
+- 新增 `00_项目说明/P42_原始素材更新后全项目重建报告.md`，项目版本更新为 `v1.0.1`。
+
+## [2026-06-09] maintenance | P43 Wiki 与 Book 分轨保护
+
+- 新增 `00_项目说明/Wiki与Book分轨规则.md` 和 `00_项目说明/P43_Wiki与Book分轨保护报告.md`，把 LLM Wiki / 知识库轨与 Book / 在线教材轨分开。
+- 更新 `CLAUDE.md`、`AGENTs.md`、`00_项目说明/LLM Wiki运行手册.md`、`00_项目说明/Codex技能调用矩阵.md`、`00_项目说明/插件与Skills调用说明.md`、`00_项目说明/知识库使用说明.md` 和本地 `.claude/skills/`，明确 Wiki 轨默认不更新 `book/` 或 `chapters/chapter-XX/正文.md`。
+- 本轮不运行 `tools\sync_online_book.py`、`tools\validate_online_book.py` 或 MkDocs build；只运行 Wiki/schema 级验收。
+- 项目版本更新为 `v1.0.2`，在线书版本保持 `v1.0.1-source-refresh`。
