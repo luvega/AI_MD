@@ -1,0 +1,3 @@
+candidate_id	binder_length	target_length	complex_plddt_0_to_1	iptm_0_to_1	cross_chain_pae_mean_angstrom	binder_internal_backbone_rmsd_angstrom	binder_placement_backbone_rmsd_angstrom	target_fit_backbone_rmsd_angstrom	binder_backbone_atom_count	target_backbone_atom_count	hotspot_residues_with_contact_within_4p5_angstrom
+pdl1_mpnn_1	77	114	0.9086695313453674	0.7068116664886475	8.14260482788086	1.7154292098810031	16.382112869703274	0.5036571770279364	308	456	6
+pdl1_mpnn_2	77	114	0.9261062145233154	0.7451359629631042	6.698818206787109	1.395381049286955	4.809739784647308	0.5080065883112204	308	456	6

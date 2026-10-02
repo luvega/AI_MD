@@ -1,0 +1,4 @@
+candidate_id	data_status	affinity_pred_value	affinity_probability_binary	confidence_score	model_scale_IC50_uM	pIC50_from_log10_uM	structure_review	control_status
+field_A	constructed_field_exercise	-0.3	0.91	0.94	0.5011872336272722	6.3	ligand_outside_expected_pocket	none
+field_B	constructed_field_exercise	1.2	0.87	0.9	15.848931924611133	4.8	inspection_pending	none
+field_C	constructed_field_exercise	0.4	0.32	0.97	2.51188643150958	5.6	inspection_pending	none

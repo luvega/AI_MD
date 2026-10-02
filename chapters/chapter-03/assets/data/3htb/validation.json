@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-02",
+  "actual_execution": "public input download, RDKit ligand reading and Meeko preparation completed",
+  "python": "3.12.14",
+  "rdkit": "2026.03.6",
+  "meeko": "0.8.0",
+  "gemmi": "0.7.5",
+  "sequence_residues": 164,
+  "coordinate_residues": 163,
+  "missing_residue": "LEU auth A164, PDB REMARK 465; not rebuilt",
+  "protein_atom_records_original": 1364,
+  "protein_heavy_atoms_altloc_A": 1300,
+  "receptor_pdbqt_atoms": 1626,
+  "ligand_heavy_atoms": {
+    "JZ4": 10,
+    "IPH": 7,
+    "BNZ": 6
+  },
+  "actual_receptor_reading": "--read_pdb; --default_altloc A",
+  "log_normalization": "ANSI color escape sequences removed; numeric and diagnostic content retained",
+  "matplotlib": "3.11.2"
+}

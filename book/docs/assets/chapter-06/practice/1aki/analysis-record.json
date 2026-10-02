@@ -1,0 +1,70 @@
+{
+  "data_status": "independent_real_GROMACS_run",
+  "system": "1AKI chain A",
+  "analysis_note": "100 ps format and selection exercise; PCA is exploratory, not converged state sampling",
+  "run_inputs": {
+    "md.tpr": {
+      "sha256": "65bcf84c6261b369f81a4eeeceff03739a74246efe7a8deefe65e49874f48c0e",
+      "package_path": "md.tpr"
+    },
+    "md.xtc": {
+      "sha256": "c5a0d0c6815b96242bc2d4be41a10723c85b44b03973a6a849e7ee6c8510a1ac",
+      "package_path": "md.xtc"
+    },
+    "nvt.edr": {
+      "sha256": "66aee003b8fad40bd37f4d50c782cd02564c16e12dd3c588aded950a27ed3ed1",
+      "package_path": "nvt.edr"
+    },
+    "npt.edr": {
+      "sha256": "56d55677aff1111f320f7ea68286f03be4371467daff1ad2a7ebf3a7458be7e4",
+      "package_path": "npt.edr"
+    }
+  },
+  "rmsd": {
+    "ca": [
+      "C-alpha",
+      "C-alpha"
+    ],
+    "backbone": [
+      "Backbone",
+      "Backbone"
+    ],
+    "last_reference": "md-last.pdb at 100 ps"
+  },
+  "pca_atoms": "C-alpha",
+  "trajectory_output_group": "System",
+  "cluster": {
+    "method": "gromos",
+    "cutoff_nm": 0.1,
+    "rmsd_group": "C-alpha",
+    "output_group": "Protein"
+  },
+  "distance": {
+    "residues_checked": {
+      "35": "GLU",
+      "52": "ASP"
+    },
+    "atoms": "C-alpha",
+    "selection": "(group \"Protein\" and resnr 35 and name CA) plus (group \"Protein\" and resnr 52 and name CA)"
+  },
+  "native_secondary_structure": true,
+  "sham": {
+    "input_has_time_column": false,
+    "grid": [
+      8,
+      8
+    ],
+    "temperature_K": 300,
+    "interpretation": "projected finite-frame frequency exercise, not converged basins"
+  },
+  "public_text_processing": "local directory paths normalized to RUN/ANALYSIS/GMX/GMX_DATA; unrelated random GROMACS epigraph lines removed; numerical rows unchanged",
+  "verified_frames": 101,
+  "time_range_ps": [
+    0,
+    100
+  ],
+  "system_atoms": 23873,
+  "protein_atoms": 1960,
+  "C_alpha_atoms": 129,
+  "analysis_commands_exit_0": 26
+}

@@ -1,0 +1,14 @@
+                     :-) GROMACS - gmx sham, 2025.5-dev (-:
+
+Executable:   GMX
+Data prefix:  GMX_DATA (source tree)
+Working dir:  ANALYSIS
+Command line:
+  gmx sham -f pca-2d.xvg -notime -ngrid 8 8 8 -tsham 300 -ls fel.xpm -g sham.log
+
+ 12% 25% 37% 50% 62% 75% 87%100% 12% 25% 37% 50% 62% 75% 87%100% 12% 25% 37% 50% 62% 75% 87%100% 12% 25% 37% 50% 62% 75% 87%100%
+
+Read 2 sets of 101 points, dt = 1
+
+There are 64 bins in the 2-dimensional histogram. Beta-Emin = 0
+Ptot = 101

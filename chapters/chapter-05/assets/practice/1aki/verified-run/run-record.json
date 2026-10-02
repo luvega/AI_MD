@@ -1,0 +1,83 @@
+{
+  "data_status": "independent_real_GROMACS_run_completed",
+  "source_structure": "https://files.rcsb.org/download/1AKI.pdb",
+  "source_pdb_sha256": "c75d7a689617248cdd92dc6633531d2506fb9bef1e6e21e26c8f579ae6955abb",
+  "preparation": "chain A ATOM; alternate locations blank or A; new hydrogens; public input only",
+  "forcefield": "amber99sb",
+  "water_model": "TIP3P",
+  "box": "dodecahedron; 1.0 nm distance",
+  "salt_mol_L": 0.15,
+  "neutralized": true,
+  "temperature_K": 300,
+  "pressure_bar": 1,
+  "software_source": "official GROMACS v2025.5 source",
+  "reported_GROMACS_version": "2025.5-dev",
+  "platform": "Windows native CPU; MinGW-w64 GCC 14.3.0",
+  "precision": "mixed",
+  "MPI_library": "none",
+  "SIMD": "NONE",
+  "GPU_support": "disabled",
+  "OpenMP_threads": 4,
+  "EM": {
+    "algorithm": "steepest descent",
+    "steps_to_convergence": 409,
+    "Fmax_kJ_mol_nm": 966.43744,
+    "Fmax_threshold_kJ_mol_nm": 1000
+  },
+  "NVT_ps": 20,
+  "NPT_ps": 20,
+  "MD_ps": 100,
+  "MD_time_step_ps": 0.002,
+  "production_frames": 101,
+  "production_time_ps": [
+    0,
+    100
+  ],
+  "production_save_interval_ps": 1,
+  "system_atoms": 23873,
+  "protein_atoms": 1960,
+  "C_alpha_atoms": 129,
+  "run_commands_exit_0": 15,
+  "analysis_commands_exit_0": 26,
+  "maxwarn_used": false,
+  "actual_files": {
+    "md.tpr": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/md.tpr",
+      "sha256": "65bcf84c6261b369f81a4eeeceff03739a74246efe7a8deefe65e49874f48c0e"
+    },
+    "md.xtc": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/md.xtc",
+      "sha256": "c5a0d0c6815b96242bc2d4be41a10723c85b44b03973a6a849e7ee6c8510a1ac"
+    },
+    "md.cpt": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/md.cpt",
+      "sha256": "a920d0a494202b5ae4284828f72c7a4e75a0305971624c9aae93fea1914a45a8"
+    },
+    "nvt.edr": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/nvt.edr",
+      "sha256": "66aee003b8fad40bd37f4d50c782cd02564c16e12dd3c588aded950a27ed3ed1"
+    },
+    "npt.edr": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/npt.edr",
+      "sha256": "56d55677aff1111f320f7ea68286f03be4371467daff1ad2a7ebf3a7458be7e4"
+    },
+    "md.edr": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/md.edr",
+      "sha256": "91b6af838ba74528486032dbb51f0f4002d7f4833c07a56257a9130a5df4e1fe"
+    },
+    "protein.gro": {
+      "package_path": "../../../../../chapter-06/assets/practice/1aki/protein.gro",
+      "sha256": "b80253106ea566c39d82b81803dc074b1a610d7cd2d7d9a1746b6ef5b29c106a"
+    }
+  },
+  "MDP": {
+    "ions": "4e38583eaf4b3e25348828ba9bce3ae59af6c6ad1c676833cfeeec3b027ab5f8",
+    "em": "eea7667c14848bafe033c6f2eaac92dfeef84fa67ac080b474fe1ef58125f6d9",
+    "nvt": "07a160f7d7dea3c9d673f0ee86504d32f66febd2c4dd88c6a946d1138f6467e7",
+    "npt": "6be507320c023950a5496f25fe069be0e9bebb7d5496eaa5a14baa4b0adb4e34",
+    "md": "257a7ec9cf10cc79bb9e7e61433324c8a346b232b5664b32a9685cc61ff61ad2"
+  },
+  "public_text_processing": "local directory paths normalized to RUN/ANALYSIS/GMX/GMX_DATA; unrelated random GROMACS epigraph lines removed; numerical rows unchanged",
+  "interpretation": "100 ps teaching run for operation and analysis; no claim of sufficient equilibration, converged conformations or binding affinity",
+  "data_package": "../../../../../chapter-06/assets/practice/1aki"
+}

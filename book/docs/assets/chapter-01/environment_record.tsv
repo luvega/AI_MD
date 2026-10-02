@@ -1,0 +1,11 @@
+field	value
+operating_system	fill actual Windows version
+python_version	fill actual python --version
+python_environment	.venv-win
+project_directory	course project directory; keep private paths out of shared records
+input_source	https://files.rcsb.org/download/3HTB.pdb
+input_file	inputs/3htb.pdb
+software_versions	fill after installation
+command	python scripts/check_files.py --inputs inputs --out outputs/file-check
+output_files	input_inventory.tsv; environment.json
+status	fill completed or failed after running

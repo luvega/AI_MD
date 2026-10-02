@@ -1,0 +1,32 @@
+[
+  {
+    "file": "3htb.pdb",
+    "source_url": "https://files.rcsb.org/download/3HTB.pdb",
+    "sha256": "69c7b4776c588526160c587e14a36289f5f74b265cb0736fcbed47c4335adfa7",
+    "license": "CC0-1.0 (wwPDB archive data)"
+  },
+  {
+    "file": "jz4_reference.sdf",
+    "source_url": "https://models.rcsb.org/v1/3htb/ligand?auth_asym_id=A&auth_seq_id=167&encoding=sdf",
+    "sha256": "081a1033740d5e5e6a292a318630107c89c3cff9d1edb578cc9ecbb5704e8b59",
+    "license": "CC0-1.0 (wwPDB archive data)"
+  },
+  {
+    "file": "JZ4_ideal.sdf",
+    "source_url": "https://files.rcsb.org/ligands/download/JZ4_ideal.sdf",
+    "sha256": "0ca2e8150f5b5bf27d8f06651d06faf94e6419f0ea7a85cc537ca518200f8b2e",
+    "license": "CC0-1.0 (wwPDB archive data)"
+  },
+  {
+    "file": "IPH_ideal.sdf",
+    "source_url": "https://files.rcsb.org/ligands/download/IPH_ideal.sdf",
+    "sha256": "29cd273062fff1eec8bdf2866abefc2699938e3876400ab121312807e1c8f230",
+    "license": "CC0-1.0 (wwPDB archive data)"
+  },
+  {
+    "file": "BNZ_ideal.sdf",
+    "source_url": "https://files.rcsb.org/ligands/download/BNZ_ideal.sdf",
+    "sha256": "d7f5068484a28f7cabc64fa3dc63bab3d2f5510adf6c181e6c091ec66678a97d",
+    "license": "CC0-1.0 (wwPDB archive data)"
+  }
+]

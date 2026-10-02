@@ -1,0 +1,23 @@
+{
+  "receptor_command": [
+    "python",
+    "meeko.cli.mk_prepare_receptor",
+    "--read_pdb",
+    "3htb_receptor.pdb",
+    "--default_altloc",
+    "A",
+    "-o",
+    "3htb_receptor",
+    "-p",
+    "-v",
+    "--box_center",
+    "22.714",
+    "-25.263",
+    "-3.283",
+    "--box_size",
+    "18.0",
+    "18.0",
+    "18.0"
+  ],
+  "ligand_preparation": "RDKit SDMolSupplier/AddHs then Meeko MoleculePreparation and PDBQTWriterLegacy"
+}

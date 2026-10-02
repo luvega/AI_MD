@@ -33,6 +33,15 @@ book/site/
 06_原始学习素材/*
 !06_原始学习素材/.gitkeep
 
+# Internal lesson archives include recordings, slide images, embedded HTML and
+# extracted lecture text. Only independently reviewed chapter assets may publish.
+08_实战教程/
+
+# These earlier teaching derivatives came directly from local course material.
+# Preserve local copies while excluding them from future public revisions.
+chapters/chapter-08/assets/code/chapter-08-boltz2-l6D9Z7-reconstructed.yaml
+chapters/chapter-08/assets/figures/chapter-08-l6D9Z7-qc-summary.svg
+
 # Generated or unpacked raw-source working trees. Existing tracked files remain
 # tracked, but new OCR/extraction/unpacked payloads stay local by default.
 06_原始学习素材/**/全文提取/
@@ -59,3 +68,5 @@ book/site/
 # Local transient exports
 *.log
 !log.md
+!chapters/chapter-*/assets/**/*.log
+!book/docs/assets/**/*.log

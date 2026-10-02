@@ -1,0 +1,15 @@
+{
+  "data_status": "computed_from_independent_real_MD",
+  "frames": 101,
+  "C_alpha_atoms": 129,
+  "matrix_shape": [
+    129,
+    129
+  ],
+  "trajectory_sha256": "9ff9286f37e0379c6b2f8fab56d01cb9b3c183f4f58840d74e5afe2a559359cf",
+  "topology_sha256": "3a9e01c97a117bd040375827b9de6179edd75b2c83306caeb104a147be6315aa",
+  "alignment": "C-alpha least-squares superposition to first actual frame",
+  "formula": "<delta r_i dot delta r_j>/sqrt(<delta r_i^2><delta r_j^2>)",
+  "verification": "symmetric and unit diagonal for nonzero variance",
+  "interpretation": "short-trajectory correlation exercise, not functional coupling evidence"
+}

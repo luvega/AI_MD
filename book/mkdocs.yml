@@ -3,6 +3,8 @@ site_description: "面向药物化学、药学和生命科学学习者的 AI 辅
 site_url: "https://luvega.github.io/AI_MD/"
 docs_dir: "docs"
 site_dir: "site"
+hooks:
+  - ../tools/book_hooks.py
 
 theme:
   name: material
@@ -38,6 +40,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences:
@@ -48,6 +52,7 @@ markdown_extensions:
 
 nav:
   - 首页: index.md
+  - 练习资源: resources.md
   - 第 1 章 Linux、计算环境与生化文件基础: chapters/chapter-01.md
   - 第 2 章 PyMOL、ChimeraX 与结构可视化: chapters/chapter-02.md
   - 第 3 章 结构建模、结合位点与体系准备: chapters/chapter-03.md

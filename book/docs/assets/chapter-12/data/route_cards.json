@@ -1,0 +1,62 @@
+[
+  {
+    "task_id": "3htb-three-ligands",
+    "question": "同一受体准备和网格条件下，JZ4 的已知 pose 能否复现，三个配体的输出是否完整？",
+    "starting_evidence": [
+      "公开 3HTB 的晶体配体 JZ4，auth chain A residue 167",
+      "CCD JZ4、IPH、BNZ 结构"
+    ],
+    "hypothesis": "先用 JZ4 检查 pose 搜索，再比较同协议批处理记录。",
+    "cpu_action": "第 3 章 prepare_3htb.py 准备输入；第 4 章 run_vina_case.py 先单个 JZ4，再三个配体。",
+    "outputs": [
+      "docking_results.tsv",
+      "JZ4_redocking_rmsd.json",
+      "run_parameters.json",
+      "三个 log 和 pose"
+    ],
+    "metrics": [
+      "Vina score，kcal/mol",
+      "晶体坐标系内无拟合重原子 RMSD，Å",
+      "返回码和文件完整性"
+    ],
+    "current_status": "real_cpu_completed",
+    "observed_result": "Vina 1.2.7，seed=20261002，CPU=2，exhaustiveness=16；JZ4 模式 1 score=-7.190 kcal/mol，重原子 RMSD=0.4946 Å。",
+    "next_validation": "人工检查 JZ4/IPH/BNZ pose；若用于研究，重新审查受体和化学状态，并安排结合或功能实验。",
+    "resource_limit": "基础练习只跑 3 个配体；先完成单个 JZ4，再决定扩大库。",
+    "stop_condition": "JZ4 输入或 pose 参照不一致时，先排错。"
+  },
+  {
+    "task_id": "pdl1-two-sequences",
+    "question": "两条同骨架序列回折叠后，内部折叠与相对靶标的取向是否都保持设计？",
+    "starting_evidence": [
+      "Foundry 官方 PDL1 教程固定版本的 final model",
+      "设计链 A=77 残基，靶标链 B=114 残基"
+    ],
+    "hypothesis": "在同一骨架上设计 A 链，再对相同候选的 A+B 预测分别做 A 自身拟合与 B 靶标拟合。",
+    "cpu_action": "第 9 章读取配置/结构；第 10 章 CPU ProteinMPNN 生成 2 条序列，再读取真实 GPU 输出并完成 CPU 几何分析。",
+    "outputs": [
+      "pdl1_mpnn_seed37.fa",
+      "proteinmpnn_cpu_run.json",
+      "pdl1_mpnn_1.yaml",
+      "pdl1_mpnn_2.yaml",
+      "candidate_queue.tsv",
+      "两个同候选 CIF/confidence/PAE/pLDDT 文件集",
+      "refold_summary.tsv",
+      "analysis_record.json",
+      "两张同视角的 B 对齐叠合图"
+    ],
+    "metrics": [
+      "ProteinMPNN score",
+      "A/B 链长度",
+      "同候选回折叠状态和输出路径",
+      "A 自身拟合的骨架 RMSD，Å",
+      "按 B 拟合后 A 的骨架 RMSD，Å",
+      "双向全跨链 PAE 平均，Å（不是仅接触界面 iPAE）"
+    ],
+    "current_status": "sequence_and_same_candidate_refold_completed",
+    "observed_result": "CPU ProteinMPNN seed=37，temperature=0.1；两条 77 aa 序列 score=1.0529/0.9849。Boltz 2.2.1、两链 msa:empty、GPU 3070、seed=37、每条 1 个样本；complex pLDDT=0.9087/0.9261，A 自身拟合 RMSD=1.72/1.40 Å，B 拟合后 A RMSD=16.38/4.81 Å；六个 hotspot 均有 4.5 Å 内几何接触。",
+    "next_validation": "候选 1 先退回界面取向复核，候选 2 优先结构检查；增加独立预测、完整靶标背景，再考虑表达、纯化、结合和竞争实验。",
+    "resource_limit": "CPU 基础练习只生成 2 条序列；3070 8GB 不作为大模型必跑条件。",
+    "stop_condition": "链名、靶标序列或候选编号不一致时，停止下游批次。"
+  }
+]

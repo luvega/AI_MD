@@ -1,0 +1,23 @@
+[
+  {
+    "input": "rmsd-ca.xvg",
+    "sha256": "b4e62a9e323978b6e6f0b8ff19f53b66e2fd8d724faa480a4eb6d0f748721715",
+    "original_rows": 101,
+    "plotted_rows": 51,
+    "labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "display_labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": 50.0,
+    "xmax": 100.0,
+    "smoothing": "none"
+  }
+]

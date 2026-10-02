@@ -1,0 +1,77 @@
+[
+  {
+    "input": "nvt-temperature.xvg",
+    "sha256": "5ffb388a630c95ee95099d2a0a640df45a4a9835e535b89bc7c048f42b30c53e",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "GROMACS Energies",
+      "xaxis": "Time (ps)",
+      "yaxis": "(K)"
+    },
+    "display_labels": {
+      "title": "GROMACS Energies",
+      "xaxis": "Time (ps)",
+      "yaxis": "(K)"
+    },
+    "original_legends": {
+      "0": "Temperature"
+    },
+    "display_legends": {
+      "0": "Temperature"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "npt-density.xvg",
+    "sha256": "9181b41f8a1adb9d7eaa91df3023908d2249a5ed8da6a03fe618e5a38e3d5ab3",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "GROMACS Energies",
+      "xaxis": "Time (ps)",
+      "yaxis": "(kg/m^3)"
+    },
+    "display_labels": {
+      "title": "GROMACS Energies",
+      "xaxis": "Time (ps)",
+      "yaxis": "(kg/m^3)"
+    },
+    "original_legends": {
+      "0": "Density"
+    },
+    "display_legends": {
+      "0": "Density"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "npt-pressure.xvg",
+    "sha256": "89fee7e0340770911f19362fdd2d3fb2f48a62212edc9565462994225b6a0217",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "GROMACS Energies",
+      "xaxis": "Time (ps)",
+      "yaxis": "(bar)"
+    },
+    "display_labels": {
+      "title": "GROMACS Energies",
+      "xaxis": "Time (ps)",
+      "yaxis": "(bar)"
+    },
+    "original_legends": {
+      "0": "Pressure"
+    },
+    "display_legends": {
+      "0": "Pressure"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  }
+]

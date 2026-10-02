@@ -1,0 +1,84 @@
+{
+  "reference_sha256": "4a6d772bf58f9b0d67038db6a1122292862fe2d242bb1cb1aca03f265288855e",
+  "fasta_sha256": "31c9d0e6562f4d1b6c4258aab3d23ac2b37f199032facaf3e4876e287a3a9276",
+  "target_sha256": "5e775259eea745b1bfc81307dbe9de49b22bdb23c56dcbde6ce9057c54a88708",
+  "config_sha256": "00d213a4aa57b7b2a8a59395b5eb8aafa7b3a869635f72a51b4ecec443d5403d",
+  "atom_matching": "Chain and residue order; N, CA, C, O for every residue, no side chains or hydrogens",
+  "internal_rmsd": "Least-squares fit of binder A backbone to design A, then RMSD of the same A atoms",
+  "placement_rmsd": "Least-squares fit of target B backbone to design B; apply that transform to binder A and compute A RMSD",
+  "cross_chain_pae": "Arithmetic mean over A-to-B and B-to-A blocks, all 2*77*114 directed pairs; not contact-only interface PAE",
+  "prediction_scale": "Boltz complex_plddt and iptm are 0-1; PAE and coordinate RMSDs are angstrom",
+  "hotspot_contacts": "For each of six configured B residues, minimum distance from its listed hotspot atoms to any A heavy atom; geometric cutoff 4.5 angstrom, not a binding-success criterion",
+  "software": {
+    "gemmi": "0.7.5",
+    "numpy": "2.4.6"
+  },
+  "candidate_records": [
+    {
+      "candidate_id": "pdl1_mpnn_1",
+      "files_sha256": {
+        "pdl1_mpnn_1_model_0.cif": "7c9500c8486fb95e3e63b20970e29c3606311bc400b36a8fe753c9e1332a73e8",
+        "confidence_pdl1_mpnn_1_model_0.json": "2091c8d21190b0d15afaee2de60ed51abbda49adb8736f0e1f11515eec955adc",
+        "pae_pdl1_mpnn_1_model_0.npz": "7b918c3ef3c433924b1db7eff1fecc988847880bfbc058a5a1ac5eaef75821af",
+        "plddt_pdl1_mpnn_1_model_0.npz": "102b90bf69b99d95c7ab7c4f5baf30bb6b0a5a609881def0b93888947f53ad2a"
+      },
+      "sequence_identity": "A matches sampled ProteinMPNN FASTA; B matches target FASTA and design structure",
+      "hotspot_min_heavy_atom_distances_angstrom": {
+        "B37": 3.6013006083913623,
+        "B39": 3.2551626499454676,
+        "B51": 4.22183596759751,
+        "B52": 3.7089126931757237,
+        "B98": 3.6700704935464117,
+        "B100": 2.814652177250326
+      }
+    },
+    {
+      "candidate_id": "pdl1_mpnn_2",
+      "files_sha256": {
+        "pdl1_mpnn_2_model_0.cif": "3bceaf1e6acd3502d898527531d15a0066c4f0182695abb80a654a33947353f9",
+        "confidence_pdl1_mpnn_2_model_0.json": "eb1aa91e03445c072533cc58b6a3aee5b4062d11778826aaf5a0a1428c1f4540",
+        "pae_pdl1_mpnn_2_model_0.npz": "e764be4261d56636d1ad648835722315841b5bda1ab214bc703204b913ea3b80",
+        "plddt_pdl1_mpnn_2_model_0.npz": "b690f5cfb1eb3ccd2f6c47f5af5a9edeb341a9ef68ef7c950f8672ab403bc2c7"
+      },
+      "sequence_identity": "A matches sampled ProteinMPNN FASTA; B matches target FASTA and design structure",
+      "hotspot_min_heavy_atom_distances_angstrom": {
+        "B37": 3.109177340117479,
+        "B39": 3.337236467183588,
+        "B51": 4.093980157169792,
+        "B52": 2.1623084870110456,
+        "B98": 3.57556088609885,
+        "B100": 2.6303088038859617
+      }
+    }
+  ],
+  "metrics": [
+    {
+      "candidate_id": "pdl1_mpnn_1",
+      "binder_length": 77,
+      "target_length": 114,
+      "complex_plddt_0_to_1": 0.9086695313453674,
+      "iptm_0_to_1": 0.7068116664886475,
+      "cross_chain_pae_mean_angstrom": 8.14260482788086,
+      "binder_internal_backbone_rmsd_angstrom": 1.7154292098810031,
+      "binder_placement_backbone_rmsd_angstrom": 16.382112869703274,
+      "target_fit_backbone_rmsd_angstrom": 0.5036571770279364,
+      "binder_backbone_atom_count": 308,
+      "target_backbone_atom_count": 456,
+      "hotspot_residues_with_contact_within_4p5_angstrom": 6
+    },
+    {
+      "candidate_id": "pdl1_mpnn_2",
+      "binder_length": 77,
+      "target_length": 114,
+      "complex_plddt_0_to_1": 0.9261062145233154,
+      "iptm_0_to_1": 0.7451359629631042,
+      "cross_chain_pae_mean_angstrom": 6.698818206787109,
+      "binder_internal_backbone_rmsd_angstrom": 1.395381049286955,
+      "binder_placement_backbone_rmsd_angstrom": 4.809739784647308,
+      "target_fit_backbone_rmsd_angstrom": 0.5080065883112204,
+      "binder_backbone_atom_count": 308,
+      "target_backbone_atom_count": 456,
+      "hotspot_residues_with_contact_within_4p5_angstrom": 6
+    }
+  ]
+}

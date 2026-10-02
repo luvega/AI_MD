@@ -1,0 +1,16 @@
+step	command	selection_input	exit_code	log
+version	GMX --version	None	0	version.stdout.log
+topology	GMX pdb2gmx -f protein.pdb -o protein.gro -p topol.top -ignh -ff amber99sb -water tip3p	None	0	topology.stdout.log
+box	GMX editconf -f protein.gro -o box.gro -d 1.0 -bt dodecahedron	None	0	box.stdout.log
+water	GMX solvate -cp box.gro -cs spc216.gro -o solv.gro -p topol.top	None	0	water.stdout.log
+ion-input	GMX grompp -f ions.mdp -c solv.gro -p topol.top -o ions.tpr	None	0	ion-input.stdout.log
+ions	GMX genion -s ions.tpr -o system.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15 -seed 20261002	'SOL\n'	0	ions.stdout.log
+em-input	GMX grompp -f em.mdp -c system.gro -p topol.top -o em.tpr	None	0	em-input.stdout.log
+em	GMX mdrun -deffnm em -ntomp 4 -nb cpu	None	0	em.stdout.log
+nvt-input	GMX grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr	None	0	nvt-input.stdout.log
+nvt	GMX mdrun -deffnm nvt -ntomp 4 -nb cpu	None	0	nvt.stdout.log
+npt-input	GMX grompp -f npt.mdp -c nvt.gro -r em.gro -t nvt.cpt -p topol.top -o npt.tpr	None	0	npt-input.stdout.log
+npt	GMX mdrun -deffnm npt -ntomp 4 -nb cpu	None	0	npt.stdout.log
+md-input	GMX grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md.tpr	None	0	md-input.stdout.log
+md	GMX mdrun -deffnm md -ntomp 4 -nb cpu	None	0	md.stdout.log
+trajectory-check	GMX check -f md.xtc	None	0	trajectory-check.stdout.log

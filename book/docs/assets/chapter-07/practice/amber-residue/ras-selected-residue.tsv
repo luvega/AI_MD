@@ -1,0 +1,13 @@
+data_status	complex_residue	component	component_residue	residue_name	internal_mean	internal_reported_sd	vdw_mean	vdw_reported_sd	electrostatic_mean	electrostatic_reported_sd	polar_solvation_mean	polar_solvation_reported_sd	nonpolar_solvation_mean	nonpolar_solvation_reported_sd	total_mean	total_reported_sd
+external_real_Amber_tutorial_summary	5	R	5	LYS	0.0	4.87	-0.156	1.465	69.267	9.154	-67.061	9.601	-0.009	0.156	2.04	14.208
+external_real_Amber_tutorial_summary	30	R	30	ASP	0.0	5.623	-0.065	0.961	-52.559	11.072	52.622	9.53	0.0	0.084	-0.003	15.684
+external_real_Amber_tutorial_summary	31	R	31	GLU	0.0	5.174	-0.247	1.099	-79.946	10.55	80.63	9.693	-0.227	0.125	0.21	15.272
+external_real_Amber_tutorial_summary	32	R	32	TYR	0.0	4.615	-0.29	1.515	0.639	4.431	-0.076	3.229	-0.012	0.175	0.261	7.327
+external_real_Amber_tutorial_summary	33	R	33	ASP	0.0	4.464	-0.556	1.073	-103.116	5.82	103.788	5.821	-0.459	0.094	-0.343	9.426
+external_real_Amber_tutorial_summary	34	R	34	PRO	0.0	3.388	-1.829	0.869	-3.383	2.647	3.854	1.944	-0.308	0.13	-1.666	4.8
+external_real_Amber_tutorial_summary	35	R	35	THR	0.0	5.702	-1.829	1.049	0.376	4.365	0.947	2.028	-0.204	0.07	-0.709	7.536
+external_real_Amber_tutorial_summary	36	R	36	ILE	0.0	4.65	-2.987	1.918	0.092	2.149	0.991	0.697	-0.377	0.072	-2.282	5.515
+external_real_Amber_tutorial_summary	37	R	37	GLU	0.0	5.221	-1.627	1.388	-126.728	6.441	120.528	4.686	-0.745	0.048	-8.573	9.624
+external_real_Amber_tutorial_summary	38	R	38	ASP	0.0	3.75	-1.583	1.56	-104.899	6.925	99.37	5.71	-0.254	0.037	-7.367	9.852
+external_real_Amber_tutorial_summary	39	R	39	SER	0.0	3.447	-2.184	1.086	-13.696	3.959	8.918	1.8	-0.504	0.035	-7.466	5.655
+external_real_Amber_tutorial_summary	40	R	40	TYR	0.0	4.687	-4.403	1.682	-3.076	2.884	1.652	1.092	-0.366	0.042	-6.193	5.858

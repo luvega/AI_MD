@@ -1,0 +1,22 @@
+{
+  "data_status": "external_real_Amber_tutorial_summary",
+  "input_sha256": "1b7a16b4c1462415341eba4405ee429e37fa8eceeed16a6305476669ca3d96dc",
+  "residues": [
+    "R:LYS5",
+    "R:ASP30",
+    "R:GLU31",
+    "R:TYR32",
+    "R:ASP33",
+    "R:PRO34",
+    "R:THR35",
+    "R:ILE36",
+    "R:GLU37",
+    "R:ASP38",
+    "R:SER39",
+    "R:TYR40"
+  ],
+  "n_residues": 12,
+  "unit": "kcal/mol",
+  "dispersion": "upstream reported SD, not SEM; no raw-frame reconstruction",
+  "mean_component_sum_tolerance": 0.0021
+}

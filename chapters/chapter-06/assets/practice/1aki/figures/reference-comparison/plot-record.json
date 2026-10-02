@@ -1,0 +1,65 @@
+[
+  {
+    "input": "rmsd-ca.xvg",
+    "sha256": "b4e62a9e323978b6e6f0b8ff19f53b66e2fd8d724faa480a4eb6d0f748721715",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "display_labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "rmsd-backbone.xvg",
+    "sha256": "e1abd36e92dc93337d94c8ff4f061ab89a29360686b0e60d0ad0208df4120736",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "display_labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "rmsd-ca-lastref.xvg",
+    "sha256": "4fd84d1d5f1df9c9c5f28b381a2c598fc85460ba0492d7d75eb7297054debe2e",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "display_labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  }
+]

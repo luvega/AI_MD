@@ -1,0 +1,6 @@
+{
+  "random100": {
+    "length": 100,
+    "is_non_loopy": true
+  }
+}

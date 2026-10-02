@@ -1,0 +1,19 @@
+# This file was created Fri Oct  2 13:52:15 2026
+# Created by:
+#                   :-) GROMACS - gmx cluster, 2025.5-dev (-:
+# 
+# Executable:   GMX
+# Data prefix:  GMX_DATA (source tree)
+# Working dir:  ANALYSIS
+# Command line:
+#   gmx cluster -s RUN\md.tpr -f md-fit.xtc -method gromos -cutoff 0.10 -g cluster.log -dist cluster-rmsd-distribution.xvg -o cluster-rmsd.xpm -sz cluster-sizes.xvg -cl cluster-representatives.pdb
+# gmx cluster is part of G R O M A C S:
+#
+# Gnomes, ROck Monsters And Chili Sauce
+#
+@    title "Cluster Sizes"
+@    xaxis  label "Cluster #"
+@    yaxis  label "# Structures"
+@TYPE xy
+@g0 type bar
+       1      101

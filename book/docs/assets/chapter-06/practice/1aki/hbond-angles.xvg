@@ -1,0 +1,47 @@
+# This file was created Fri Oct  2 13:52:14 2026
+# Created by:
+#                    :-) GROMACS - gmx hbond, 2025.5-dev (-:
+# 
+# Executable:   GMX
+# Data prefix:  GMX_DATA (source tree)
+# Working dir:  ANALYSIS
+# Command line:
+#   gmx hbond -s RUN\md.tpr -f md-center.xtc -r 'group "Protein"' -t 'group "Protein"' -num hbond-protein.xvg -dan hbond-donors-acceptors.xvg -dist hbond-distances.xvg -ang hbond-angles.xvg -o hbond-protein.ndx
+# gmx hbond is part of G R O M A C S:
+#
+# Guyana Rwanda Oman Macau Angola Cameroon Senegal
+#
+@    title "Hydrogen Bond Angle Distribution Histogram"
+@    xaxis  label "Hydrogen - Donor - Acceptor Angle (degrees)"
+@    yaxis  label "Probability"
+@TYPE xy
+       0.5  0.0027163
+       1.5  0.0090221
+       2.5  0.0142608
+       3.5  0.0172681
+       4.5  0.0233799
+       5.5  0.0323050
+       6.5  0.0308498
+       7.5  0.0321110
+       8.5  0.0411331
+       9.5  0.0450136
+      10.5  0.0481180
+      11.5  0.0491851
+      12.5  0.0479239
+      13.5  0.0483120
+      14.5  0.0520955
+      15.5  0.0463717
+      16.5  0.0469538
+      17.5  0.0416182
+      18.5  0.0471478
+      19.5  0.0423943
+      20.5  0.0377377
+      21.5  0.0380287
+      22.5  0.0335662
+      23.5  0.0309468
+      24.5  0.0280365
+      25.5  0.0266783
+      26.5  0.0276484
+      27.5  0.0217307
+      28.5  0.0189173
+      29.5  0.0185293

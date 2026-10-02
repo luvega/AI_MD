@@ -1,0 +1,132 @@
+                    :-) GROMACS - gmx covar, 2025.5-dev (-:
+
+Executable:   GMX
+Data prefix:  GMX_DATA (source tree)
+Working dir:  ANALYSIS
+Command line:
+  gmx covar -s RUN\md.tpr -f md-fit.xtc -o eigenvalues.xvg -v eigenvectors.trr -av pca-average.pdb
+
+Reading file RUN\md.tpr, VERSION 2025.5-dev (single precision)
+Reading file RUN\md.tpr, VERSION 2025.5-dev (single precision)
+Group     0 (         System) has 23873 elements
+Group     1 (        Protein) has  1960 elements
+Group     2 (      Protein-H) has  1001 elements
+Group     3 (        C-alpha) has   129 elements
+Group     4 (       Backbone) has   387 elements
+Group     5 (      MainChain) has   517 elements
+Group     6 (   MainChain+Cb) has   634 elements
+Group     7 (    MainChain+H) has   646 elements
+Group     8 (      SideChain) has  1314 elements
+Group     9 (    SideChain-H) has   484 elements
+Group    10 (    Prot-Masses) has  1960 elements
+Group    11 (    non-Protein) has 21913 elements
+Group    12 (          Water) has 21861 elements
+Group    13 (            SOL) has 21861 elements
+Group    14 (      non-Water) has  2012 elements
+Group    15 (            Ion) has    52 elements
+Group    16 ( Water_and_ions) has 21913 elements
+Select a group: Group     0 (         System) has 23873 elements
+Group     1 (        Protein) has  1960 elements
+Group     2 (      Protein-H) has  1001 elements
+Group     3 (        C-alpha) has   129 elements
+Group     4 (       Backbone) has   387 elements
+Group     5 (      MainChain) has   517 elements
+Group     6 (   MainChain+Cb) has   634 elements
+Group     7 (    MainChain+H) has   646 elements
+Group     8 (      SideChain) has  1314 elements
+Group     9 (    SideChain-H) has   484 elements
+Group    10 (    Prot-Masses) has  1960 elements
+Group    11 (    non-Protein) has 21913 elements
+Group    12 (          Water) has 21861 elements
+Group    13 (            SOL) has 21861 elements
+Group    14 (      non-Water) has  2012 elements
+Group    15 (            Ion) has    52 elements
+Group    16 ( Water_and_ions) has 21913 elements
+Select a group: Calculating the average structure ...
+
+Reading frame       0 time    0.000   
+Reading frame       1 time    1.000   
+Reading frame       2 time    2.000   
+Reading frame       3 time    3.000   
+Reading frame       4 time    4.000   
+Reading frame       5 time    5.000   
+Reading frame       6 time    6.000   
+Reading frame       7 time    7.000   
+Reading frame       8 time    8.000   
+Reading frame       9 time    9.000   
+Reading frame      10 time   10.000   
+Reading frame      11 time   11.000   
+Reading frame      12 time   12.000   
+Reading frame      13 time   13.000   
+Reading frame      14 time   14.000   
+Reading frame      15 time   15.000   
+Reading frame      16 time   16.000   
+Reading frame      17 time   17.000   
+Reading frame      18 time   18.000   
+Reading frame      19 time   19.000   
+Reading frame      20 time   20.000   
+Reading frame      30 time   30.000   
+Reading frame      40 time   40.000   
+Reading frame      50 time   50.000   
+Reading frame      60 time   60.000   
+Reading frame      70 time   70.000   
+Reading frame      80 time   80.000   
+Reading frame      90 time   90.000   
+Reading frame     100 time  100.000   
+Last frame        100 time  100.000   
+Constructing covariance matrix (387x387) ...
+
+Reading frame       0 time    0.000   
+Reading frame       1 time    1.000   
+Reading frame       2 time    2.000   
+Reading frame       3 time    3.000   
+Reading frame       4 time    4.000   
+Reading frame       5 time    5.000   
+Reading frame       6 time    6.000   
+Reading frame       7 time    7.000   
+Reading frame       8 time    8.000   
+Reading frame       9 time    9.000   
+Reading frame      10 time   10.000   
+Reading frame      11 time   11.000   
+Reading frame      12 time   12.000   
+Reading frame      13 time   13.000   
+Reading frame      14 time   14.000   
+Reading frame      15 time   15.000   
+Reading frame      16 time   16.000   
+Reading frame      17 time   17.000   
+Reading frame      18 time   18.000   
+Reading frame      19 time   19.000   
+Reading frame      20 time   20.000   
+Reading frame      30 time   30.000   
+Reading frame      40 time   40.000   
+Reading frame      50 time   50.000   
+Reading frame      60 time   60.000   
+Reading frame      70 time   70.000   
+Reading frame      80 time   80.000   
+Reading frame      90 time   90.000   
+Reading frame     100 time  100.000   
+Last frame        100 time  100.000   
+Read 101 frames
+
+Trace of the covariance matrix: 0.372379 (nm^2)
+
+Diagonalizing ...
+
+Sum of the eigenvalues: 0.372379 (nm^2)
+
+WARNING: there are fewer frames in your trajectory than there are
+degrees of freedom in your system. Only generating the first
+100 out of 387 eigenvectors and eigenvalues.
+
+Writing eigenvalues to eigenvalues.xvg
+
+Writing reference, average structure & eigenvectors 1--100 to eigenvectors.trr
+Wrote the log to covar.log
+
+
+
+Choose a group for the least squares fit
+Selected 3: 'C-alpha'
+
+Choose a group for the covariance analysis
+Selected 3: 'C-alpha'

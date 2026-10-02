@@ -1,0 +1,4 @@
+radius_angstrom	residue_count	auth_residues	selection_policy
+3.0	1	A:102:GLN	auth chain A; blank/A alternate locations; any protein atom within radius of crystal JZ4
+5.0	15	A:78:ILE;A:84:LEU;A:87:VAL;A:88:TYR;A:91:LEU;A:99:ALA;A:102:GLN;A:103:VAL;A:111:VAL;A:114:PHE;A:117:SER;A:118:LEU;A:121:LEU;A:133:LEU;A:153:PHE	auth chain A; blank/A alternate locations; any protein atom within radius of crystal JZ4
+7.0	31	A:78:ILE;A:83:LYS;A:84:LEU;A:85:LYS;A:86:PRO;A:87:VAL;A:88:TYR;A:89:ASP;A:91:LEU;A:95:ARG;A:96:ARG;A:98:ALA;A:99:ALA;A:100:ILE;A:101:ASN;A:102:GLN;A:103:VAL;A:106:MET;A:107:GLY;A:111:VAL;A:112:ALA;A:114:PHE;A:115:THR;A:116:ASN;A:117:SER;A:118:LEU;A:121:LEU;A:132:ASN;A:133:LEU;A:138:TRP;A:153:PHE	auth chain A; blank/A alternate locations; any protein atom within radius of crystal JZ4

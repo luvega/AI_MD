@@ -1,0 +1,16 @@
+{
+  "pdb_id": "3HTB",
+  "reference": "JZ4 auth chain A residue 167",
+  "center": [
+    22.714200000000005,
+    -25.262700000000002,
+    -3.283
+  ],
+  "size_angstrom": [
+    18.0,
+    18.0,
+    18.0
+  ],
+  "center_basis": "mean of crystal reference ligand heavy-atom coordinates",
+  "receptor_policy": "chain A ATOM records; Meeko alternate-location A; waters/PO4/BME/JZ4 removed for this dry rigid-receptor teaching protocol"
+}

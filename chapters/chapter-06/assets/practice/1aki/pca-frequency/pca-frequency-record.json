@@ -1,0 +1,11 @@
+{
+  "data_status": "derived_from_independent_real_MD_projections",
+  "input_sha256": "f469fef4e48b8843339c59a1c45891b1d2ca2bde44c9d1e46b5db8551ae22fc1",
+  "frames": 101,
+  "bins": 8,
+  "temperature_K": 300.0,
+  "gas_constant_kJ_mol_K": 0.008314462618,
+  "formula": "-RT ln(count/max_count)",
+  "empty_bins": "unsampled, not zero energy; no pseudocount or interpolation",
+  "note": "finite-frame frequency exercise; this plot is independently recomputed, not the GROMACS XPM color map"
+}

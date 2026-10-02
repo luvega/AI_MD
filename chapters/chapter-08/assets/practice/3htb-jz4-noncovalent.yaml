@@ -1,0 +1,15 @@
+# Public noncovalent input exercise; no Boltz inference result is supplied.
+# Protein: RCSB PDB 3HTB chain A SEQRES, T4 lysozyme L99A/M102Q.
+# SEQRES has 164 aa; deposited crystal ATOM coordinates omit terminal LEU A164.
+# Ligand: RCSB CCD JZ4, neutral 2-propylphenol.
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: MNIFEMLRIDEGLRLKIYKDTEGYYTIGIGHLLTKSPDLNAAKSELDKAIGRNCNGVITKDEAEKLFNQDVDAAVRGILRNAKLKPVYDSLDAVRRCAAINQVFQMGETGVAGFTNSLRMLQQKRWDEAAVNLAKSRWYNQTPDRAKRVITTFRTGTWDAYKNL
+  - ligand:
+      id: LIG
+      smiles: 'CCCc1ccccc1O'
+properties:
+  - affinity:
+      binder: LIG

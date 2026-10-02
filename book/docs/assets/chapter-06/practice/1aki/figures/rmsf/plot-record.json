@@ -1,0 +1,23 @@
+[
+  {
+    "input": "rmsf-ca.xvg",
+    "sha256": "f383963b9e1da9d01343fb05eaa9354601e030ea54d09e7f26b87d02a93e37bb",
+    "original_rows": 129,
+    "plotted_rows": 129,
+    "labels": {
+      "title": "RMS fluctuation",
+      "xaxis": "Residue",
+      "yaxis": "(nm)"
+    },
+    "display_labels": {
+      "title": "RMS fluctuation",
+      "xaxis": "Residue",
+      "yaxis": "(nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  }
+]

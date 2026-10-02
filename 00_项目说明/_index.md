@@ -11,6 +11,9 @@
 | [知识库使用说明.md](知识库使用说明.md) | project-doc | 说明如何使用索引、方法笔记、文献笔记和本地 Skills。 | `CLAUDE.md` |  |
 | [插件与Skills调用说明.md](插件与Skills调用说明.md) | project-doc | 说明本项目如何自动选择 Zotero、Chrome、Life Science Research、全局 Codex skills 和历史项目规则。 | `CLAUDE.md`, `C:\Users\xsui\.codex\skills`, `.claude/skills/` |  |
 | [Codex技能调用矩阵.md](Codex技能调用矩阵.md) | project-doc | 说明 P26 后全局 Codex skills 在教材正文、文献、图示和数据分析流程中的调用规则。 | `C:\Users\xsui\.codex\skills`, `CLAUDE.md` |  |
+| [教材大纲与正文生成提示词.md](教材大纲与正文生成提示词.md) | project-doc | 汇总生成全书大纲、本章大纲、小节任务卡、章节正文和证据边界审核的可复用提示词。 | `AGENTs.md`, `CLAUDE.md`, `大纲.md`, `chapters/` |  |
+| [在线书完善计划-2026-10-02.md](在线书完善计划-2026-10-02.md) | project-doc | 固定 12 章基础任务、对照练习、素材保留和公开资源验收要求。 | `大纲.md`, `chapters/` |  |
+| [在线书完善实施记录-2026-10-02.md](在线书完善实施记录-2026-10-02.md) | project-doc | 分别记录正文、资源、实跑、构建及线上核对，列明剩余计算。 | `chapters/public_assets.tsv`, `book/` |  |
 | [Obsidian入口.md](Obsidian入口.md) | project-doc | Obsidian 浏览入口，串联章节、方法、文献、实验、附件和模板。 | `CLAUDE.md` |  |
 | [Obsidian模板/_index.md](Obsidian模板/_index.md) | project-doc | Obsidian 手动复制模板索引，覆盖方法卡、文献笔记、实验记录和章节精读。 | `CLAUDE.md` |  |
 | [Wiki与Book分轨规则.md](Wiki与Book分轨规则.md) | project-doc | 明确 Wiki 维护默认不更新在线书，Book 写作和发布必须由用户显式触发。 | `CLAUDE.md`, `AGENTs.md` |  |

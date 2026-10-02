@@ -1,322 +1,296 @@
 # 第 4 章 分子对接与虚拟筛选
 
-## 本章导读
+本章把第 3 章的输入真正运行起来。先用 CPU Vina 对 JZ4 重对接，检查它能否回到晶体口袋；再运行 JZ4、IPH、BNZ 三个分子；最后故意偏移盒子，观察搜索区域怎样改变结果。
 
-上一章把结构来源、结合位点和体系准备讲清之后，研究者会进入一个更具体的选择问题：哪些小分子、肽段、蛋白、核酸片段或靶点组合值得进入下一步复核？分子对接和虚拟筛选的任务，是在有限计算资源下生成可检查的候选姿态和排序线索。
+分子对接生成候选姿势并按软件评分排序。虚拟筛选把这一过程扩展到分子库或靶点集合。初学时先保留每个分子的输入、参数、日志和姿势，再谈扩大规模。
 
-本章不把对接写成“自动发现药物”。一个 docking score 只能说明模型在给定输入和参数下给出的排序；一个 top pose 只是结构假设；一个 shortlist 只是后续复核队列。读者需要学会保存 receptor、ligand、box、software、score、pose QC、filter_reason 和 next_step。
+搜索空间由盒子和允许改变的自由度共同确定。Vina 尝试配体的平移、转动及可旋转键变化，产生不同 pose，再由评分函数比较；本章刚性受体的原子坐标在搜索时保持不变。相同协议下，Vina score 越低、越负，排序越靠前。下面通过晶体参考和偏移盒子，检查这种排序对应的实际姿势。
 
-第 5 章会把本章 shortlist 交给分子动力学和构象稳定性复核。第 7 章再讨论亲和力预测、自由能或模型评分。因此，本章结束时应留下可追溯候选表，而不是只留下一个“分数最低”的分子名称。
+| 本章输出 | 核对方式 |
+|---|---|
+| 对接 PDBQT 和 JZ4 SDF | 打开姿势，确认在预定区域 |
+| 日志和运行参数 | 查看版本、盒子、seed、CPU 与完成状态 |
+| 三分子 TSV | 每个输入都有状态，失败不被遗漏 |
+| 重对接 RMSD | 用晶体参考、同一坐标系和对应重原子计算 |
 
-## 学习目标
+## 4.1 传统对接工具：Vina、HDOCK、HADDOCK、LightDock
 
-完成本章后，读者应能够：
+Vina 常用于蛋白–小分子对接；HDOCK、HADDOCK 和 LightDock 常用于大分子对接任务，输入和约束方式各不相同。选择前先确认分子类型、搜索范围以及是否有实验约束。
 
-- 区分传统 docking、AI docking、复合物结构预测和虚拟筛选。
-- 为蛋白-小分子、蛋白-蛋白、蛋白-核酸和蛋白-金属体系建立输入记录。
-- 建立 ligand library 或 target panel manifest，保留失败项和处理原因。
-- 说明正向筛选、反向筛选和互作筛选的起点、输出和验证路径。
-- 把 docking score、pose、rescore 和 shortlist 写成有边界的候选证据。
+本章基础实跑使用 [AutoDock Vina 1.2.7 官方发布版](https://github.com/ccsb-scripps/AutoDock-Vina/releases/tag/v1.2.7)，CPU、刚性受体与 Vina 默认评分。它与使用 AutoDock4 maps 的设置是不同协议。本书没有在这次运行中生成 AutoDock4 maps。
 
-## 知识图谱入口
+| 任务 | 本章主线或阅读入口 | 起步前的重点 |
+|---|---|---|
+| 蛋白–小分子 | CPU Vina | PDBQT、盒子、扭转与评分协议 |
+| 蛋白–蛋白 | HDOCK / HADDOCK / LightDock | 两个分子、界面、约束、柔性 |
+| 蛋白–核酸 | 有相应支持的方法 | 核酸类型、链、电荷和约束 |
+| 金属相关位点 | 有相应参数和几何支持的方法 | 配位和评分模型，不能只看文件能否读入 |
 
-![图4.1 对接与虚拟筛选证据链](../assets/chapter-04/imagegen/chapter-04-docking-evidence-map.png)
+软件安装成功后先运行小例子。官方示例和本书实跑记录提供不同用途：官方示例帮助核对工具，3HTB 帮助理解同一组输入的处理和比较。
 
-**图4.1 对接与虚拟筛选证据链。** 本图是第 4 章专属教学图，用来说明 receptor、ligand library、box、工具参数、score 表、pose QC、filter_reason 和后续验证之间的证据关系。图中不包含真实受体、配体或评分值。
+## 4.2 AI 对接工具：DiffDock、SurfDock 与复合物结构预测
 
-```mermaid
-flowchart LR
-    task["任务类型"] --> receptor["receptor 来源"]
-    task --> library["ligand 或 target library"]
-    receptor --> box["box 或 interface 依据"]
-    library --> tool["工具与参数"]
-    box --> tool
-    tool --> score["score 与 pose 输出"]
-    score --> qc{"pose QC 通过?"}
-    qc -->|通过| shortlist["shortlist"]
-    qc -->|未通过| revise["重做输入或淘汰"]
-    shortlist --> next["MD / 自由能 / 亲和力预测 / 实验"]
-    revise --> receptor
+AI 方法可能生成姿势、为姿势排序，也可能直接预测多组分复合物。先分清任务，再比较结果。DiffDock 和 SurfDock 属于蛋白–小分子姿势预测方法；AlphaFold 3 等面向多类生物分子相互作用结构预测。
+
+| 任务 | 输入和输出的重点 | 比较时保存什么 |
+|---|---|---|
+| 姿势生成 | 受体/配体输入到候选坐标 | 相同化学对象、结构与预测坐标 |
+| 姿势排序 | 多个姿势到评分或置信字段 | 字段定义、方向、候选数量 |
+| 多组分结构预测 | 序列/化学组分/约束到复合物 | 全部输入、版本、随机设置与模型指标 |
+| 虚拟筛选评估 | 分子集合与标签到排序指标 | 测试集合、划分、已知活性、评价规则 |
+
+姿势 RMSD 与筛选富集评价不同：前者比较坐标，后者检查真实标签在排序中的分布。Gu 等的 AI docking benchmark 用于学习这种评价区别，SurfDock 原始论文用于了解方法输入和表面信息的作用。阅读时记录测试对象与划分，不把一个总体指标直接填到自己的靶点上。
+
+## 4.3 蛋白–小分子对接
+
+### 第一步：准备程序与输入
+
+确认第 3 章已生成 `inputs/3htb`。下载 [run_vina_case.py](../assets/chapter-04/code/run_vina_case.py) 到 `scripts`。从官方发布页下载 `vina_1.2.7_win.exe`，放到新建的 `tools` 目录，检查版本。Vina 程序直接运行，本练习不安装 CUDA。
+
+全书下载器将本章脚本保留在 `downloads/chapter-04/assets/code`。先复制到工作区；`inputs/3htb` 应是第 3 章生成的准备目录。若直接使用已验证输入，将下载目录中的 `chapter-03/assets/data/3htb` 完整复制为 `inputs/3htb`，不要把 PDBQT 零散放到 `inputs` 顶层。
+
+```powershell
+Copy-Item downloads/chapter-04/assets/code/run_vina_case.py scripts/
+Copy-Item downloads/chapter-04/assets/code/plot_redocking.py scripts/
 ```
 
-这张 Mermaid 图强调“记录依赖”，不表示真实软件已经运行。读者可以用它检查自己的实验记录是否缺少输入、参数、pose 文件或失败原因。
+```powershell
+New-Item -ItemType Directory -Force tools
+.\tools\vina_1.2.7_win.exe --version
+Get-ChildItem inputs/3htb/*.pdbqt
+```
 
-## 核心概念拆解
+你应看到一个 receptor 和三个 ligand PDBQT。网络或本机环境暂时不能运行时，可先下载本章真实输出阅读；完成基础实操仍需用相同输入运行一次。
 
-分子对接把三维结合问题拆成三个计算对象：搜索空间、候选姿态和评分函数。搜索空间决定分子在哪里尝试结合；候选姿态决定配体或复合物怎样放置；评分函数把候选姿态转成可排序信号。
+### 第二步：先只运行 JZ4
 
-| 概念 | 读者要问的问题 | 记录字段 |
-|:---|:---|:---|
-| receptor | 结构从哪里来，链、水、金属和辅因子怎样处理 | `receptor_path`、`chain_id`、`cofactor_rule` |
-| ligand | 分子状态是否合理，格式转换是否保留化学信息 | `ligand_id`、`source`、`protonation_state`、`prepared_path` |
-| box | 搜索空间来自共晶配体、口袋残基还是盲对接 | `center_x/y/z`、`size_x/y/z`、`box_basis` |
-| score | 是否在同一软件、同一受体、同一参数下排序 | `software_version`、`score`、`rank` |
-| pose | 是否进入合理口袋，有无明显冲突 | `pose_path`、`pose_qc_passed`、`interaction_summary` |
-| shortlist | 为什么进入下一步，为什么淘汰其他候选 | `filter_reason`、`next_step` |
+下面命令使用两条 CPU 线程、固定 seed 与搜索强度。`--out` 必须指向新目录，脚本会拒绝覆盖已有运行。
 
-对接流程中最常见的问题不是“软件不会跑”，而是运行后无法复查。缺少 manifest、box 依据、参数记录或 pose QC 时，筛选结果只能作为练习输出。
+```powershell
+.\.venv-win\Scripts\python.exe scripts/run_vina_case.py --vina tools/vina_1.2.7_win.exe --inputs inputs/3htb --out outputs/vina-jz4 --ligands JZ4 --cpu 2 --seed 20261002 --exhaustiveness 16
+```
 
-## 4.1 传统对接工具
+脚本从 `box.json` 读取中心和 18 Å 边长，要求 Vina 最多输出 9 个姿势。`exhaustiveness` 控制搜索工作量；`seed` 控制随机初始化；二者不替代正确的受体、配体和盒子。
 
-传统工具通常把构象搜索和评分分开处理。Vina 常用于蛋白-小分子口袋对接；HDOCK、HADDOCK 和 LightDock 更常用于蛋白-蛋白、蛋白-肽或较大的复合物对接。工具选择应从任务对象出发，而不是从教程里最先出现的软件出发。
+| 文件 | 意义与核对动作 |
+|---|---|
+| `JZ4.log` | 查看 Vina 版本、参数、评分表与错误 |
+| `JZ4_out.pdbqt` | 查看生成的姿势 |
+| `JZ4_poses.sdf` | 通过 Meeko 恢复化学连接，便于查看和计算 |
+| `JZ4_redocking_rmsd.json` | 各姿势与晶体参考的重原子 RMSD |
+| `run_parameters.json` | 保存实际命令、评分协议和盒子 |
+| `docking_results.tsv` | 本次分子的状态与首位评分 |
 
-| 工具 | 典型对象 | 关键输入 | 主要输出 | 解释边界 |
-|:---|:---|:---|:---|:---|
-| AutoDock Vina | 蛋白-小分子 | receptor PDBQT、ligand PDBQT、box | pose、score、log | score 适合同条件排序，不能写成实验 Kd |
-| HDOCK | 蛋白-蛋白、蛋白-核酸 | 两个结构，可选结合位点信息 | 复合物模型和排名 | 需要界面残基、链方向和构象复核 |
-| HADDOCK | 蛋白-蛋白、蛋白-肽、多体复合物 | 结构和约束信息 | cluster、score、模型 | 约束来源和 cluster 解释要单独记录 |
-| LightDock | 大分子柔性对接 | receptor、ligand、采样参数 | 多个候选模型 | 依赖采样、聚类和界面复核 |
+查看输出。发生失败时，先打开相应日志，不把空姿势或缺失分数填成零。
 
-Vina 分数常以 kcal/mol 形式输出，但它是加权评分，不是实验亲和力。HADDOCK 的 cluster size、RMSD、Z-score 和能量项也不能单独证明真实结合，只能帮助选择需要进一步检查的模型。
+```powershell
+Get-Content outputs/vina-jz4/JZ4.log -Tail 20
+Get-Content outputs/vina-jz4/JZ4_redocking_rmsd.json
+Get-Content outputs/vina-jz4/docking_results.tsv
+```
 
-## 4.2 AI 对接工具与复合物结构预测
+### 第三步：与晶体参考比较
 
-AI docking 把深度学习用于姿态生成、排序、置信度估计或复合物建模。DiffDock 代表扩散式姿态生成思路；SurfDock 将蛋白表面信息纳入扩散生成；部分全原子模型则更接近复合物结构预测，而不是传统 docking。
+本书记录中的 JZ4 首位 Vina score 为 −7.190 kcal/mol，晶体参考 RMSD 为 0.4946 Å。运行参数为 Vina 1.2.7、CPU 2、seed 20261002、exhaustiveness 16。完整记录见 [实际结果表](../assets/chapter-04/results/3htb-cpu-seed20261002/docking_results.tsv) 和 [RMSD 文件](../assets/chapter-04/results/3htb-cpu-seed20261002/JZ4_redocking_rmsd.json)。
 
-| 方法位置 | 代表工具或来源 | 能帮助什么 | 仍要记录什么 |
-|:---|:---|:---|:---|
-| 扩散式姿态生成 | DiffDock | 生成小分子候选姿态 | 输入结构、配体状态、采样次数、置信度 |
-| 表面信息辅助生成 | SurfDock | 将蛋白表面特征纳入 ligand pose 生成 | 模型版本、口袋定义、pose 复核 |
-| 复合物结构预测 | AlphaFold 3、RoseTTAFold All-Atom、Chai-1、Boltz 系列 | 同时建模蛋白、核酸、小分子或多组分体系 | 链定义、MSA、输入格式、局部置信度 |
-| AI 重打分或筛选 | ML scoring、benchmark 工具 | 对候选 pose 或 library 做排序补充 | 训练适用域、数据泄漏风险、外推边界 |
+这里的 RMSD 是对对应重原子计算平方距离平均后开方，处理分子对称对应关系，保持原晶体坐标，不对配体再次拟合。若把配体单独叠合后再计算，就会丢失位置偏移。Vina 日志中的 `rmsd l.b.`/`rmsd u.b.` 则比较各输出姿势与 Vina 的首位姿势，不能当作晶体参考 RMSD。
 
-AI 工具并不自动消除输入错误。配体质子化错误、口袋定义过宽、金属配位没有处理、链 ID 混乱或模板污染，都会让模型输出看起来精致但证据不足。
+![晶体 JZ4 与 Vina 首位姿势的坐标叠加](../assets/chapter-04/figures/jz4_redocking_overlay.png)
 
-## 4.3 蛋白-小分子对接
+图由真实 SDF 坐标独立绘制，灰色为晶体参考，蓝色为 Vina 首位姿势，氧原子为红色；没有做配体拟合。将 [plot_redocking.py](../assets/chapter-04/code/plot_redocking.py) 放入 `scripts` 后，可用自己的 JZ4 输出生成同样的坐标图和三分子结构图。
 
-蛋白-小分子对接最容易出错在 ligand 状态和 box。一个分子在不同 pH、互变异构、手性或电荷假设下可能产生不同 pose；一个 box 若没有覆盖真实口袋，分数再低也没有解释价值。
+```powershell
+.\.venv-win\Scripts\python.exe scripts/plot_redocking.py --inputs inputs/3htb --results outputs/vina-jz4 --out outputs/vina-figures
+```
 
-| 检查对象 | 必须记录 | 常见失败 |
-|:---|:---|:---|
-| receptor | 来源、链、缺失区域、水/金属/辅因子、质子化 | 口袋附近缺失残基未处理 |
-| ligand | 数据库 ID、SMILES/SDF、质子化、手性、电荷、3D 构象 | 键级或电荷在格式转换中丢失 |
-| box | center、size、依据、单位 | 只写“默认”，无法复查 |
-| pose | 口袋位置、空间冲突、关键相互作用 | pose 穿出蛋白或构象扭曲 |
+在 PyMOL 中载入受体、晶体参考和 SDF，对照查看。不要执行配体 `align`。
 
-稳健写法是“该候选 pose 提供进入复核的结构线索”。在没有实验测定、自由能或充分动力学复核前，不写“该分子强结合靶点”。
+```pymol
+load inputs/3htb/3htb_receptor.pdb, receptor
+load inputs/3htb/jz4_reference.sdf, crystal_jz4
+load outputs/vina-jz4/JZ4_poses.sdf, docked_jz4
+hide everything
+show cartoon, receptor
+show sticks, crystal_jz4 or docked_jz4
+color gray60, crystal_jz4
+color marine, docked_jz4
+set all_states, off
+frame 1
+zoom crystal_jz4, 8
+```
 
-## 4.4 蛋白-蛋白对接
+### 第四步：偏移盒子做对照
 
-蛋白-蛋白对接关注界面，而不是一个小分子口袋。输入通常包含两个蛋白结构、链方向、可能界面残基、构象状态和约束信息。HDOCK、HADDOCK、LightDock 或复合物预测模型都可以给出候选界面，但都需要结构复核。
+先预测盒子中心向 x 方向移动 20 Å 后，配体是否还能回到晶体口袋。保持其他设置不变，运行到新目录。
 
-| 复核点 | 允许解释 | 不允许直接推出 |
-|:---|:---|:---|
-| 界面残基接触 | 可能互作界面 | 真实 PPI 已确认 |
-| 电荷和疏水互补 | 与互作假设一致 | 结合强度已知 |
-| cluster 或排名 | 模型收敛线索 | 功能协同已经发生 |
-| 约束满足程度 | 输入假设被模型采纳 | 约束来源本身正确 |
+```powershell
+.\.venv-win\Scripts\python.exe scripts/run_vina_case.py --vina tools/vina_1.2.7_win.exe --inputs inputs/3htb --out outputs/vina-jz4-shift --ligands JZ4 --cpu 2 --seed 20261002 --exhaustiveness 16 --center-shift 20 0 0
+```
 
-如果界面与已知功能位点、突变位点或保守表面没有关系，应标记为 `review`，而不是直接进入实验队列。
+本书已实际运行这组对照。中心偏移后，晶体区域不在原先的搜索范围内，首位姿势和晶体参考明显分离。
 
-## 4.5 蛋白-核酸对接
+| 协议 | 首位 score，kcal/mol | 晶体参考重原子 RMSD，Å |
+|---|---:|---:|
+| 原盒子 | −7.190 | 0.4946 |
+| x 方向偏移 20 Å | −2.266 | 12.0510 |
 
-蛋白-核酸体系要同时处理序列、方向、碱基构象、糖磷酸骨架和电荷环境。核酸不是“更长的配体”，它的柔性、电荷和构象约束会改变对接解释。
+[对照 RMSD](../assets/chapter-04/results/3htb-shift-x20-seed20261002/JZ4_redocking_rmsd.json) 保留相同的比较定义。打开偏移 pose，写出它到了蛋白什么位置，再解释为何延长搜索不能替代纠正盒子。不要通过移动输出坐标使其看起来回到原口袋。
 
-| 对象 | 记录重点 | 复核重点 |
-|:---|:---|:---|
-| DNA/RNA 序列 | 序列、链方向、修饰、结构来源 | 是否与研究问题匹配 |
-| 蛋白结构 | DNA/RNA 结合域、缺失环区、质子化 | 是否保留关键正电荷区域 |
-| 复合物 pose | 沟槽结合、盐桥、碱基接触 | 是否有严重空间冲突 |
-| 后续验证 | 突变、EMSA、ChIP、结构实验 | docking 不能替代结合实验 |
+## 4.4 蛋白–蛋白对接
 
-正文只能写“该构象可作为蛋白-核酸相互作用假设”。若没有实验或高置信结构证据，不写成序列特异性结合已经成立。
+蛋白–蛋白任务需要两条或多条分子链以及界面搜索设置。初学者先核对链、完整性、已知界面和柔性区域；不能把整个蛋白转换成小分子扭转树后套用本章 Vina 命令。
 
-## 4.6 蛋白-金属离子对接
+| 准备问题 | 学生应保存的内容 |
+|---|---|
+| 参与分子是什么 | 名称、序列、所选链、结构与构象状态 |
+| 有无实验界面信息 | 残基编号、突变/交联等来源，约束写法 |
+| 是否做全局搜索 | 搜索范围与对称性设置 |
+| 如何复核界面 | 碰撞、埋藏区域、关键接触、聚类与模型评分 |
 
-金属离子体系不能只靠一般 docking score 判断。价态、配位数、配位残基、距离、角度、水分子和参数化方式都会影响结果。素材中提到金属蛋白相关 AI 对接工具时，本章只作为任务类型提示。
+基础阅读任务选一项公开方法示例，标出两条分子链和界面约束；比较“有界面约束”与“无界面约束”各自搜索什么。运行大分子任务时从 HDOCK、HADDOCK 或 LightDock 官方示例开始。第 9–10 章将从设计方向继续处理骨架和界面。
 
-| 问题 | 为什么关键 | 正文边界 |
-|:---|:---|:---|
-| 金属价态 | 决定配位和电荷环境 | 未确认价态时标记 `review` |
-| 配位几何 | 影响 pose 是否化学合理 | 只看 score 不够 |
-| 水和辅因子 | 可能参与真实结合 | 删除/保留规则要写清 |
-| 参数来源 | 不同力场或工具处理不同 | 需要后续模拟或实验复核 |
+## 4.5 蛋白–核酸对接
 
-稳健表达是“该结果需要配位化学、参数化和后续计算复核”。不要把含金属体系的低分 pose 写成稳定结合已经证明。
+核酸有带电骨架、碱基配对和不同构象状态。先确认 DNA/RNA、单链/双链、序列、链 ID、完整性和实验条件，再选择支持该对象的方法。
+
+用第 2 章的 1BNA 观察核酸链与碱基，填写“序列—链—残基范围”记录。若要建立蛋白–核酸体系，还需加入实际蛋白和位点来源。保持已知配对或结构约束，说明离子与水的处理；只有核酸文件无法完成蛋白–核酸对接。
+
+| 输入项 | 常见错误 |
+|---|---|
+| 核酸链和残基编号 | 界面约束指向另一条链 |
+| 序列与结构范围 | 缺失片段被当成完整结构 |
+| 离子条件与参数 | 用小分子默认处理忽略骨架状态 |
+| 结果检查 | 只看模型 score，不检查穿插和界面几何 |
+
+## 4.6 蛋白–金属离子对接
+
+金属可能维持位点，也可能直接参与配体配位。普通非键相互作用评分未必适合具体配位化学，必须检查软件支持、价态假设、配位数和几何要求。
+
+本章 3HTB 基础体系不含必需位点金属，因此不演示“添加一个金属原子后直接 Vina”的操作。选学时先选择有实验结构的金属位点，标出金属和配位原子，将方法支持和参数来源写入第 3 章组分清单。
+
+| 位点检查 | 记录内容 |
+|---|---|
+| 金属身份 | 元素、价态假设、结构来源 |
+| 配位几何 | 配位残基/配体原子、距离和几何类型 |
+| 方法支持 | 专用约束、参数或模型如何表示 |
+| 结果复核 | 是否破坏原位点，是否出现异常穿插 |
+
+无法说明方法如何处理配位时，先停在输入分析，不凭一个 score 评价配体。
 
 ## 4.7 小分子数据库建立
 
-小分子库首先是一张 manifest，而不是一堆 SDF 或 PDBQT 文件。manifest 让读者知道每个分子从哪里来、以什么状态进入对接、哪些分子失败、失败原因是什么。
+小分子库的每一行需要指向一个明确化学对象。本章使用三个官方 CCD 组分，减少检索与制备负担，同时保留分子身份。
 
-| 字段 | 记录内容 | 失败时处理 |
-|:---|:---|:---|
-| `ligand_id` | 库内唯一 ID | 不允许重复 |
-| `source` | ZINC、ChEMBL、自建库、文献或用户输入 | 来源不明标记 `review` |
-| `canonical_smiles` | 标准化结构 | 解析失败保留原始输入 |
-| `protonation_state` | pH 假设、工具、电荷 | 不确定时不进入精筛 |
-| `prepared_path` | SDF/MOL2/PDBQT 输出 | 转换失败写入 fail 表 |
-| `qc_status` | pass/review/fail | 不静默删除失败分子 |
+![三种 CCD 分子的独立二维结构图](../assets/chapter-04/figures/three_ccd_ligands.svg)
 
-一个好的 library 准备流程应先小批量 dry-run。若 3 个分子都无法解释格式转换、质子化和输出路径，就不应直接扩大到百万级筛选。
+结构图来自本书下载的 CCD SDF，经 RDKit 独立绘制。三分子只用于流程练习，IPH 和 BNZ 没有在本书中被定义为实验阴性对照。
+
+| CCD ID | 化学名称 | 重原子数 | 本次形式电荷 |
+|---|---|---:|---:|
+| [JZ4](https://www.rcsb.org/ligand/JZ4) | 2-propylphenol | 10 | 0 |
+| [IPH](https://www.rcsb.org/ligand/IPH) | phenol | 7 | 0 |
+| [BNZ](https://www.rcsb.org/ligand/BNZ) | benzene | 6 | 0 |
+
+同名化合物的盐形式、质子化、互变异构和立体异构可能不同。分子库扩大时，为这些状态分配明确 ID，记录原始 ID、转换规则和失败信息。去重依据化学结构与状态，不能只按文件名删除。
+
+本案例的 [ligand_manifest.tsv](../assets/chapter-03/data/3htb/ligand_manifest.tsv) 将来源 SDF、PDBQT、原子数、形式电荷和准备状态对应起来。检查三行均有输出后再批量运行。
 
 ## 4.8 正向虚拟筛选
 
-正向虚拟筛选从一个靶点或一个口袋出发，在 ligand library 中找候选分子。它适合回答“哪些分子值得围绕这个靶点继续检查”，不适合直接回答“哪个分子已经有效”。
+正向筛选固定一个受体，比较多个分子。本章批量入口与单分子相同，省略 `--ligands` 便运行三项。先预测哪项耗时可能更长，再执行。
 
-![图4.2 receptor-ligand-box-score-filter 漏斗](../assets/chapter-04/imagegen/chapter-04-docking-funnel.png)
+```powershell
+.\.venv-win\Scripts\python.exe scripts/run_vina_case.py --vina tools/vina_1.2.7_win.exe --inputs inputs/3htb --out outputs/vina-three --cpu 2 --seed 20261002 --exhaustiveness 16
+Get-Content outputs/vina-three/docking_results.tsv
+```
 
-**图4.2 receptor-ligand-box-score-filter 漏斗。** 本图展示从 receptor、ligand library、box 到 score、pose QC 和 shortlist 的记录顺序。图中没有真实受体、配体或评分值。
+本书实际结果如下。时间来自同一台电脑的一次运行，仅用于认识小批次的记录方式。
 
-| 阶段 | 输出 | 判断 |
-|:---|:---|:---|
-| 准备 receptor | receptor manifest | 来源和口袋是否可追溯 |
-| 准备 ligand library | ligand manifest | 分子状态和失败项是否记录 |
-| 定义 box | box 表 | 依据是否能解释 |
-| 运行对接 | pose、score、log | 参数是否可复查 |
-| 过滤候选 | shortlist | filter_reason 是否具体 |
+| 分子 | 状态 | 首位 score，kcal/mol | 运行时间，s |
+|---|---|---:|---:|
+| JZ4 | completed | −7.190 | 9.941 |
+| IPH | completed | −5.943 | 6.189 |
+| BNZ | completed | −5.662 | 3.804 |
 
-正向筛选的候选可以进入 MD、MM/GBSA、FEP、Boltz2 或实验测定。进入下一步的理由不能只有“score 更低”，还要有 pose 合理性和化学可解释性。
+三个分子都生成了输出，程序记录中的 `pose_review` 仍等待人工查看。先检查各 pose 的位置、碰撞和化学合理性，再填写复核表。JZ4 有晶体参考，另外两项没有本书采用的对应参考位置。
+
+| 分子 | 运行状态 | 姿势检查 | 后续动作 |
+|---|---|---|---|
+| JZ4 | 核对日志 | 与晶体参考和口袋对照 | 保留为重对接流程检查 |
+| IPH | 核对日志 | 查看姿势、位置与接触 | 保存观察，不赋予实验标签 |
+| BNZ | 核对日志 | 查看姿势、位置与接触 | 保存观察，不赋予实验标签 |
+
+扩展到真实筛选库时，先补齐结构状态、分子可获得性和已知参考集合。分子大小不同会影响评分表现，这个三分子教学表不能单独建立构效关系。
 
 ## 4.9 反向虚拟筛选
 
-反向虚拟筛选从一个分子、天然产物或候选结构出发，去查找可能靶点。它的输出是 target shortlist，而不是直接的作用机制。靶点库来源、蛋白结构质量和疾病相关性都要单独记录。
+反向筛选固定一个分子，比较多个靶点。每个受体需要独立结构来源、口袋、准备协议和验证条件。复制同一个盒子到不同蛋白，通常会搜索错误位置。
 
-| 起点 | 输出 | 还需要补什么 |
-|:---|:---|:---|
-| 一个小分子 | 候选靶点列表 | 靶点表达、疾病关联、实验验证 |
-| 一个天然产物 | 可能互作蛋白 | 结构确认、ADMET、靶点参与证据 |
-| 一个蛋白面板 | 排名和 pose | panel 覆盖范围和失败靶点 |
+| 受体 | 独立建立什么 | 如何形成候选队列 |
+|---|---|---|
+| 靶点 A | 结构、组分、位点、盒子、参考 | 按该受体验证和复核 |
+| 靶点 B | 同上，不能沿用 A 的坐标 | 按该受体验证和复核 |
+| 靶点 C | 同上 | 与疾病和功能证据一起判断优先级 |
 
-反向筛选特别容易被写成“找到了靶点”。更稳妥的写法是“给出候选靶点列表，后续需要结合靶点可成药性、表达证据和实验验证”。
+基础任务是为两个公开靶点填这张输入表，不要求立即批量运行。若已有活性与非活性参考，可分别评价每个受体的排序表现；跨靶点原始 score 受口袋和协议影响，不应直接解释成选择性。第 12 章继续把候选靶点接到研究路线。
 
 ## 4.10 UniDock 与大规模批量筛选
 
-UniDock 适合放在批量筛选主线中讲，因为原始素材提供了 receptor、ligand directory、box 参数、search mode、输出目录和分析脚本的线索。它不是唯一推荐工具；它的教学价值在于让读者理解大规模筛选需要怎样组织输入、日志、失败项和结果表。
+UniDock 面向 GPU 批量任务。由 CPU 小流程扩展时，先确认三件事：输入制备可以稳定完成，每个任务有状态和日志，失败条目能够单独恢复。工具入口和硬件要求以 [Uni-Dock 官方仓库](https://github.com/dptech-corp/Uni-Dock) 为准。
 
-原始补充材料中出现 MSA 数据库、E-value、UniDock-Pro 命令和 GPU 环境经验。正文只把这些内容作为课程环境背景，不写成通用性能 benchmark。
+| 从小批次扩大前的检查 | 具体做法 |
+|---|---|
+| 库准备 | 固定 ID、状态和转换规则；保留失败清单 |
+| 资源估计 | 用小批次测时间、内存、输出大小 |
+| 批次组织 | 按批次分目录；不删除已有完整结果 |
+| 恢复运行 | 检查输出完整性，重跑失败/漏项 |
+| 结果管理 | pose、score、协议和筛除理由关联 |
 
-| 记录对象 | 示例字段 | 为什么要保存 |
-|:---|:---|:---|
-| 输入目录 | `receptor_path`、`ligand_dir`、`box.tsv` | 让别人知道筛选从哪里开始 |
-| 运行参数 | `search_mode`、`center`、`size`、`batch_id` | 避免不同批次混在一起 |
-| 日志 | `log_path`、失败目录 | 判断是否有静默失败 |
-| 结果表 | `score`、`rank`、`pose_path` | 支持同条件排序 |
-| 复核表 | `pose_qc_passed`、`filter_reason` | 决定是否进入 shortlist |
+本章没有运行 UniDock，也没有给出显卡吞吐量承诺。第 11 章将用已实跑的 CPU 入口练习批处理、漏输出检查与失败恢复，再考虑替换计算后端。
 
-### 第 4 章 dry-run 资源
+1IEP 是官方进阶练习。按 [Vina 基础教程](https://autodock-vina.readthedocs.io/en/latest/docking_basic.html) 下载 [basic_docking 官方示例](https://github.com/ccsb-scripps/AutoDock-Vina/tree/develop/example/basic_docking)，其中包含 c-Abl 受体与 imatinib 配体的准备输入。先核对 `1iep_receptorH.pdb` 和 `1iep_ligand.sdf` 的用途，再按文档准备和运行。
 
-本章配套 dry-run 脚本位于 `../assets/chapter-04/code/chapter-04-unidock-dry-run.sh`。它只生成教学用记录表，不调用 UniDock，也不产生真实 docking score。
+| 官方示例参数 | 数值 |
+|---|---:|
+| center_x / y / z | 15.190 / 53.903 / 16.917 Å |
+| size_x / y / z | 20 / 20 / 20 Å |
+| 基础任务 | 使用官方示例输入完成一次运行，保存版本与协议 |
+| 对照任务 | 比较不同搜索强度；查看姿势，不只比较评分 |
 
-```bash
-bash ../assets/chapter-04/code/chapter-04-unidock-dry-run.sh
-```
+本书未执行这一进阶案例。教程与当前 Meeko 版本的读取入口有差异时，先按第 3 章记录处理，避免混用不同版本命令和准备文件。
 
-运行后会生成 `inputs/box.tsv`、`inputs/ligand_library_manifest.tsv`、`outputs/docking_manifest.tsv`、`outputs/top_pose_qc.tsv` 和 `logs/unidock-dry-run.log`。这些文件用于训练记录意识，不能写成真实筛选结果。
+## 4.11 对接 score、pose 与 shortlist 边界
 
-![图4.3 UniDock 类 dry-run 操作截图](../assets/chapter-04/screenshots/chapter-04-unidock-dry-run.png)
+score 是指定函数产生的数值，pose 是对应坐标，shortlist 是经过检查后进入下一步的候选表。三者要关联保存。只剩 score 列时，无法检查位置、碰撞、化学状态和失败原因。
 
-**图4.3 UniDock 类 dry-run 操作截图。** 截图展示第 4 章 dry-run 的命令、日志和 manifest 字段。`mock score` 只是占位符，进入 shortlist 前必须补齐 pose 可视复核和 filter_reason。
+| 要检查的对象 | 本章记录位置 | 通过后做什么 |
+|---|---|---|
+| 输入与参数 | 第 3 章清单、run_parameters.json | 固定协议后才比较 |
+| 运行是否完成 | 日志、状态、输出文件 | 失败条目修复后重跑 |
+| 姿势 | PDBQT/SDF、坐标图和人工复核 | 保留可解释位置，说明筛除理由 |
+| 参考比较 | JZ4_redocking_rmsd.json | 评估本协议对参考的恢复情况 |
+| 候选队列 | 复核表、下一步任务 | 接到模拟、其他计算或实验设计 |
 
-| 文件 | 用途 | 边界 |
-|:---|:---|:---|
-| `../assets/chapter-04/code/chapter-04-unidock-dry-run.sh` | 生成教学 dry-run 表 | 不调用真实 docking 软件 |
-| `../assets/chapter-04/code/chapter-04-docking_manifest_example.tsv` | 展示结果表字段 | `mock` 分数不能用于候选判断 |
-| `../assets/chapter-04/asset_manifest.tsv` | 管理本章图、截图和代码资源 | 记录资源状态，不是实验记录 |
+基础交付是一次 JZ4 重对接和一次三分子批次。对照交付是偏移盒子后的 pose、RMSD 和解释。保留原始输出，若结果不同，先比较版本、哈希、参数和处理步骤，再考虑随机性与平台差异。
 
-## 4.11 Score、pose 与 shortlist 边界
+## 本章方法适用范围与结果解释
 
-score、pose 和 shortlist 是三类证据。score 是模型输出；pose 是结构假设；shortlist 是人工定义的后续队列。把三者混写，会让读者误以为一个低分数已经证明结合。
+本案例是干燥刚性受体、中性 CCD 配体、一个 seed 的 CPU Vina 计算。重对接检验该协议恢复已知参考姿势的表现，不能单独评价新分子筛选能力。Vina score 是模型评分，即使以 kcal/mol 标注，也不是实测 Kd、Ki 或 IC50；不同方法或靶点的分数不能直接互换。合理 pose 与 shortlist 提供待验证对象，结合、选择性、机制与药效仍需相应实验。第 5 章学习动力学流程，第 7 章学习自由能，第 8 章学习 AI 亲和力；它们各有输入和解释条件。
 
-| 对象 | 可以支持 | 不能支持 | 推荐写法 |
-|:---|:---|:---|:---|
-| docking score | 同一流程下的候选排序 | 实验亲和力、活性、机制 | “排序更靠前” |
-| top pose | 可能结合构象和相互作用假设 | 真实结合模式已经确认 | “提供可能构象” |
-| rescore | 对候选排序提供补充 | 自动纠正全部输入错误 | “作为补充排序信号” |
-| shortlist | 下一步复核或实验队列 | 已发现命中物 | “进入后续验证” |
-| AI confidence | 模型内部质量信号 | 跨模型绝对结论 | “在该模型下置信度较高” |
-
-一个低 score 分子如果 pose 穿出口袋、配体构象扭曲、金属配位错误或关键相互作用无法解释，应被标记为 `fail` 或 `review`。相反，一个分数不是最低但 pose 合理、化学状态清楚、后续可验证的候选，可以进入复核队列。
-
-## 方法流程
-
-本章流程从任务定义开始，以候选交接结束。每一步都要写清输入、动作、输出和边界。
-
-| 步骤 | 输入 | 动作 | 输出 | QC/边界 |
-|:---:|:---|:---|:---|:---|
-| 1 | 研究问题 | 定义正向、反向、互作或批量筛选任务 | 任务记录 | 不把工具选择先于问题定义 |
-| 2 | receptor 或靶点库 | 处理链、水、金属、辅因子和质子化 | receptor manifest | 结构来源和口袋依据可追溯 |
-| 3 | ligand 或蛋白库 | 生成结构、格式转换、状态检查 | library manifest | 失败样本保留原因 |
-| 4 | 口袋或界面 | 定义 box、约束或参考配体 | box/constraint 表 | 依据不能只写“默认” |
-| 5 | 工具和参数 | 运行 Vina、UniDock、HDOCK、DiffDock 或复合物预测 | pose、score、log | 软件版本和参数可复查 |
-| 6 | 结构复核 | 检查冲突、相互作用、构象和金属/水处理 | top pose QC 表 | 不只按 score 排名 |
-| 7 | 过滤与交接 | 合并 score、pose、化学规则和人工判断 | shortlist | 候选进入后续验证，不写成命中 |
-
-### 工具选择判断路径
-
-| 如果你的问题是 | 优先考虑 | 补充说明 |
-|:---|:---|:---|
-| 单靶点筛小分子库 | Vina、UniDock 或同类工具 | 先小批量 dry-run，再扩大库 |
-| GPU 批量筛选 | UniDock 类批处理 | batch、失败目录和日志必须保留 |
-| 蛋白-蛋白或蛋白-肽复合物 | HDOCK、HADDOCK、LightDock | 输出需要界面复核 |
-| 小分子姿态生成 | DiffDock、SurfDock 等 AI docking | 记录模型版本、采样和置信度 |
-| 多组分结构假设 | AlphaFold 3、RFAA、Chai-1、Boltz 系列 | 输入假设和局部置信度比总分更关键 |
-
-## 实验/练习入口
-
-本章练习目标不是找到“命中分子”，而是把一次筛选写成可以交接的记录。建议从 1 个 receptor 和 3 个 ligands 开始。
-
-1. 写出 receptor 来源、链 ID、水/金属/辅因子处理和 box 依据。
-2. 建立 ligand manifest，记录来源、结构、质子化、构象和格式转换状态。
-3. 运行第 4 章 dry-run 脚本或等价的小批量流程。
-4. 对 top pose 做人工复核，记录空间冲突、关键相互作用和构象合理性。
-5. 把一个候选转写成保守 claim，并列出 MD、亲和力预测或实验验证需求。
-
-练习完成后，检查记录是否包含 `ligand_id`、`score`、`pose_path`、`pose_qc_passed`、`filter_reason` 和 `next_step`。缺少这些字段时，shortlist 不应进入后续研究结论。
-
-## 关键文献与命名锚点
-
-本章文献用于支撑流程设计、benchmark 视角和工具命名，不代表 AI_MD 已完成本地筛选。
+## 文献与方法来源
 
 <!-- refs:start -->
 
 - Du, L., Geng, C., Zeng, Q., Huang, T., Tang, J., Chu, Y. et al. Dockey: a modern integrated tool for large-scale molecular docking and virtual screening. Briefings in Bioinformatics 24, bbad047 (2023). https://doi.org/10.1093/bib/bbad047
 
-  **本文内容简介：** 本文介绍大规模对接与虚拟筛选的集成流程和结果管理。
-
 - Agrawal, P., Singh, H., Srivastava, H. K., Singh, S., Kishore, G. & Raghava, G. P. S. Benchmarking of different molecular docking methods for protein-peptide docking. BMC Bioinformatics 19, 426 (2019). https://doi.org/10.1186/s12859-018-2449-y
-
-  **本文内容简介：** 本文比较蛋白-肽 docking 方法，提示肽构象需单独复核。
 
 - Crampon, K., Giorkallos, A., Deldossi, M., Baud, S. & Steffenel, L. A. Machine-learning methods for ligand-protein molecular docking. Drug Discovery Today 27, 151-164 (2022). https://doi.org/10.1016/j.drudis.2021.09.007
 
-  **本文内容简介：** 本文综述机器学习在 ligand-protein docking 中的作用和限制。
-
 - Gu, S., Shen, C., Zhang, X., Sun, H., Cai, H., Luo, H. et al. Benchmarking AI-powered docking methods from the perspective of virtual screening. Nature Machine Intelligence 7, 509-520 (2025). https://doi.org/10.1038/s42256-025-00993-0
-
-  **本文内容简介：** 本文从虚拟筛选角度评估 AI docking 方法的排序能力和局限。
 
 - Cao, D., Chen, M., Zhang, R. et al. SurfDock is a surface-informed diffusion generative model for reliable and accurate protein-ligand complex prediction. Nature Methods 22, 310-322 (2025). https://doi.org/10.1038/s41592-024-02516-y
 
-  **本文内容简介：** 本文是本章统一 `SurfDock` 工具名的主来源，也用于说明表面信息辅助扩散式 docking。
-
 - Abramson, J., Adler, J., Dunger, J. et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature 630, 493-500 (2024). https://doi.org/10.1038/s41586-024-07487-w
 
-  **本文内容简介：** 本文用于说明 AlphaFold 3 是生物分子相互作用结构预测来源，不把它写成传统 docking 工具。
-
 <!-- refs:end -->
-
-## 使用边界与常见误读
-
-本章最容易被过度解释的是 docking score、AI docking 排名和蛋白互作筛选结果。它们可以帮助生成假设，但不能单独证明结合、活性、协同效应、毒性或个体化治疗响应。
-
-| 易误读对象 | 稳健表述 | 写作处理 |
-|:---|:---|:---|
-| “分数更低” | 在同一流程下排序更靠前 | 不写成结合更强或药效更好 |
-| “top pose 合理” | 提供可能结合构象 | 仍需结构、动力学、自由能或实验复核 |
-| “AI docking 更准” | 在特定 benchmark 中可能表现更好 | 说明适用域和输入条件 |
-| “蛋白互作筛选命中” | 提示可能互作界面或候选靶点 | 需要共表达、共定位、突变或功能验证 |
-| “反向筛选找到靶点” | 给出候选靶点列表 | 不能替代靶点参与疾病或药效的证据 |
-
-对于药物化学写作，建议先把“hit”“强结合”“有效抑制”替换成“候选”“排序线索”“待复核构象”。只有实验测定、自由能计算、重复轨迹或功能数据补齐后，才考虑更强表述。
-
-## 下一步任务
-
-完成本章后，shortlist 应进入下一层证据，而不是直接进入结论。
-
-| 下一章或模块 | 接收什么 | 复核什么 |
-|:---|:---|:---|
-| 第 5 章分子动力学 | top pose、结构文件、关键相互作用 | 构象稳定性和相互作用持续性 |
-| 第 7 章亲和力/自由能 | 候选表、pose、输入 YAML 或参数 | predicted affinity、MM/GBSA 或模型输出边界 |
-| 研究工作台 | 靶点、配体、证据层级、filter_reason | 文献案例、dry-run、本地运行和实验结果之间的区别 |
-
-后续若要扩大筛选规模，优先补齐三类材料：library manifest、top pose 复核表、失败样本与重跑规则。它们比单独增加 score 表更重要，因为它们决定候选能否被复查和交接。

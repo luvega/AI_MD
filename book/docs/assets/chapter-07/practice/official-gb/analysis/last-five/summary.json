@@ -1,0 +1,25 @@
+{
+  "data_status": "external_real_gmx_MMPBSA_example",
+  "method": "MM/GBSA",
+  "source_commit": "5fe49f88eb6db7341e98f56803814473c0266d8d",
+  "source_sha256": "24cf0dfdb76501a297d92da76397d17b812e8bcf06c005310546e36b2a42c835",
+  "energy_unit": "kcal/mol",
+  "temperature_K_from_upstream_readme": 298.15,
+  "selected_frames": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "mean": -13.936489327999931,
+  "population_sd": 1.4637679937117847,
+  "sample_sd": 1.6365423686140177,
+  "naive_sem": 0.6546169474456071,
+  "provided_summary": {
+    "Average": -15.017773103999914,
+    "SD": 1.6860229037427301,
+    "SEM": 0.5331672563037857
+  },
+  "interpretation": "frame dispersion; correlated frames are not independent experimental replicates"
+}

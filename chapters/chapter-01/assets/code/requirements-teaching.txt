@@ -1,0 +1,7 @@
+# Actual preparation environment used for the public 3HTB case (Python 3.12).
+rdkit==2026.3.6
+meeko==0.8.0
+gemmi==0.7.5
+numpy==2.4.6
+scipy==1.18.1
+matplotlib==3.11.2

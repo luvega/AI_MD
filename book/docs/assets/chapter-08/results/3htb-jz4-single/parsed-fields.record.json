@@ -1,0 +1,7 @@
+{
+  "data_status": "actual_model_output",
+  "affinity_sha256": "a539000f5f70a532a708cf8858f3baf97c53266435118fab343f2568a7e45b0b",
+  "confidence_sha256": "de2770fe14ba901c620ae16c2fa96220e174952613726716c4baa39efab95582",
+  "aggregation": "ensemble affinity_pred_value and affinity_probability_binary; matching confidence_score",
+  "interpretation": "model scale conversions only; structure review and experimental controls are separate"
+}

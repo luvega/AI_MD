@@ -1,0 +1,14 @@
+{
+  "data_status": "external_real_Amber_tutorial_summary",
+  "source_url": "https://ambermd.org/tutorials/advanced/tutorial3/py_script/files/FINAL_DECOMP_MMPBSA_perres.dat",
+  "source_sha256": "f87510261d6ed79ca08556eedfe4269642935844861f05bf32889ec2fad8433e",
+  "upstream_run_timestamp": "Thu May 20 14:55:43 EDT 2010",
+  "system": "Ras-Raf protein-protein complex",
+  "program": "Amber MMPBSA.py historical tutorial",
+  "frames": 50,
+  "model": "MM/GBSA, igb=5, saltcon=0.100 M, idecomp=1",
+  "selection": "first GB DELTAS Total Energy Decomposition; R residues5,30-40",
+  "reported_dispersion": "upstream reported SD, not SEM or locally recalculated uncertainty",
+  "parameter_warning": "historical upstream output reports mbondi versus recommended mbondi2/bondi radii; used only for output-reading practice",
+  "verification": "12 numerical summary rows copied as facts; 5 mean components sum to reported total within0.0021 kcal/mol rounding"
+}

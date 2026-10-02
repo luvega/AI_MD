@@ -1,0 +1,90 @@
+                    :-) GROMACS - gmx genion, 2025.5-dev (-:
+
+Executable:   GMX
+Data prefix:  GMX_DATA (source tree)
+Working dir:  RUN
+Command line:
+  gmx genion -s ions.tpr -o system.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15 -seed 20261002
+
+Reading file ions.tpr, VERSION 2025.5-dev (single precision)
+Reading file ions.tpr, VERSION 2025.5-dev (single precision)
+Group     0 (         System) has 23977 elements
+Group     1 (        Protein) has  1960 elements
+Group     2 (      Protein-H) has  1001 elements
+Group     3 (        C-alpha) has   129 elements
+Group     4 (       Backbone) has   387 elements
+Group     5 (      MainChain) has   517 elements
+Group     6 (   MainChain+Cb) has   634 elements
+Group     7 (    MainChain+H) has   646 elements
+Group     8 (      SideChain) has  1314 elements
+Group     9 (    SideChain-H) has   484 elements
+Group    10 (    Prot-Masses) has  1960 elements
+Group    11 (    non-Protein) has 22017 elements
+Group    12 (          Water) has 22017 elements
+Group    13 (            SOL) has 22017 elements
+Group    14 (      non-Water) has  1960 elements
+Select a group: Number of (3-atomic) solvent molecules: 7339
+
+Back Off! I just backed up topol.top to ./#topol.top.2#
+Using random seed 20261002.
+Replacing solvent molecule 3554 (atom 12622) with NA
+Replacing solvent molecule 6034 (atom 20062) with NA
+Replacing solvent molecule 6269 (atom 20767) with NA
+Replacing solvent molecule 6750 (atom 22210) with NA
+Replacing solvent molecule 4566 (atom 15658) with NA
+Replacing solvent molecule 1171 (atom 5473) with NA
+Replacing solvent molecule 115 (atom 2305) with NA
+Replacing solvent molecule 398 (atom 3154) with NA
+Replacing solvent molecule 6505 (atom 21475) with NA
+Replacing solvent molecule 7050 (atom 23110) with NA
+Replacing solvent molecule 5478 (atom 18394) with NA
+Replacing solvent molecule 495 (atom 3445) with NA
+Replacing solvent molecule 1405 (atom 6175) with NA
+Replacing solvent molecule 4662 (atom 15946) with NA
+Replacing solvent molecule 4947 (atom 16801) with NA
+Replacing solvent molecule 4455 (atom 15325) with NA
+Replacing solvent molecule 1243 (atom 5689) with NA
+Replacing solvent molecule 1876 (atom 7588) with NA
+Replacing solvent molecule 4286 (atom 14818) with NA
+Replacing solvent molecule 2009 (atom 7987) with NA
+Replacing solvent molecule 3203 (atom 11569) with NA
+Replacing solvent molecule 4153 (atom 14419) with NA
+Replacing solvent molecule 5063 (atom 17149) with CL
+Replacing solvent molecule 525 (atom 3535) with CL
+Replacing solvent molecule 5145 (atom 17395) with CL
+Replacing solvent molecule 6636 (atom 21868) with CL
+Replacing solvent molecule 3411 (atom 12193) with CL
+Replacing solvent molecule 5378 (atom 18094) with CL
+Replacing solvent molecule 1500 (atom 6460) with CL
+Replacing solvent molecule 6028 (atom 20044) with CL
+Replacing solvent molecule 1255 (atom 5725) with CL
+Replacing solvent molecule 6141 (atom 20383) with CL
+Replacing solvent molecule 1119 (atom 5317) with CL
+Replacing solvent molecule 3940 (atom 13780) with CL
+Replacing solvent molecule 2902 (atom 10666) with CL
+Replacing solvent molecule 3723 (atom 13129) with CL
+Replacing solvent molecule 3024 (atom 11032) with CL
+Replacing solvent molecule 5466 (atom 18358) with CL
+Replacing solvent molecule 1231 (atom 5653) with CL
+Replacing solvent molecule 5353 (atom 18019) with CL
+Replacing solvent molecule 6108 (atom 20284) with CL
+Replacing solvent molecule 4267 (atom 14761) with CL
+Replacing solvent molecule 6414 (atom 21202) with CL
+Replacing solvent molecule 2559 (atom 9637) with CL
+Replacing solvent molecule 4576 (atom 15688) with CL
+Replacing solvent molecule 2227 (atom 8641) with CL
+Replacing solvent molecule 3530 (atom 12550) with CL
+Replacing solvent molecule 1109 (atom 5287) with CL
+Replacing solvent molecule 3186 (atom 11518) with CL
+Replacing solvent molecule 647 (atom 3901) with CL
+Replacing solvent molecule 2759 (atom 10237) with CL
+Replacing solvent molecule 6989 (atom 22927) with CL
+
+
+
+Will try to add 22 NA ions and 30 CL ions.
+Select a continuous group of solvent molecules
+Selected 13: 'SOL'
+
+Processing topology
+Replacing 52 solute molecules in topology file (topol.top)  by 22 NA and 30 CL ions.

@@ -1,0 +1,34 @@
+{
+  "comparison": "symmetry-aware heavy-atom RMSD, crystal coordinate frame, no fitting",
+  "reference": "3HTB JZ4 auth chain A residue 167",
+  "poses": [
+    {
+      "pose": 1,
+      "heavy_atom_rmsd_angstrom": 12.051
+    },
+    {
+      "pose": 2,
+      "heavy_atom_rmsd_angstrom": 13.3915
+    },
+    {
+      "pose": 3,
+      "heavy_atom_rmsd_angstrom": 12.355
+    },
+    {
+      "pose": 4,
+      "heavy_atom_rmsd_angstrom": 13.2276
+    },
+    {
+      "pose": 5,
+      "heavy_atom_rmsd_angstrom": 12.3113
+    },
+    {
+      "pose": 6,
+      "heavy_atom_rmsd_angstrom": 13.0664
+    },
+    {
+      "pose": 7,
+      "heavy_atom_rmsd_angstrom": 12.7352
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "tool": "ProteinMPNN",
+  "upstream_commit": "8907e6671bfbfc92303b5f79c4b5e6ce47cdef57",
+  "device": "cpu",
+  "torch_version": "2.6.0+cu124",
+  "model_name": "v_48_020",
+  "designed_chain": "A",
+  "seed": 37,
+  "temperature": 0.1,
+  "num_sequences": 2,
+  "returncode": 0,
+  "elapsed_seconds": 12.918,
+  "input_sha256": "4a6d772bf58f9b0d67038db6a1122292862fe2d242bb1cb1aca03f265288855e",
+  "command_arguments": [
+    "--pdb_path",
+    "pdl1_test_0_model_0.pdb",
+    "--pdb_path_chains",
+    "A",
+    "--path_to_model_weights",
+    "proteinmpnn/vanilla_model_weights",
+    "--out_folder",
+    "outputs",
+    "--num_seq_per_target",
+    "2",
+    "--batch_size",
+    "1",
+    "--sampling_temp",
+    "0.1",
+    "--seed",
+    "37"
+  ],
+  "refold_status": "not_run"
+}

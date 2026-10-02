@@ -1,0 +1,13 @@
+{
+  "data_status": "derived_from_actual_model_structure",
+  "protein_alignment": "matched A-chain C-alpha residue numbers1-163, Kabsch fit",
+  "matched_CA_atoms": 163,
+  "CA_RMSD_Angstrom": 0.5822777943830697,
+  "ligand_heavy_atoms": 10,
+  "crystal_ligand_heavy_atoms": 10,
+  "aligned_ligand_centroid_shift_Angstrom": 0.6190465164449431,
+  "minimum_model_ligand_protein_heavy_distance_Angstrom": 2.6946050734198512,
+  "model_sha256": "5b4f5ab6605d0998a9ec602d51e9fb8b269ee4be688a55d88617cbf6a38cc65d",
+  "reference_sha256": "69c7b4776c588526160c587e14a36289f5f74b265cb0736fcbed47c4335adfa7",
+  "note": "centroid shift is not ligand atom-mapped RMSD or evidence of binding; deposited crystal lacks LEU164"
+}

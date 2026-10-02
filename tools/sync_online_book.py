@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 import shutil
+import csv
+import hashlib
 from pathlib import Path
 
 
@@ -13,6 +15,9 @@ CHAPTERS_OUT = DOCS_DIR / "chapters"
 ASSETS_OUT = DOCS_DIR / "assets"
 
 CHAPTER_COUNT = 12
+PUBLIC_ASSETS_MANIFEST = CHAPTERS_DIR / "public_assets.tsv"
+ALLOWED_ASSET_SUFFIXES = {".md", ".txt", ".log", ".py", ".sh", ".ps1", ".csv", ".tsv", ".json", ".yaml", ".yml", ".svg", ".png", ".jpg", ".jpeg", ".pdb", ".cif", ".sdf", ".mol2", ".pdbqt", ".gro", ".top", ".itp", ".mdp", ".ndx", ".xtc", ".trr", ".tpr", ".cpt", ".edr", ".xvg", ".xpm", ".dat", ".npz", ".toml", ".cxc", ".pml", ".pse", ".fasta", ".fa", ".gz"}
+ALLOWED_SOURCE_TYPES = {"independent_script", "independent_run", "original_diagram", "public_structure", "official_example", "teaching_constructed", "teaching_template", "legacy_reviewed"}
 SOURCE_SECTION_HEADINGS = (
     "## 使用材料与来源边界",
     "## 材料使用说明",
@@ -66,23 +71,17 @@ def strip_author_material(markdown: str) -> str:
 
 
 def rewrite_paths(markdown: str, chapter_id: str) -> str:
-    markdown = markdown.replace(
-        f"chapters/{chapter_id}/assets/",
-        f"../assets/{chapter_id}/",
-    )
-    markdown = markdown.replace(
-        f".\\chapters\\{chapter_id}\\assets\\",
-        f"..\\assets\\{chapter_id}\\",
-    )
-    markdown = markdown.replace(
-        f"chapters\\{chapter_id}\\assets\\",
-        f"..\\assets\\{chapter_id}\\",
-    )
-    markdown = re.sub(
-        r"(?<![./\w-])assets/",
-        f"../assets/{chapter_id}/",
-        markdown,
-    )
+    # Only links move into the publication tree. Commands keep the directory
+    # layout used by the student download helper.
+    def rewrite_link(match: re.Match) -> str:
+        href = match.group(2)
+        if href.startswith("assets/"):
+            href = f"../assets/{chapter_id}/" + href[len("assets/"):]
+        else:
+            href = re.sub(r"^(?:\.\./|chapters/)(chapter-\d{2})/assets/", r"../assets/\1/", href)
+        return match.group(1) + href + match.group(3)
+
+    markdown = re.sub(r"(!?\[[^\]]*\]\()([^\)]+)(\))", rewrite_link, markdown)
     markdown = markdown.replace(
         "06_原始学习素材/第五章/boltz2在线/boltz2_parsed/summary.json",
         "runs/chapter-08/boltz2_parsed/summary.json",
@@ -96,7 +95,7 @@ def rewrite_paths(markdown: str, chapter_id: str) -> str:
     return markdown
 
 
-def publish_chapter(chapter_number: int) -> tuple[str, str]:
+def render_chapter(chapter_number: int) -> tuple[str, str, str]:
     chapter_id = f"chapter-{chapter_number:02d}"
     src = CHAPTERS_DIR / chapter_id / "正文.md"
     if not src.exists():
@@ -108,44 +107,58 @@ def publish_chapter(chapter_number: int) -> tuple[str, str]:
     text = rewrite_paths(text, chapter_id)
     text = re.sub(r"\n{3,}", "\n\n", text).strip() + "\n"
 
-    dest = CHAPTERS_OUT / f"{chapter_id}.md"
-    dest.write_text(text, encoding="utf-8")
+    return chapter_id, title, text
 
-    assets_src = CHAPTERS_DIR / chapter_id / "assets"
-    if assets_src.exists():
-        assets_dest = ASSETS_OUT / chapter_id
-        shutil.copytree(assets_src, assets_dest, ignore=shutil.ignore_patterns("*.md"))
-        sanitize_published_assets(assets_dest)
 
+def publish_chapter(chapter_number: int) -> tuple[str, str]:
+    chapter_id, title, text = render_chapter(chapter_number)
+    (CHAPTERS_OUT / f"{chapter_id}.md").write_text(text, encoding="utf-8")
     return chapter_id, title
 
 
-def sanitize_published_assets(path: Path) -> None:
-    text_suffixes = {
-        ".csv",
-        ".md",
-        ".py",
-        ".sh",
-        ".svg",
-        ".tsv",
-        ".txt",
-        ".yaml",
-        ".yml",
-    }
-    for file_path in path.rglob("*"):
-        if not file_path.is_file() or file_path.suffix.lower() not in text_suffixes:
-            continue
-        try:
-            text = file_path.read_text(encoding="utf-8")
-        except UnicodeDecodeError:
-            continue
-        text = text.replace("06_原始学习素材", "local_raw_sources_not_published")
-        text = text.replace("book/docs", "published_docs")
-        text = text.replace("book/site", "published_site")
-        file_path.write_text(text, encoding="utf-8")
+def public_assets(manifest: Path = PUBLIC_ASSETS_MANIFEST) -> list[tuple[Path, Path]]:
+    if not manifest.is_file():
+        raise FileNotFoundError(f"Public asset allowlist is required: {manifest}")
+    approved = []
+    seen = set()
+    with manifest.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            relative = row["file_path"].replace("\\", "/")
+            path = Path(relative)
+            if not re.fullmatch(r"(?:chapter-\d{2}|shared)/assets/.+", relative) or ".." in path.parts or path.is_absolute():
+                raise ValueError(f"Invalid asset path: {relative}")
+            source = (CHAPTERS_DIR / path).resolve()
+            if CHAPTERS_DIR.resolve() not in source.parents or not source.is_file():
+                raise ValueError(f"Missing or escaped asset: {relative}")
+            if source.suffix.lower() not in ALLOWED_ASSET_SUFFIXES or (source.suffix == ".gz" and not relative.endswith(".cif.gz")):
+                raise ValueError(f"Unsupported public asset type: {relative}")
+            if row.get("source_type") not in ALLOWED_SOURCE_TYPES:
+                raise ValueError(f"Unapproved source type: {relative}")
+            if relative in seen:
+                raise ValueError(f"Duplicate public asset: {relative}")
+            seen.add(relative)
+            expected_hash = row.get("sha256", "").strip()
+            if not re.fullmatch(r"[0-9a-f]{64}", expected_hash) or not row.get("validation_status", "").strip():
+                raise ValueError(f"Asset review record is incomplete: {relative}")
+            if hashlib.sha256(source.read_bytes()).hexdigest() != expected_hash:
+                raise ValueError(f"Asset changed after review: {relative}")
+            dest = ASSETS_OUT / path.parts[0] / Path(*path.parts[2:])
+            approved.append((source, dest))
+    return approved
+
+
+def publish_assets(approved: list[tuple[Path, Path]]) -> None:
+    for source, destination in approved:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
 
 
 def write_index(chapters: list[tuple[str, str]]) -> None:
+    student_index = CHAPTERS_DIR / "学习指南.md"
+    if student_index.is_file():
+        (DOCS_DIR / "index.md").write_text(student_index.read_text(encoding="utf-8"), encoding="utf-8")
+        write_resources(chapters)
+        return
     lines = [
         "# AI 辅助药物设计：从分子建模到研究工作台",
         "",
@@ -170,7 +183,23 @@ def write_index(chapters: list[tuple[str, str]]) -> None:
     (DOCS_DIR / "index.md").write_text("\n".join(lines), encoding="utf-8")
 
 
+def write_resources(chapters: list[tuple[str, str]]) -> None:
+    lines = ["# 练习资源", "", "按[首页下载步骤](index.md#practice-download)，将[练习下载器](assets/shared/get-practice.py)保存到课程目录，用 Python 下载整章及其配套文件。文件会保留章节目录，下载器逐项核对内容；你修改过的文件会保留。", "", "也可在下方逐文件下载。先阅读对应正文，再保存输入、脚本和模板。正式计算输出与构造练习数据在说明中分别标识。命令中的相对路径从该章指定目录开始。", ""]
+    approved = public_assets()
+    for chapter_id, title in chapters:
+        files = [(source, dest) for source, dest in approved if dest.relative_to(ASSETS_OUT).parts[0] == chapter_id]
+        lines.extend([f"## {title}", "", f"[阅读本章](chapters/{chapter_id}.md)", ""])
+        for source, dest in files:
+            relative = dest.relative_to(DOCS_DIR).as_posix()
+            label = source.relative_to(CHAPTERS_DIR / chapter_id / "assets").as_posix()
+            href = f"https://luvega.github.io/AI_MD/{relative}" if source.suffix == ".md" else relative
+            lines.append(f"- [{label}]({href}){{download}}")
+        lines.append("")
+    (DOCS_DIR / "resources.md").write_text("\n".join(lines), encoding="utf-8")
+
+
 def main() -> None:
+    approved = public_assets()
     safe_rmtree(CHAPTERS_OUT)
     safe_rmtree(ASSETS_OUT)
     CHAPTERS_OUT.mkdir(parents=True, exist_ok=True)
@@ -178,6 +207,7 @@ def main() -> None:
     (DOCS_DIR / "stylesheets").mkdir(parents=True, exist_ok=True)
 
     chapters = [publish_chapter(i) for i in range(1, CHAPTER_COUNT + 1)]
+    publish_assets(approved)
     write_index(chapters)
     print(f"Published {len(chapters)} chapters to {DOCS_DIR}")
 

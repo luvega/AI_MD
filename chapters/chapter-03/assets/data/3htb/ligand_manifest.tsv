@@ -1,0 +1,4 @@
+ligand_id	source_sdf	prepared_pdbqt	heavy_atoms	formal_charge	state_assumption	qc_status
+JZ4	JZ4_ideal.sdf	JZ4.pdbqt	10	0	neutral CCD state; not pH enumeration	RDKit sanitized; Meeko preparation completed
+IPH	IPH_ideal.sdf	IPH.pdbqt	7	0	neutral CCD state; not pH enumeration	RDKit sanitized; Meeko preparation completed
+BNZ	BNZ_ideal.sdf	BNZ.pdbqt	6	0	neutral CCD state; not pH enumeration	RDKit sanitized; Meeko preparation completed

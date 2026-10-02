@@ -1,229 +1,218 @@
 # 第 3 章 结构建模、结合位点与体系准备
 
-## 本章导读
+第 2 章已看清 3HTB 中的蛋白、JZ4 和附近残基。本章从原始公开文件重新开始，准备一个受体和三个配体，交给第 4 章的 CPU Vina。核心问题是：哪些原子进入计算，采用什么化学状态，搜索哪一片区域。
 
-很多分子对接项目并不是从 docking 命令开始，而是从一个更基础的问题开始：当前结构能不能作为计算输入？如果受体结构来源不清楚、结合位点只是猜测、金属离子和辅因子被随手删除，后续即使得到漂亮的 score 表，也很难解释结果。
-
-本章聚焦 docking 前准备。读者需要学会把一个蛋白名称、PDB 文件或 AI 预测结构，转成可复核的计算体系：结构来源明确，位点依据明确，组分取舍明确，准备步骤和风险也有记录。
-
-第 4 章会继续讨论 docking 运行、打分排序和虚拟筛选。本章只负责把输入准备到可以交接的状态。换句话说，本章结束时的输出不是“命中分子”，而是一套 receptor、binding site、component manifest 和对接前 QC 记录。
-
-## 学习目标
-
-完成本章后，读者应能够：
-
-- 区分实验结构、同源模型和 AI 预测结构在 docking 前的检查重点。
-- 判断一个结合位点来自共晶配体、文献残基、预测口袋还是任务假设。
-- 为蛋白、小分子、核酸、金属离子、辅因子和水分子建立 component manifest。
-- 说明质子化、电荷、缺失残基、低置信区域和格式转换怎样影响后续 docking。
-- 把结构准备结论写成 `go`、`review` 或 `no-go`，并说明下一步接到哪里。
-
-这些目标服务一个核心能力：让另一个人可以复查你为什么选择这个结构、这个位点和这些组分。缺少这类记录时，后续 docking 结果只能作为临时练习输出。
-
-## 本章判断路径
-
-本章的逻辑可以写成一条短流程：先定义体系，再选择结构，再确定位点，再处理组分，最后给出是否进入 docking 的判断。
+先不要修改原文件。原始晶体坐标、晶体配体参考和转换后的对接输入分别保存，才能在结果异常时回到具体处理步骤。
 
 ```mermaid
-flowchart LR
-    question["研究问题"] --> system["体系类型"]
-    system --> structure["结构来源"]
-    structure --> site["binding site 依据"]
-    site --> components["component manifest"]
-    components --> prep["质子化、电荷、构象、格式"]
-    prep --> qc{"对接前 QC"}
-    qc -->|go| docking["进入第 4 章 docking"]
-    qc -->|review| revise["补证或重做准备"]
-    qc -->|no-go| stop["暂不进入 docking"]
-
-    classDef start fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e
-    classDef work fill:#ecfdf5,stroke:#16a34a,stroke-width:2px,color:#14532d
-    classDef decision fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f
-    classDef output fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
-    class question start
-    class system,structure,site,components,prep work
-    class qc decision
-    class docking,revise,stop output
+flowchart TD
+    A[公开结构与 CCD] --> B[清点链和组分]
+    B --> C[选择受体与替代位置]
+    B --> D[配体化学状态与构象]
+    C --> E[Meeko 受体 PDBQT]
+    D --> F[Meeko 配体 PDBQT]
+    A --> G[晶体 JZ4 定义盒子]
+    E --> H[核对文件与记录]
+    F --> H
+    G --> H
+    H --> I[第 4 章 CPU Vina]
 ```
 
-这个流程把“能不能跑”拆成可检查问题。`go` 只表示输入记录完整并适合进入下一章，不表示后续结果可靠；`review` 表示有关键假设仍需补证；`no-go` 表示当前结构或体系定义不足以支撑 docking。
+这条流程把结构来源、组分处理和运行输入对应起来。第 3 章完成准备，第 4 章才生成新的对接姿势。
 
-## 3.1 从“一个蛋白”到“一个待计算体系”
+## 3.1 对接建模的体系类型
 
-读者最常见的起点是一个靶点名、一个 UniProt 编号、一条序列或一个 PDB 文件。它们还不是计算体系。计算体系至少要回答：哪条链是 receptor，哪些分子要保留，研究问题关注口袋还是界面，后续软件能不能处理这些组分。
+受体是当前计算接受配体的分子对象，配体是当前需要生成结合姿势的对象。名称由任务决定；蛋白也可以作为另一个蛋白的配体。准备前先说明参与组分，再选择方法。
 
-| 体系类型 | 主要输入 | 准备重点 | 不能直接下的结论 |
-|:---|:---|:---|:---|
-| 蛋白-小分子 | 受体结构、小分子结构、口袋区域 | 配体状态、口袋依据、关键水/金属/辅因子 | 小分子已经具有活性 |
-| 蛋白-蛋白 | 两个或多个蛋白结构 | 链定义、界面残基、构象状态 | 复合物真实存在 |
-| 蛋白-核酸 | 蛋白、DNA/RNA、序列和链方向 | 核酸构象、电荷、结合沟槽、空间冲突 | 该序列具有确定调控作用 |
-| 金属酶体系 | 蛋白、金属离子、配位残基、底物或配体 | 金属价态、配位几何、软件支持 | docking 已正确描述配位化学 |
-| 多辅因子体系 | 蛋白、辅因子、底物、离子、水分子 | 逐项记录保留和删除理由 | 删除非蛋白成分不会影响口袋 |
+| 体系 | 准备重点 | 本书实践位置 |
+|---|---|---|
+| 蛋白–小分子 | 口袋、质子化、键级、手性、扭转 | 本章与第 4 章基础实跑 |
+| 蛋白–蛋白/多肽 | 链、界面、柔性、约束 | 第 4 章方法选择，第 9–10 章设计 |
+| 蛋白–核酸 | 核酸类型、链、配对、离子环境 | 第 4 章输入判断 |
+| 金属/辅因子体系 | 配位、化学状态、软件支持和参数 | 本章组分取舍，第 5 章模拟准备 |
 
-体系定义最好从研究问题开始，而不是从工具开始。若问题是“某小分子是否可能进入已知口袋”，受体和配体准备是核心；若问题是“两个蛋白是否可能互作”，界面和构象才是核心；若问题涉及金属酶，随手删除金属离子会改变体系化学含义。
+本案例是 3HTB 中蛋白链 A 与小分子 JZ4。SEQRES 记录序列长 164 个残基；REMARK 465 明确末端 LEU A164 缺失，实际坐标覆盖 A1–A163。本协议使用已有坐标，未补建末端 LEU。蛋白 `ATOM` 共 1364 行，其中一些残基包含 A/B 替代位置；其他组分记录如下。
 
-本节的输出是一张体系草表：结构来源、链 ID、配体、核酸、金属、辅因子、水分子、缺失区域和任务假设。它不是结论表，只是后续计算的输入边界。
+| 组分 | auth 编号 | 原始记录 | 本协议处理 |
+|---|---|---|---|
+| 蛋白 | 已有坐标 A1–A163 | 1364 行 ATOM | 保留，替代位置选 A |
+| JZ4 | A167 | 10 个重原子 | 从受体删除，单独保存晶体参考 |
+| PO4 | A165、A166 | 10 行 HETATM | 此蛋白单组分受体协议移除 |
+| BME | A168 | 4 行 HETATM | 此协议移除 |
+| HOH | A169–A388 | 220 个水 | 此干燥受体协议移除 |
 
-## 3.2 实验结构、同源建模与 AI 结构预测
+这份表定义本次计算体系。它不要求其他靶点也删除相同组分。下载 [本案例组分清单](../assets/chapter-03/data/component_manifest_3htb.tsv)，对照第 2 章视图确认名称与编号。
 
-同一个靶点可能同时有晶体结构、冷冻电镜结构、同源模型和 AI 预测结构。选择结构时，不应只看“最新”或“分辨率最高”，还要看它是否匹配当前结合问题。
+## 3.2 同源建模与 AI 结构建模
 
-| 结构来源 | 应先检查 | 适合使用的场景 | 主要风险 |
-|:---|:---|:---|:---|
-| 晶体结构 | 分辨率、共晶配体、缺失残基、生物装配 | 已知口袋、小分子 docking、机制残基复核 | 构象受晶体条件影响 |
-| 冷冻电镜结构 | 局部分辨率、柔性区、装配状态 | 大复合物、膜蛋白、多亚基体系 | 局部坐标质量不均一 |
-| 同源模型 | 模板、序列一致性、建模范围、loop 区 | 无实验结构但有可靠模板 | 口袋和界面可能受模板偏差影响 |
-| AI 预测结构 | pLDDT、PAE、低置信区、输入序列 | 缺少实验结构、需生成初始构象 | 低置信区和多构象状态不可忽略 |
+同一个蛋白可能有多个实验结构和预测模型。选择时先看与当前问题是否匹配：构象、配体、突变、结构范围和局部质量都影响口袋。3HTB 带有 L99A/M102Q 突变，并含 JZ4 晶体参考，适合练习重对接；本章不把它替换成野生型 T4 lysozyme 模型。
 
-实验结构并不天然可靠到可以直接 docking。共晶配体、突变、缺失 loop、融合标签、非生理装配和结晶条件都可能改变口袋状态。AI 结构预测也不是“更现代的 PDB”；它提供的是模型在输入条件下的构象假设。
+实验结构的分辨率描述整体数据尺度，还需看位点局部验证、缺失原子、替代位置、占有率和构象。同源建模用相关蛋白的已知结构作模板，必须说明模板、序列对应关系与覆盖范围。
 
-使用 AlphaFold 或类似模型时，至少要记录输入序列、模型来源、置信度指标和低置信区域。若 binding site 落在低 pLDDT 或高 PAE 区域附近，本章应把它标记为 `review`，而不是直接进入 docking。
+| 来源 | 先检查什么 | 记录什么 |
+|---|---|---|
+| 实验结构 | 构象、组分、位点局部质量、缺失、突变 | 条目、方法、分辨率、所选链与残基范围 |
+| 同源模型 | 模板覆盖、序列对应、口袋和插入缺失区 | 模板 ID、序列、建模工具和版本 |
+| AI 预测结构 | 输入序列、局部置信度、链间关系与几何 | 模型版本、输入、pLDDT/PAE 等输出 |
 
-## 3.3 AlphaFold、OpenFold、Chai-1、Boltz 与开放结构模型
+pLDDT 是部分模型的局部结构置信度指标，PAE 表示相对位置误差相关信息。先确认该模型实际输出这些字段，再按其定义读取。口袋侧链与柔性环区尤其需要检查，不能只看整条链的平均数。
 
-第三章素材覆盖多类结构预测和多组分建模工具。它们都能帮助准备结构，但输出含义不同。把所有工具都称为“AI 对接”会混淆任务边界。
+本章基础任务直接使用实验 3HTB；模型比较作为阅读任务。找一个目标的实验结构与预测结构，在相同残基范围叠合，并写出两个口袋区域差异，不要求本机重新训练或运行大型模型。
 
-| 工具或方法位置 | 能提供什么 | docking 前应记录什么 | 解释边界 |
-|:---|:---|:---|:---|
-| AlphaFold / OpenFold | 蛋白单体或部分复合物结构假设 | 序列、模型来源、pLDDT、PAE、低置信区 | 不能单独证明真实构象或结合位点 |
-| AlphaFold 3 类复合物预测 | 生物分子相互作用结构预测入口 | 链定义、配体/核酸输入、局部置信度 | 仍需结合结构、动力学或实验验证 |
-| Chai-1 | 多组分结构预测和复合物候选排序 | 输入分子、约束、模型版本、aggregate score | aggregate score 不能写成实验结合强度 |
-| Boltz2 | 结构与亲和力相关预测 | 输入 YAML、链和配体状态、confidence、predicted affinity | predicted affinity 不是实测 Kd |
+## 3.3 AlphaFold、OpenFold、Chai-1、Boltz 等结构来源
 
-这些模型的共同价值是把结构假设变得更容易生成和比较。它们的共同风险是让读者过早把模型输出当成实验事实。正文中应使用“提示”“候选”“可用于后续检验”这类表述，而不是“证明结合”“确认复合物”。
+这些工具解决的问题有交集，输出却不相同。选择前先写清楚输入是单条序列、多个蛋白、核酸还是小分子，并确认模型版本支持的对象。
 
-如果模型输出要进入 docking，必须说明它在本章流程中扮演什么角色：是 receptor 初始结构，是复合物构象参考，是 binding site 假设，还是候选排序线索。角色不同，后续记录字段也不同。
+| 工具或方法 | 本章关注的对象 | 需要保存的输入与输出 |
+|---|---|---|
+| AlphaFold2 / OpenFold | 蛋白结构模型 | 序列、MSA/模板设置、坐标与置信度 |
+| AlphaFold 3 | 多类生物分子相互作用结构 | 各组分输入、约束、坐标与模型指标 |
+| Chai-1 | 多组分复合物结构 | 序列/配体、约束、坐标和输出评分 |
+| Boltz-2 | 复合物结构与亲和力相关预测 | YAML、组分状态、结构与不同任务字段 |
 
-## 3.4 结合位点来源：已知口袋、共晶配体与预测位点
+MSA 是多序列比对，保存相关序列在各位置的对应关系。工具使用现成 MSA、在线检索或本地检索时，应记录实际方式。MSA 的生成和结构推理是不同步骤，文件存在不意味着推理已完成。
 
-binding site 是 docking 的搜索空间，不是天然存在于文件里的答案。一个口袋可以来自共晶配体、文献残基、活性位点、突变实验、保守位点或口袋预测工具；这些来源的证据强度不同。
+如果使用现成预测结构进入对接，至少带上原始输入、模型版本、所选结构和低置信区域。第 8 章另讲 Boltz-2 的非共价输入与亲和力字段，本章不把不同模型的分数放入同一排名表。
 
-| 位点来源 | 可支持什么 | 仍需记录什么 |
-|:---|:---|:---|
-| 共晶配体 | 参考口袋和 box 中心 | PDB、配体 ID、链、配体状态、是否同类配体 |
-| 文献或功能残基 | 关键残基附近的候选区域 | 文献锚点、残基编号、物种和构象差异 |
-| 同源结构口袋 | 缺少本靶点结构时的迁移假设 | 模板来源、序列一致性、口袋保守性 |
-| 预测口袋 | 候选搜索区域 | 工具、参数、输入结构、口袋排名和冲突证据 |
-| 盲对接区域 | 探索性搜索空间 | 搜索范围、计算成本、后续复核规则 |
+## 3.4 结合位点预测工具
 
-ProteinPlus、FTSite、ChimeraX、UniSite、SwinSite、AF2BIND、CSM-Potential 等工具可以帮助定位候选口袋。它们的输出应写成“预测口袋”或“候选区域”，不能写成真实结合位点已经确定。
+有共结晶配体时，可以先围绕其位置设置搜索区域。没有已知配体时，再结合文献残基、已知功能位点和口袋预测工具提出候选区域；各候选区域分别运行和记录，不在多个位置之间混用盒子。
 
-多个工具指向相近区域时，可以提高该区域的优先级，但仍不能替代实验或结构证据。若预测口袋与低置信 loop、缺失残基或未处理辅因子重叠，进入 docking 前应先标记为 `review`。
+本书用晶体 JZ4 的十个重原子坐标计算算术平均中心，盒子三个方向各 18 Å。中心与盒子尺寸保存在 [box.json](../assets/chapter-03/data/3htb/box.json)。
 
-## 3.5 体系准备：质子化、电荷、构象与文件格式
+| 参数 | 本案例值 | 定义 |
+|---|---|---|
+| center_x | 22.714 Å | 晶体配体重原子 x 坐标平均 |
+| center_y | −25.263 Å | 晶体配体重原子 y 坐标平均 |
+| center_z | −3.283 Å | 晶体配体重原子 z 坐标平均 |
+| size_x / y / z | 18 / 18 / 18 Å | 搜索盒子各方向完整边长 |
+| 参考 | JZ4 auth A167 | 晶体坐标，未移动到原点 |
 
-体系准备会改变输入结构，也会改变后续 score 和 pose。很多失败结果并不是 docking 算法本身的问题，而是来自质子化、电荷、配体状态、金属处理或格式转换错误。
+盒子应覆盖目标口袋，并留出配体平移和转动空间。第 2 章的 5 Å 邻近残基选择用于观察口袋，18 Å 盒子用于运行搜索，两者定义不同。不要将可视化半径直接填成 Vina 的盒子边长。
 
-| 准备对象 | 必填记录 | 失败模式 |
-|:---|:---|:---|
-| 蛋白 | 加氢、质子化、缺失原子、侧链构象、链选择 | His 状态错误、缺失 loop 位于口袋、错误生物装配 |
-| 小分子 | 3D 构象、互变异构、质子化、手性、电荷、键级 | SMILES 解析错误、手性丢失、非生理电荷 |
-| 核酸 | 链方向、碱基配对、构象、离子环境 | 链编号混乱、构象不适合当前问题 |
-| 金属离子 | 价态、配位残基、距离、角度、参数支持 | 金属被删除、配位几何被普通非键相互作用替代 |
-| 水和辅因子 | 是否保留、残基编号、作用理由 | 删除桥联水或催化辅因子后仍按原机制解释 |
+选学口袋预测时，使用 ProteinPlus 等有来源的工具，保存输入结构、口袋残基和工具输出。比较预测口袋与本案例晶体 JZ4 区域的重叠情况；若不重叠，记录差异，不把它自动改成晶体口袋。
 
-准备步骤的合格标准不是“软件能读入”，而是“处理假设可追溯”。例如，某个 His 残基在口袋中参与氢键网络，就不能只写“自动加氢”；应记录 pH 假设、工具、His 状态和是否需要人工复核。
+## 3.5 蛋白、配体、核酸和金属离子体系准备
 
-文件格式转换也要记录。PDB、mmCIF、SDF、MOL2、PDBQT 等格式携带的信息不同。键级、电荷、原子名和金属连接关系在转换中可能丢失；一旦丢失，后续结果不应被强解释。
+先完成第 1 章的 `.venv-win` 和依赖安装。下载 [prepare_3htb.py](../assets/chapter-03/code/prepare_3htb.py) 到课程目录的 `scripts`，在 PowerShell 中运行。脚本只读取官方公开数据，不读取本地课程素材。
 
-## 3.6 多组分体系：核酸、金属、辅因子和界面组分
+如果使用全书下载器，脚本保存在 `downloads/chapter-03/assets/code`。先复制到工作区；逐文件下载并已放入 `scripts` 的学生跳过这一行。
 
-多组分体系最怕“清理结构”变成“删除不认识的东西”。水分子、金属离子、辅因子、底物类似物、核酸片段和修饰残基都可能影响口袋形状或相互作用网络。
-
-本章建议把每个组分放进 component manifest。manifest 不是行政表格，而是结构准备的证据边界。它让读者知道哪些组分参与了模型，哪些被删除，删除理由是什么。
-
-| `keep_status` | 含义 | 适用情况 |
-|:---|:---|:---|
-| `keep` | 保留在准备体系中 | 金属、催化辅因子、参考配体、关键链或关键水 |
-| `remove` | 从当前输入中删除 | 结晶缓冲剂、远离口袋的非相关分子 |
-| `review` | 暂不确定，需人工复核 | 可能桥联水、低置信区、构象冲突组分 |
-| `unsupported` | 当前工具无法可靠处理 | 特殊金属配位、复杂修饰、多组分约束缺失 |
-
-可下载练习模板：[component_manifest_example.tsv](../assets/chapter-03/component_manifest_example.tsv)。
-
-模板中的每一行代表一个组分或区域。学生应替换示例路径和示例 ID，不要把模板中的 `PDB:EXAMPLE` 或 `LIG001` 当作真实运行输入。
-
-```tsv
-component_id	role	source_type	source_id	chain_id	residue_or_ligand_id	keep_status	preparation_action	qc_status
-receptor_A	protein	experimental_structure	PDB:EXAMPLE	A		keep	add_hydrogens_check_missing_residues_set_pH_7_4	review
-metal_ZN	zinc_ion	experimental_structure	PDB:EXAMPLE	A	ZN_901	keep	preserve_coordination_geometry	review
-water_W512	water	experimental_structure	PDB:EXAMPLE	A	HOH_512	review	keep_if_bridging_ligand_and_receptor	review
-query_ligand_LIG001	small_molecule	user_library	LIG001			keep	generate_3d_check_protonation_tautomer_charge	pending
+```powershell
+Copy-Item downloads/chapter-03/assets/code/prepare_3htb.py scripts/
 ```
 
-这个模板不产生 docking 结果，只训练输入记录意识。真正运行前，还需要把示例行换成真实 receptor、ligand、cofactor、metal、water 和 low-confidence region。
+```powershell
+.\.venv-win\Scripts\python.exe scripts/prepare_3htb.py --out inputs/3htb
+```
 
-## 3.7 对接前 QC 与进入下一章的交接
+全书下载器已带有五个源文件时，也可在上述命令后加 `--source-dir downloads/chapter-03/assets/data/3htb`，使用本地公开输入重新准备。输出仍写入工作区 `inputs/3htb`，不改下载目录。
 
-对接前 QC 的任务是判断当前输入能否进入第 4 章。它不评价候选是否有效，也不比较分数。一个合格 QC 记录应让读者知道：结构从哪里来，位点为什么这样定，哪些组分保留或删除，哪些假设仍未验证。
+它下载 3HTB、晶体 JZ4 参考 SDF，以及 CCD 的 JZ4、IPH、BNZ 理想结构。随后调用 Meeko 准备受体，使用 RDKit 和 Meeko 准备配体。约定如下。
 
-| QC 项 | `go` | `review` | `no-go` |
-|:---|:---|:---|:---|
-| 结构来源 | 来源、链和构象明确 | 低置信区或缺失区靠近口袋 | 结构来源不明或链定义错误 |
-| binding site | 有共晶、文献或一致预测依据 | 只有单一预测工具支持 | 位点依据缺失 |
-| component manifest | 组分取舍逐项记录 | 关键水/金属/辅因子待复核 | 关键组分被删除且无理由 |
-| 准备操作 | 质子化、电荷、构象和格式有记录 | 自动处理但未人工检查 | 格式转换失败或化学状态错误 |
-| 证据边界 | 明确写出下一步验证 | 部分假设需补证 | 把预测分数写成实验结论 |
+| 处理对象 | 本协议采用的处理 |
+|---|---|
+| 受体 | auth 链 A 的 ATOM；替代位置 A；已有 163 个残基；Meeko 默认残基模板、补氢和原子类型 |
+| 非蛋白组分 | 受体中移除 JZ4、PO4、BME 和水；分别保存原始文件与取舍记录 |
+| 配体 | CCD 中性状态；使用 SDF 的键和理想坐标；补氢后 Meeko 转 PDBQT |
+| 电荷 | Meeko 默认 Gasteiger 电荷处理；记录实际版本和参数 |
+| 未开展的处理 | pH 状态枚举、多个互变异构体/受体构象、水保留对照 |
 
-`go` 后的下一步是第 4 章 docking 或虚拟筛选。`review` 后应补充结构证据、重做准备或重新定义位点。`no-go` 时不要勉强运行；勉强运行只会把输入问题带入 score 表。
+蛋白的质子化影响侧链电荷，配体的质子化、互变异构和手性影响化学对象。本案例保持 CCD 中性状态，不把它称为“某 pH 下的最优状态”。真实分子若有可电离基团，应先确定研究条件，再为每种待比较状态单独命名和准备。
 
-### 对接前交接清单
+受体准备的实际命令写入 `preparation_commands.json`。下面展示对应 Meeko 入口，通常由脚本自动执行，不必再手工运行一次。
 
-| 交接对象 | 最低要求 |
-|:---|:---|
-| receptor 文件 | 来源、链 ID、构象、缺失区域、低置信区域、准备后路径 |
-| ligand 或组分文件 | 来源、化学状态、3D 构象、格式转换、失败记录 |
-| binding site | 位点来源、口袋中心、关键残基、预测工具和冲突证据 |
-| component manifest | 每个组分的 role、source、keep_status、preparation_action 和 qc_status |
-| QC 结论 | `go`、`review` 或 `no-go`，以及进入下一章前的待办事项 |
+```powershell
+.\.venv-win\Scripts\python.exe -m meeko.cli.mk_prepare_receptor --read_pdb inputs/3htb/3htb_receptor.pdb --default_altloc A -o inputs/3htb/3htb_receptor -p -v --box_center 22.714 -25.263 -3.283 --box_size 18 18 18
+```
 
-## 关键文献与引用边界
+`--read_pdb` 使用 Meeko 的读取方式，`--default_altloc A` 指定替代位置。不要遇到未识别残基便添加跳过选项。先定位残基，判断它是不是位点或必需组分，再决定补齐、换参数或停止该体系。
 
-本章引用用于支撑方法背景和解释边界，不用于声明 AI_MD 已完成实验或筛选。
+| 运行后文件 | 怎样核对 |
+|---|---|
+| `3htb.pdb` | 原始文件保持完整 |
+| `3htb_receptor.pdb` | 提取的链 A，仍保留原 ATOM 替代位置供 Meeko 选择 |
+| `3htb_receptor.pdbqt` | 准备完成；本次 1626 个原子记录，含补入的极性氢 |
+| `JZ4.pdbqt`、`IPH.pdbqt`、`BNZ.pdbqt` | 三项均非空；对应 10/7/6 个重原子 |
+| `receptor_preparation.log` | 无最终失败；警告有具体说明 |
+| `ligand_manifest.tsv` | 来源、文件、原子数、形式电荷和状态假设完整 |
+| `download_sources.json` | 五个官方下载地址与文件哈希 |
 
-| BibTeX key | Zotero item key | 本章使用方式 |
-|:---|:---|:---|
-| `jumper_highly_2021` | `UYRXX2U2` | 支撑 AlphaFold2 结构预测背景。 |
-| `abramson_accurate_2024` | `PE42AXJX` | 支撑生物分子相互作用结构预测背景。 |
-| `chai_discovery_chai-1_2024` | `5286JS9F` | 支撑 Chai-1 多组分结构预测方法锚点；score 不写成实验亲和力。 |
-| `passaro_boltz-2_2025` | `FF4V8LYV` | 支撑 Boltz2 结构和亲和力预测解释边界。 |
-| `du_dockey_2023` | `UOUH33GQ` | 支撑 docking/虚拟筛选流程记录；本章只用于第 4 章交接。 |
-| `agrawal_benchmarking_2019` | `T2O1ECSF` | 支撑蛋白-肽 docking 复核边界，提醒肽构象需单独检查。 |
-| `crampon_machine-learning_2022` | `R2W3SF5S` | 支撑机器学习 docking/重打分的角色边界。 |
-| `gu_benchmarking_2025` | `57K986LK` | 支撑 AI docking benchmark 视角和虚拟筛选解释限制。 |
+读取日志和清单，确认程序没有因一个配体失败而只留下部分文件。
 
-若后续正文需要给出完整参考文献表，应从 `references/references.bib` 和 `references/zotero-map.tsv` 生成，不手写替代 Zotero/BibTeX 映射。
+```powershell
+Get-Content inputs/3htb/receptor_preparation.log
+Get-Content inputs/3htb/ligand_manifest.tsv
+Get-Content inputs/3htb/box.json
+```
 
-## 练习入口
+本案例真实准备过程中出现过三类问题，可据此练习排错。
 
-本章练习不是运行完整筛选，而是准备一个可交接的 docking 输入包。
+| 信息 | 原因与处理 |
+|---|---|
+| 使用 `-i` 时提示需要 ProDy | Meeko 0.8.0 该读取路径依赖 ProDy；本脚本改用官方支持的 `--read_pdb` |
+| 提示需要选择 alternate location | 原文件含替代位置；明确选 A，并在可视化中排除 B |
+| SDF 标注 2D，但 z 坐标不为零 | RCSB 文件标签与坐标不一致；RDKit 按非零 z 识别为 3D，核对坐标后继续 |
 
-1. 选择一个 receptor 结构，写明结构来源、链 ID、缺失区域和低置信区域。
-2. 标注一个 binding site，说明它来自共晶配体、文献残基、预测工具还是任务假设。
-3. 下载并填写 `component_manifest_example.tsv`，至少记录 receptor、小分子、金属/辅因子或水分子中的三类对象。
-4. 写出质子化、电荷、构象和格式转换假设。
-5. 给出 `go`、`review` 或 `no-go` 判断，并说明是否可以进入第 4 章。
+最后一项是格式注释警告，不等于结构已平面化。若遇到化学键读取失败、未知原子类型或受体模板不匹配，则应先停下查看具体对象。
 
-练习完成后，读者应能回答：如果下一章 docking 结果异常，应该回到哪一个输入假设检查。
+## 3.6 多组分复合物和辅因子处理
 
-## 使用边界与常见误读
+准备受体不是默认删除全部 HETATM。金属、辅因子、修饰残基和水可能位于计算关注区域，也可能属于与问题无关的晶体条件。判断顺序是查看结构位置、查证功能或文献，再确认所用方法能否正确表示。
 
-本章最容易被过度解释的是 AI 预测结构、预测口袋和模型分数。它们都能帮助生成计算假设，但不能替代实验结构、结合实验、功能实验或严格的自由能验证。
+| 对象 | 决定前要回答的问题 | 处理记录 |
+|---|---|---|
+| 金属离子 | 是否维持位点或直接配位？模型支持什么几何？ | 元素、价态假设、配位原子、参数方法 |
+| 辅因子 | 是否形成口袋或参与反应？ | 名称、编号、化学状态、保留理由 |
+| 水 | 是否有位点依据？是否比较保水协议？ | 原编号、取舍和对应方法 |
+| 核酸 | 哪条链与蛋白共同构成体系？ | 序列、链、完整性、离子条件 |
+| 修饰残基 | 是否影响位点或拓扑？ | 修饰类型、软件识别和参数来源 |
 
-| 易误读对象 | 稳健表述 | 不应写成 |
-|:---|:---|:---|
-| AlphaFold 或其他预测结构 | 提供可检查的构象假设 | 结构已被实验证明 |
-| 预测 binding site | 给出候选搜索区域 | 真实结合位点已确定 |
-| Chai-1 aggregate score | 模型内部排序或复核信号 | 复合物真实存在 |
-| Boltz2 predicted affinity | 亲和力相关预测线索 | 实测 Kd 或 IC50 |
-| docking 前 QC 通过 | 输入记录完整，可进入下一步 | 后续 docking 结果可靠 |
+对 3HTB，本书固定采用蛋白单组分、干燥、刚性受体协议，并保存 PO4/BME/HOH 的原始信息。这个选择让学生先运行完整小流程。若研究目标转为分析水或缓冲组分，应新建一份保留协议，不能只把原子加回 PDBQT 而不重新准备。
 
-药物化学写作中，可以把“证明结合”“强结合”“发现命中物”先降级为“候选结构假设”“排序线索”“待验证对象”。只有当实验测定、结构验证、重复计算或多层证据补齐后，才考虑更强表述。
+下载 [组分清单示例](../assets/chapter-03/component_manifest_example.tsv)，为另一公开结构填写三项：必须保留、暂移除、当前工具无法处理。每个决定给出具体依据，遇到无法参数化的位点金属时不继续套用本章小分子流程。
 
-## 延伸阅读与下一步
+## 3.7 结构进入对接前的复核清单
 
-本章的输出应交给第 4 章。交接时，至少带上 receptor 文件、ligand 或组分清单、binding site 依据、component manifest 和 QC 结论。
+准备完成后，将原始与处理后文件一并打开。核对链 A、配体参考和盒子是否处于同一坐标系；不要对受体单独移动或对齐后仍使用旧盒子。
 
-如果第 4 章得到 shortlist，后续可以进入第 5 章分子动力学模拟、第 7 章结合自由能计算或第 8 章 AI 亲和力预测。每一步都应继续保留证据边界：计算结果负责提出或筛选假设，不能单独替代实验验证。
+本案例可以从清单看到处理前后的区别：原蛋白 1364 个 ATOM 记录，选择 altloc A 后 163 个残基、1300 个重原子位置，受体 PDBQT 为 1626 个原子记录。原子数增加来自补氢，替代位置减少来自 A/B 选择；不同文件的“原子数”必须说明统计对象。
 
-对真实研究项目而言，本章最有价值的产物不是一张漂亮图，而是一组可复查文件。只要结构来源、组分取舍和位点假设能被别人复核，后续 docking、MD、亲和力预测和实验设计才有稳定的起点。
+| 对接前检查 | 本案例通过条件 |
+|---|---|
+| 来源 | 3HTB 和 CCD 下载地址、哈希齐全 |
+| 体系 | 蛋白 auth A，替代位置 A，组分取舍明确 |
+| 配体 | JZ4/IPH/BNZ 与化学名称一致；中性状态记录完整 |
+| 坐标 | 受体、参考 JZ4、盒子保持原晶体坐标 |
+| 输出 | 一份 receptor PDBQT、三份 ligand PDBQT、box.json 均存在 |
+| 日志 | 准备完成，警告有解释，未静默跳过必需残基 |
+
+网络不便时，可从课程资源逐项下载 [公开输入与准备记录](../assets/chapter-03/data/3htb/download_sources.json) 所列文件，保持目录布局；也可用脚本的 `--source-dir` 指向已下载的五个源文件重新准备。基础任务建议亲自准备一次，再将文件哈希与配套资源对照。
+
+对照练习是比较原始 PDB、提取受体 PDB 和 PDBQT，分别统计替代位置、非蛋白组分和原子记录。写出每个差异对应哪一步，不把“数量少了”直接解释为质量更好。
+
+## 本章方法适用范围与结果解释
+
+本章获得的是按指定协议准备的计算输入。实验结构、同源模型和 AI 预测结构的适用性取决于问题与局部质量；预测位点与模型评分用于提出候选。质子化、化学状态、替代位置和组分取舍都是本次输入条件，准备成功不会自动保证对接准确。第 4 章将用晶体 JZ4 做实际重对接，观察这个协议能否恢复参考位置，再扩展到小批量。
+
+## 文献与来源
+
+结构预测方法参见 AlphaFold2、AlphaFold 3、Chai-1 与 Boltz-2 原始研究；本书文献映射保留以下条目，完整信息见全书参考文献。Meeko 的命令与准备机制参见 [官方文档](https://meeko.readthedocs.io/en/develop/)，小分子文件要求见 [Vina 基础教程](https://autodock-vina.readthedocs.io/en/latest/docking_basic.html)。
+
+- Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O. et al. Highly accurate protein structure prediction with AlphaFold. Nature (2021). https://doi.org/10.1038/s41586-021-03819-2
+
+- Abramson, J., Adler, J., Dunger, J., Evans, R., Green, T., Pritzel, A. et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature (2024). https://doi.org/10.1038/s41586-024-07487-w
+
+- Chai Discovery et al. Chai-1: Decoding the molecular interactions of life. bioRxiv (2024，预印本). https://doi.org/10.1101/2024.10.10.615955
+
+- Passaro, S., Corso, G., Wohlwend, J. et al. Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction. bioRxiv (2025，预印本). https://doi.org/10.1101/2025.06.14.659707
+
+- Du, L., Geng, C., Zeng, Q., Huang, T., Tang, J., Chu, Y. et al. Dockey: a modern integrated tool for large-scale molecular docking and virtual screening. Briefings in Bioinformatics 24, bbad047 (2023). https://doi.org/10.1093/bib/bbad047
+
+- Agrawal, P., Singh, H., Srivastava, H. K., Singh, S., Kishore, G. & Raghava, G. P. S. Benchmarking of different molecular docking methods for protein-peptide docking. BMC Bioinformatics 19, 426 (2019). https://doi.org/10.1186/s12859-018-2449-y
+
+- Crampon, K., Giorkallos, A., Deldossi, M., Baud, S. & Steffenel, L. A. Machine-learning methods for ligand-protein molecular docking. Drug Discovery Today 27, 151-164 (2022). https://doi.org/10.1016/j.drudis.2021.09.007
+
+- Gu, S., Shen, C., Zhang, X., Sun, H., Cai, H., Luo, H. et al. Benchmarking AI-powered docking methods from the perspective of virtual screening. Nature Machine Intelligence 7, 509-520 (2025). https://doi.org/10.1038/s42256-025-00993-0
+
+<!-- citation-keys: jumper_highly_2021, abramson_accurate_2024, chai_discovery_chai-1_2024, passaro_boltz-2_2025, du_dockey_2023, agrawal_benchmarking_2019, crampon_machine-learning_2022, gu_benchmarking_2025 -->

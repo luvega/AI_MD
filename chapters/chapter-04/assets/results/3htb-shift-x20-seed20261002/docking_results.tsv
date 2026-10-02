@@ -1,0 +1,2 @@
+ligand_id	status	vina_score_kcal_mol	seconds	seed	exhaustiveness	cpu	pose_file	pose_review	next_step
+JZ4	completed	-2.266	14.918	20261002	16	2	JZ4_out.pdbqt	pending human inspection	inspect pose and compare JZ4 crystal reference

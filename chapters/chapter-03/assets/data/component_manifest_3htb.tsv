@@ -1,0 +1,8 @@
+component	original_records	policy	method_or_reason
+protein_auth_chain_A	1364 ATOM records including alternate locations	retain; choose altloc A	Meeko --default_altloc A; prepare polar hydrogen and atom types
+JZ4_A167	10 heavy atoms	remove from receptor; keep reference SDF	crystal reference used to define box and redocking RMSD
+PO4_A165_A166	2 residues; 10 HETATM records	remove in this protocol	defined dry rigid protein-only receptor teaching case
+BME_A168	1 residue; 4 HETATM records	remove in this protocol	defined dry rigid protein-only receptor teaching case
+HOH_A169_A388	220 water residues	remove in this protocol	defined dry rigid protein-only receptor teaching case; no water-retention comparison
+JZ4_IPH_BNZ_CCD	10/7/6 heavy atoms	prepare separately	neutral CCD ideal structures; no pH enumeration
+missing_terminal_LEU_A164	SEQRES 164 aa; coordinates A1-A163	not rebuilt	PDB REMARK 465; receptor uses 163 coordinate residues

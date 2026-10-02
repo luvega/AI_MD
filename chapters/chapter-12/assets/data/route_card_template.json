@@ -1,0 +1,16 @@
+[
+  {
+    "task_id": "",
+    "question": "",
+    "starting_evidence": [],
+    "hypothesis": "",
+    "cpu_action": "",
+    "outputs": [],
+    "metrics": [],
+    "current_status": "",
+    "observed_result": "",
+    "next_validation": "",
+    "resource_limit": "",
+    "stop_condition": ""
+  }
+]

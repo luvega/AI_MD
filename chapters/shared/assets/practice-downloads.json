@@ -1,0 +1,1854 @@
+{
+  "version": "1.1.0",
+  "dependencies": {
+    "2": [
+      3
+    ],
+    "3": [
+      1
+    ],
+    "4": [
+      1,
+      3
+    ],
+    "6": [
+      5
+    ],
+    "8": [
+      3
+    ],
+    "9": [
+      10
+    ],
+    "11": [
+      4,
+      10
+    ]
+  },
+  "files": [
+    {
+      "chapter": 1,
+      "relative_path": "chapter-01/assets/code/check_files.py",
+      "url_path": "chapter-01/code/check_files.py",
+      "sha256": "47ea662bafa1df8a24ac3a627060e1530665a958fbfca747f6ce4355da0d552b"
+    },
+    {
+      "chapter": 1,
+      "relative_path": "chapter-01/assets/code/requirements-teaching.txt",
+      "url_path": "chapter-01/code/requirements-teaching.txt",
+      "sha256": "803f505bab8452c0b4c6b758d027f62619cba699e421f52261426fd45d89a1cf"
+    },
+    {
+      "chapter": 1,
+      "relative_path": "chapter-01/assets/environment_record.tsv",
+      "url_path": "chapter-01/environment_record.tsv",
+      "sha256": "f38568b588f1d50fc5f623e71f031e499fe70d46fbdbd2e6875072d420dc421f"
+    },
+    {
+      "chapter": 1,
+      "relative_path": "chapter-01/assets/results/file-check/environment.json",
+      "url_path": "chapter-01/results/file-check/environment.json",
+      "sha256": "a7c28d1d9db54b948534dbbab7646d2163ff1d35faa85e6e26d9f0be7c21d43b"
+    },
+    {
+      "chapter": 1,
+      "relative_path": "chapter-01/assets/results/file-check/input_inventory.tsv",
+      "url_path": "chapter-01/results/file-check/input_inventory.tsv",
+      "sha256": "02615e0fcccd505c3098329974c6efb2070199c3d70741e05612bfd23433a3c3"
+    },
+    {
+      "chapter": 1,
+      "relative_path": "chapter-01/assets/provenance.tsv",
+      "url_path": "chapter-01/provenance.tsv",
+      "sha256": "cda831d67d82b905bb00865c30619b405d1dce60753ad874b4a50e183aec3ce7"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/code/3htb_pocket.pml",
+      "url_path": "chapter-02/code/3htb_pocket.pml",
+      "sha256": "aaf53d8246b74d4a8d77a36f7271a1fa2d242eac5da546abc4ff5ed5793eda42"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/code/pocket_neighborhood.py",
+      "url_path": "chapter-02/code/pocket_neighborhood.py",
+      "sha256": "63b1e38d6ac6fef269d36c9d1e40f63f9b4fd72ccf6f1d024a22902392c094ce"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/results/pocket_radius_counts.tsv",
+      "url_path": "chapter-02/results/pocket_radius_counts.tsv",
+      "sha256": "5fa425a23db396575ce3962db9b9cbc91248d21dec0cfeb39f7687282a3216a3"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/results/pymol-3htb/3htb_pocket.png",
+      "url_path": "chapter-02/results/pymol-3htb/3htb_pocket.png",
+      "sha256": "146574d0d0ab4be13852930f512d4443a8ad5786ff191a88309fbd1a63f4cc06"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/results/pymol-3htb/3htb_pocket.pse",
+      "url_path": "chapter-02/results/pymol-3htb/3htb_pocket.pse",
+      "sha256": "c3758eede08f1f7323c396d230d13ba5c11adcc9427222ee795ca6e066872d7a"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/results/pymol-3htb/3htb_pocket_residues.pdb",
+      "url_path": "chapter-02/results/pymol-3htb/3htb_pocket_residues.pdb",
+      "sha256": "92136ca1648fe02e405e0bad82491a80d768966a832b3d88362652e2fa48a331"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/results/pymol-3htb/validation.json",
+      "url_path": "chapter-02/results/pymol-3htb/validation.json",
+      "sha256": "3e142787aa93144ecf113375a78a7122d7a9ccb4643a5704ef3a18a36af20959"
+    },
+    {
+      "chapter": 2,
+      "relative_path": "chapter-02/assets/provenance.tsv",
+      "url_path": "chapter-02/provenance.tsv",
+      "sha256": "65057fb5a690498a1643d649fb0d9c020b142b6c2ae27c6514b525d0d22e1ba0"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/code/prepare_3htb.py",
+      "url_path": "chapter-03/code/prepare_3htb.py",
+      "sha256": "102af4198b5c7c3e7b5b6a2888493d71a7f35b43864f2fe489aa365f574fc887"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/component_manifest_example.tsv",
+      "url_path": "chapter-03/component_manifest_example.tsv",
+      "sha256": "06e5d6a5396ebb41a4ca69f1c41a79e57abc7c47dd14481d4acfd891d944a95a"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/3htb.pdb",
+      "url_path": "chapter-03/data/3htb/3htb.pdb",
+      "sha256": "69c7b4776c588526160c587e14a36289f5f74b265cb0736fcbed47c4335adfa7"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/3htb_receptor.box.pdb",
+      "url_path": "chapter-03/data/3htb/3htb_receptor.box.pdb",
+      "sha256": "1a5d08cc4f321247564c45ca71c5e6ce3238112c874eb0239d431f8cda5160e4"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/3htb_receptor.box.txt",
+      "url_path": "chapter-03/data/3htb/3htb_receptor.box.txt",
+      "sha256": "11f06d27535b5644788caff3600af4569d98ecc2dda6cb7c14ae94adb6c407e2"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/3htb_receptor.pdb",
+      "url_path": "chapter-03/data/3htb/3htb_receptor.pdb",
+      "sha256": "c2c8e239dce8be36d28f1dfaa1f7c6fb33e8a963b779ef5e80b1d7bf2d3ab465"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/3htb_receptor.pdbqt",
+      "url_path": "chapter-03/data/3htb/3htb_receptor.pdbqt",
+      "sha256": "193622599f859408775857a1957f62bd77679a015fadadee92546ac6dce97d58"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/BNZ.pdbqt",
+      "url_path": "chapter-03/data/3htb/BNZ.pdbqt",
+      "sha256": "2a4c2d18df58167d63d6a6dc07687a8accd5bd5955a5680b7022c59e6952df22"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/BNZ_ideal.sdf",
+      "url_path": "chapter-03/data/3htb/BNZ_ideal.sdf",
+      "sha256": "d7f5068484a28f7cabc64fa3dc63bab3d2f5510adf6c181e6c091ec66678a97d"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/box.json",
+      "url_path": "chapter-03/data/3htb/box.json",
+      "sha256": "6cb030436c4b7ae671bf62d050fabcd5b19f7899370b5c46c20268c29ad50d71"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/download_sources.json",
+      "url_path": "chapter-03/data/3htb/download_sources.json",
+      "sha256": "145148e8a199a2841e1bf13a49fe6e96210721eee167b8f140b32a9358f36ce9"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/IPH.pdbqt",
+      "url_path": "chapter-03/data/3htb/IPH.pdbqt",
+      "sha256": "b3c301ddc84edd0a5025ba49018dc3e910f4eb7f9aa8a6fa13741f4cf1991dd4"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/IPH_ideal.sdf",
+      "url_path": "chapter-03/data/3htb/IPH_ideal.sdf",
+      "sha256": "29cd273062fff1eec8bdf2866abefc2699938e3876400ab121312807e1c8f230"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/JZ4.pdbqt",
+      "url_path": "chapter-03/data/3htb/JZ4.pdbqt",
+      "sha256": "68b8b157586066e0df77549dfbb27a513c08077e8df35d00a192d96e2cc8ec4a"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/JZ4_ideal.sdf",
+      "url_path": "chapter-03/data/3htb/JZ4_ideal.sdf",
+      "sha256": "0ca2e8150f5b5bf27d8f06651d06faf94e6419f0ea7a85cc537ca518200f8b2e"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/jz4_reference.sdf",
+      "url_path": "chapter-03/data/3htb/jz4_reference.sdf",
+      "sha256": "081a1033740d5e5e6a292a318630107c89c3cff9d1edb578cc9ecbb5704e8b59"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/ligand_manifest.tsv",
+      "url_path": "chapter-03/data/3htb/ligand_manifest.tsv",
+      "sha256": "424b0ceda803607446d3eeb12cf18b3c3a60e2fe6c402e4cd266b3b484e5e505"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/preparation_commands.json",
+      "url_path": "chapter-03/data/3htb/preparation_commands.json",
+      "sha256": "fef2d522535fe53fe5b331760016b2e19e73392c11a0aca02d82a67be4127848"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/receptor_preparation.log",
+      "url_path": "chapter-03/data/3htb/receptor_preparation.log",
+      "sha256": "a2b832283bec4ba95cce1d3430bdf2b9002ba38473cb5ad23887bc0715b45234"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/3htb/validation.json",
+      "url_path": "chapter-03/data/3htb/validation.json",
+      "sha256": "5dfc00f546ac1da62e0feb7e78228fa0809bfd26bc47263ef775a063fa0a4483"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/data/component_manifest_3htb.tsv",
+      "url_path": "chapter-03/data/component_manifest_3htb.tsv",
+      "sha256": "37ae4a2ae103c113b6cd5522fd12aafa114cac70f51a8a6d4c1d323ff6fc5b19"
+    },
+    {
+      "chapter": 3,
+      "relative_path": "chapter-03/assets/provenance.tsv",
+      "url_path": "chapter-03/provenance.tsv",
+      "sha256": "fb0d1aada63d8fa41d976e14b73967734a2bf456cdf1d045d0426a27c286472c"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/code/plot_redocking.py",
+      "url_path": "chapter-04/code/plot_redocking.py",
+      "sha256": "bc06045a3d1d75977528e5b2f2410a05f36651cf77cca483f830d9a708421b48"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/code/run_vina_case.py",
+      "url_path": "chapter-04/code/run_vina_case.py",
+      "sha256": "204784bcf28e685ee252f273d8343ad9623b4406098addc134f2455617b0491b"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/figures/jz4_redocking_overlay.png",
+      "url_path": "chapter-04/figures/jz4_redocking_overlay.png",
+      "sha256": "1c115d88c224c941fcd65141b8dfd25001737cbd4e51d3fa10b935a874091521"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/figures/three_ccd_ligands.svg",
+      "url_path": "chapter-04/figures/three_ccd_ligands.svg",
+      "sha256": "706b40d4b69dfc79632c7896cb0da9ec2b8c07c5c4de1496e643295c240405b8"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/BNZ.log",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/BNZ.log",
+      "sha256": "8f7a809a820b74b223c0003d8e4e78b0276166f0b431f8402a76690c752cf18e"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/BNZ_out.pdbqt",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/BNZ_out.pdbqt",
+      "sha256": "7d037c386d6e7230ee58799206968e354a05f52e3ba72d3f90fa25e31b08306e"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/docking_results.tsv",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/docking_results.tsv",
+      "sha256": "247b41169d6f27745b73644d7c8e9c994c47ce02551e8e01e69c490d9916313e"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/IPH.log",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/IPH.log",
+      "sha256": "a6cbb7a1099eea7379c5a49774f2558bf1fa9b2d9598122e3329b4d94d2a9ed5"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/IPH_out.pdbqt",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/IPH_out.pdbqt",
+      "sha256": "a5e4288cc5bfc17f18872b302312bb2abecd6780faa50d77fac78754ecf66d66"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/JZ4.log",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/JZ4.log",
+      "sha256": "2a5f38598edff3f61866e331de7550ea049bc72273ee0cfc00a39f67f787103f"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/JZ4_out.pdbqt",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/JZ4_out.pdbqt",
+      "sha256": "c9115328eccc82086cb97b67e4ca8c41362941026e7db622d51139f21b922934"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/JZ4_poses.sdf",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/JZ4_poses.sdf",
+      "sha256": "017bf0cd551ac6bde49dc30f5740c740ff320fb29b349207692258e290d7a31e"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/JZ4_redocking_rmsd.json",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/JZ4_redocking_rmsd.json",
+      "sha256": "8197edfe8bfdb8fbb247417bc914f55b370ea96cb43c4bf1ac25daea97102bc0"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-cpu-seed20261002/run_parameters.json",
+      "url_path": "chapter-04/results/3htb-cpu-seed20261002/run_parameters.json",
+      "sha256": "6b36a023d9385f181a37f9a1f82408c53f1106e395218b38d1d7d09e268bdc8b"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-shift-x20-seed20261002/docking_results.tsv",
+      "url_path": "chapter-04/results/3htb-shift-x20-seed20261002/docking_results.tsv",
+      "sha256": "923ccef79357fb048e27d1e15f103d30abb8d9dd8c89fbbaf7b97574c9089bca"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-shift-x20-seed20261002/JZ4.log",
+      "url_path": "chapter-04/results/3htb-shift-x20-seed20261002/JZ4.log",
+      "sha256": "9e1d91a386c4ddeafd9bbcd144fb42ec036e408a9a348d1f95c47577c7315837"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-shift-x20-seed20261002/JZ4_out.pdbqt",
+      "url_path": "chapter-04/results/3htb-shift-x20-seed20261002/JZ4_out.pdbqt",
+      "sha256": "394203b54af1d2bd877629a8e798a5d1b4487d36612117f92c34d2abc10e1e5e"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-shift-x20-seed20261002/JZ4_poses.sdf",
+      "url_path": "chapter-04/results/3htb-shift-x20-seed20261002/JZ4_poses.sdf",
+      "sha256": "2dad42819551b70af4955186c066963d3580d0047d620c6ac4b7ce881eaf908c"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-shift-x20-seed20261002/JZ4_redocking_rmsd.json",
+      "url_path": "chapter-04/results/3htb-shift-x20-seed20261002/JZ4_redocking_rmsd.json",
+      "sha256": "67fcd0b04774db9590774b231ea8a431b003f4c3c618fd3426a862addc237fd3"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/results/3htb-shift-x20-seed20261002/run_parameters.json",
+      "url_path": "chapter-04/results/3htb-shift-x20-seed20261002/run_parameters.json",
+      "sha256": "bd4be3605eab93eea24df0ce451128113952b18476df08bec99f6a28c4f7d126"
+    },
+    {
+      "chapter": 4,
+      "relative_path": "chapter-04/assets/provenance.tsv",
+      "url_path": "chapter-04/provenance.tsv",
+      "sha256": "54c976ac20f49f2056718903d2b8778e4312cc365bd000821cd3dc9c747f9f74"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/README.md",
+      "url_path": "chapter-05/practice/1aki/README.md",
+      "sha256": "d76efcf6503589490c2ddecb94d6e07d4738c94e0293c4bf06303dd97e5e88d0"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/input/1aki.pdb",
+      "url_path": "chapter-05/practice/1aki/input/1aki.pdb",
+      "sha256": "c75d7a689617248cdd92dc6633531d2506fb9bef1e6e21e26c8f579ae6955abb"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/mdp/em.mdp",
+      "url_path": "chapter-05/practice/1aki/mdp/em.mdp",
+      "sha256": "eea7667c14848bafe033c6f2eaac92dfeef84fa67ac080b474fe1ef58125f6d9"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/mdp/ions.mdp",
+      "url_path": "chapter-05/practice/1aki/mdp/ions.mdp",
+      "sha256": "4e38583eaf4b3e25348828ba9bce3ae59af6c6ad1c676833cfeeec3b027ab5f8"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/mdp/md.mdp",
+      "url_path": "chapter-05/practice/1aki/mdp/md.mdp",
+      "sha256": "257a7ec9cf10cc79bb9e7e61433324c8a346b232b5664b32a9685cc61ff61ad2"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/mdp/npt.mdp",
+      "url_path": "chapter-05/practice/1aki/mdp/npt.mdp",
+      "sha256": "6be507320c023950a5496f25fe069be0e9bebb7d5496eaa5a14baa4b0adb4e34"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/mdp/nvt.mdp",
+      "url_path": "chapter-05/practice/1aki/mdp/nvt.mdp",
+      "sha256": "07a160f7d7dea3c9d673f0ee86504d32f66febd2c4dd88c6a946d1138f6467e7"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/run-md.py",
+      "url_path": "chapter-05/practice/1aki/run-md.py",
+      "sha256": "6b211a5f0f61f863bb8113d597eb233d1d5cf6fd2faa24d0e5d0c93dabad2d7a"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/verified-run/command-log.tsv",
+      "url_path": "chapter-05/practice/1aki/verified-run/command-log.tsv",
+      "sha256": "cfddfd2ea24d80c2d3e86fe166e34ed6f610a475717ac31e6fbb656b4e78df89"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/verified-run/em.stdout.log",
+      "url_path": "chapter-05/practice/1aki/verified-run/em.stdout.log",
+      "sha256": "93c41ecf87d987fa88686a67271e736416e1f02bc0215cca11e9ca2597162e71"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/verified-run/run-record.json",
+      "url_path": "chapter-05/practice/1aki/verified-run/run-record.json",
+      "sha256": "9ba80d8954931758a1fdebfa487c98dc666efc51272e8bfeaefba1f907a37128"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/verified-run/trajectory-check.stdout.log",
+      "url_path": "chapter-05/practice/1aki/verified-run/trajectory-check.stdout.log",
+      "sha256": "ed2b05bacae80cf24974df312b47f85762a06bb50205ffe3dcd1257f8d1030cb"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/practice/1aki/verified-run/version.stdout.log",
+      "url_path": "chapter-05/practice/1aki/verified-run/version.stdout.log",
+      "sha256": "411409f976f0d743354eae2fc09bb9bb9266ad6ebf6f4214252a28de7b4b0525"
+    },
+    {
+      "chapter": 5,
+      "relative_path": "chapter-05/assets/provenance.tsv",
+      "url_path": "chapter-05/provenance.tsv",
+      "sha256": "fbd74b8ac4b698f40224bffdc38dcb01c44ea0815f3442052523958246d46164"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/code/analyze-md.py",
+      "url_path": "chapter-06/code/analyze-md.py",
+      "sha256": "21365da124f35e3f053a1e1b98118c1fac531eeb576a7b50bcc9384d2a0745fc"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/code/calculate-dccm.py",
+      "url_path": "chapter-06/code/calculate-dccm.py",
+      "sha256": "a4b31822c6f6c3497cd16e8c2bca83c3591c733693b5b49e98ee463fd36d4ffb"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/code/plot-pca-frequency.py",
+      "url_path": "chapter-06/code/plot-pca-frequency.py",
+      "sha256": "ebb052b9f8400aa59aab423831c82a2bca9888c82c927a52f8a173902dcb1f0c"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/code/plot-xvg.py",
+      "url_path": "chapter-06/code/plot-xvg.py",
+      "sha256": "05541908c6b97fee2357d04daeccfd08735576fd0d9fcbf44dd0c5f3f8719ba2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/README.md",
+      "url_path": "chapter-06/practice/1aki/README.md",
+      "sha256": "d18b582330a76dd148773ba0e17f1528341c43263fb2da6a48ce0c29fff2522b"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/analysis-commands.tsv",
+      "url_path": "chapter-06/practice/1aki/analysis-commands.tsv",
+      "sha256": "d63ac9fbfdd32337581a9a7e800a92fe6243ed45cb1a8ff981c7f6c89f82e5a9"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/analysis-local-rebuild-record.json",
+      "url_path": "chapter-06/practice/1aki/analysis-local-rebuild-record.json",
+      "sha256": "1c61268050e2ab5864cf9f40b197be16c75d91a8ef188d0b059222882d890f00"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/analysis-record.json",
+      "url_path": "chapter-06/practice/1aki/analysis-record.json",
+      "sha256": "d07ec3ca9831460ffc12684816b3a5b0d0bb5dcacc5ee90fb3f1a74a945354f2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/bindex.ndx",
+      "url_path": "chapter-06/practice/1aki/bindex.ndx",
+      "sha256": "c6f37a5d2f810725ce451745fd3ca50db80118cd8fb555a63bea485251b5afcd"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/center.stdout.log",
+      "url_path": "chapter-06/practice/1aki/center.stdout.log",
+      "sha256": "5e4b459a4dc68bbcb57a4cf1aac268c7b9d37ec0f1fd268795dc2ab8743e1a71"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/check-centered.stdout.log",
+      "url_path": "chapter-06/practice/1aki/check-centered.stdout.log",
+      "sha256": "b47eac432b29df7e3791b2a99e0722f5d1736272cd482e7bd72f8972e7592d89"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/check-raw.stdout.log",
+      "url_path": "chapter-06/practice/1aki/check-raw.stdout.log",
+      "sha256": "b040fbb2e365d2bb7a8e8d5cfd5a75bfbe6657201dddf49c37dccbcafe502e17"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/cluster-representatives.pdb",
+      "url_path": "chapter-06/practice/1aki/cluster-representatives.pdb",
+      "sha256": "698184eba1efd579ed8c1e56cf11a9e45553696c530fec1de048242613e7e730"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/cluster-rmsd-distribution.xvg",
+      "url_path": "chapter-06/practice/1aki/cluster-rmsd-distribution.xvg",
+      "sha256": "9ebb3b1a730e13b804bc5eaef5069d2d4318700edb49aef66d34ee8222dc99d2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/cluster-rmsd.xpm",
+      "url_path": "chapter-06/practice/1aki/cluster-rmsd.xpm",
+      "sha256": "148bff0a45936c7ea5673657cb672c84951403069c3f2ba3f0a09dd5cb4203c9"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/cluster-sizes.xvg",
+      "url_path": "chapter-06/practice/1aki/cluster-sizes.xvg",
+      "sha256": "ad6a945bbf85d4f201c55f38b51e82a0671dd0337df14664183082f08e6c06de"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/cluster.log",
+      "url_path": "chapter-06/practice/1aki/cluster.log",
+      "sha256": "4bbc390702de8a2b858918e8065f72379186851e973075f9931aaf5915c08ade"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/cluster.stdout.log",
+      "url_path": "chapter-06/practice/1aki/cluster.stdout.log",
+      "sha256": "ac668e199215d4fafab418ea64c4ebc93d6b7554ce76f48c3425b2ddf410cda2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/covar.log",
+      "url_path": "chapter-06/practice/1aki/covar.log",
+      "sha256": "23ee47d526a77ca49019f50b42aebeef27a8706743f5a57abc313f0ba30c1a39"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/covariance.stdout.log",
+      "url_path": "chapter-06/practice/1aki/covariance.stdout.log",
+      "sha256": "14e106f50a2247631083d3305a2597c06e4e1fe0d63bf611db3b2051e40dcbf2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dccm/dccm-ca.png",
+      "url_path": "chapter-06/practice/1aki/dccm/dccm-ca.png",
+      "sha256": "cd68eab3d7855c19f8f4da2d69b0d5d27019921b1d76e48e0d77404a7bd29fda"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dccm/dccm-ca.svg",
+      "url_path": "chapter-06/practice/1aki/dccm/dccm-ca.svg",
+      "sha256": "1f29bcb4090758148678df2477dd4d21d5441673024dc928264e9752de212359"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dccm/dccm-ca.tsv",
+      "url_path": "chapter-06/practice/1aki/dccm/dccm-ca.tsv",
+      "sha256": "b5266c76c19adb23254dddc74ef1b19c49d2758dd4e3e6fafabbfe763b6f510b"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dccm/dccm-record.json",
+      "url_path": "chapter-06/practice/1aki/dccm/dccm-record.json",
+      "sha256": "0c8af0c1991754c0de2add9f05ffd787d732235af41038b90eee1078a0d497ca"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/distance-glu35-asp52.stdout.log",
+      "url_path": "chapter-06/practice/1aki/distance-glu35-asp52.stdout.log",
+      "sha256": "e919b8d63372c71a25178ad9373f283781f4df7bd5450ce978f2cfdd93ef34b1"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/distance-glu35-asp52.xvg",
+      "url_path": "chapter-06/practice/1aki/distance-glu35-asp52.xvg",
+      "sha256": "cd27b491a13cfe6beed4f50b670e5edf68230a7d65dd9e0f4d2964ee5c831aee"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dssp-count.xvg",
+      "url_path": "chapter-06/practice/1aki/dssp-count.xvg",
+      "sha256": "a310e4e95ffa24456da13d8c935ec60c4de3bb139d4cd88525797003fd1c21d4"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dssp.dat",
+      "url_path": "chapter-06/practice/1aki/dssp.dat",
+      "sha256": "745ced458c5e26baf05c2a2c6a5b2d66f1e20a87238269682659896743ba1438"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/dssp.stdout.log",
+      "url_path": "chapter-06/practice/1aki/dssp.stdout.log",
+      "sha256": "8feedfef8f17a29f892bd600447d2bc6a31ae3fa23df434f58f53a6954576b49"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/eigenvalues.xvg",
+      "url_path": "chapter-06/practice/1aki/eigenvalues.xvg",
+      "sha256": "a16f01e01eba6d489f656854f87bd37260b2658a6a9f9a31c704a4a6546f8612"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/eigenvectors.trr",
+      "url_path": "chapter-06/practice/1aki/eigenvectors.trr",
+      "sha256": "0542196aabff767fc740dfeab6a6db115efb76625c2ebf1bd253b8a40c46c7d5"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/ener.xvg",
+      "url_path": "chapter-06/practice/1aki/ener.xvg",
+      "sha256": "b6b57fbff6932cf0d944cc74ca0d9e490c191532d2aea7507c947bb6778556b0"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/enthalpy.xpm",
+      "url_path": "chapter-06/practice/1aki/enthalpy.xpm",
+      "sha256": "3e9c928f2258d3024ca75fb8a9956ad7c565eb9a6756e580bf96aed1e6a981d8"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/entropy.xpm",
+      "url_path": "chapter-06/practice/1aki/entropy.xpm",
+      "sha256": "475c0e941d98005b3cd32e2eef8fa91902d9a27647aba4ab074121caf305bc7b"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/fel.xpm",
+      "url_path": "chapter-06/practice/1aki/fel.xpm",
+      "sha256": "9bd7b44a8e9d01a152d1e5313d98b407e13901f27f005fee74869e33836ca2d1"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/basic/plot-record.json",
+      "url_path": "chapter-06/practice/1aki/figures/basic/plot-record.json",
+      "sha256": "b09276db154c50f6ca3b85f095b1a80e5b15f5c91898ddd16a5f3a3c05a13da4"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/basic/summary.tsv",
+      "url_path": "chapter-06/practice/1aki/figures/basic/summary.tsv",
+      "sha256": "772594cd55a766d12a082fd6874a61b05bccc79886e87646f53ce6e0bad064b0"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/basic/xvg-panels.png",
+      "url_path": "chapter-06/practice/1aki/figures/basic/xvg-panels.png",
+      "sha256": "d11b65661ba7403c0441674e960ad169a424d530c4313dfd7edac45d75f9dcd6"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/basic/xvg-panels.svg",
+      "url_path": "chapter-06/practice/1aki/figures/basic/xvg-panels.svg",
+      "sha256": "ddaa2cda01c90d12c9b5b816c6b6b989e0946e178949e4eb8f6bea988055fec4"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/equilibration/plot-record.json",
+      "url_path": "chapter-06/practice/1aki/figures/equilibration/plot-record.json",
+      "sha256": "83923eb36f26ffdb1ac22b80e7c237a321fb8c194b1da706e34ac9e7bca6e6f0"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/equilibration/summary.tsv",
+      "url_path": "chapter-06/practice/1aki/figures/equilibration/summary.tsv",
+      "sha256": "75dcf42fac97030da53d7eb074fc93ec287148ea8d569e51eccaf7bdf80eb022"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/equilibration/xvg-panels.png",
+      "url_path": "chapter-06/practice/1aki/figures/equilibration/xvg-panels.png",
+      "sha256": "3379d909d72eca0d9e9d7ccb2f186cd573cd5084390bbcc9ff4b26602638b923"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/equilibration/xvg-panels.svg",
+      "url_path": "chapter-06/practice/1aki/figures/equilibration/xvg-panels.svg",
+      "sha256": "0b1a22659cc60edeab9605c41176facaa0f705700468ca1cd6fcb896d260cd10"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/last-half/plot-record.json",
+      "url_path": "chapter-06/practice/1aki/figures/last-half/plot-record.json",
+      "sha256": "ee3972ead64edd5ffb57cefb4c3ce8e4e1f48619b764c959bf2eb4d7310373b9"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/last-half/summary.tsv",
+      "url_path": "chapter-06/practice/1aki/figures/last-half/summary.tsv",
+      "sha256": "dea8f356cf6f26ad7f508a06de8e83f4fa2d53d5653dcf638843117621131b6a"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/last-half/xvg-panels.png",
+      "url_path": "chapter-06/practice/1aki/figures/last-half/xvg-panels.png",
+      "sha256": "8f097703701cd336facf01b7cebf7a1783c44379be927cece70f56ec34254dae"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/last-half/xvg-panels.svg",
+      "url_path": "chapter-06/practice/1aki/figures/last-half/xvg-panels.svg",
+      "sha256": "1b713c66ffa5c87bcc8ff77c0d6ec8103a284ed961c53767a122d922c163ca39"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/reference-comparison/plot-record.json",
+      "url_path": "chapter-06/practice/1aki/figures/reference-comparison/plot-record.json",
+      "sha256": "603ff53784c75cf7c8e85c274daf546cbab32fedd374aa3bb03f721fed773b50"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/reference-comparison/summary.tsv",
+      "url_path": "chapter-06/practice/1aki/figures/reference-comparison/summary.tsv",
+      "sha256": "b2f243d44df956a6f186b1b3a79af9d7464db860306b11b035559d1f052d15c5"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/reference-comparison/xvg-panels.png",
+      "url_path": "chapter-06/practice/1aki/figures/reference-comparison/xvg-panels.png",
+      "sha256": "cecda84baca188395bbd0502925fd0df1dbad90126feffc931d6acf1eeb28f4d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/reference-comparison/xvg-panels.svg",
+      "url_path": "chapter-06/practice/1aki/figures/reference-comparison/xvg-panels.svg",
+      "sha256": "d9013dbad6d5a3dfcedded5e024b54a5135c5a47c1d45e4089c8a42a33ec9ce6"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/rmsf/plot-record.json",
+      "url_path": "chapter-06/practice/1aki/figures/rmsf/plot-record.json",
+      "sha256": "91e13137973953f23fb50ff633d74ce433ded8404ca40c6f978776e99094edc9"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/rmsf/summary.tsv",
+      "url_path": "chapter-06/practice/1aki/figures/rmsf/summary.tsv",
+      "sha256": "6930e9f4a1a45127e7449bfacb9bb57355ed0e66c66a221894fd4532884c563d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/rmsf/xvg-panels.png",
+      "url_path": "chapter-06/practice/1aki/figures/rmsf/xvg-panels.png",
+      "sha256": "732086992230aee95782a07437f420872ca2fb9b29d6477cdb8f4a50089a8ecb"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/rmsf/xvg-panels.svg",
+      "url_path": "chapter-06/practice/1aki/figures/rmsf/xvg-panels.svg",
+      "sha256": "3686b28e06f49894d4d96df8e174d0588322c6868852f6b917cc25595066e5a5"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/secondary-structure/plot-record.json",
+      "url_path": "chapter-06/practice/1aki/figures/secondary-structure/plot-record.json",
+      "sha256": "6c299177de27e778d4faf9871142f283598eea818b0f95bae9c5b8a411d282e8"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/secondary-structure/summary.tsv",
+      "url_path": "chapter-06/practice/1aki/figures/secondary-structure/summary.tsv",
+      "sha256": "d6140c889d2f05ef3089e41fad8a2150e83951309c2463e6ae4fa7cc4e1787df"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/secondary-structure/xvg-panels.png",
+      "url_path": "chapter-06/practice/1aki/figures/secondary-structure/xvg-panels.png",
+      "sha256": "452b2983c89dcc960f2573e085ce10adcca73f471f90809b3bd9e02284fd11cd"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/figures/secondary-structure/xvg-panels.svg",
+      "url_path": "chapter-06/practice/1aki/figures/secondary-structure/xvg-panels.svg",
+      "sha256": "0673e52f1c160799a2298d177aecb4a26eb687478a058d45550b5124ddd61edd"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/fit.stdout.log",
+      "url_path": "chapter-06/practice/1aki/fit.stdout.log",
+      "sha256": "1f284b23d7b10b42c4a7bebb0b2b8ecf550656356bfd4d2faafdfc8f775ab6a0"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/gyrate-help.stdout.log",
+      "url_path": "chapter-06/practice/1aki/gyrate-help.stdout.log",
+      "sha256": "7d4d28474c1d58ff9cb37375718e34541869b385763b60e601f1199fbfe71ed6"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/gyrate.stdout.log",
+      "url_path": "chapter-06/practice/1aki/gyrate.stdout.log",
+      "sha256": "04880c0d703fff8abf2f74c99573e8eccb475ee3f05e160bb1aa2748320329e0"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/gyrate.xvg",
+      "url_path": "chapter-06/practice/1aki/gyrate.xvg",
+      "sha256": "0cf90244662ee94b24497050ed54ff3b9cff52034392f78a1d7a730e538e42ba"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/hbond-angles.xvg",
+      "url_path": "chapter-06/practice/1aki/hbond-angles.xvg",
+      "sha256": "af12a7324754d1a66e6078c48bee5c9b21f6b72224379ccffa6d4093997c7ceb"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/hbond-distances.xvg",
+      "url_path": "chapter-06/practice/1aki/hbond-distances.xvg",
+      "sha256": "79cb620ac7900a75b97ecc5f6ee829d4b52ad4a3faf0c5829ff8c4a2a81fcdfb"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/hbond-donors-acceptors.xvg",
+      "url_path": "chapter-06/practice/1aki/hbond-donors-acceptors.xvg",
+      "sha256": "8b28fdf22e9b5210428e74318a30913c3d583ba1e1fa6aca3207b1c3792a5726"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/hbond-protein.ndx",
+      "url_path": "chapter-06/practice/1aki/hbond-protein.ndx",
+      "sha256": "422bb8901f10610e1f980fa9ea3ba1eabfaad7f2931f6945500f68d4d19c6f1d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/hbond-protein.stdout.log",
+      "url_path": "chapter-06/practice/1aki/hbond-protein.stdout.log",
+      "sha256": "90ddb4910ef81d7c9bca072c433bd2be299aac441d0210656e2ec2e89edc9717"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/hbond-protein.xvg",
+      "url_path": "chapter-06/practice/1aki/hbond-protein.xvg",
+      "sha256": "d54da37714c7b543ad93453a6740b03cc147d27744a614e1adf05b6a603ee0c4"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md-center.xtc",
+      "url_path": "chapter-06/practice/1aki/md-center.xtc",
+      "sha256": "ab4dfbf84cd223ebc52cbe05c3c5f8aa128526f5eb50811630f9f437ebb7fe7f"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md-fit.xtc",
+      "url_path": "chapter-06/practice/1aki/md-fit.xtc",
+      "sha256": "9ff9286f37e0379c6b2f8fab56d01cb9b3c183f4f58840d74e5afe2a559359cf"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md-last.pdb",
+      "url_path": "chapter-06/practice/1aki/md-last.pdb",
+      "sha256": "f3bf3644c08cd1ad5f0d2306852a3492f721bcd2cd0128bc65a2ba57589380ed"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md-reference0.pdb",
+      "url_path": "chapter-06/practice/1aki/md-reference0.pdb",
+      "sha256": "3a9e01c97a117bd040375827b9de6179edd75b2c83306caeb104a147be6315aa"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md-whole.xtc",
+      "url_path": "chapter-06/practice/1aki/md-whole.xtc",
+      "sha256": "72b52d6796d60193da4e54cb3b59aa4088b5e2f784632a8998f680febba20693"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md.cpt",
+      "url_path": "chapter-06/practice/1aki/md.cpt",
+      "sha256": "a920d0a494202b5ae4284828f72c7a4e75a0305971624c9aae93fea1914a45a8"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md.edr",
+      "url_path": "chapter-06/practice/1aki/md.edr",
+      "sha256": "91b6af838ba74528486032dbb51f0f4002d7f4833c07a56257a9130a5df4e1fe"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md.tpr",
+      "url_path": "chapter-06/practice/1aki/md.tpr",
+      "sha256": "65bcf84c6261b369f81a4eeeceff03739a74246efe7a8deefe65e49874f48c0e"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/md.xtc",
+      "url_path": "chapter-06/practice/1aki/md.xtc",
+      "sha256": "c5a0d0c6815b96242bc2d4be41a10723c85b44b03973a6a849e7ee6c8510a1ac"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt-density.stdout.log",
+      "url_path": "chapter-06/practice/1aki/npt-density.stdout.log",
+      "sha256": "a16a98d973d4733beaf90091062ea1195460c12dc69daa0bbff4c8a5bf4a6973"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt-density.xvg",
+      "url_path": "chapter-06/practice/1aki/npt-density.xvg",
+      "sha256": "9181b41f8a1adb9d7eaa91df3023908d2249a5ed8da6a03fe618e5a38e3d5ab3"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt-pressure-density.stdout.log",
+      "url_path": "chapter-06/practice/1aki/npt-pressure-density.stdout.log",
+      "sha256": "410b555c74ca8db8bc048d80730d588df52617c7e8a83c33cb22578a735e5244"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt-pressure-density.xvg",
+      "url_path": "chapter-06/practice/1aki/npt-pressure-density.xvg",
+      "sha256": "0cffcfcf1b08782879dfd4bc8f9f8416022cc24f0425f640c3a5246bd90d8fdc"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt-pressure.stdout.log",
+      "url_path": "chapter-06/practice/1aki/npt-pressure.stdout.log",
+      "sha256": "154866cdfc70234ee7189057931d7a52c9fab36f91919fc2296155a5ab54f662"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt-pressure.xvg",
+      "url_path": "chapter-06/practice/1aki/npt-pressure.xvg",
+      "sha256": "89fee7e0340770911f19362fdd2d3fb2f48a62212edc9565462994225b6a0217"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/npt.edr",
+      "url_path": "chapter-06/practice/1aki/npt.edr",
+      "sha256": "56d55677aff1111f320f7ea68286f03be4371467daff1ad2a7ebf3a7458be7e4"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/nvt-temperature.stdout.log",
+      "url_path": "chapter-06/practice/1aki/nvt-temperature.stdout.log",
+      "sha256": "e174842c7c20ecaf36f584f6b1a6dfc073df869efbd9e06064fe7ab8a7e133cf"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/nvt-temperature.xvg",
+      "url_path": "chapter-06/practice/1aki/nvt-temperature.xvg",
+      "sha256": "5ffb388a630c95ee95099d2a0a640df45a4a9835e535b89bc7c048f42b30c53e"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/nvt.edr",
+      "url_path": "chapter-06/practice/1aki/nvt.edr",
+      "sha256": "66aee003b8fad40bd37f4d50c782cd02564c16e12dd3c588aded950a27ed3ed1"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-2d.xvg",
+      "url_path": "chapter-06/practice/1aki/pca-2d.xvg",
+      "sha256": "f469fef4e48b8843339c59a1c45891b1d2ca2bde44c9d1e46b5db8551ae22fc1"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-average.pdb",
+      "url_path": "chapter-06/practice/1aki/pca-average.pdb",
+      "sha256": "789a4c2f9b844f5319fa7b16bba82206dcb39d05f6b85978101c6157fc7069ca"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-frequency/pca-frequency-grid.tsv",
+      "url_path": "chapter-06/practice/1aki/pca-frequency/pca-frequency-grid.tsv",
+      "sha256": "77400d1164ba5784d53a3d4b31dcff7df6dae92167898040fefe3283043d3c6e"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-frequency/pca-frequency-record.json",
+      "url_path": "chapter-06/practice/1aki/pca-frequency/pca-frequency-record.json",
+      "sha256": "17849a225469de8f80590c0c06166c9ae730cb9a4a70ad3265bbfcb03f303a0b"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-frequency/pca-frequency.png",
+      "url_path": "chapter-06/practice/1aki/pca-frequency/pca-frequency.png",
+      "sha256": "5686230e1aff2ff045b860ab42d1c300d3620b5af1c67ce41e66135a0c9c94cc"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-frequency/pca-frequency.svg",
+      "url_path": "chapter-06/practice/1aki/pca-frequency/pca-frequency.svg",
+      "sha256": "3c750618058240f777e4c49464f3a39f5dc9c89539d2717ab9c496cb801fb4d9"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-projection.stdout.log",
+      "url_path": "chapter-06/practice/1aki/pca-projection.stdout.log",
+      "sha256": "3da8d9525375bbf7ea25de633e5a90f3a081a3699277e82a872b8b322e55daca"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/pca-projection.xvg",
+      "url_path": "chapter-06/practice/1aki/pca-projection.xvg",
+      "sha256": "fd1f169cc4a09024bbfddbd86aa9d0ed9d2b683a5f6085b97176b0123ab5bacf"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/prob.xpm",
+      "url_path": "chapter-06/practice/1aki/prob.xpm",
+      "sha256": "6db5816d488c30e2de85625174dcce9de22ab922f45747cb66c8f806b7da85fd"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/protein.gro",
+      "url_path": "chapter-06/practice/1aki/protein.gro",
+      "sha256": "b80253106ea566c39d82b81803dc074b1a610d7cd2d7d9a1746b6ef5b29c106a"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/reference-last.stdout.log",
+      "url_path": "chapter-06/practice/1aki/reference-last.stdout.log",
+      "sha256": "9512476d41485436b6f99adc0e27b6add8328053f8893059173231b6352442a2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/reference0.stdout.log",
+      "url_path": "chapter-06/practice/1aki/reference0.stdout.log",
+      "sha256": "9303ed141f0f1dade2e021ca4cabff5f349b34bd4e44a015fa34d513ff3fcfab"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/representative-first-cluster.pdb",
+      "url_path": "chapter-06/practice/1aki/representative-first-cluster.pdb",
+      "sha256": "c41d405d4119485fb6534184e278826d5fc122816e17a34565c912a1d440507c"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsd-backbone.stdout.log",
+      "url_path": "chapter-06/practice/1aki/rmsd-backbone.stdout.log",
+      "sha256": "28cd0a36cee977273a2fcacfaab9003fca51bd1228e512345e9db5aa63e88081"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsd-backbone.xvg",
+      "url_path": "chapter-06/practice/1aki/rmsd-backbone.xvg",
+      "sha256": "e1abd36e92dc93337d94c8ff4f061ab89a29360686b0e60d0ad0208df4120736"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsd-ca-lastref.xvg",
+      "url_path": "chapter-06/practice/1aki/rmsd-ca-lastref.xvg",
+      "sha256": "4fd84d1d5f1df9c9c5f28b381a2c598fc85460ba0492d7d75eb7297054debe2e"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsd-ca.stdout.log",
+      "url_path": "chapter-06/practice/1aki/rmsd-ca.stdout.log",
+      "sha256": "28ed63c071516755aab94840dab790e5a713d5ddc06a3be607288ab2acf20d90"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsd-ca.xvg",
+      "url_path": "chapter-06/practice/1aki/rmsd-ca.xvg",
+      "sha256": "b4e62a9e323978b6e6f0b8ff19f53b66e2fd8d724faa480a4eb6d0f748721715"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsd-lastref.stdout.log",
+      "url_path": "chapter-06/practice/1aki/rmsd-lastref.stdout.log",
+      "sha256": "24a7d4d4157a1aa5ea6892f7583929001d37b755571690711748bd19cd8343e8"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsf-ca.stdout.log",
+      "url_path": "chapter-06/practice/1aki/rmsf-ca.stdout.log",
+      "sha256": "98217f32e6dfabf57355b3d191800a63814dc20bfaf1a3a666f238dce55ec932"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/rmsf-ca.xvg",
+      "url_path": "chapter-06/practice/1aki/rmsf-ca.xvg",
+      "sha256": "f383963b9e1da9d01343fb05eaa9354601e030ea54d09e7f26b87d02a93e37bb"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/em.gro",
+      "url_path": "chapter-06/practice/1aki/run-inputs/em.gro",
+      "sha256": "aacfc70caca9832dfa0895a8a090431d864dd64ef044a671738aa2a24d2cfc5d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/em.mdp",
+      "url_path": "chapter-06/practice/1aki/run-inputs/em.mdp",
+      "sha256": "eea7667c14848bafe033c6f2eaac92dfeef84fa67ac080b474fe1ef58125f6d9"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/ions.mdp",
+      "url_path": "chapter-06/practice/1aki/run-inputs/ions.mdp",
+      "sha256": "4e38583eaf4b3e25348828ba9bce3ae59af6c6ad1c676833cfeeec3b027ab5f8"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/md.mdp",
+      "url_path": "chapter-06/practice/1aki/run-inputs/md.mdp",
+      "sha256": "257a7ec9cf10cc79bb9e7e61433324c8a346b232b5664b32a9685cc61ff61ad2"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/npt.cpt",
+      "url_path": "chapter-06/practice/1aki/run-inputs/npt.cpt",
+      "sha256": "59366a976a8629c12d68e2f34f748e689ca56cc69c050a2ae9f4d52e336d6d1d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/npt.gro",
+      "url_path": "chapter-06/practice/1aki/run-inputs/npt.gro",
+      "sha256": "5e289714d79c3a57412868aa58924920a336fa84c65bfed8b8ff99ab22540040"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/npt.mdp",
+      "url_path": "chapter-06/practice/1aki/run-inputs/npt.mdp",
+      "sha256": "6be507320c023950a5496f25fe069be0e9bebb7d5496eaa5a14baa4b0adb4e34"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/nvt.cpt",
+      "url_path": "chapter-06/practice/1aki/run-inputs/nvt.cpt",
+      "sha256": "714bd2a007be4dcc8475d0c818fae177c375db53ef020d3c24914181dc32941d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/nvt.gro",
+      "url_path": "chapter-06/practice/1aki/run-inputs/nvt.gro",
+      "sha256": "b932bb0ed803eb6585dc42336e9c07f419b7a0e0eb844c61309be7e1ff6b6714"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/nvt.mdp",
+      "url_path": "chapter-06/practice/1aki/run-inputs/nvt.mdp",
+      "sha256": "07a160f7d7dea3c9d673f0ee86504d32f66febd2c4dd88c6a946d1138f6467e7"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/posre.itp",
+      "url_path": "chapter-06/practice/1aki/run-inputs/posre.itp",
+      "sha256": "9714b4d86c0cf6769fbcb3e4dc07b9a57f70ec08d729274be50445286a74f331"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/protein.pdb",
+      "url_path": "chapter-06/practice/1aki/run-inputs/protein.pdb",
+      "sha256": "5b7cd1a1440b728cc1a50a49a9e6413110565c00ba3640b439872832f70ea4a4"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/system.gro",
+      "url_path": "chapter-06/practice/1aki/run-inputs/system.gro",
+      "sha256": "2999905bf080b12876754e71efbc429efe87cba782ba9a2b6b7997ae7f9899f6"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-inputs/topol.top",
+      "url_path": "chapter-06/practice/1aki/run-inputs/topol.top",
+      "sha256": "f7c990d3e289a191a33f42fd27996955ec91577efc03f004694ab3247181a500"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/command-log.tsv",
+      "url_path": "chapter-06/practice/1aki/run-logs/command-log.tsv",
+      "sha256": "cfddfd2ea24d80c2d3e86fe166e34ed6f610a475717ac31e6fbb656b4e78df89"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/em.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/em.log",
+      "sha256": "935e6bb55e7f5ec830436d154b26bfcfb863f52000e6edc377785eff1354dd78"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/em.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/em.stdout.log",
+      "sha256": "93c41ecf87d987fa88686a67271e736416e1f02bc0215cca11e9ca2597162e71"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/ions.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/ions.stdout.log",
+      "sha256": "8feae0fd670fcfd7b2c12f472a93aaa7fb6385d9ee363a95308f076fca8e9e52"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/md.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/md.log",
+      "sha256": "92e9c744ea008b4c10793d79b309aef8234d96ada1f9991862b02b78c36bcdac"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/md.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/md.stdout.log",
+      "sha256": "589db4574e1eb6ee85527a6d8c1dec6fff75413c5864a32ca1e6c3635a95bfca"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/npt.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/npt.log",
+      "sha256": "2033a94ddf8ff6690e4c4e33b20a64effe6066ce45b9604181736e9cf6096490"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/npt.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/npt.stdout.log",
+      "sha256": "3d966fa8003e9da18c34b23e70d806a16a44f9f7155645115c1c54936a9c11da"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/nvt.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/nvt.log",
+      "sha256": "78c4e33f15a79a9f2d4d462da6b53c18359ef247b6192527a90a1fd73cbfe2f3"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/nvt.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/nvt.stdout.log",
+      "sha256": "5aae5897f67b4afb816449dcad3ecaad8b293af1510db817fb34ecb7eb5cd78c"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/topology.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/topology.stdout.log",
+      "sha256": "0200a555eeeb1a292d4fec94e7133ba248cd12b84814e98952d07753a31dde1d"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/trajectory-check.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/trajectory-check.stdout.log",
+      "sha256": "ed2b05bacae80cf24974df312b47f85762a06bb50205ffe3dcd1257f8d1030cb"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/version.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/version.stdout.log",
+      "sha256": "411409f976f0d743354eae2fc09bb9bb9266ad6ebf6f4214252a28de7b4b0525"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-logs/water.stdout.log",
+      "url_path": "chapter-06/practice/1aki/run-logs/water.stdout.log",
+      "sha256": "fba280786b82329db2ec3a8c99518b2e2b9a8f5f8d57d6477582f57cc9e3c612"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/run-record.json",
+      "url_path": "chapter-06/practice/1aki/run-record.json",
+      "sha256": "6bf18cbb110d56e1ae830217d9b6928d447ee4d3bc92f070ec25e9918e15be68"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/sasa.stdout.log",
+      "url_path": "chapter-06/practice/1aki/sasa.stdout.log",
+      "sha256": "ba77f48795c061c4a98d9ba9a6327f9ab1ed284d8c586a51da4e01a879a2d785"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/sasa.xvg",
+      "url_path": "chapter-06/practice/1aki/sasa.xvg",
+      "sha256": "4ee2e80596875d558abbed0103475124dec33f3e0c6bd7009d573c2ca389687a"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/sham.log",
+      "url_path": "chapter-06/practice/1aki/sham.log",
+      "sha256": "b621efc00b866522b2be86b7bee13fff2292c190505d042fdf8b18ac35a50646"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/sham.stdout.log",
+      "url_path": "chapter-06/practice/1aki/sham.stdout.log",
+      "sha256": "1a1224c4ead2d3a6d44f697010d08a84b7ed465f3bc7d2b1d204ef17ee3a6594"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/version.stdout.log",
+      "url_path": "chapter-06/practice/1aki/version.stdout.log",
+      "sha256": "8fc7c976e2422c44b24455482a303d99c26a4f5e1b09d83c94217a8c4880e1a8"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/practice/1aki/whole.stdout.log",
+      "url_path": "chapter-06/practice/1aki/whole.stdout.log",
+      "sha256": "6d2d414242ff751bde349e3a53f2780edd884dbf81b06f872d8e4d3fdfc4187e"
+    },
+    {
+      "chapter": 6,
+      "relative_path": "chapter-06/assets/provenance.tsv",
+      "url_path": "chapter-06/provenance.tsv",
+      "sha256": "37b3daf211e372b403fc47d7c46d4c50c2971cb0540e83f5da7c82493107d98d"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/code/read-official-gb.py",
+      "url_path": "chapter-07/code/read-official-gb.py",
+      "sha256": "6af0e69e58d7b7efc634f12e5d5e9671851b68f071b2d92644ba8eab96646893"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/code/read-residue.py",
+      "url_path": "chapter-07/code/read-residue.py",
+      "sha256": "d3b2b98d32e094c3e96735fe9cd2eee28f13a936cf901a9beed3f024a1bb02b1"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/amber-residue/README.md",
+      "url_path": "chapter-07/practice/amber-residue/README.md",
+      "sha256": "652b6a81f369681b2150fa1a5e5897f3dd8317d15c6c398ec0b06ed945c3e4a5"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/amber-residue/analysis/plot-record.json",
+      "url_path": "chapter-07/practice/amber-residue/analysis/plot-record.json",
+      "sha256": "5fa08e4c0e79b3fc3af70f689d052b2ecf935db85dc37db37732dec3039b2f7d"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/amber-residue/analysis/residue-contributions.png",
+      "url_path": "chapter-07/practice/amber-residue/analysis/residue-contributions.png",
+      "sha256": "71faaaa673af9816c1010fb889df339a868f493943db67c952df1fe1af5471b5"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/amber-residue/analysis/residue-contributions.svg",
+      "url_path": "chapter-07/practice/amber-residue/analysis/residue-contributions.svg",
+      "sha256": "cd8d0e7db71ffd8b6214efc08a1d704d5f80dbe7187191666ed7212d271e6b4e"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/amber-residue/ras-selected-residue.tsv",
+      "url_path": "chapter-07/practice/amber-residue/ras-selected-residue.tsv",
+      "sha256": "1b7a16b4c1462415341eba4405ee429e37fa8eceeed16a6305476669ca3d96dc"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/amber-residue/source-record.json",
+      "url_path": "chapter-07/practice/amber-residue/source-record.json",
+      "sha256": "03a57351267a4eec278dd3a88844728f8ffd1da4cdabf73cb5feb8dbbbbbabb6"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/LICENSE-GPL-3.0.txt",
+      "url_path": "chapter-07/practice/official-gb/LICENSE-GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/README.md",
+      "url_path": "chapter-07/practice/official-gb/README.md",
+      "sha256": "2bfc6223ac425e9a367bad42483ec46b9dc821e96643d9b7b517c4a5ab339782"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/analysis/full/gb-frames.png",
+      "url_path": "chapter-07/practice/official-gb/analysis/full/gb-frames.png",
+      "sha256": "937c62417c3de412edfebc3d392e60f05ad8030c8bc2610bd2770fd56db7bbba"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/analysis/full/gb-frames.svg",
+      "url_path": "chapter-07/practice/official-gb/analysis/full/gb-frames.svg",
+      "sha256": "3fd4bb9853eef06850121171d01073625b34ddce4347fa58f90fd908a4843c8c"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/analysis/full/summary.json",
+      "url_path": "chapter-07/practice/official-gb/analysis/full/summary.json",
+      "sha256": "b291c486ebf5a22067517f49a0a87a3753a3989c22303e5c22d344c71fab594f"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/analysis/last-five/gb-frames.png",
+      "url_path": "chapter-07/practice/official-gb/analysis/last-five/gb-frames.png",
+      "sha256": "6456caf6f827e193a6faf87703d816e0b32f9c2476b7c59f8a9791f1922a2a8d"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/analysis/last-five/gb-frames.svg",
+      "url_path": "chapter-07/practice/official-gb/analysis/last-five/gb-frames.svg",
+      "sha256": "54d783789c400162cbdab0bb1c446c6a35d0a37b8e0c35c03c8d382d9b3240d4"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/analysis/last-five/summary.json",
+      "url_path": "chapter-07/practice/official-gb/analysis/last-five/summary.json",
+      "sha256": "a221e7ccab72835afd0f9a2f0d4c90dff526d6693685ac24e9b6f5cf93fe0251"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/practice/official-gb/gb_delta_total.csv",
+      "url_path": "chapter-07/practice/official-gb/gb_delta_total.csv",
+      "sha256": "24cf0dfdb76501a297d92da76397d17b812e8bcf06c005310546e36b2a42c835"
+    },
+    {
+      "chapter": 7,
+      "relative_path": "chapter-07/assets/provenance.tsv",
+      "url_path": "chapter-07/provenance.tsv",
+      "sha256": "c1369f1d92046f723dbfbaceec087d361c1c85de07a9997678864dac2db63c78"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/code/README.md",
+      "url_path": "chapter-08/code/README.md",
+      "sha256": "41aa8577116469c7766116f6d062ceb426b1902127ddc8454f1277e77c0c9ab3"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/code/check-actual-pose.py",
+      "url_path": "chapter-08/code/check-actual-pose.py",
+      "sha256": "90d3b3ebc8817ddbf0ebc8eb7f464b6e7080677201b41c597320778d10140046"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/code/inspect-affinity.py",
+      "url_path": "chapter-08/code/inspect-affinity.py",
+      "sha256": "ad44206d3e536ab33ef52e66e52c06ed934723e4807819891056716de35ec40d"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/code/view-actual-pose.pml",
+      "url_path": "chapter-08/code/view-actual-pose.pml",
+      "sha256": "cb4e9ebada285250e99a6b30a3e12084efc0567e74115dea5bf43f8a1b3b0193"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/practice/3htb-jz4-noncovalent.yaml",
+      "url_path": "chapter-08/practice/3htb-jz4-noncovalent.yaml",
+      "sha256": "d08c72c766260f7792b55c2789f9cf33832eed04f392f2d52116105a35e158ea"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/practice/README.md",
+      "url_path": "chapter-08/practice/README.md",
+      "sha256": "60fd2bb78b761a96415eed530e327195ab011a29ccedabeb3a29a023896265ba"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/practice/constructed-fields.tsv",
+      "url_path": "chapter-08/practice/constructed-fields.tsv",
+      "sha256": "82bd114ed0ce7fac73cc41d1b95bf9022e5a06d2debdea7de879469b9eddd959"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/practice/constructed-output.json",
+      "url_path": "chapter-08/practice/constructed-output.json",
+      "sha256": "ec83e36a089671ca353ce820e36b5deb204ae7484f9325ddf68d36aff132bde5"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/3htb_jz4_single_model_0.cif",
+      "url_path": "chapter-08/results/3htb-jz4-single/3htb_jz4_single_model_0.cif",
+      "sha256": "5b4f5ab6605d0998a9ec602d51e9fb8b269ee4be688a55d88617cbf6a38cc65d"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/README.md",
+      "url_path": "chapter-08/results/3htb-jz4-single/README.md",
+      "sha256": "7eb962334719e64578973833bbd6e849eac97a132e502a2cec2bf90ed156501c"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/actual-input.yaml",
+      "url_path": "chapter-08/results/3htb-jz4-single/actual-input.yaml",
+      "sha256": "197eb97522090341f43bb01ecc538a60c29bbacfaf5306312d2b84c746bf687d"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/affinity_3htb_jz4_single.json",
+      "url_path": "chapter-08/results/3htb-jz4-single/affinity_3htb_jz4_single.json",
+      "sha256": "a539000f5f70a532a708cf8858f3baf97c53266435118fab343f2568a7e45b0b"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/confidence_3htb_jz4_single_model_0.json",
+      "url_path": "chapter-08/results/3htb-jz4-single/confidence_3htb_jz4_single_model_0.json",
+      "sha256": "de2770fe14ba901c620ae16c2fa96220e174952613726716c4baa39efab95582"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/parsed-fields.record.json",
+      "url_path": "chapter-08/results/3htb-jz4-single/parsed-fields.record.json",
+      "sha256": "f950a34aa8fb41c2c8ca57aee30f9a5c3161f39715b4b02038e2731ad6438cea"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/parsed-fields.tsv",
+      "url_path": "chapter-08/results/3htb-jz4-single/parsed-fields.tsv",
+      "sha256": "4a646b46c90ff59487f75ec84210ca3406655012e19ca2a999bccfe9e4247e3b"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/run-record.json",
+      "url_path": "chapter-08/results/3htb-jz4-single/run-record.json",
+      "sha256": "447f94c4fa72721d1eb4d530645324a12cd46af4fd2d16b233c30665fecb8a40"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/results/3htb-jz4-single/structure-check.json",
+      "url_path": "chapter-08/results/3htb-jz4-single/structure-check.json",
+      "sha256": "5628dc03152e3613f4c5e3ae27a05e9b5ccf26c9de5588b891112ed2c396ed0d"
+    },
+    {
+      "chapter": 8,
+      "relative_path": "chapter-08/assets/provenance.tsv",
+      "url_path": "chapter-08/provenance.tsv",
+      "sha256": "5131dbf807f3aab3dd89944b80315a122e5f57fc52e8c7b1a9330bf4f1cb29a6"
+    },
+    {
+      "chapter": 9,
+      "relative_path": "chapter-09/assets/code/inspect_rfd3.py",
+      "url_path": "chapter-09/code/inspect_rfd3.py",
+      "sha256": "5c9d89935942814da44f0876feb1049fa74b7fdbd6ca31ebe5aadf50089ac436"
+    },
+    {
+      "chapter": 9,
+      "relative_path": "chapter-09/assets/data/inspection_expected.tsv",
+      "url_path": "chapter-09/data/inspection_expected.tsv",
+      "sha256": "5f0ee84f830866c54783dd4c17c15121555638692125a1ec10f84637c4f2fee9"
+    },
+    {
+      "chapter": 9,
+      "relative_path": "chapter-09/assets/data/random100.json",
+      "url_path": "chapter-09/data/random100.json",
+      "sha256": "701f2d6b9a1d45cea0546c3e429460b97c6ec4fe470430cbc9a52cae68799b31"
+    },
+    {
+      "chapter": 9,
+      "relative_path": "chapter-09/assets/provenance.tsv",
+      "url_path": "chapter-09/provenance.tsv",
+      "sha256": "ff6630c6efcb4855a9353a56e221b15b1241e45bf978f3130059d86b689bd9ea"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/code/analyze_refold.py",
+      "url_path": "chapter-10/code/analyze_refold.py",
+      "sha256": "8d512c9f86b66f0587e1f4cffb35cf2d1aafb75fe543f2c958e77c6f05b8fd16"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/code/prepare_refold.py",
+      "url_path": "chapter-10/code/prepare_refold.py",
+      "sha256": "36b39570ac49bdaeab7412149e4df60595e1d64abe734f577c88b36bd627c3f8"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/code/run_proteinmpnn_cpu.py",
+      "url_path": "chapter-10/code/run_proteinmpnn_cpu.py",
+      "sha256": "f1857ed9d82eee6b21b9d8c2167267e5aa92b38f8e522d0ac42a44f741c67ae9"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/code/show_refold_overlay.pml",
+      "url_path": "chapter-10/code/show_refold_overlay.pml",
+      "sha256": "b0a431b25296232acae1eb2ead81f37504d4c236d2b46b743ee8f883a66da78a"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/LICENSE-foundry.txt",
+      "url_path": "chapter-10/data/LICENSE-foundry.txt",
+      "sha256": "34ab4f089ed0332b059b3783839e997d44adbe0cdbab9b0ebd142feff75d64eb"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/LICENSE-proteinmpnn.txt",
+      "url_path": "chapter-10/data/LICENSE-proteinmpnn.txt",
+      "sha256": "82009d25ce585631f452b2b24589bdb29c559ccfefa2f200ef312ed5b501a586"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1.json",
+      "url_path": "chapter-10/data/pdl1.json",
+      "sha256": "00d213a4aa57b7b2a8a59395b5eb8aafa7b3a869635f72a51b4ecec443d5403d"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_backbone_chains.fasta",
+      "url_path": "chapter-10/data/pdl1_backbone_chains.fasta",
+      "sha256": "8e0c0c021d05169f2953fddb5a7f9279df9d3000129839a0b1a2806ceabd0ee1"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_cropped.pdb",
+      "url_path": "chapter-10/data/pdl1_cropped.pdb",
+      "sha256": "1c1d2cbe649a8514e9c2052279a3ec5bd591d02dc93cd4a84aeb0a7863b5f2bd"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_mpnn_seed37.fa",
+      "url_path": "chapter-10/data/pdl1_mpnn_seed37.fa",
+      "sha256": "31c9d0e6562f4d1b6c4258aab3d23ac2b37f199032facaf3e4876e287a3a9276"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_target.fasta",
+      "url_path": "chapter-10/data/pdl1_target.fasta",
+      "sha256": "5e775259eea745b1bfc81307dbe9de49b22bdb23c56dcbde6ce9057c54a88708"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_test_0_model_0.cif",
+      "url_path": "chapter-10/data/pdl1_test_0_model_0.cif",
+      "sha256": "286321ae007cb4669d47cc740a71282b9f4991c43fff16f45836a82af1f273bd"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_test_0_model_0.json",
+      "url_path": "chapter-10/data/pdl1_test_0_model_0.json",
+      "sha256": "28ff61433ef2d88cf5710aff27848a72edab43001a593c00e809d5198df92c3c"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/pdl1_test_0_model_0.pdb",
+      "url_path": "chapter-10/data/pdl1_test_0_model_0.pdb",
+      "sha256": "4a6d772bf58f9b0d67038db6a1122292862fe2d242bb1cb1aca03f265288855e"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/proteinmpnn_cpu_run.json",
+      "url_path": "chapter-10/data/proteinmpnn_cpu_run.json",
+      "sha256": "bb4a6813a519ac6840f98ef3a2feb99447f6d98dcbf6d8e8faf4f2a3b2201fa9"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/data/proteinmpnn_stdout.txt",
+      "url_path": "chapter-10/data/proteinmpnn_stdout.txt",
+      "sha256": "1c72d8ee01f7d87db8ce7498f3829b03015b838d61050a7d97537cdc0508b3c1"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/figures/pdl1_refold_1.png",
+      "url_path": "chapter-10/figures/pdl1_refold_1.png",
+      "sha256": "34833060bd71d63b2d0f2495e847339d0310d7f6ec5898aa566cb635d40fdc84"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/figures/pdl1_refold_2.png",
+      "url_path": "chapter-10/figures/pdl1_refold_2.png",
+      "sha256": "57e6aadd0a32479a113c08e5ad5a8d5936cd903a0a7bd48927535b5d813bf608"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/refold/candidate_queue.tsv",
+      "url_path": "chapter-10/refold/candidate_queue.tsv",
+      "sha256": "a91d1708b6e593ffdc107a5708db3d64e6f4299c371f81052107d58f36ffd87e"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/refold/pdl1_mpnn_1.yaml",
+      "url_path": "chapter-10/refold/pdl1_mpnn_1.yaml",
+      "sha256": "a7f207deed2e8c2b0abe841fb04db633b816a09cc3feee6c9db8c3ad60d20bcd"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/refold/pdl1_mpnn_2.yaml",
+      "url_path": "chapter-10/refold/pdl1_mpnn_2.yaml",
+      "sha256": "8c5dbbb50673f90170d5a824fc4107cf000d10747b2b0ef19774d7d864dda5a6"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/analysis/analysis_record.json",
+      "url_path": "chapter-10/results/boltz-refold/analysis/analysis_record.json",
+      "sha256": "7e5d302e2ec3cf7a97bd72edf1b309ab7d8d3d65c10ff6a381bc47a5455a4e81"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/analysis/pdl1_mpnn_1_target_aligned.pdb",
+      "url_path": "chapter-10/results/boltz-refold/analysis/pdl1_mpnn_1_target_aligned.pdb",
+      "sha256": "5b721bea686c59d251e750ffccf6626d887dcdbf13e4593e4bf7314e4fc1695f"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/analysis/pdl1_mpnn_2_target_aligned.pdb",
+      "url_path": "chapter-10/results/boltz-refold/analysis/pdl1_mpnn_2_target_aligned.pdb",
+      "sha256": "b6bf838a3661c4fe937678461447a16dca433d144dbcaf79a4c2cf966e9d9ee0"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/analysis/refold_summary.tsv",
+      "url_path": "chapter-10/results/boltz-refold/analysis/refold_summary.tsv",
+      "sha256": "3455a5bc32325c1847d50dab0278e83bdeb9d26bb847ab0bb40052b4cf746754"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_1/confidence_pdl1_mpnn_1_model_0.json",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_1/confidence_pdl1_mpnn_1_model_0.json",
+      "sha256": "2091c8d21190b0d15afaee2de60ed51abbda49adb8736f0e1f11515eec955adc"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_1/pae_pdl1_mpnn_1_model_0.npz",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_1/pae_pdl1_mpnn_1_model_0.npz",
+      "sha256": "7b918c3ef3c433924b1db7eff1fecc988847880bfbc058a5a1ac5eaef75821af"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_1/pdl1_mpnn_1_model_0.cif",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_1/pdl1_mpnn_1_model_0.cif",
+      "sha256": "7c9500c8486fb95e3e63b20970e29c3606311bc400b36a8fe753c9e1332a73e8"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_1/plddt_pdl1_mpnn_1_model_0.npz",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_1/plddt_pdl1_mpnn_1_model_0.npz",
+      "sha256": "102b90bf69b99d95c7ab7c4f5baf30bb6b0a5a609881def0b93888947f53ad2a"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_2/confidence_pdl1_mpnn_2_model_0.json",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_2/confidence_pdl1_mpnn_2_model_0.json",
+      "sha256": "eb1aa91e03445c072533cc58b6a3aee5b4062d11778826aaf5a0a1428c1f4540"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_2/pae_pdl1_mpnn_2_model_0.npz",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_2/pae_pdl1_mpnn_2_model_0.npz",
+      "sha256": "e764be4261d56636d1ad648835722315841b5bda1ab214bc703204b913ea3b80"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_2/pdl1_mpnn_2_model_0.cif",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_2/pdl1_mpnn_2_model_0.cif",
+      "sha256": "3bceaf1e6acd3502d898527531d15a0066c4f0182695abb80a654a33947353f9"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/predictions/pdl1_mpnn_2/plddt_pdl1_mpnn_2_model_0.npz",
+      "url_path": "chapter-10/results/boltz-refold/predictions/pdl1_mpnn_2/plddt_pdl1_mpnn_2_model_0.npz",
+      "sha256": "b690f5cfb1eb3ccd2f6c47f5af5a9edeb341a9ef68ef7c950f8672ab403bc2c7"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/run.txt",
+      "url_path": "chapter-10/results/boltz-refold/run.txt",
+      "sha256": "4db161904d630583b330963c610e5f8804b6ef8399212307cb26f559a72828ef"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/results/boltz-refold/run_record.json",
+      "url_path": "chapter-10/results/boltz-refold/run_record.json",
+      "sha256": "109b80f0d2a17a13fd55c506a57519fc0050900d7d585d1f023a268581a15bf0"
+    },
+    {
+      "chapter": 10,
+      "relative_path": "chapter-10/assets/provenance.tsv",
+      "url_path": "chapter-10/provenance.tsv",
+      "sha256": "a855ea6f049ed8d089e8b65a372bf896393c5f9e2f645f2d7affbd6211629868"
+    },
+    {
+      "chapter": 11,
+      "relative_path": "chapter-11/assets/code/batch_manifest_schema.csv",
+      "url_path": "chapter-11/code/batch_manifest_schema.csv",
+      "sha256": "300efdff794a6045b5bfc45f6c452105b34e56d21576a40265f9d37b38db72c3"
+    },
+    {
+      "chapter": 11,
+      "relative_path": "chapter-11/assets/code/rfd3_qc_runner.py",
+      "url_path": "chapter-11/code/rfd3_qc_runner.py",
+      "sha256": "93979c17c18bbbec9d0cc66adec53f16d095de57a71119a5194f091fff6e24f5"
+    },
+    {
+      "chapter": 11,
+      "relative_path": "chapter-11/assets/code/vina_batch_docking_skill_prompt.md",
+      "url_path": "chapter-11/code/vina_batch_docking_skill_prompt.md",
+      "sha256": "b9f2becd50e04788e3b5e1256d65dc063b4c430d9c0dc23f922f343f26fc88e7"
+    },
+    {
+      "chapter": 11,
+      "relative_path": "chapter-11/assets/data/pdl1_manifest.csv",
+      "url_path": "chapter-11/data/pdl1_manifest.csv",
+      "sha256": "012bae0fc4ea09cfe91b8ad4068371642fd2146cc98c1c620ac53c7bae12a73c"
+    },
+    {
+      "chapter": 11,
+      "relative_path": "chapter-11/assets/provenance.tsv",
+      "url_path": "chapter-11/provenance.tsv",
+      "sha256": "a6f7d8544016b4cca7cb8c889a67d03154a5ef7380c2555161a3819e5eba146e"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/code/check_route_card.py",
+      "url_path": "chapter-12/code/check_route_card.py",
+      "sha256": "d3b7fa5756776a4d962635c5e3c27eab19f6fcfadf02e8c764f359b062088193"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/data/delivery_examples.md",
+      "url_path": "chapter-12/data/delivery_examples.md",
+      "sha256": "5ad4db12d9b97fdbbda28a90a3f5e174a379882c90301d5d2bc28152694c751f"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/data/delivery_templates.md",
+      "url_path": "chapter-12/data/delivery_templates.md",
+      "sha256": "6b6197bfea08572e53e42b9fe72fb13652818f4278d58c3379f7ed5aed33b52c"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/data/route_card_template.json",
+      "url_path": "chapter-12/data/route_card_template.json",
+      "sha256": "92319545670f827d5c28ba537d3937d8c00d68b0d48e9266fabe552df07cc0ee"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/data/route_cards.json",
+      "url_path": "chapter-12/data/route_cards.json",
+      "sha256": "36900aa62ac803ada8b78f7c5479a24e1513955d7a01a49424f5e21a978f346c"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/data/rubric.tsv",
+      "url_path": "chapter-12/data/rubric.tsv",
+      "sha256": "ddcb3e0c5f9c573d1575a3daa0710648d0430ab804f5f76064bc96fbea7f8210"
+    },
+    {
+      "chapter": 12,
+      "relative_path": "chapter-12/assets/provenance.tsv",
+      "url_path": "chapter-12/provenance.tsv",
+      "sha256": "a1edeff43d1acceb343c1cdb7af67ceae583b2803f71474a0acf2fb16b0ece34"
+    }
+  ]
+}

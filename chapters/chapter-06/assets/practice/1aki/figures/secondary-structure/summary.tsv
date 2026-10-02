@@ -1,0 +1,12 @@
+input	column	n	x_min	x_max	mean	population_sd	minimum	maximum	y_label
+hbond-protein.xvg	2	101	0.0	100.0	102.05940594059406	4.6497562635540115	92.0	115.0	Hbonds
+dssp-count.xvg	2	101	0.0	100.0	19.019801980198018	1.7798664874825318	15.0	23.0	Secondary Structures
+dssp-count.xvg	3	101	0.0	100.0	0.0	0.0	0.0	0.0	Secondary Structures
+dssp-count.xvg	4	101	0.0	100.0	14.673267326732674	3.0737113081361658	8.0	23.0	Secondary Structures
+dssp-count.xvg	5	101	0.0	100.0	32.801980198019805	3.617941545867049	22.0	41.0	Secondary Structures
+dssp-count.xvg	6	101	0.0	100.0	0.6336633663366337	0.9410629368082734	0.0	3.0	Secondary Structures
+dssp-count.xvg	7	101	0.0	100.0	0.0	0.0	0.0	0.0	Secondary Structures
+dssp-count.xvg	8	101	0.0	100.0	9.415841584158416	3.0742215523807395	0.0	16.0	Secondary Structures
+dssp-count.xvg	9	101	0.0	100.0	8.633663366336634	1.4605218942246159	8.0	12.0	Secondary Structures
+dssp-count.xvg	10	101	0.0	100.0	5.5049504950495045	0.9078727434730812	2.0	6.0	Secondary Structures
+dssp-count.xvg	11	101	0.0	100.0	38.31683168316832	2.567622828896687	32.0	46.0	Secondary Structures

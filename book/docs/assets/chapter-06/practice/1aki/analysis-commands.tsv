@@ -1,0 +1,27 @@
+step	command	selection_input	exit_code	log
+version	GMX --version	None	0	version.stdout.log
+check-raw	GMX check -f RUN\md.xtc	None	0	check-raw.stdout.log
+whole	GMX trjconv -s RUN\md.tpr -f RUN\md.xtc -o md-whole.xtc -pbc mol	'System\n'	0	whole.stdout.log
+center	GMX trjconv -s RUN\md.tpr -f md-whole.xtc -o md-center.xtc -center -pbc mol	'Protein\nSystem\n'	0	center.stdout.log
+fit	GMX trjconv -s RUN\md.tpr -f md-center.xtc -o md-fit.xtc -fit rot+trans	'Backbone\nSystem\n'	0	fit.stdout.log
+reference0	GMX trjconv -s RUN\md.tpr -f md-center.xtc -o md-reference0.pdb -dump 0	'System\n'	0	reference0.stdout.log
+reference-last	GMX trjconv -s RUN\md.tpr -f md-center.xtc -o md-last.pdb -dump 100	'System\n'	0	reference-last.stdout.log
+rmsd-ca	GMX rms -s RUN\md.tpr -f md-center.xtc -o rmsd-ca.xvg -tu ps	'C-alpha\nC-alpha\n'	0	rmsd-ca.stdout.log
+rmsd-backbone	GMX rms -s RUN\md.tpr -f md-center.xtc -o rmsd-backbone.xvg -tu ps	'Backbone\nBackbone\n'	0	rmsd-backbone.stdout.log
+rmsd-lastref	GMX rms -s md-last.pdb -f md-center.xtc -o rmsd-ca-lastref.xvg -tu ps	'C-alpha\nC-alpha\n'	0	rmsd-lastref.stdout.log
+rmsf-ca	GMX rmsf -s RUN\md.tpr -f md-center.xtc -o rmsf-ca.xvg -res	'C-alpha\n'	0	rmsf-ca.stdout.log
+gyrate-help	GMX gyrate -h	None	0	gyrate-help.stdout.log
+gyrate	"GMX gyrate -s RUN\md.tpr -f md-center.xtc -o gyrate.xvg -sel group ""Protein"""	None	0	gyrate.stdout.log
+sasa	"GMX sasa -s RUN\md.tpr -f md-center.xtc -o sasa.xvg -surface group ""Protein"" -output group ""Protein"""	None	0	sasa.stdout.log
+hbond-protein	"GMX hbond -s RUN\md.tpr -f md-center.xtc -r group ""Protein"" -t group ""Protein"" -num hbond-protein.xvg -dan hbond-donors-acceptors.xvg -dist hbond-distances.xvg -ang hbond-angles.xvg -o hbond-protein.ndx"	None	0	hbond-protein.stdout.log
+dssp	"GMX dssp -s RUN\md.tpr -f md-center.xtc -sel group ""Protein"" -o dssp.dat -num dssp-count.xvg"	None	0	dssp.stdout.log
+distance-glu35-asp52	"GMX distance -s RUN\md.tpr -f md-center.xtc -select (group ""Protein"" and resnr 35 and name CA) plus (group ""Protein"" and resnr 52 and name CA) -oall distance-glu35-asp52.xvg"	None	0	distance-glu35-asp52.stdout.log
+nvt-temperature	GMX energy -f RUN\nvt.edr -o nvt-temperature.xvg	'Temperature\n0\n'	0	nvt-temperature.stdout.log
+npt-pressure-density	GMX energy -f RUN\npt.edr -o npt-pressure-density.xvg	'Pressure\nDensity\n0\n'	0	npt-pressure-density.stdout.log
+npt-pressure	GMX energy -f RUN\npt.edr -o npt-pressure.xvg	'Pressure\n0\n'	0	npt-pressure.stdout.log
+npt-density	GMX energy -f RUN\npt.edr -o npt-density.xvg	'Density\n0\n'	0	npt-density.stdout.log
+covariance	GMX covar -s RUN\md.tpr -f md-fit.xtc -o eigenvalues.xvg -v eigenvectors.trr -av pca-average.pdb	'C-alpha\nC-alpha\n'	0	covariance.stdout.log
+pca-projection	GMX anaeig -s RUN\md.tpr -f md-fit.xtc -v eigenvectors.trr -first 1 -last 2 -proj pca-projection.xvg -2d pca-2d.xvg	'C-alpha\nC-alpha\n'	0	pca-projection.stdout.log
+cluster	GMX cluster -s RUN\md.tpr -f md-fit.xtc -method gromos -cutoff 0.10 -g cluster.log -dist cluster-rmsd-distribution.xvg -o cluster-rmsd.xpm -sz cluster-sizes.xvg -cl cluster-representatives.pdb	'C-alpha\nProtein\n'	0	cluster.stdout.log
+sham	GMX sham -f pca-2d.xvg -notime -ngrid 8 8 8 -tsham 300 -ls fel.xpm -g sham.log	None	0	sham.stdout.log
+check-centered	GMX check -f md-center.xtc	None	0	check-centered.stdout.log

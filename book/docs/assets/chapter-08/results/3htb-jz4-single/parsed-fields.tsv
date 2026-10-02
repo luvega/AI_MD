@@ -1,0 +1,2 @@
+candidate_id	data_status	affinity_pred_value	affinity_probability_binary	confidence_score	model_scale_IC50_uM	pIC50_from_log10_uM	structure_review	control_status
+3htb_jz4_single	actual_model_output	2.300788402557373	0.2048681080341339	0.9661828875541687	199.88877320280355	3.699211597442627	inspection_pending	none

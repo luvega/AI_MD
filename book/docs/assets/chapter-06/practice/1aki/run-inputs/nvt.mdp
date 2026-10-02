@@ -1,0 +1,32 @@
+; 20 ps NVT teaching run; amber99sb/TIP3P, protein heavy-atom restraints
+define = -DPOSRES
+integrator = md
+dt = 0.002
+nsteps = 10000
+continuation = no
+constraints = h-bonds
+constraint-algorithm = lincs
+lincs-order = 4
+cutoff-scheme = Verlet
+nstlist = 20
+coulombtype = PME
+rcoulomb = 1.0
+vdwtype = Cut-off
+rvdw = 1.0
+DispCorr = EnerPres
+tcoupl = V-rescale
+tc-grps = Protein Non-Protein
+tau-t = 1.0 1.0
+ref-t = 300 300
+pcoupl = no
+pbc = xyz
+gen-vel = yes
+gen-temp = 300
+gen-seed = 20261002
+nstxout = 0
+nstvout = 0
+nstfout = 0
+nstxout-compressed = 500
+nstenergy = 100
+nstlog = 500
+

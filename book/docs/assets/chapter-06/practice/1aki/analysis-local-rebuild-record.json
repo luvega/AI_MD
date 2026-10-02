@@ -1,0 +1,23 @@
+{
+  "purpose": "rebuild an analysis TPR without reading a newer checkpoint; do not use as a production restart",
+  "verified_GROMACS_version": "2025.5-dev from official v2025.5 source",
+  "older_Ubuntu_binary_status": "not executed in this Windows environment; record the installed version and stop if preprocessing warns or atom order differs",
+  "command_from_run_inputs": "gmx grompp -f md.mdp -c npt.gro -p topol.top -o ../../../outputs/local-tpr/analysis-local.tpr -po ../../../outputs/local-tpr/processed.mdp",
+  "checkpoint_read": false,
+  "maxwarn_used": false,
+  "grompp_exit_code": 0,
+  "grompp_warning_count": 0,
+  "system_atoms": 23873,
+  "original_and_rebuilt_residue_atom_order_identical": true,
+  "input_hashes": {
+    "run-inputs/md.mdp": "257a7ec9cf10cc79bb9e7e61433324c8a346b232b5664b32a9685cc61ff61ad2",
+    "run-inputs/npt.gro": "5e289714d79c3a57412868aa58924920a336fa84c65bfed8b8ff99ab22540040",
+    "run-inputs/topol.top": "f7c990d3e289a191a33f42fd27996955ec91577efc03f004694ab3247181a500",
+    "run-inputs/posre.itp": "9714b4d86c0cf6769fbcb3e4dc07b9a57f70ec08d729274be50445286a74f331"
+  },
+  "original_production_tpr_sha256": "65bcf84c6261b369f81a4eeeceff03739a74246efe7a8deefe65e49874f48c0e",
+  "test_rebuilt_tpr_sha256": "06f87627b48f60b19c148345dc90c675fba9eb3b96e0347d32fe925ae5b00403",
+  "analysis_local_tpr_is_distributed": false,
+  "full_reanalysis_commands_exit_0": 26,
+  "full_reanalysis_includes_native_hbond_DSSP": true
+}

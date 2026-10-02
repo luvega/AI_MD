@@ -71,6 +71,13 @@ relations:
 
 # AI_MD LLM Wiki 操作日志
 
+## [2026-10-02] book | v1.1.0 教学实操完善
+
+- 按已确认计划修订 12 章大纲、正文、规则和生成提示词，章末集中说明方法范围。
+- 添加公开练习、真实 CPU/GPU 计算产物、同候选对照、故障恢复和项目卡。
+- 发布采用逐项来源审核清单与 SHA256；下载器补齐跨章依赖，原始课程材料继续只在本地。
+- 实际进度和验收结果集中记录在 [在线书完善实施记录](00_项目说明/在线书完善实施记录-2026-10-02.md)。
+
 本文件为追加式日志。新条目格式固定为：
 
 `## [YYYY-MM-DD] operation | title`
@@ -383,3 +390,8 @@ relations:
 - 更新 `CLAUDE.md`、`AGENTs.md`、`00_项目说明/LLM Wiki运行手册.md`、`00_项目说明/Codex技能调用矩阵.md`、`00_项目说明/插件与Skills调用说明.md`、`00_项目说明/知识库使用说明.md` 和本地 `.claude/skills/`，明确 Wiki 轨默认不更新 `book/` 或 `chapters/chapter-XX/正文.md`。
 - 本轮不运行 `tools\sync_online_book.py`、`tools\validate_online_book.py` 或 MkDocs build；只运行 Wiki/schema 级验收。
 - 项目版本更新为 `v1.0.2`，在线书版本保持 `v1.0.1-source-refresh`。
+
+## [2026-06-22] update | 教材大纲与正文生成提示词
+
+- 新增 `00_项目说明/教材大纲与正文生成提示词.md`，汇总全书大纲、本章大纲、小节任务卡、章节正文、图表代码计划、证据边界审核和发布前检查提示词。
+- 本轮只登记项目级写作工具，并更新 `00_项目说明/_index.md`；未修改 `chapters/chapter-XX/正文.md`，未同步或构建 `book/` 发布层。

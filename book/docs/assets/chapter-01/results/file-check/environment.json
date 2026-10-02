@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "system": "Windows",
+  "script": "check_files.py",
+  "arguments": {
+    "inputs": "INPUTS",
+    "out": "OUTPUTS"
+  }
+}

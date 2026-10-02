@@ -1,0 +1,8 @@
+Template padding will be used.
+ gasteiger charges will be read from template file 
+ 
+
+Files written:
+  3htb_receptor.pdbqt <-- static (i.e., rigid) receptor input file
+3htb_receptor.box.txt <-- Vina-style box dimension file
+3htb_receptor.box.pdb <-- PDB file to visualize the grid box

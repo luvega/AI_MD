@@ -1,0 +1,70 @@
+[
+  {
+    "input": "hbond-protein.xvg",
+    "sha256": "d54da37714c7b543ad93453a6740b03cc147d27744a614e1adf05b6a603ee0c4",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "Number of hydrogen bonds",
+      "xaxis": "Time (ps)",
+      "yaxis": "Hbonds"
+    },
+    "display_labels": {
+      "title": "Number of hydrogen bonds",
+      "xaxis": "Time (ps)",
+      "yaxis": "Hbonds"
+    },
+    "original_legends": {
+      "0": "Hydrogen bonds"
+    },
+    "display_legends": {
+      "0": "Hydrogen bonds"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "dssp-count.xvg",
+    "sha256": "a310e4e95ffa24456da13d8c935ec60c4de3bb139d4cd88525797003fd1c21d4",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "Number of Secondary Structures",
+      "xaxis": "Time (ps)",
+      "yaxis": "Secondary Structures"
+    },
+    "display_labels": {
+      "title": "Number of Secondary Structures",
+      "xaxis": "Time (ps)",
+      "yaxis": "Secondary Structures"
+    },
+    "original_legends": {
+      "0": "Loops",
+      "1": "Breaks",
+      "2": "Bends",
+      "3": "Turns",
+      "4": "PP\\sII\\N-Helices",
+      "5": "\\xp\\f{}-Helices",
+      "6": "3\\s10\\N-Helices",
+      "7": "\\xb\\f{}-Strands",
+      "8": "\\xb\\f{}-Bridges",
+      "9": "\\xa\\f{}-Helices"
+    },
+    "display_legends": {
+      "0": "Loops",
+      "1": "Breaks",
+      "2": "Bends",
+      "3": "Turns",
+      "4": "PPII-Helices",
+      "5": "π-Helices",
+      "6": "3₁₀-Helices",
+      "7": "β-Strands",
+      "8": "β-Bridges",
+      "9": "α-Helices"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  }
+]

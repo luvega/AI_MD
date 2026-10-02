@@ -1,0 +1,15 @@
+{
+  "software": "PyMOL",
+  "version": "3.1.0",
+  "platform": "Windows",
+  "execution": "native headless run; local load, not fetch",
+  "input": "official RCSB 3HTB PDB",
+  "script": "../../code/3htb_pocket.pml",
+  "outputs": [
+    "3htb_pocket.png",
+    "3htb_pocket.pse",
+    "3htb_pocket_residues.pdb"
+  ],
+  "verification": "actual process completed; files present; image visually inspected",
+  "selection": "protein auth A; blank/A alternate locations; JZ4 auth A167; residues within 5 angstrom"
+}

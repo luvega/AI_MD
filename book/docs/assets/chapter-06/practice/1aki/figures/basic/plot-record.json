@@ -1,0 +1,102 @@
+[
+  {
+    "input": "rmsd-ca.xvg",
+    "sha256": "b4e62a9e323978b6e6f0b8ff19f53b66e2fd8d724faa480a4eb6d0f748721715",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "display_labels": {
+      "title": "RMSD",
+      "xaxis": "Time (ps)",
+      "yaxis": "RMSD (nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "gyrate.xvg",
+    "sha256": "0cf90244662ee94b24497050ed54ff3b9cff52034392f78a1d7a730e538e42ba",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "Radius of gyration (total and around axes)",
+      "xaxis": "Time (ps)",
+      "yaxis": "Radius (nm)"
+    },
+    "display_labels": {
+      "title": "Radius of gyration (total and around axes)",
+      "xaxis": "Time (ps)",
+      "yaxis": "Radius (nm)"
+    },
+    "original_legends": {
+      "0": "Rg",
+      "1": "Rg/sX/N",
+      "2": "Rg/sY/N",
+      "3": "Rg/sZ/N"
+    },
+    "display_legends": {
+      "0": "Rg",
+      "1": "Rgₓ",
+      "2": "Rgᵧ",
+      "3": "Rg_z"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "sasa.xvg",
+    "sha256": "4ee2e80596875d558abbed0103475124dec33f3e0c6bd7009d573c2ca389687a",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "Solvent Accessible Surface",
+      "xaxis": "Time (ps)",
+      "yaxis": "Area (nm\\S2\\N)"
+    },
+    "display_labels": {
+      "title": "Solvent Accessible Surface",
+      "xaxis": "Time (ps)",
+      "yaxis": "Area (nm²)"
+    },
+    "original_legends": {
+      "0": "Total",
+      "1": "Protein"
+    },
+    "display_legends": {
+      "0": "Total",
+      "1": "Protein"
+    },
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  },
+  {
+    "input": "distance-glu35-asp52.xvg",
+    "sha256": "cd27b491a13cfe6beed4f50b670e5edf68230a7d65dd9e0f4d2964ee5c831aee",
+    "original_rows": 101,
+    "plotted_rows": 101,
+    "labels": {
+      "title": "Distance",
+      "xaxis": "Time (ps)",
+      "yaxis": "Distance (nm)"
+    },
+    "display_labels": {
+      "title": "Distance",
+      "xaxis": "Time (ps)",
+      "yaxis": "Distance (nm)"
+    },
+    "original_legends": {},
+    "display_legends": {},
+    "xmin": null,
+    "xmax": null,
+    "smoothing": "none"
+  }
+]

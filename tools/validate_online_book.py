@@ -8,6 +8,8 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from tools.sync_online_book import public_assets, render_chapter
 BOOK_DIR = ROOT / "book"
 DOCS_DIR = BOOK_DIR / "docs"
 CHAPTERS_DIR = ROOT / "chapters"
@@ -16,6 +18,7 @@ CHAPTER_COUNT = 12
 BANNED_CONTENT = (
     "本章大纲.md",
     "06_原始学习素材",
+    "08_实战教程",
     "book/docs",
     "book/site",
     "polish_book_chapters.py",
@@ -48,6 +51,7 @@ def local_links(markdown: str) -> list[str]:
 
 def validate() -> list[str]:
     errors: list[str] = []
+    file_names = {path.relative_to(DOCS_DIR).as_posix() for path in DOCS_DIR.rglob("*") if path.is_file()}
     mkdocs_path = BOOK_DIR / "mkdocs.yml"
     if not mkdocs_path.exists():
         return ["Missing book/mkdocs.yml"]
@@ -63,9 +67,19 @@ def validate() -> list[str]:
     if outline_files:
         errors.append("Outline files must not be copied into book/: " + ", ".join(map(str, outline_files)))
 
-    asset_markdown = list((DOCS_DIR / "assets").rglob("*.md"))
-    if asset_markdown:
-        errors.append("Markdown files under book/docs/assets are not part of the published text layer: " + ", ".join(map(str, asset_markdown)))
+    try:
+        approved = public_assets()
+        expected = {dest.resolve() for _, dest in approved}
+        actual = {path.resolve() for path in (DOCS_DIR / "assets").rglob("*") if path.is_file()}
+        for extra in actual - expected:
+            errors.append(f"Unlisted published asset: {extra}")
+        for source, dest in approved:
+            if not dest.is_file():
+                errors.append(f"Missing approved asset: {dest}")
+            elif source.read_bytes() != dest.read_bytes():
+                errors.append(f"Published asset differs from reviewed source: {dest}")
+    except (ValueError, FileNotFoundError, KeyError) as exc:
+        errors.append(str(exc))
 
     index_path = DOCS_DIR / "index.md"
     if not index_path.exists():
@@ -102,6 +116,8 @@ def validate() -> list[str]:
 
         source_title = first_heading(read_text(source_path))
         out_text = read_text(out_path)
+        if out_text != render_chapter(chapter_number)[2]:
+            errors.append(f"{out_path}: published text differs from current chapter source")
         if first_heading(out_text) != source_title:
             errors.append(f"{out_path}: published title does not match source title")
 
@@ -118,6 +134,20 @@ def validate() -> list[str]:
                 continue
             if not target.exists():
                 errors.append(f"{out_path}: missing local link target: {href}")
+            elif target.relative_to(DOCS_DIR.resolve()).as_posix() not in file_names:
+                errors.append(f"{out_path}: link case differs from published filename: {href}")
+
+    for page in (DOCS_DIR / "index.md", DOCS_DIR / "resources.md"):
+        if not page.is_file():
+            errors.append(f"Missing student entry page: {page}")
+            continue
+        for href in local_links(read_text(page)):
+            target = (page.parent / href).resolve()
+            if DOCS_DIR.resolve() not in target.parents or not target.is_file():
+                errors.append(f"{page}: invalid local link: {href}")
+    for file in DOCS_DIR.rglob("*"):
+        if file.is_file() and file.suffix.lower() in {".pdf", ".mp4", ".ppt", ".pptx", ".zip", ".rar", ".html"}:
+            errors.append(f"Course archives or embedded HTML may not publish: {file}")
 
     css_path = DOCS_DIR / "stylesheets" / "blue-white.css"
     if not css_path.exists():

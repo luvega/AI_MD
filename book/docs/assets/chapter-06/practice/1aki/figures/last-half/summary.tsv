@@ -1,0 +1,2 @@
+input	column	n	x_min	x_max	mean	population_sd	minimum	maximum	y_label
+rmsd-ca.xvg	2	51	50.0	100.0	0.08196606470588236	0.004962010181084445	0.0720274	0.0931641	RMSD (nm)

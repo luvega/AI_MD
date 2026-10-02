@@ -2,254 +2,189 @@
 
 ## 本章导读
 
-前面几章已经把 AI 辅助药物设计拆成了多个计算任务：结构准备、docking、MD、MM/PBSA、Boltz2 亲和力预测、RFD3 骨架生成、ProteinMPNN 序列设计和回折叠 QC。真正进入项目时，困难常常不在某一个命令，而在如何把这些步骤组织成可复跑的工作流。
+单个计算能完成后，新的困难通常来自重复工作：输入很多、路径易混、日志难查、候选表缺列。AI 编程工具可以帮助拆任务、改脚本和检查记录。本章用两个已存在的流程练习：第 4 章 3HTB 三分子 Vina 任务，第 10 章 PDL1 骨架与两条序列。
 
-第 11 章讨论 VibeCoding、Claude Code、Codex、MCP、插件和 Skills。这里的重点不是追逐某个工具版本，而是学习一种工作方式：把研究意图写成任务，把任务拆成输入、脚本、日志、表格、图和验证点，再让 AI Agent 帮助生成、检查和维护这些工作产物。
+先运行一个已知小任务，再让 Agent 帮你整理批处理。基础练习可在 Windows 完成；即使没有 AI 编程账号，也能直接运行本章 Python 脚本。
 
-Agent 输出不是证据。一个脚本由 AI 生成，不说明计算结果可靠；一个表格由 Agent 汇总，也不说明候选分子、候选 binder 或设计序列已经有效。可靠的结论仍然来自可追踪文件、运行日志、版本记录、结构复核、统计检查、文献依据和实验验证。
-
-本章先回答五个问题。
-
-| 问题 | 本章要建立的判断 | 证据边界 |
-|:---|:---|:---|
-| 为什么需要 VibeCoding | 把“写代码”转成“定义任务、拆步骤、验收输出” | AI 不能替代研究判断 |
-| 工具怎么选 | 区分网页、IDE 插件、CLI Agent、API 和稳定脚本 | 工具形态会变，选择原则更稳定 |
-| Claude Code / Codex 如何进入项目 | 先读规则，再确认权限、上下文、文件边界和验证方式 | 聊天记录不是项目事实 |
-| MCP、插件和 Skills 放在哪里 | MCP 连接外部系统，Skills 固化流程，项目规则限制边界 | 不把外部工具输出直接写成结论 |
-| 如何形成研究流水线 | 用 manifest、runner、parser、QC 和报告管理批处理 | 预测分数、docking score 和 dry-run 不是实验结果 |
-
-```mermaid
-flowchart LR
-  A["研究意图"] --> B["任务卡"]
-  B --> C["脚本或 Agent 执行"]
-  C --> D["日志和输出文件"]
-  D --> E["QC 表和人工复核"]
-  E --> F["wiki / 实验记录沉淀"]
-  E --> G["回退修改输入或参数"]
-```
+| 交付 | 本章提供的入口 |
+|---|---|
+| 一个可复跑的任务说明 | [公开 Vina prompt](../assets/chapter-11/code/vina_batch_docking_skill_prompt.md) |
+| 一张有来源与执行状态的 manifest | [PDL1 manifest](../assets/chapter-11/data/pdl1_manifest.csv) |
+| 一份文件检查报告 | [QC 脚本](../assets/chapter-11/code/rfd3_qc_runner.py) |
+| 一条故障记录 | [故意写错路径的练习行](../assets/chapter-11/code/batch_manifest_schema.csv) |
 
 ## 11.1 VibeCoding 入门与范式转换
 
-VibeCoding 可以从一个熟悉场景理解。读者已经知道如何手工运行一次 docking，也知道 RFD3 或 ProteinMPNN 需要输入结构、参数和输出目录。但当候选数量从一个变成几十个，任务就变了：要处理路径、批次、环境、日志、失败样本、结果汇总和候选去留。
+本章把 VibeCoding 用于描述一种交互写代码的方式：先用语言说明任务，让模型生成或修改代码，再通过执行和检查修正。学习者仍要认识输入、输出、变量、路径和错误信息，这些内容决定能否验收脚本。
 
-这时，编程语法仍然重要，但它不再是唯一核心。更关键的问题是：研究者能否把任务说清楚，能否告诉 Agent 什么可以改、什么不能改，能否判断输出是否符合研究目的。
+把“帮我批量对接”改成可执行任务时，先写六项：受体、配体、网格、工具、输出目录、验收。然后只让 Agent 读文件并说明计划。确认它识别的是已有 3HTB 输入，再进入一个 JZ4 的运行。
 
-| 层次 | 关注点 | 药物设计中的例子 | 常见失败 |
-|:---|:---|:---|:---|
-| 语法层 | Python、Bash、R、前端代码 | 写循环、读 CSV、调用命令 | 代码能跑但任务定义错 |
-| 任务层 | 输入、工具、参数、输出 | 对哪些配体 docking，保存哪些 pose | 缺少路径、参数或失败处理 |
-| 验收层 | 日志、QC、表格、报告 | 标记 `pass / review / fail` | 把 score 当成结论 |
-| 沉淀层 | 记录和复用 | 写入实验记录、Skill 或脚本 | 聊天建议没有落地文件 |
+```mermaid
+flowchart TD
+  A[研究问题] --> B[输入与验收任务卡]
+  B --> C[Agent 修改脚本]
+  C --> D[单个小任务]
+  D --> E[日志与结构检查]
+  E --> F[固定脚本批量运行]
+```
 
-VibeCoding 的价值在于让研究者从“记住所有命令”转向“设计可检查的工作流”。这并不降低专业门槛。相反，研究者需要更清楚地描述生物学对象、文件格式、计算假设和验证标准。
-
-例如，一个模糊请求是：“帮我做虚拟筛选。”更好的任务描述是：“读取 `manifest.csv` 中的 50 个配体，对同一受体和同一 box 运行 Vina，保留每个配体的 log、top pose 和 score；失败配体标记为 `Failed`，最终生成排序表，并在报告中说明 score 只能用于候选排序。”后者才适合进入 Agent 或脚本流程。
-
-本节的判断可以压缩成一句话：先定义任务，再写代码；先定义验收，再相信输出。
+练习时给自己保留一个预测：这条命令会新增哪几个文件，遇到哪个错误应先查看哪个 log？运行后逐项核对。这样每轮交互都留下可检查的变化。
 
 ## 11.2 AI 编程工具类型
 
-AI 编程工具有很多形态。网页聊天、桌面 App、IDE 插件、CLI Agent、API 和稳定脚本都能参与生物计算，但它们适合的任务不同。选择工具时，不要只看模型名，也要看它能否读写文件、运行命令、连接远程服务器、保留上下文和留下可复核记录。
+选工具时先看操作对象。讨论方法可以用聊天界面，修改脚本可以用编辑器中的 Agent，跨文件搜索和运行命令可用项目式编程工具，固定批次最终可交给脚本。
 
-| 工具形态 | 适合任务 | 不适合任务 | 验收方式 |
-|:---|:---|:---|:---|
-| 网页聊天 / 桌面 App | 讨论方案、解释概念、改写小段文本 | 批量运行、本地路径密集任务 | 保存结论到文件，再人工复核 |
-| IDE 插件 | 修改单个项目中的代码、补测试、解释函数 | 大规模跨仓库批处理 | `git diff`、测试和 lint |
-| CLI Agent | 搜索项目、写脚本、运行命令、整理结果 | 未定义边界的敏感操作 | 命令日志、输出文件、验证报告 |
-| API | 接入自建平台或批量流程 | 需要人工判断很多的探索期任务 | 程序化输入输出和审计日志 |
-| 稳定脚本 | 重复执行、超算队列、大规模虚筛 | 尚未定型的探索任务 | 单元测试、manifest 和运行记录 |
+| 工作 | 适合入口 | 验收对象 |
+|---|---|---|
+| 解释报错、讨论流程 | 网页或桌面聊天 | 解释是否对应实际报错 |
+| 修改局部脚本 | IDE 中的编程助手 | 代码差异与一次小运行 |
+| 读取目录、编辑和执行 | Claude Code、Codex 等项目 Agent | 文件、命令、日志和输出 |
+| 重复同一协议 | Python 或队列脚本 | 每个输入的执行记录 |
+| 接入自建程序 | API | 请求记录、返回格式和成本 |
 
-对本课程来说，Claude Code 和 Codex 代表的是 CLI / 项目 Agent 这一类工具。它们可以读取项目文件、理解目录规则、生成或修改脚本，并在用户授权下运行命令。它们最适合把“已经描述清楚的计算任务”变成可检查产物。
-
-模型能力会变化，工具界面也会变化。正文不需要记录第三方账号、模型价格、市场链接或临时渠道。公开教材中更稳定的内容是选择原则：是否需要本地文件、是否需要执行命令、是否涉及隐私凭据、是否需要长期复用，以及是否能留下可验证输出。
+本章不要求同时安装多种工具。先选一个能够读取练习目录的入口，完成单任务和 manifest 检查后，再考虑外部连接或平台开发。
 
 ## 11.3 Claude Code 安装、配置和基础模式
 
-Claude Code / Codex 进入项目后，第一步不是马上写代码，而是理解项目规则。对 AI_MD 这样的教材和知识库项目，Agent 应先读 `AGENTS.md`、`CLAUDE.md`、`大纲.md` 和相关章节大纲，再决定能否写正文、写脚本或运行验证。
+Claude Code 可在 Windows 原生环境使用，也可在需要 Linux 工具链时进入 WSL2。本章采用 PowerShell。按官方安装说明可通过 WinGet 安装，完成后重新打开终端并查看版本；已安装的同学直接检查版本即可。[Claude Code 官方安装说明](https://code.claude.com/docs/en/setup)
 
-本章不把安装命令作为教学重点。官方文档在 2026-06-08 的口径显示，Claude Code 可通过官方安装方式进入本地终端，支持不同权限模式和 MCP 配置；OpenAI 文档把 Codex 定位为可在 IDE、CLI、网页、移动端和 CI/CD 中使用的 coding agent。正文只保留这些稳定定位，不写容易过期的 UI 细节和模型别名。
+```powershell
+winget install Anthropic.ClaudeCode
+claude --version
+Set-Location C:\coursework\ai-md\downloads\chapter-11\assets
+claude
+```
 
-| 使用环节 | 应做什么 | 为什么 |
-|:---|:---|:---|
-| 进入项目 | 确认当前目录、项目规则和目标文件 | 防止写错位置 |
-| 开始修改前 | 说明要修改哪些文件 | 让用户知道影响面 |
-| 运行命令前 | 判断命令是否读写文件、是否会删除或覆盖 | 控制风险 |
-| 修改后 | 看 diff、运行验证、列出待确认项 | 让输出可验收 |
-| 长对话后 | 清理上下文或分阶段保存产物 | 避免旧信息影响判断 |
+首次使用按工具提示完成登录和访问配置。进入会话后，先发一个只读任务：
 
-权限模式要服务任务风险。计划模式适合先读文件、分析结构和提出方案；默认模式适合需要逐步确认的编辑；自动接受编辑适合小范围、低风险、可由 `git diff` 复核的工作；跳过权限提示只适合隔离环境，不能用于含有真实数据、凭据或重要项目文件的场景。
+> 读取本目录的 code 和 data 文件，说明 QC 脚本接受哪些参数、manifest 中有多少个阶段。先给出文件依据和执行计划。
 
-远程服务器和 SSH 也要按同样原则处理。正文只能写通用安全规则：不要把 SSH key、API key、PAT、数据库连接串或个人服务器路径写入教材；不要让 Agent 复制私密配置；需要远程运行时，记录任务 ID、环境、命令、输入和输出目录，而不是记录凭据本身。
+工具的具体模式名称可能变化，操作时按当前界面选择“先规划”或“允许执行本次目录中的操作”。不必记住截图中的按钮位置。要检查的是 Agent 实际读取了哪些文件、准备运行哪个解释器、将输出写到哪里。
+
+| 初次操作 | 自己核对 |
+|---|---|
+| 阅读任务目录 | 引用的文件确实存在 |
+| 提出修改 | 能看见修改前后差异 |
+| 执行小任务 | 命令、返回码和输出可复查 |
+| 结束交互 | 执行记录可由终端重新运行 |
 
 ## 11.4 MCP、插件和 Skills
 
-Agent 能力不只来自模型。可靠工作流通常由三部分组成：MCP 或插件连接外部系统，Skills 固化稳定流程，项目规则限制读写边界。三者解决的是不同问题。
+MCP 是 AI 应用连接外部数据和工具的协议。连接器提供具体读取或操作能力；插件组织一组能力；Skill 将可重复任务的说明、脚本和检查要求组织起来。项目规则文件记录本项目约定。[MCP 官方说明](https://modelcontextprotocol.io/docs/getting-started/intro)
 
-MCP 是 Model Context Protocol 的缩写。按官方文档口径，它是连接 AI 应用与外部系统的开放标准。一个 MCP host 是 AI 应用本身，一个 MCP client 负责和某个 MCP server 维持连接，一个 MCP server 向 Agent 提供可发现的工具、资源或提示模板。
+| 对象 | 在本章任务中的作用 |
+|---|---|
+| 项目规则 | 规定输入位置、输出目录和记录方式 |
+| Skill | 固定已跑通的任务步骤与验收 |
+| MCP/连接器 | 连接结构数据库或其他外部服务 |
+| 普通脚本 | 确定地执行同一输入协议 |
 
-| 组件 | 作用 | 生物计算中的例子 | 风险控制 |
-|:---|:---|:---|:---|
-| MCP server | 提供外部工具、资源或 prompt | 文档检索、数据库查询、GitHub 操作 | 只连接可信 server |
-| 插件 | 打包一组工具或技能 | Zotero、GitHub、浏览器、数据分析 | 明确何时调用 |
-| Skill | 固化稳定流程 | `vina_batch_docking`、`update-vault` | 写清输入、输出和禁止事项 |
-| 项目规则 | 规定本项目怎么工作 | `AGENTS.md`、`CLAUDE.md` | 限制原始资料和正文边界 |
+先使用本地脚本完成练习，再决定是否需要 Skill。一个适合保存为 Skill 的流程应至少包含输入参数、依赖、完整命令、输出结构、失败处理和验收；只写“自动筛选优秀候选”无法直接执行。
 
-```mermaid
-flowchart TD
-  A["项目规则 AGENTS.md / CLAUDE.md"] --> B["Agent 决策"]
-  C["Skills"] --> B
-  D["MCP / 插件"] --> B
-  E["Raw sources"] --> B
-  B --> F["脚本 / 表格 / 正文 / 报告"]
-  F --> G["验证和人工确认"]
-```
-
-MCP 配置要区分作用范围。local scope 适合个人项目和实验配置；project scope 适合团队共享，但不能提交真实密钥；user scope 适合个人跨项目复用。含凭据的配置应优先用用户级设置或环境变量，公开项目中只保留占位符和说明。
-
-Skills 的价值在于把一次成功的工作流程固定下来。一个好的 Skill 不只是“请你帮我分析数据”这样的提示词，而应包含触发场景、输入要求、输出格式、脚本、模板、失败处理和安全边界。本章新增的 `../assets/chapter-11/code/vina_batch_docking_skill_prompt.md` 就是一个教学模板，它说明如何把批量 docking 任务写成可执行 Skill 要求。
-
-MCP 和 Skills 都不能消除证据边界。它们能让 Agent 更容易访问工具和复用流程，但外部工具返回的内容仍要检查来源、权限、版本和适用范围。对药物设计任务来说，任何预测、模拟或排序结果都不能因为经过 Agent 编排而自动升级为实验结论。
+可以在练习目录写一份简短规则：输入文件保留；每次运行使用新输出目录；记录软件版本和参数；分数保持字段名与单位；遇到异常先查看日志。下一次让 Agent 读规则后，再开展同一流程。
 
 ## 11.5 面向生物计算的 Prompt Engineering
 
-面向生物计算的 Prompt Engineering，不是追求漂亮句式，而是把科研任务写成可执行说明书。一个好的 prompt 应该让 Agent 知道要做什么、用什么输入、产出什么文件、如何处理失败，以及哪些解释不能越界。
+好的任务说明要让接手者知道已有条件和停止位置。下面先说明 3HTB 已有文件，再指定动作。更完整、可下载的说明见[公开任务 prompt](../assets/chapter-11/code/vina_batch_docking_skill_prompt.md)。
 
-下面的检查表适合放在每个生物计算 prompt 前。
+> 沿用第 3 章 3HTB 受体、网格和 JZ4/IPH/BNZ PDBQT。使用第 4 章 run_vina_case.py，先对 JZ4 做一次小运行，检查 log、pose 和晶体坐标系内的重原子 RMSD。通过后，用相同参数跑三分子批次。每次使用新输出目录，保存每个 log、pose、返回状态、分数和运行参数。遇到失败先报告日志位置，一次只改一个条件。
 
-| 项目 | 应写清楚的问题 | 示例 |
-|:---|:---|:---|
-| 任务目标 | 想解决什么计算问题 | 批量 docking、汇总 RFD3 QC |
-| 输入 | 文件路径、格式、数量、来源 | `receptor.pdb`、多分子 `.sdf` |
-| 工具 | 使用哪个软件或脚本 | Vina、Open Babel、Python |
-| 参数 | box、阈值、环境、批次 | center、size、`exhaustiveness` |
-| 输出 | 文件、表格、图、报告 | CSV、log、pose、Markdown |
-| 失败处理 | 单个样本失败怎么办 | 标记 `Failed` 并继续 |
-| 禁止事项 | 哪些行为不能做 | 不覆盖原始文件，不写入 token |
-| 证据边界 | 输出能说明什么 | score 只用于排序，不是亲和力 |
+这段说明已经给出输入、稳定脚本、执行顺序和验收。让 Agent 补充计划时，核对它是否沿用已准备的受体，而不是另写一套未经检查的 PDBQT 转换方法。
 
-`vina_batch_docking` 是一个合适的教学例子。课程材料要求它自动检查 Conda 环境、转换受体和配体、逐个运行 Vina、保存 log 和 pose，并汇总排序表。更新后的案例文件进一步加入了安全边界：不移动原始文件，不读取 SSH key、API key 或 token，不把 Vina score 写成 `Kd`、`Ki`、`IC50` 或真实结合自由能。
+| 容易缺失的字段 | 补全方法 |
+|---|---|
+| “使用 Vina” | 写清版本与可执行文件路径 |
+| “批量对接” | 写清配体列表和每个输出状态 |
+| “比较结果” | 写清同一受体、网格、化学状态、seed 与单位 |
+| “自动修复” | 写清错误日志和一次改变一个条件 |
+| “给出结论” | 指定结构检查和下一步验证读数 |
 
-一个可教学的 prompt 可以这样组织：
-
-```text
-请创建一个批量 docking Skill。输入包括 receptor_file、ligand_input、center_coords、box_size 和 output_dir。脚本需要检查环境，保留每个配体的 log、pose 和 top score。单个配体失败时标记 Failed 并继续。最终输出 CSV 和 Markdown 报告。报告必须说明 docking score 只用于候选排序和构象复核，不能解释为实验亲和力。
-```
-
-这个 prompt 的关键不是“让 AI 写出很长代码”，而是把任务边界写清。Agent 可以帮助生成脚本，但受体准备、质子化状态、box 选择、金属离子处理、配体构象和结果解释仍需人工检查。
+学生把实际目录填进任务说明后，先请 Agent 列出所需文件。缺文件时回到对应章节下载或准备，避免在运行过程中临时补换输入。
 
 ## 11.6 自动化流水线与批处理脚本开发
 
-一次运行可以手工完成，批量任务必须结构化。批处理脚本的核心不是循环，而是 manifest、runner、parser、QC 和 report。manifest 记录每个样本是什么；runner 执行任务；parser 提取结果；QC 判断是否保留；report 让人能快速复核。
+先完成 JZ4，再扩大为三个配体。沿用第 3 章准备输入和第 4 章 Python 环境，把 `$pythonExe` 改成课程工作目录中 `.venv-win` 的 Python，把 `$vinaExe` 改成你已下载的 Vina 可执行文件。以下命令从 `chapter-11/assets` 执行，示例环境位置沿用第 1 章的 `C:\coursework\ai-md`。
 
-```mermaid
-flowchart LR
-  A["manifest"] --> B["runner"]
-  B --> C["logs / outputs"]
-  C --> D["parser"]
-  D --> E["QC table"]
-  E --> F["shortlist / report"]
-  E --> G["fallback"]
+```powershell
+$pythonExe = "C:\coursework\ai-md\.venv-win\Scripts\python.exe"
+$vinaExe = "C:\coursework\ai-md\tools\vina_1.2.7_win.exe"
+& $pythonExe -c "import sys, rdkit, meeko; print(sys.executable)"
+& $pythonExe ../../chapter-04/assets/code/run_vina_case.py --vina $vinaExe --inputs ../../chapter-03/assets/data/3htb --out outputs/vina-jz4 --ligands JZ4 --cpu 2 --seed 20261002 --exhaustiveness 16
+& $pythonExe ../../chapter-04/assets/code/run_vina_case.py --vina $vinaExe --inputs ../../chapter-03/assets/data/3htb --out outputs/vina-three --ligands JZ4 IPH BNZ --cpu 2 --seed 20261002 --exhaustiveness 16
 ```
 
-`../assets/chapter-11/code/batch_manifest_schema.csv` 展示了一个教学 manifest。它记录 `task_id`、`stage`、`candidate_id`、输入文件、工具、参数、输出目录、预期文件、示例指标、decision、fallback 和 notes。示例行不是本项目真实结果，而是告诉读者怎样组织批处理数据。
+已有结果供核对：[真实结果 TSV](../assets/chapter-04/results/3htb-cpu-seed20261002/docking_results.tsv)、[JZ4 RMSD](../assets/chapter-04/results/3htb-cpu-seed20261002/JZ4_redocking_rmsd.json)及[运行参数](../assets/chapter-04/results/3htb-cpu-seed20261002/run_parameters.json)。本次 Vina 1.2.7 CPU 运行的 JZ4 模式 1 score 为 −7.190 kcal/mol，晶体坐标系内、无拟合、考虑对称性的重原子 RMSD 为 0.4946 Å。三个分子都保留独立 log 和 pose。
 
-| 字段 | 用途 | 写作边界 |
-|:---|:---|:---|
-| `stage` | 区分 RFD3、ProteinMPNN、Boltz2 等阶段 | 不同阶段不能混用指标 |
-| `parameters_json` | 保存关键参数 | 参数不是结果证明 |
-| `expected_files` | 定义应出现的输出 | 缺文件时不能继续包装候选 |
-| `plddt / ipae / rmsd` | 示例 QC 字段 | 阈值视任务而定 |
-| `decision` | `pass / review / fail` | `pass` 也只是进入下一步 |
-| `fallback` | 失败后回到哪里 | 防止盲目扩大批量 |
+| 批次检查 | 亲手核对 |
+|---|---|
+| 输入数与状态数 | 三个配体应有三行结果 |
+| score 来源 | 打开每个 log，找到模式 1 |
+| pose 文件 | 每个输出路径都能打开 |
+| JZ4 参照 | 核对参照配体身份与坐标系 |
+| 下一次运行 | 换新目录，保留本次记录 |
 
-`../assets/chapter-11/code/rfd3_qc_runner.py` 是配套教学脚本。它不运行 RFD3、ProteinMPNN、Boltz2、Vina 或任何外部服务，只读取 manifest，检查预期输出文件是否存在，按透明示例阈值标记 warning，并输出 summary CSV 或 Markdown 报告。
+再读取 PDL1 的四行 manifest。下载[manifest](../assets/chapter-11/data/pdl1_manifest.csv)和[QC 脚本](../assets/chapter-11/code/rfd3_qc_runner.py)，用 `--workspace-root` 明确指定第 10 章文件位置。
 
-可以这样运行脚本做教学演示：
-
-```bash
-python ../assets/chapter-11/code/rfd3_qc_runner.py \
-  --manifest ../assets/chapter-11/code/batch_manifest_schema.csv \
-  --summary-csv outputs/ch11_qc_summary.csv \
-  --report-md outputs/ch11_qc_summary.md \
-  --workspace-root .
+```powershell
+python code/rfd3_qc_runner.py --manifest data/pdl1_manifest.csv --workspace-root ../../chapter-10/assets --summary-csv outputs/pdl1_qc.csv --report-md outputs/pdl1_qc.md
 ```
 
-如果示例输出文件不存在，脚本会把对应行标记为 `fail`。这不是错误，而是它在执行应有的 QC：没有结构文件、metadata 或预测输出，就不能把候选写进下一步。这个例子比“展示一个漂亮 top hit”更适合教学，因为它训练读者识别缺失输出和证据不足。
+结果应为骨架、序列与两个回折叠阶段均 `ready`。manifest 的回折叠行同时要求 CIF、confidence、PAE 与逐残基 pLDDT 文件，以及真实置信度、内部 RMSD 和靶标对齐后 RMSD。`ready` 记录所列文件与必需字段齐全；执行失败写 `failed`，尚未运行写 `pending`，声称完成却缺文件或必需数值写 `incomplete`。
 
-Agent 适合探索期：生成初版脚本、识别日志错误、补字段、写报告模板。稳定后，重复任务应尽量沉淀成可测试脚本。百万级虚筛、超算队列和长期批处理不应依赖 Agent 每次重新推理，而应依赖 manifest、队列系统、固定脚本和版本记录。
+现在运行[故意错写路径的练习行](../assets/chapter-11/code/batch_manifest_schema.csv)。先预测结果，再执行。
+
+```powershell
+python code/rfd3_qc_runner.py --manifest code/batch_manifest_schema.csv --workspace-root ../../chapter-10/assets --summary-csv outputs/fault_qc.csv
+```
+
+这行明确标为 `constructed_fault_exercise`，期待一个不存在的 CIF，输出应为 `incomplete`。把 `expected_files` 改成真正的文件名再试一次。随后复制 PDL1 manifest，将候选 1 的 `output_dir` 改成不存在的候选目录，保留 `completed`，观察为何仍判为 `incomplete`。恢复路径后，再清空该行的靶标对齐 RMSD，检查必需字段缺失怎样被发现。所有改错只发生在副本。
 
 ## 11.7 数据分析与大分子可视化工具定制
 
-自动化不止生成结果表，还要把结果转成可判断的图和结构视图。同一批计算输出至少应有三类产物：数值表、质量图和代表结构。只有表格没有图，读者难以发现分布异常；只有结构截图没有表格，读者也无法判断候选在整个批次中的位置。
+结果表与结构一起看，更容易发现不一致。三分子 Vina 表先核对原数值，再画按配体排列的 score 图；PDL1 表先统计执行状态，再读取第 10 章的两类 RMSD。两条回折叠都能通过文件 QC，但候选 1 按靶标对齐后的设计链偏差为 16.38 Å，候选 2 为 4.81 Å。让 Agent 显示同一视角的叠合图，再由学生提出候选复核理由。
 
-| 任务 | 输入表 | 推荐图 | 结构视图 | 验收字段 |
-|:---|:---|:---|:---|:---|
-| docking 排序 | `docking_results.csv` | score 分布、top N 条形图 | top pose 和相互作用 | score、pose、失败原因 |
-| MD 分析 | XVG / CSV | RMSD、RMSF、Rg、SASA | 代表构象叠合 | 平衡段、聚类、异常帧 |
-| RFD3 QC | manifest + metadata | decision 计数、指标散点 | target-binder 界面 | pLDDT、iPAE、RMSD、contacts |
-| ProteinMPNN 后处理 | FASTA + 回折叠表 | 序列多样性、回折叠指标 | motif 保留情况 | fixed residue、motif RMSD |
-| Boltz2 辅助排序 | ranking / JSON | confidence 和 predicted affinity 分布 | 复合物构象 | confidence、predicted affinity、边界说明 |
+| 材料 | 可做的小工具 | 人工核对 |
+|---|---|---|
+| Vina TSV | 整理分数、状态和 pose 链接 | 与三个 log 对照 |
+| PDL1 manifest 与 RMSD 表 | 按阶段统计状态，绘制两类偏差 | 与同候选文件、分析记录和结构图对照 |
+| ProteinMPNN FASTA | 统计长度和变化位置 | 设计链是否为 A |
+| 结构文件 | 着色链、显示热点与接触 | 链名、编号、原子名 |
 
-可视化脚本也要遵守证据边界。docking 的 top pose 只能支持构象假设；MD 的 RMSD 稳定不等于结合更强；Boltz2 predicted affinity 可用于候选排序或提示，但不能写成本项目实验亲和力。图表的标题和图注都要避免把预测写成验证。
+给 Agent 的可视化任务应写具体，例如“按 ligand_id 原顺序作图，纵轴写 Vina score (kcal/mol)，失败或缺测保持空值”。生成后先检查轴和单位，再选一个数值与原日志对照。
 
-PyMOL 和 ChimeraX 脚本适合和数据表配合使用。Agent 可以帮助生成选择链、标注 hotspot、显示氢键或导出图片的脚本；但每张结构图都要回到原始结构、链 ID、残基编号和任务假设。若链名或残基编号来自不同版本结构，图再漂亮也不能用于判断。
+结构截图也从一个明确问题出发。显示 PDL1 B39 与 A 链邻近残基，旋转到能看清接触的位置，再记录软件选择语句。不要只交一张未标链的整体结构图。
 
 ## 11.8 计算小平台开发
 
-当同一类脚本反复使用，可以把它封装成轻量计算小平台。这里的小平台不是为了展示炫酷界面，而是让重复任务有固定入口、固定输出和固定检查点。对药物化学和生命科学学习者来说，最有价值的是少输错路径、少漏看日志、少混淆结果边界。
+脚本反复使用后，可以增加简单入口。先设计一个页面或本地表格，让用户选择 manifest、输出目录和运行按钮，显示日志与结果路径。后台继续调用已验证的脚本。
 
-一个最小候选筛选工作台可以包含这些部分。
+| 功能 | 第一版做到什么 |
+|---|---|
+| 输入 | 选择 manifest，显示字段和行数 |
+| 参数 | 显示工作目录与输出目录 |
+| 运行 | 调用 QC 脚本，保存实际命令 |
+| 结果 | 展示状态、缺失文件和下一动作 |
+| 导出 | 提供 CSV 和报告文件 |
 
-| 模块 | 功能 | 不应隐藏的内容 |
-|:---|:---|:---|
-| 输入区 | 选择 manifest、结果目录和任务类型 | 输入路径和文件格式 |
-| 参数区 | 设置阈值、筛选阶段和输出目录 | 阈值来源和适用范围 |
-| 运行区 | 调用已有脚本并显示状态 | 实际命令和日志 |
-| 结果区 | 展示候选表、失败原因和 top 结构 | 原始文件链接 |
-| 导出区 | 生成 CSV、Markdown 或图 | 证据边界和待确认项 |
-
-```mermaid
-flowchart TD
-  A["上传或选择 manifest"] --> B["选择任务模板"]
-  B --> C["运行后台脚本"]
-  C --> D["显示日志和失败原因"]
-  D --> E["候选表和结构预览"]
-  E --> F["导出报告"]
-```
-
-平台后台应尽量调用已有脚本，而不是把关键逻辑藏在界面里。比如第 11 章可以把 `rfd3_qc_runner.py` 作为后台脚本，前端只负责选择 manifest、运行脚本和展示 summary。这样读者仍能在命令行复现同一结果。
-
-安全边界同样重要。平台不应保存个人 SSH key、API key、token、PAT 或数据库连接串；不应默认上传原始 PDF、课件截图或私有结构文件；不应把远程服务器路径写进公开教材示例。公开正文只写通用安全原则，真实部署需要另建私有配置和权限审计。
+基础作业只画出这个页面的布局，并用终端完成同样操作。进阶作业再实现本地页面，要求同一 manifest 在页面与终端得到一致结果。先保证结果可复查，再增加结构预览和远程队列。
 
 ## 11.9 AI 结构批量预测与序列设计流水线
 
-本章最后回到药物设计主线。RFD3、ProteinMPNN、Boltz2、docking 和 MD 可以连接成一条结构与序列候选流水线，但它必须是可审查的流水线，而不是连续调用工具的黑箱。
+在设计流程中，manifest 把一个骨架、两条序列与各自回折叠连接起来。候选 ID 一旦确定，后续文件、指标和人工判断都按这个 ID 保存。扩大批次前，先检查一个候选的整条链。
 
 ```mermaid
-flowchart LR
-  A["目标结构和构象准备"] --> B["候选设计任务卡"]
-  B --> C["RFD3 / 结构生成"]
-  C --> D["ProteinMPNN / 序列设计"]
-  D --> E["回折叠"]
-  E --> F["界面和质量 QC"]
-  F --> G["Boltz2 / docking 辅助排序"]
-  G --> H["实验候选交接"]
-  F --> I["回退到骨架或序列设计"]
+flowchart TD
+  A[官方骨架与来源] --> B[CPU 序列与运行记录]
+  B --> C[同候选回折叠输入]
+  C --> D[运行状态与原始输出]
+  D --> E[置信度/对齐/界面检查]
+  E --> F[路线卡与验证计划]
 ```
 
-每一步都要记录输入、工具版本、参数、输出文件、日志、decision 和 fallback。失败不是流程外的意外，而是工作流的一部分。hotspot 不合理时回到结构准备；回折叠失败时回到序列设计；界面 QC 失败时回到骨架生成或筛选标准；预测置信度不足时不能继续写成实验候选。
+本章作业包含一段已填目录的任务说明、一份真实 manifest、一份 QC 输出和一条故障记录。能从结果行返回原日志和结构，再到第 12 章安排下一步。
 
-| 阶段 | 输入 | 输出 | QC 问题 | 回退位置 |
-|:---|:---|:---|:---|:---|
-| 目标准备 | PDB / mmCIF、构象、链 ID | 目标结构和 hotspot | 链和残基是否正确 | 结构准备 |
-| 骨架生成 | target、contig、参数 | RFD3 结构候选 | 是否接触 hotspot，有无 clash | hotspot 或参数 |
-| 序列设计 | backbone、固定残基 | FASTA 和序列批次 | 固定残基是否保留 | ProteinMPNN 参数 |
-| 回折叠 | 序列和复合物输入 | 预测结构 | RMSD、pLDDT、iPAE 是否合理 | 序列设计或骨架生成 |
-| 辅助排序 | 结构、pose、预测输出 | shortlist | score 是否被越界解释 | 人工复核 |
-| 实验交接 | 候选表和报告 | 实验队列 | 是否有足够证据进入实验 | 补验证或降级 |
+## 本章使用说明
 
-Agent 和 Code 在这条流水线中分工不同。Agent 适合帮助解释需求、生成模板、排查日志、整理报告和更新记录；稳定 Code 适合反复运行、队列调度、批量处理和大规模筛选。探索期选 Agent，量产期选 Code，这一原则比某个工具界面更重要。
+Agent 可以修改代码和整理执行记录，验收仍以输入、实际命令、日志、结构与数值为依据。本章 `ready` 仅指列出的阶段文件和必需字段齐全；`pending` 保留未运行工作。Vina score、结构预测、MPNN score 与计算 QC 用于计算检查和候选安排，实验结合与功能另需验证。故障行是明确构造的排错练习，PDL1 骨架是官方输出、序列是本教材 CPU 实跑，两者来源分别记录。连接外部服务前应确认上传对象与成本；课程录播、课件和私人项目资料继续留在本地。
 
-本章的结论不是“AI Agent 让药物设计自动化完成”，而是：Agent 可以帮助研究者把复杂计算流程变成可读、可跑、可查的工作台。真正决定结论强度的，仍然是输入是否正确、记录是否完整、指标是否合适、边界是否清楚，以及后续实验是否能验证。
-
-第 12 章将在这个基础上，把课程方法接入具体研究路线、文献案例、项目池和下一步实验。到那里，读者要做的不只是运行工具，而是判断哪些问题值得做，哪些证据足以推进，哪些候选应该停在待确认区。
+全部练习资产的来源、类型与 SHA256 见[来源表](../assets/chapter-11/provenance.tsv)。固定流程保存成 Skill 前，先完成本章单任务、批次和故障三项验收。

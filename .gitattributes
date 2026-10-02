@@ -1,0 +1,5 @@
+# Practice checksums refer to exact download bytes on Windows and Linux.
+# Keep the reviewed originals; do not normalize asset line endings in Git.
+chapters/**/assets/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+book/docs/assets/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+chapters/public_assets.tsv -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol

@@ -1,0 +1,202 @@
+                   :-) GROMACS - gmx cluster, 2025.5-dev (-:
+
+Executable:   GMX
+Data prefix:  GMX_DATA (source tree)
+Working dir:  ANALYSIS
+Command line:
+  gmx cluster -s RUN\md.tpr -f md-fit.xtc -method gromos -cutoff 0.10 -g cluster.log -dist cluster-rmsd-distribution.xvg -o cluster-rmsd.xpm -sz cluster-sizes.xvg -cl cluster-representatives.pdb
+
+Using gromos method for clustering
+Reading file RUN\md.tpr, VERSION 2025.5-dev (single precision)
+Reading file RUN\md.tpr, VERSION 2025.5-dev (single precision)
+
+Select group for least squares fit and RMSD calculation:
+Group     0 (         System) has 23873 elements
+Group     1 (        Protein) has  1960 elements
+Group     2 (      Protein-H) has  1001 elements
+Group     3 (        C-alpha) has   129 elements
+Group     4 (       Backbone) has   387 elements
+Group     5 (      MainChain) has   517 elements
+Group     6 (   MainChain+Cb) has   634 elements
+Group     7 (    MainChain+H) has   646 elements
+Group     8 (      SideChain) has  1314 elements
+Group     9 (    SideChain-H) has   484 elements
+Group    10 (    Prot-Masses) has  1960 elements
+Group    11 (    non-Protein) has 21913 elements
+Group    12 (          Water) has 21861 elements
+Group    13 (            SOL) has 21861 elements
+Group    14 (      non-Water) has  2012 elements
+Group    15 (            Ion) has    52 elements
+Group    16 ( Water_and_ions) has 21913 elements
+Select a group: 
+Select group for output:
+Group     0 (         System) has 23873 elements
+Group     1 (        Protein) has  1960 elements
+Group     2 (      Protein-H) has  1001 elements
+Group     3 (        C-alpha) has   129 elements
+Group     4 (       Backbone) has   387 elements
+Group     5 (      MainChain) has   517 elements
+Group     6 (   MainChain+Cb) has   634 elements
+Group     7 (    MainChain+H) has   646 elements
+Group     8 (      SideChain) has  1314 elements
+Group     9 (    SideChain-H) has   484 elements
+Group    10 (    Prot-Masses) has  1960 elements
+Group    11 (    non-Protein) has 21913 elements
+Group    12 (          Water) has 21861 elements
+Group    13 (            SOL) has 21861 elements
+Group    14 (      non-Water) has  2012 elements
+Group    15 (            Ion) has    52 elements
+Group    16 ( Water_and_ions) has 21913 elements
+Select a group: 
+Reading frame       0 time    0.000   
+Reading frame       1 time    1.000   
+Reading frame       2 time    2.000   
+Reading frame       3 time    3.000   
+Reading frame       4 time    4.000   
+Reading frame       5 time    5.000   
+Reading frame       6 time    6.000   
+Reading frame       7 time    7.000   
+Reading frame       8 time    8.000   
+Reading frame       9 time    9.000   
+Reading frame      10 time   10.000   
+Reading frame      11 time   11.000   
+Reading frame      12 time   12.000   
+Reading frame      13 time   13.000   
+Reading frame      14 time   14.000   
+Reading frame      15 time   15.000   
+Reading frame      16 time   16.000   
+Reading frame      17 time   17.000   
+Reading frame      18 time   18.000   
+Reading frame      19 time   19.000   
+Reading frame      20 time   20.000   
+Reading frame      30 time   30.000   
+Reading frame      40 time   40.000   
+Reading frame      50 time   50.000   
+Reading frame      60 time   60.000   
+Reading frame      70 time   70.000   
+Reading frame      80 time   80.000   
+Reading frame      90 time   90.000   
+Reading frame     100 time  100.000   
+Last frame        100 time  100.000   
+Allocated 2587200 bytes for frames
+Read 101 frames from trajectory md-fit.xtc
+Computing 101x101 RMS deviation matrix
+
+# RMSD calculations left: 4950   
+# RMSD calculations left: 4851   
+# RMSD calculations left: 4753   
+# RMSD calculations left: 4656   
+# RMSD calculations left: 4560   
+# RMSD calculations left: 4465   
+# RMSD calculations left: 4371   
+# RMSD calculations left: 4278   
+# RMSD calculations left: 4186   
+# RMSD calculations left: 4095   
+# RMSD calculations left: 4005   
+# RMSD calculations left: 3916   
+# RMSD calculations left: 3828   
+# RMSD calculations left: 3741   
+# RMSD calculations left: 3655   
+# RMSD calculations left: 3570   
+# RMSD calculations left: 3486   
+# RMSD calculations left: 3403   
+# RMSD calculations left: 3321   
+# RMSD calculations left: 3240   
+# RMSD calculations left: 3160   
+# RMSD calculations left: 3081   
+# RMSD calculations left: 3003   
+# RMSD calculations left: 2926   
+# RMSD calculations left: 2850   
+# RMSD calculations left: 2775   
+# RMSD calculations left: 2701   
+# RMSD calculations left: 2628   
+# RMSD calculations left: 2556   
+# RMSD calculations left: 2485   
+# RMSD calculations left: 2415   
+# RMSD calculations left: 2346   
+# RMSD calculations left: 2278   
+# RMSD calculations left: 2211   
+# RMSD calculations left: 2145   
+# RMSD calculations left: 2080   
+# RMSD calculations left: 2016   
+# RMSD calculations left: 1953   
+# RMSD calculations left: 1891   
+# RMSD calculations left: 1830   
+# RMSD calculations left: 1770   
+# RMSD calculations left: 1711   
+# RMSD calculations left: 1653   
+# RMSD calculations left: 1596   
+# RMSD calculations left: 1540   
+# RMSD calculations left: 1485   
+# RMSD calculations left: 1431   
+# RMSD calculations left: 1378   
+# RMSD calculations left: 1326   
+# RMSD calculations left: 1275   
+# RMSD calculations left: 1225   
+# RMSD calculations left: 1176   
+# RMSD calculations left: 1128   
+# RMSD calculations left: 1081   
+# RMSD calculations left: 1035   
+# RMSD calculations left: 990   
+# RMSD calculations left: 946   
+# RMSD calculations left: 903   
+# RMSD calculations left: 861   
+# RMSD calculations left: 820   
+# RMSD calculations left: 780   
+# RMSD calculations left: 741   
+# RMSD calculations left: 703   
+# RMSD calculations left: 666   
+# RMSD calculations left: 630   
+# RMSD calculations left: 595   
+# RMSD calculations left: 561   
+# RMSD calculations left: 528   
+# RMSD calculations left: 496   
+# RMSD calculations left: 465   
+# RMSD calculations left: 435   
+# RMSD calculations left: 406   
+# RMSD calculations left: 378   
+# RMSD calculations left: 351   
+# RMSD calculations left: 325   
+# RMSD calculations left: 300   
+# RMSD calculations left: 276   
+# RMSD calculations left: 253   
+# RMSD calculations left: 231   
+# RMSD calculations left: 210   
+# RMSD calculations left: 190   
+# RMSD calculations left: 171   
+# RMSD calculations left: 153   
+# RMSD calculations left: 136   
+# RMSD calculations left: 120   
+# RMSD calculations left: 105   
+# RMSD calculations left: 91   
+# RMSD calculations left: 78   
+# RMSD calculations left: 66   
+# RMSD calculations left: 55   
+# RMSD calculations left: 45   
+# RMSD calculations left: 36   
+# RMSD calculations left: 28   
+# RMSD calculations left: 21   
+# RMSD calculations left: 15   
+# RMSD calculations left: 10   
+# RMSD calculations left: 6   
+# RMSD calculations left: 3   
+# RMSD calculations left: 1   
+# RMSD calculations left: 0   
+# RMSD calculations left: 0   
+
+The RMSD ranges from 0.0404172 to 0.112873 nm
+Average RMSD is 0.0753987
+Number of structures for matrix 101
+Energy of the matrix is 0.244184.
+WARNING: rmsd minimum 0 is below lowest rmsd value 0.0404172
+Making list of neighbors within cutoff   0%  1%  3%  5%  7%  9% 11% 13% 15% 17% 19% 21% 23% 25% 27% 29% 31% 33% 35% 37% 39% 41% 43% 45% 47% 49% 51% 53% 55% 57% 59% 61% 63% 65% 67% 69% 71% 73% 75% 77% 79% 81% 83% 85% 87% 89% 91% 93% 95% 97% 99%100%
+Finding clusters    0   1
+
+Found 1 clusters
+
+Writing middle structure for each cluster to cluster-representatives.pdb
+Writing rms distance/clustering matrix   0%  2%  4%  6%  8% 10% 12% 14% 16% 18% 20% 22% 24% 26% 28% 30% 32% 34% 36% 38% 40% 42% 44% 46% 48% 50% 52% 54% 56% 58% 60% 62% 64% 66% 68% 70% 72% 74% 76% 78% 80% 82% 84% 86% 88% 90% 92% 94% 96% 98%100%
+
+
+Selected 3: 'C-alpha'
+Selected 1: 'Protein'
