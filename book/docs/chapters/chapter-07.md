@@ -15,7 +15,7 @@
 
 ## 练习目录
 
-以下命令从练习下载目录（例如 `C:/coursework/ai-md/downloads`）开始。先进入本章目录，后续 Python 命令都从这里运行，结果写入 `outputs`。
+从[练习资源页](https://luvega.github.io/AI_MD/resources/)下载本章压缩包，解压到 `C:/coursework`。以下命令从 `C:/coursework/AI_MD_practice` 开始。先进入本章目录，后续 Python 命令都从这里运行，结果写入 `outputs`。
 
 ```bash
 cd chapter-07/assets

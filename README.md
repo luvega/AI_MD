@@ -34,3 +34,5 @@ python -m mkdocs build -f book/mkdocs.yml --strict
 当前教学改进与实跑状态见[实施记录](00_项目说明/在线书完善实施记录-2026-10-02.md)。
 
 新增练习资源时，先审核来源、许可和实际输出，更新该章 `assets/provenance.tsv`，再运行 `python tools/refresh_public_assets.py` 刷新两份资源清单。文件修改后必须重新核对哈希；同步器会拒绝未审核或字节不一致的文件。
+
+同步器同时生成 `book/docs/downloads/chapter-01.zip` 至 `chapter-12.zip`，并更新资源页的压缩包大小。每包从审核清单取文件，按 `shared/assets/practice-downloads.json` 的依赖表补齐配套章节，保留 `AI_MD_practice/chapter-XX/assets/` 目录。验收器检查 12 包齐备、成员路径、文件集合和原始字节；原始课程压缩包仍禁止发布。生成的 ZIP 不纳入 Git，GitHub Pages 工作流每次同步时重建。

@@ -17,7 +17,7 @@
 
 binder 是希望结合靶标的分子。这里设计一个蛋白链，使它靠近 PD-L1 表面。官方教程从 PDB 8AOM 的 PD-L1–VHH1 复合物开始，裁剪靶标后设置热点。公开 final model 中 A 链为 77 残基设计链，B 链为 114 残基靶标片段。[官方 PDL1 教程](https://github.com/RosettaCommons/foundry/blob/production/models/rfd3/docs/tutorials/binder_design_tutorial.md)
 
-下载或通过练习下载器取得下面的文件。练习目录保留 `chapter-10/assets/code`、`data`、`refold` 布局。在 PowerShell 进入 `chapter-10/assets` 后执行本章命令。
+从[练习资源页](https://luvega.github.io/AI_MD/resources/)下载第 10 章压缩包，解压到 `C:/coursework`。保留包内 `code`、`data`、`refold` 布局，在 PowerShell 进入 `C:/coursework/AI_MD_practice/chapter-10/assets` 后执行本章命令。
 
 | 文件 | 用途 |
 |---|---|
@@ -120,7 +120,7 @@ ProteinMPNN 为给定蛋白骨架设计序列；LigandMPNN 将配体、金属等
 现在运行本章 CPU 小例。下载[运行脚本](../assets/chapter-10/code/run_proteinmpnn_cpu.py)，按第 1 章的环境方法建立独立环境，安装 NumPy 与 CPU PyTorch。该脚本下载固定提交的官方程序与权重到 `--work` 指定目录，然后只设计 A 链。[ProteinMPNN 官方实现](https://github.com/dauparas/ProteinMPNN)
 
 ```powershell
-Set-Location C:\coursework\ai-md\downloads\chapter-10\assets
+Set-Location C:\coursework\AI_MD_practice\chapter-10\assets
 python -m venv .venv-mpnn
 .\.venv-mpnn\Scripts\python.exe -m pip install numpy
 .\.venv-mpnn\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cpu
@@ -160,7 +160,13 @@ boltz predict outputs/refold-inputs --out_dir outputs/refold-run01 --seed 37 --r
 
 基础作业直接使用公开结果：[候选 1 CIF](../assets/chapter-10/results/boltz-refold/predictions/pdl1_mpnn_1/pdl1_mpnn_1_model_0.cif)、[候选 1 confidence](../assets/chapter-10/results/boltz-refold/predictions/pdl1_mpnn_1/confidence_pdl1_mpnn_1_model_0.json)、[候选 2 CIF](../assets/chapter-10/results/boltz-refold/predictions/pdl1_mpnn_2/pdl1_mpnn_2_model_0.cif)与[候选 2 confidence](../assets/chapter-10/results/boltz-refold/predictions/pdl1_mpnn_2/confidence_pdl1_mpnn_2_model_0.json)。[候选队列](../assets/chapter-10/refold/candidate_queue.tsv)中两项 `refold_status` 为 `completed`。运行输入与 ProteinMPNN FASTA 的 A 链逐字符一致，B 链也与靶标 FASTA 和设计结构一致。
 
-先预测一个问题：若设计链自身形状相似，按靶标对齐后是否也一定重合？下载[分析脚本](../assets/chapter-10/code/analyze_refold.py)，在已有 `.venv-mpnn` 中补装 Gemmi，再运行。NumPy 已在上一节安装。
+先预测一个问题：若设计链自身形状相似，按靶标对齐后是否也一定重合？下图展示两种拟合方式：按 A 链拟合，检查内部骨架；按 B 链拟合，检查 A 相对靶标的位置和取向。
+
+![按设计链与按靶标链拟合的两种结构比较示意](../assets/chapter-10/figures/binder-alignment-concepts.png){.teaching-diagram}
+
+图为概念示意。两种拟合都对整个预测复合物施加同一个刚体变换，保持其 A、B 相对位置；不能在 B 拟合后再单独移动 A。
+
+下载[分析脚本](../assets/chapter-10/code/analyze_refold.py)，在已有 `.venv-mpnn` 中补装 Gemmi，再运行。NumPy 已在上一节安装。
 
 ```powershell
 .\.venv-mpnn\Scripts\python.exe -m pip install gemmi
@@ -181,7 +187,7 @@ boltz predict outputs/refold-inputs --out_dir outputs/refold-run01 --seed 37 --r
 现在用结构图核对表中的差别。脚本已导出[候选 1 的 B 对齐 PDB](../assets/chapter-10/results/boltz-refold/analysis/pdl1_mpnn_1_target_aligned.pdb)与[候选 2 的 B 对齐 PDB](../assets/chapter-10/results/boltz-refold/analysis/pdl1_mpnn_2_target_aligned.pdb)。在 PyMOL 命令栏进入本章 assets 目录，执行[绘图脚本](../assets/chapter-10/code/show_refold_overlay.pml)。它保留同一靶标视角、缩放和图像尺寸，不再对 A 链单独做 `align`。
 
 ```pymol
-cd C:/coursework/ai-md/downloads/chapter-10/assets
+cd C:/coursework/AI_MD_practice/chapter-10/assets
 @code/show_refold_overlay.pml
 ```
 

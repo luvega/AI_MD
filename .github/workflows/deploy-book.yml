@@ -32,7 +32,7 @@ jobs:
           python -m pip install -r book/requirements.txt
           python -m pip install pytest pyyaml
 
-      - name: Generate book pages
+      - name: Generate book pages and chapter practice ZIPs
         run: python tools/sync_online_book.py
 
       - name: Run tests

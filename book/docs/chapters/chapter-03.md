@@ -94,21 +94,23 @@ MSA 是多序列比对，保存相关序列在各位置的对应关系。工具�
 
 ## 3.5 蛋白、配体、核酸和金属离子体系准备
 
-先完成第 1 章的 `.venv-win` 和依赖安装。下载 [prepare_3htb.py](../assets/chapter-03/code/prepare_3htb.py) 到课程目录的 `scripts`，在 PowerShell 中运行。脚本只读取官方公开数据，不读取本地课程素材。
+先完成第 1 章的 `.venv-win` 和依赖安装。在在线书“练习资源”页下载第 3 章 ZIP，解压到 `C:\coursework`，确认 `AI_MD_practice/chapter-03/assets` 已存在。资源包提供官方公开输入和独立准备脚本；本章用这些输入重新准备，不读取本地课程素材。
 
-如果使用全书下载器，脚本保存在 `downloads/chapter-03/assets/code`。先复制到工作区；逐文件下载并已放入 `scripts` 的学生跳过这一行。
-
-```powershell
-Copy-Item downloads/chapter-03/assets/code/prepare_3htb.py scripts/
-```
+在 `C:\coursework\ai-md` 的 PowerShell 中将脚本复制到 `scripts`。也可逐文件下载 [prepare_3htb.py](../assets/chapter-03/code/prepare_3htb.py) 到同一位置，已经保存时跳过复制。
 
 ```powershell
-.\.venv-win\Scripts\python.exe scripts/prepare_3htb.py --out inputs/3htb
+Copy-Item ../AI_MD_practice/chapter-03/assets/code/prepare_3htb.py scripts/
 ```
 
-全书下载器已带有五个源文件时，也可在上述命令后加 `--source-dir downloads/chapter-03/assets/data/3htb`，使用本地公开输入重新准备。输出仍写入工作区 `inputs/3htb`，不改下载目录。
+使用包内五个原始公开文件重新准备，输出写入工作区的 `inputs/3htb`。
 
-它下载 3HTB、晶体 JZ4 参考 SDF，以及 CCD 的 JZ4、IPH、BNZ 理想结构。随后调用 Meeko 准备受体，使用 RDKit 和 Meeko 准备配体。约定如下。
+```powershell
+.\.venv-win\Scripts\python.exe scripts/prepare_3htb.py --source-dir ../AI_MD_practice/chapter-03/assets/data/3htb --out inputs/3htb
+```
+
+`--source-dir` 指明原始公开输入的目录，脚本不修改资源包。没有包内源文件时，可省略该选项，让脚本从 RCSB 官方入口下载相同文件；其余参数保持不变。
+
+五个输入是 3HTB、晶体 JZ4 参考 SDF，以及 CCD 的 JZ4、IPH、BNZ 理想结构。脚本调用 Meeko 准备受体，使用 RDKit 和 Meeko 准备配体。约定如下。
 
 | 处理对象 | 本协议采用的处理 |
 |---|---|
@@ -187,7 +189,7 @@ Get-Content inputs/3htb/box.json
 | 输出 | 一份 receptor PDBQT、三份 ligand PDBQT、box.json 均存在 |
 | 日志 | 准备完成，警告有解释，未静默跳过必需残基 |
 
-网络不便时，可从课程资源逐项下载 [公开输入与准备记录](../assets/chapter-03/data/3htb/download_sources.json) 所列文件，保持目录布局；也可用脚本的 `--source-dir` 指向已下载的五个源文件重新准备。基础任务建议亲自准备一次，再将文件哈希与配套资源对照。
+本章 ZIP 同时保留原始公开输入和本书已验证的准备结果，来源地址见 [公开输入与准备记录](../assets/chapter-03/data/3htb/download_sources.json)。基础任务是按 3.5 亲自准备一次，再将生成文件的哈希与包内对应文件核对；逐文件下载时保持相同目录布局。
 
 对照练习是比较原始 PDB、提取受体 PDB 和 PDBQT，分别统计替代位置、非蛋白组分和原子记录。写出每个差异对应哪一步，不把“数量少了”直接解释为质量更好。
 

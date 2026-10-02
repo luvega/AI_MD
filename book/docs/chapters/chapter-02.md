@@ -13,11 +13,11 @@
 
 先准备第 1 章的课程目录。`inputs/3htb.pdb` 已存在，`outputs` 用于保存本章结果。
 
-使用全书下载器的学生，从下载目录取出脚本与结构，放入工作区后再开始。下面沿用第 1 章的 `downloads` 下载位置，在 PowerShell 中执行；如果已经逐文件保存到这两个位置，跳过复制。
+在在线书“练习资源”页下载第 2 章 ZIP，解压到 `C:\coursework`。包内已带有所需公开结构，分别保存在 `AI_MD_practice/chapter-02/assets` 和 `AI_MD_practice/chapter-03/assets`。在 `C:\coursework\ai-md` 的 PowerShell 中把脚本与结构复制到工作区；已经逐文件保存到目标位置时跳过复制。
 
 ```powershell
-Copy-Item downloads/chapter-02/assets/code/3htb_pocket.pml scripts/
-Copy-Item downloads/chapter-03/assets/data/3htb/3htb.pdb inputs/
+Copy-Item ../AI_MD_practice/chapter-02/assets/code/3htb_pocket.pml scripts/
+Copy-Item ../AI_MD_practice/chapter-03/assets/data/3htb/3htb.pdb inputs/
 ```
 
 ## 2.1 PyMOL 安装、激活与基础设置
@@ -54,9 +54,10 @@ bg_color white
 
 ## 2.2 PyMOL 界面、选择、颜色和距离测量
 
-先载入文件，命名为 `model_3htb`。为避免当前工作目录不同造成困惑，可先用 File → Open 找到 `inputs/3htb.pdb`，或在命令中写完整实际路径。以下命令假定 PyMOL 的工作目录已经设为课程目录。
+先进入工作区，再载入文件，命名为 `model_3htb`。下面的 `cd` 在 PyMOL 命令区执行，将相对路径起点设为课程目录；也可用 File → Open 找到 `inputs/3htb.pdb`。
 
 ```pymol
+cd C:/coursework/ai-md
 load inputs/3htb.pdb, model_3htb
 hide everything, all
 select protein_a, model_3htb and polymer.protein and chain A and not alt B
@@ -182,7 +183,7 @@ cd C:/coursework/ai-md
 在 File → Open 载入 `inputs/3htb.pdb`，打开 Favorites → Command Line。第一个载入的模型通常编号为 `#1`，若已打开其他模型，先查看 Models 面板中的真实编号。
 
 ```chimerax
-open inputs/3htb.pdb
+open C:/coursework/ai-md/inputs/3htb.pdb
 cartoon #1
 hide #1 atoms
 show #1/A:167 atoms
@@ -195,8 +196,8 @@ view #1/A:167
 保存会话和图片分别使用 `.cxs` 与 `.png`。
 
 ```chimerax
-save outputs/3htb_chimerax.cxs
-save outputs/3htb_chimerax.png width 1400 height 1000
+save C:/coursework/ai-md/outputs/3htb_chimerax.cxs
+save C:/coursework/ai-md/outputs/3htb_chimerax.png width 1400 height 1000
 ```
 
 关闭后重新打开 CXS，确认对象恢复。ChimeraX 的模型编号、选区和语法与 PyMOL 不同，不能直接把 PML 粘贴进去运行。

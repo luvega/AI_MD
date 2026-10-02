@@ -13,23 +13,13 @@
 
 ## 下载练习 {#practice-download}
 
-[练习资源页](resources.md)列出各章说明、输入和脚本。按第 1 章安装 Python、建立 `C:/coursework/ai-md` 后，将[练习下载器](assets/shared/get-practice.py)保存到这个目录。打开对应终端，一次取得所选章节及配套章节的公开文件。下例下载第 4 章以及前置文件；学习其他章节时，只改 `--chapter` 后的数字。
+[练习资源页](resources.md)每章提供一个压缩包，说明、输入、脚本和已有结果放在一起，所需的前置文件也已包含。
 
-=== "Windows PowerShell"
+1. 选择正在学习的章节，点击“下载本章资源”。
+2. 在 Windows 中右键压缩包，选择“全部提取”，把目标文件夹改为 `C:\coursework`。
+3. 检查解压目录。例如第 4 章应出现 `C:\coursework\AI_MD_practice\chapter-04\assets`；打开本章说明，再按正文操作。
 
-    ```powershell
-    Set-Location C:\coursework\ai-md
-    py -3.12 get-practice.py --chapter 4 --dest downloads
-    ```
-
-=== "Ubuntu / WSL2"
-
-    ```bash
-    cd /mnt/c/coursework/ai-md
-    python3 get-practice.py --chapter 4 --dest downloads
-    ```
-
-下载文件保留在 `downloads/chapter-XX/assets`。第 1–4 章会把需要的文件复制到课程工作目录；后续章节在各自的 `assets` 目录运行。
+多章解压到同一个 `C:\coursework` 即可，保留 `AI_MD_practice` 下的章节目录。第 1–4 章会把需要的文件复制到 `C:\coursework\ai-md` 工作目录；后续章节在各自的 `assets` 目录运行。WSL2 中对应资源位置是 `/mnt/c/coursework/AI_MD_practice`。
 
 下载完成后先阅读该章的练习说明。运行时从练习目录开始，保留日志和自己的输出。对照练习会让你改变一个条件，再检查差异。
 

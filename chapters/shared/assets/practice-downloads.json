@@ -1318,9 +1318,15 @@
     },
     {
       "chapter": 6,
+      "relative_path": "chapter-06/assets/figures/rmsd-rmsf-rg-concepts.png",
+      "url_path": "chapter-06/figures/rmsd-rmsf-rg-concepts.png",
+      "sha256": "8a1d0bd5935818e87950b5bb775e0a941d26ef25f4a68aaebef0ac2444bb01c6"
+    },
+    {
+      "chapter": 6,
       "relative_path": "chapter-06/assets/provenance.tsv",
       "url_path": "chapter-06/provenance.tsv",
-      "sha256": "37b3daf211e372b403fc47d7c46d4c50c2971cb0540e83f5da7c82493107d98d"
+      "sha256": "f0085d63d690b1c59e42ef0ed9fd99e87afbd45625b8da8f9e853bab0e24bf03"
     },
     {
       "chapter": 7,
@@ -1774,9 +1780,15 @@
     },
     {
       "chapter": 10,
+      "relative_path": "chapter-10/assets/figures/binder-alignment-concepts.png",
+      "url_path": "chapter-10/figures/binder-alignment-concepts.png",
+      "sha256": "00ab74a26411145f7291a7131b02cd805f475681b4c7ef646c23879c92292b53"
+    },
+    {
+      "chapter": 10,
       "relative_path": "chapter-10/assets/provenance.tsv",
       "url_path": "chapter-10/provenance.tsv",
-      "sha256": "a855ea6f049ed8d089e8b65a372bf896393c5f9e2f645f2d7affbd6211629868"
+      "sha256": "35ead3c70b2a5870705b5d89a4e10d6fca668d2e98b8bab4e30863e62f8f4643"
     },
     {
       "chapter": 11,

@@ -40,10 +40,10 @@ flowchart TD
 | 当前状态 | 三分子 CPU 批次完成 | 两条序列和同候选 GPU 回折叠完成 |
 | 下一步 | 人工 pose 复核和协议审查 | 复核相对取向，安排独立预测与实验 |
 
-进入 `chapter-12/assets`，先读取填好的卡。
+从[练习资源页](https://luvega.github.io/AI_MD/resources/)下载本章压缩包，解压到 `C:/coursework`。进入 `AI_MD_practice/chapter-12/assets`，先读取填好的卡。
 
 ```powershell
-Set-Location C:\coursework\ai-md\downloads\chapter-12\assets
+Set-Location C:\coursework\AI_MD_practice\chapter-12\assets
 python code/check_route_card.py data/route_cards.json
 ```
 

@@ -15,7 +15,7 @@
 
 ## 练习目录
 
-以下命令从练习下载目录（例如 `C:/coursework/ai-md/downloads`）开始。先进入本章目录，后续 Python 命令都从这里运行，结果写入 `outputs`。
+从[练习资源页](https://luvega.github.io/AI_MD/resources/)下载本章压缩包，解压到 `C:/coursework`。以下命令从 `C:/coursework/AI_MD_practice` 开始。先进入本章目录，后续 Python 命令都从这里运行，结果写入 `outputs`。
 
 ```bash
 cd chapter-05/assets
@@ -87,10 +87,10 @@ gmx --version
 
 `sudo` 提示密码时输入 Ubuntu 用户密码，屏幕不显示字符。虚拟环境激活后，后文的 `python` 指向 Linux 环境；不要复用 Windows 的 `.venv-win`。重新打开终端后先执行 `source ~/.venvs/ai-md/bin/activate`。若 pip 提示 externally-managed-environment，先检查是否激活成功，不向系统 Python 强装依赖。
 
-练习下载目录若在 Windows 的 `C:\coursework\ai-md\downloads`，Ubuntu 中对应 `/mnt/c/coursework/ai-md/downloads`。下面示范进入目录；换盘符或位置后相应修改路径。
+练习下载目录若在 Windows 的 `C:\coursework\AI_MD_practice`，Ubuntu 中对应 `/mnt/c/coursework/AI_MD_practice`。下面示范进入目录；换盘符或位置后相应修改路径。
 
 ```bash
-cd /mnt/c/coursework/ai-md/downloads/chapter-05/assets
+cd /mnt/c/coursework/AI_MD_practice/chapter-05/assets
 ```
 
 将版本输出保存到自己的运行记录。提示找不到命令时先查安装或 PATH；修改 MDP 无法解决安装错误。软件源提供什么版本就记录什么版本，自行构建按 [GROMACS 官方安装说明](https://manual.gromacs.org/current/install-guide/index.html) 保留配置。

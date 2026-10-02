@@ -1,19 +1,22 @@
 from __future__ import annotations
 
 import re
+import stat
 import sys
-from pathlib import Path
+import zipfile
+from pathlib import Path, PurePosixPath
 
 import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from tools.sync_online_book import public_assets, render_chapter
+from tools.sync_online_book import public_assets, render_chapter, practice_dependencies, practice_archive_members
 BOOK_DIR = ROOT / "book"
 DOCS_DIR = BOOK_DIR / "docs"
 CHAPTERS_DIR = ROOT / "chapters"
 CHAPTER_COUNT = 12
+DOWNLOADS_DIR = DOCS_DIR / "downloads"
 
 BANNED_CONTENT = (
     "本章大纲.md",
@@ -49,6 +52,70 @@ def local_links(markdown: str) -> list[str]:
     return links
 
 
+def validate_practice_archives(approved: list[tuple[Path, Path]],
+                               downloads_dir: Path | None = None) -> list[str]:
+    downloads_dir = downloads_dir or DOWNLOADS_DIR
+    errors = []
+    expected_paths = {downloads_dir / f"chapter-{number:02d}.zip" for number in range(1, CHAPTER_COUNT + 1)}
+    actual_paths = {path for path in downloads_dir.rglob("*") if path.is_file()}
+    for path in sorted(actual_paths - expected_paths):
+        errors.append(f"Unexpected practice archive file: {path}")
+    dependencies = practice_dependencies(approved)
+    for number in range(1, CHAPTER_COUNT + 1):
+        path = downloads_dir / f"chapter-{number:02d}.zip"
+        if not path.is_file():
+            errors.append(f"Missing chapter practice archive: {path}")
+            continue
+        members = practice_archive_members(approved, number, dependencies)
+        try:
+            with zipfile.ZipFile(path) as archive:
+                infos = archive.infolist()
+                names = [info.filename for info in infos]
+                if len(names) != len(set(names)):
+                    errors.append(f"{path}: duplicate ZIP member")
+                if set(names) != set(members):
+                    errors.append(f"{path}: ZIP members differ from approved chapter files")
+                for info in infos:
+                    relative = PurePosixPath(info.filename)
+                    if relative.is_absolute() or ".." in relative.parts or "\\" in info.filename or ":" in info.filename or not re.fullmatch(r"AI_MD_practice/chapter-\d{2}/assets/.+", info.filename):
+                        errors.append(f"{path}: unsafe ZIP member path: {info.filename}")
+                        continue
+                    if info.is_dir() or stat.S_ISLNK(info.external_attr >> 16) or info.flag_bits & 1:
+                        errors.append(f"{path}: ZIP member must be a regular unencrypted file: {info.filename}")
+                        continue
+                    source = members.get(info.filename)
+                    if source is None:
+                        continue
+                    data = source.read_bytes()
+                    if info.file_size != len(data):
+                        errors.append(f"{path}: ZIP member size differs from reviewed source: {info.filename}")
+                    # Reading verifies the member CRC as well as its complete bytes.
+                    elif archive.read(info) != data:
+                        errors.append(f"{path}: ZIP member differs from reviewed source: {info.filename}")
+        except (OSError, zipfile.BadZipFile, RuntimeError, NotImplementedError) as exc:
+            errors.append(f"Invalid practice archive {path}: {exc}")
+    return errors
+
+
+def validate_resource_cards(markdown: str) -> list[str]:
+    cards = re.findall(r'<div class="resource-card" markdown="1">(.*?)</div>', markdown, flags=re.DOTALL)
+    errors = []
+    if len(cards) != CHAPTER_COUNT or markdown.count('<div class="resource-grid" markdown="1">') != 1:
+        errors.append("Resources page must contain one grid with 12 chapter cards")
+    for number, card in enumerate(cards, 1):
+        chapter_id = f"chapter-{number:02d}"
+        expected = [f"downloads/{chapter_id}.zip", f"chapters/{chapter_id}.md"]
+        if local_links(card) != expected or card.count("[下载本章资源]") != 1 or card.count("[阅读本章]") != 1:
+            errors.append(f"Resources card {chapter_id} must link to its single ZIP and chapter page")
+        if "压缩包大小：" not in card:
+            errors.append(f"Resources card {chapter_id} is missing its compressed size")
+        if f'download="{chapter_id}.zip"' not in card:
+            errors.append(f"Resources card {chapter_id} must preserve its chapter ZIP filename")
+    if local_links(markdown) != [link for number in range(1, CHAPTER_COUNT + 1) for link in (f"downloads/chapter-{number:02d}.zip", f"chapters/chapter-{number:02d}.md")]:
+        errors.append("Resources page must not contain individual-file download lists")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     file_names = {path.relative_to(DOCS_DIR).as_posix() for path in DOCS_DIR.rglob("*") if path.is_file()}
@@ -78,6 +145,7 @@ def validate() -> list[str]:
                 errors.append(f"Missing approved asset: {dest}")
             elif source.read_bytes() != dest.read_bytes():
                 errors.append(f"Published asset differs from reviewed source: {dest}")
+        errors.extend(validate_practice_archives(approved))
     except (ValueError, FileNotFoundError, KeyError) as exc:
         errors.append(str(exc))
 
@@ -93,7 +161,7 @@ def validate() -> list[str]:
     for published_file in DOCS_DIR.rglob("*"):
         if not published_file.is_file():
             continue
-        if published_file.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif", ".pdf"}:
+        if published_file.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif", ".pdf", ".zip"}:
             continue
         try:
             published_text = read_text(published_file)
@@ -141,12 +209,16 @@ def validate() -> list[str]:
         if not page.is_file():
             errors.append(f"Missing student entry page: {page}")
             continue
+        if page.name == "resources.md":
+            errors.extend(validate_resource_cards(read_text(page)))
         for href in local_links(read_text(page)):
             target = (page.parent / href).resolve()
             if DOCS_DIR.resolve() not in target.parents or not target.is_file():
                 errors.append(f"{page}: invalid local link: {href}")
     for file in DOCS_DIR.rglob("*"):
         if file.is_file() and file.suffix.lower() in {".pdf", ".mp4", ".ppt", ".pptx", ".zip", ".rar", ".html"}:
+            if file.parent == DOWNLOADS_DIR and re.fullmatch(r"chapter-(?:0[1-9]|1[0-2])\.zip", file.name):
+                continue  # Only generated chapter archives pass the member checks above.
             errors.append(f"Course archives or embedded HTML may not publish: {file}")
 
     css_path = DOCS_DIR / "stylesheets" / "blue-white.css"

@@ -73,23 +73,23 @@ Get-ChildItem
 
 你应看到五个子目录。可选择其他位置，但记录你的实际项目目录，避免将文件散放在下载目录中。
 
-如果使用资源页的 `get-practice` 下载器，它保留 `chapter-XX/assets/...` 目录，便于核对来源；本书命令使用上面五个工作目录。两者之间先复制文件。以下假定你把下载目标选为 `C:\coursework\ai-md\downloads`；若选了其他位置，只替换 `downloads` 的实际路径。
+打开在线书的“练习资源”页，下载第 1 章 ZIP，将解压目标选为 `C:\coursework`。解压后应看到 `C:\coursework\AI_MD_practice\chapter-01\assets`。这个目录保存课程资源；本书的输入、输出和脚本仍放在 `C:\coursework\ai-md` 工作区。后续章节 ZIP 也解压到同一位置。
 
-| 下载器保存位置 | 本章工作位置 |
+| ZIP 内资源位置（相对于工作区） | 本章工作位置 |
 |---|---|
-| `downloads/chapter-01/assets/code/check_files.py` | `scripts/check_files.py` |
-| `downloads/chapter-01/assets/code/requirements-teaching.txt` | `scripts/requirements-teaching.txt` |
-| `downloads/chapter-01/assets/environment_record.tsv` | `notes/environment_record.tsv` |
+| `../AI_MD_practice/chapter-01/assets/code/check_files.py` | `scripts/check_files.py` |
+| `../AI_MD_practice/chapter-01/assets/code/requirements-teaching.txt` | `scripts/requirements-teaching.txt` |
+| `../AI_MD_practice/chapter-01/assets/environment_record.tsv` | `notes/environment_record.tsv` |
 
-在课程目录的 PowerShell 中复制。逐文件下载的学生则在浏览器保存时直接选择右列位置，不必执行这些复制命令。
+在工作区的 PowerShell 中复制。`..` 表示上一级目录，这里先回到 `C:\coursework`，再找到同级的 `AI_MD_practice`。逐文件下载的学生可在浏览器保存时直接选择右列位置。
 
 ```powershell
-Copy-Item downloads/chapter-01/assets/code/check_files.py scripts/
-Copy-Item downloads/chapter-01/assets/code/requirements-teaching.txt scripts/
-Copy-Item downloads/chapter-01/assets/environment_record.tsv notes/
+Copy-Item ../AI_MD_practice/chapter-01/assets/code/check_files.py scripts/
+Copy-Item ../AI_MD_practice/chapter-01/assets/code/requirements-teaching.txt scripts/
+Copy-Item ../AI_MD_practice/chapter-01/assets/environment_record.tsv notes/
 ```
 
-结构文件在 1.3 下载。只下载第 1 章练习包时，先复制上面三份本章文件即可。
+第 1 章 ZIP 包含上述本章文件，结构文件在 1.3 从 RCSB 下载。
 
 | 项目 | Windows 示例 | WSL 示例 |
 |---|---|---|
